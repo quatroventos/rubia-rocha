@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Objeto-marca</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:900px;overflow:hidden}
+body{background:#050506;color:#F4F4F2;font-family:"Helvetica Neue",Arial,sans-serif;position:relative}
+nav{position:absolute;left:0;right:0;top:0;height:96px;display:flex;align-items:center;padding:0 44px;z-index:3}
+.logo{font-weight:700;font-size:28px;letter-spacing:-.03em;color:#4D7CFF}
+.links{display:flex;gap:40px;font-size:17px;color:#A9A9A6;margin:0 auto}
+.pill{background:#E9E9E6;color:#050506;padding:15px 26px;border-radius:999px;font-weight:600;font-size:16px}
+.obj{position:absolute;left:470px;top:110px;width:560px;height:620px;z-index:1}
+.obj .a,.obj .b{position:absolute;border-radius:70px;background:radial-gradient(circle at 30% 25%,#9DB7FF 0,#4D7CFF 30%,#1A2E8F 75%,#0B1240 100%);box-shadow:inset 0 0 0 10px #C9D3E880,inset 0 -30px 60px #00000080,0 40px 80px #000}
+.obj .a{left:40px;top:0;width:150px;height:430px;transform:skewX(-14deg)}
+.obj .b{left:40px;top:300px;width:470px;height:140px}
+.obj .c{position:absolute;left:300px;top:60px;width:150px;height:560px;border-radius:70px;background:radial-gradient(circle at 30% 25%,#9DB7FF 0,#4D7CFF 30%,#1A2E8F 75%,#0B1240 100%);box-shadow:inset 0 0 0 10px #C9D3E880,inset 0 -30px 60px #00000080}
+h1{position:absolute;left:40px;bottom:120px;font-size:150px;line-height:.86;letter-spacing:-.055em;font-weight:700;color:#9A9A97;z-index:2;max-width:1360px}
+h1 em{font-style:normal;color:#F4F4F2}
+.sub{position:absolute;left:44px;right:44px;bottom:40px;display:flex;justify-content:space-between;align-items:center;z-index:2}
+.sub p{font-size:24px;line-height:1.3;color:#C9C9C6;max-width:760px;letter-spacing:-.01em}
+.sub .row{display:flex;gap:12px}
+.sub a{padding:16px 26px;border-radius:999px;font-weight:600;font-size:16px}
+.sub a:first-child{background:#4D7CFF;color:#fff}
+.sub a:last-child{border:1.5px solid #5A5A58;color:#F4F4F2}
+</style>
+</head>
+<body>
+<nav><div class="logo">Quatro Ventos</div><div class="links"><span>IA</span><span>Software</span><span>Web</span><span>Suporte</span><span>Cases</span><span>Sobre</span></div><div class="pill">Iniciar um projeto</div></nav>
+<div class="obj"><div class="a"></div><div class="b"></div><div class="c"></div></div>
+<h1>Processos melhores com <em>IA.</em></h1>
+<div class="sub">
+  <p>Ajudamos empresas a melhorar processos com soluções criativas de IA, do diagnóstico à produção.</p>
+  <div class="row"><a>Iniciar um projeto</a><a>Conhecer os serviços</a></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quatro Ventos | Opção 2: Linha rotativa</title>
+<style>
+@font-face{font-family:"Host Grotesk";src:url(fonts/host-grotesk.woff2) format("woff2");font-weight:300 800;font-display:swap}
+@font-face{font-family:"Martian Mono";src:url(fonts/martian-mono.woff2) format("woff2");font-weight:100 800;font-display:swap}
+:root{--bg:#07070A;--fg:#FFFFFF;--lime:#C8F25A;--purple:#5B2BFF;--paper:#F4F4F1;--ink:#0B0B0F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Host Grotesk",system-ui,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.hero{position:relative;min-height:100vh;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.flow{position:absolute;inset:-40px;font-family:"Martian Mono",monospace;font-size:22px;line-height:1.75;color:#3C4B66;white-space:pre;filter:blur(2.4px);opacity:.55;transform:rotate(-4deg) translateY(-30px);pointer-events:none;animation:drift 40s linear infinite}
+.flow .k{color:#5B6E95}.flow .s{color:#7C8F4A}.flow .p{color:#6A4FB8}
+@keyframes drift{to{transform:rotate(-4deg) translateY(-600px)}}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 70% at 25% 55%,#07070A00,#07070AE6 75%);pointer-events:none}
+nav{position:relative;z-index:2;display:flex;align-items:center;gap:40px;height:96px;padding:0 clamp(20px,3vw,44px)}
+.logo{font-size:28px;letter-spacing:-.04em;font-weight:300}.logo b{font-weight:700}
+.links{display:flex;gap:30px;margin:0 auto;font-size:16px}
+.pill{display:inline-flex;align-items:center;gap:12px;height:54px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.pill:hover{transform:translateY(-2px)}
+.pill.purple{background:var(--purple);color:#fff}
+.pill.lime{background:#0B0B0F;color:var(--lime);box-shadow:inset 0 0 0 2px var(--lime)}
+.pill.lime i{width:28px;height:28px;border-radius:50%;background:var(--lime);display:grid;place-items:center;color:#0B0B0F;font-style:normal;font-size:14px;margin-right:-12px}
+.pill.line{box-shadow:inset 0 0 0 1.5px #FFFFFFB0}
+.copy{position:relative;z-index:2;align-self:center;padding:0 clamp(20px,3vw,44px) 60px}
+h1{font-weight:650;font-size:clamp(56px,7.4vw,118px);line-height:.98;letter-spacing:-.05em}
+h1 .rot{display:block;height:1.06em;overflow:hidden;color:var(--lime)}
+h1 .rot span{display:block;animation:roll 12s cubic-bezier(.75,0,.2,1) infinite}
+@keyframes roll{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-100%)}50%,70%{transform:translateY(-200%)}75%,95%{transform:translateY(-300%)}100%{transform:translateY(-400%)}}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:28px 48px;margin-top:40px}
+.row p{font-size:clamp(18px,1.4vw,21px);line-height:1.45;max-width:540px;color:#DADAD6}
+.row .ctas{display:flex;gap:12px}
+.wa{position:fixed;right:28px;bottom:28px;z-index:9;width:62px;height:62px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px #0006}
+.wa svg{width:30px;height:30px;fill:#fff}
+.light{background:var(--paper);color:var(--ink);padding:110px clamp(20px,3vw,44px)}
+.light header{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.light h2{font-size:clamp(40px,4.6vw,72px);letter-spacing:-.05em;line-height:.95;font-weight:650}
+.light h2 em{font-style:normal;background:var(--lime);padding:0 .12em;border-radius:.12em}
+.light header p{font-size:19px;line-height:1.5;color:#3E3E44}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cards a{background:#fff;border-radius:22px;padding:28px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between;transition:background .3s,color .3s,transform .3s}
+.cards a:hover{background:var(--purple);color:#fff;transform:translateY(-4px)}
+.cards small{font-family:"Martian Mono",monospace;font-size:13px;opacity:.7}
+.cards b{font-size:28px;letter-spacing:-.04em;line-height:1.05;font-weight:650;display:block;margin-bottom:10px}
+.cards span{font-size:16px;line-height:1.45;opacity:.8}
+@media (prefers-reduced-motion:reduce){.flow,h1 .rot span{animation:none}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="flow" aria-hidden="true">
+<span class="k">trigger</span>  pedido.recebido          <span class="s">"PV-20931"</span>   cliente: <span class="s">"Distribuidora Sul"</span>
+<span class="k">agent</span>    conferencia.itens        <span class="p">llm.extract</span>(nota_fiscal.pdf) → 42 itens
+<span class="k">check</span>    estoque.erp              <span class="s">ok</span>   divergência: 0
+<span class="k">agent</span>    aprovacao.credito        <span class="p">policy.eval</span>(limite, histórico) → <span class="s">aprovado</span>
+<span class="k">action</span>   emissao.nfe              <span class="s">"NF 118.402"</span>  enviada ao cliente
+<span class="k">notify</span>   whatsapp.cliente         <span class="s">"Pedido confirmado. Entrega prevista."</span>
+<span class="k">trigger</span>  chamado.aberto           <span class="s">"#4471"</span>   canal: whatsapp
+<span class="k">agent</span>    triagem.atendimento      <span class="p">rag.search</span>(base_conhecimento) → 3 fontes
+<span class="k">action</span>   resposta.enviada         confiança 0.93   humano: não necessário
+<span class="k">trigger</span>  boleto.vencido           <span class="s">"C-8812"</span>
+<span class="k">agent</span>    cobranca.negociacao      <span class="p">llm.draft</span>(histórico, régua) → proposta
+<span class="k">action</span>   crm.atualizado           etapa: negociação
+<span class="k">trigger</span>  pedido.recebido          <span class="s">"PV-20932"</span>   cliente: <span class="s">"Farmácia Centro"</span>
+<span class="k">agent</span>    conferencia.itens        <span class="p">llm.extract</span>(pedido.xlsx) → 18 itens
+<span class="k">check</span>    estoque.erp              <span class="s">ok</span>   divergência: 1  → revisão humana
+<span class="k">trigger</span>  relatorio.mensal         <span class="p">sql.query</span>(vendas, margem) → resumo
+<span class="k">agent</span>    analise.resultados       <span class="p">llm.summarize</span> → diretoria
+<span class="k">trigger</span>  pedido.recebido          <span class="s">"PV-20931"</span>   cliente: <span class="s">"Distribuidora Sul"</span>
+<span class="k">agent</span>    conferencia.itens        <span class="p">llm.extract</span>(nota_fiscal.pdf) → 42 itens
+<span class="k">check</span>    estoque.erp              <span class="s">ok</span>   divergência: 0
+<span class="k">agent</span>    aprovacao.credito        <span class="p">policy.eval</span>(limite, histórico) → <span class="s">aprovado</span>
+<span class="k">action</span>   emissao.nfe              <span class="s">"NF 118.402"</span>  enviada ao cliente
+<span class="k">notify</span>   whatsapp.cliente         <span class="s">"Pedido confirmado. Entrega prevista."</span>
+<span class="k">trigger</span>  chamado.aberto           <span class="s">"#4471"</span>   canal: whatsapp
+<span class="k">agent</span>    triagem.atendimento      <span class="p">rag.search</span>(base_conhecimento) → 3 fontes
+<span class="k">action</span>   resposta.enviada         confiança 0.93   humano: não necessário
+<span class="k">trigger</span>  boleto.vencido           <span class="s">"C-8812"</span>
+<span class="k">agent</span>    cobranca.negociacao      <span class="p">llm.draft</span>(histórico, régua) → proposta
+<span class="k">action</span>   crm.atualizado           etapa: negociação
+  </div>
+  <nav><a class="logo" href="#">quatro<b>ventos</b></a><div class="links"><a href="#">Inteligência artificial</a><a href="#">Software</a><a href="#">Web</a><a href="#">Suporte</a><a href="#">Cases</a><a href="#">Sobre</a></div><a class="pill purple" href="#">Iniciar um projeto</a></nav>
+  <div class="copy">
+    <h1>Processos melhores com<span class="rot"><span>agentes de IA.<br>automações.<br>sistemas sob medida.<br>IA sobre seus dados.<br>agentes de IA.</span></span></h1>
+    <div class="row">
+      <p>Ajudamos empresas a melhorar processos com soluções criativas de IA, do diagnóstico à produção.</p>
+      <div class="ctas"><a class="pill lime" href="#">Iniciar um projeto <i>↗</i></a><a class="pill line" href="#">Conhecer os serviços</a></div>
+    </div>
+  </div>
+</section>
+<a class="wa" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2s-1 .2-3.4-.7a11.6 11.6 0 0 1-4.6-4.1c-.4-.6-1.2-1.6-1.2-3s.8-2.1 1-2.4.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.2.2-.3.3-.1.7a8 8 0 0 0 3.9 3.4c.4.2.6.1.8-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3s0 .7-.1 1.3Z"/></svg></a>
+<section class="light">
+  <header><h2>Todo processo tem um ponto que <em>pode render mais.</em></h2><p>Uma etapa manual que se repete, uma decisão que depende de alguém procurar informação, um atendimento que espera na fila. É nesse ponto que a IA entra.</p></header>
+  <div class="cards">
+    <a href="#"><small>01</small><div><b>Inteligência artificial</b><span>Agentes, automação de processos, IA sobre dados proprietários e integração de LLMs.</span></div></a>
+    <a href="#"><small>02</small><div><b>Engenharia de software</b><span>Plataformas sob medida, SaaS, ERP e CRM, modernização de legado.</span></div></a>
+    <a href="#"><small>03</small><div><b>Desenvolvimento web</b><span>Sites, landing pages, e-commerce e WordPress.</span></div></a>
+    <a href="#"><small>04</small><div><b>Suporte e infraestrutura</b><span>Sustentação, manutenção, hospedagem e VPS.</span></div></a>
+  </div>
+</section>
+</body>
+</html>

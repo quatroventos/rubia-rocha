@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quatro Ventos | Opção 3: Declaração e trabalho</title>
+<style>
+@font-face{font-family:"Host Grotesk";src:url(fonts/host-grotesk.woff2) format("woff2");font-weight:300 800;font-display:swap}
+@font-face{font-family:"Martian Mono";src:url(fonts/martian-mono.woff2) format("woff2");font-weight:100 800;font-display:swap}
+:root{--bg:#0B0C0C;--fg:#F2F2EF;--gray:#6F716E;--acc:#2EC4B6;--line:#222524}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Host Grotesk",system-ui,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+nav{display:flex;align-items:center;gap:40px;height:92px;padding:0 clamp(20px,3vw,44px)}
+.logo{font-size:26px;letter-spacing:-.04em;font-weight:300}.logo b{font-weight:700}
+.links{display:flex;gap:32px;margin:0 auto;font-size:16px;color:#B5B7B3}
+.pill{display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.pill:hover{transform:translateY(-2px)}
+.pill.acc{background:var(--acc);color:#04201D}
+.pill.line{box-shadow:inset 0 0 0 1.5px #555856}
+.state{padding:7vh clamp(20px,3vw,44px) 0}
+h1{font-weight:680;font-size:clamp(60px,8.6vw,138px);line-height:.9;letter-spacing:-.06em}
+h1 .g{color:var(--gray)}
+h1 .slot{display:inline-grid;vertical-align:top;height:.92em;overflow:hidden;color:var(--acc)}
+h1 .slot span{grid-area:1/1;transform:translateY(100%);opacity:0;transition:transform .8s cubic-bezier(.7,0,.2,1),opacity .5s}
+h1 .slot span.on{transform:none;opacity:1}
+h1 .slot span.out{transform:translateY(-100%);opacity:0}
+.sub{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-top:34px}
+.sub p{font-size:clamp(18px,1.4vw,21px);line-height:1.45;color:#C9CBC7;max-width:600px}
+.sub div{display:flex;gap:12px}
+.work{margin-top:8vh;padding:0 0 80px}
+.work header{display:flex;justify-content:space-between;align-items:baseline;padding:0 clamp(20px,3vw,44px) 22px}
+.work h2{font-size:clamp(28px,2.6vw,40px);letter-spacing:-.04em;font-weight:650}
+.work header span{font-family:"Martian Mono",monospace;font-size:13px;color:#9A9C98}
+.rail{display:flex;gap:16px;padding:0 clamp(20px,3vw,44px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.case{flex:0 0 min(46vw,640px);scroll-snap-align:start}
+.case .img{position:relative;aspect-ratio:16/11;border-radius:18px;overflow:hidden;display:grid;place-items:center}
+.case:nth-child(1) .img{background:#1C2650}
+.case:nth-child(2) .img{background:#2A2721}
+.case:nth-child(3) .img{background:#13332F}
+.case:nth-child(4) .img{background:#2B1E3D}
+.case img{width:72%;transition:transform .7s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 30px 40px #0008)}
+.case:hover img{transform:scale(1.04) translateY(-8px)}
+.case b{display:block;margin-top:16px;font-size:24px;letter-spacing:-.03em;font-weight:650}
+.case p{color:#A9ABA7;font-size:17px;margin-top:4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="#">quatro<b>ventos</b></a><div class="links"><a href="#">Inteligência artificial</a><a href="#">Software</a><a href="#">Web</a><a href="#">Suporte</a><a href="#">Cases</a><a href="#">Sobre</a></div><a class="pill acc" href="#">Iniciar um projeto</a></nav>
+<section class="state">
+  <h1><span class="g">Melhoramos processos</span><br><span class="slot" id="slot"><span class="on">de atendimento</span><span>financeiros</span><span>comerciais</span><span>de operação</span></span><br>com inteligência artificial.</h1>
+  <div class="sub"><p>Ajudamos empresas a melhorar processos com soluções criativas de IA. Agentes, automações e sistemas desenhados para a operação de cada negócio, do diagnóstico à produção.</p><div><a class="pill acc" href="#">Iniciar um projeto</a><a class="pill line" href="#">Conhecer os serviços</a></div></div>
+</section>
+<section class="work">
+  <header><h2>Nosso trabalho.</h2><span>Arraste para ver mais →</span></header>
+  <div class="rail">
+    <a class="case" href="#"><div class="img"><img src="img/digio.webp" alt="Digio, simulador do FGTS"></div><b>Digio.</b><p>Simulação de antecipação do FGTS, do site ao app.</p></a>
+    <a class="case" href="#"><div class="img"><img src="img/hemera.webp" alt="Hemera DTVM"></div><b>Hemera DTVM.</b><p>Presença digital para serviços fiduciários.</p></a>
+    <a class="case" href="#"><div class="img"><img src="img/multiversidade.webp" alt="Multiversidade PUCPR"></div><b>Multiversidade PUCPR.</b><p>Plataforma de conteúdo educacional.</p></a>
+    <a class="case" href="#"><div class="img"><img src="img/fiscalcobrancas.webp" alt="Fiscal Cobranças"></div><b>Fiscal Cobranças.</b><p>Site e operação de cobrança.</p></a>
+  </div>
+</section>
+<script>
+const sp=[...document.querySelectorAll('#slot span')];let i=0;
+setInterval(()=>{sp[i].classList.remove('on');sp[i].classList.add('out');const p=i;setTimeout(()=>sp[p].classList.remove('out'),800);i=(i+1)%sp.length;sp[i].classList.add('on')},2400);
+</script>
+</body>
+</html>

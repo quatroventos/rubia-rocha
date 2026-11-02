@@ -1,0 +1,39 @@
+# syntax=docker/dockerfile:1
+
+# Imagem local: o codigo, vendor e public/build vem do volume montado pelo compose.yml.
+FROM php:8.4.27-fpm-bookworm
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git unzip libzip-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev \
+    libwebp-dev libicu-dev libonig-dev nginx \
+    chromium fonts-liberation fonts-noto-color-emoji \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
+    && docker-php-ext-install -j$(nproc) pdo_mysql mbstring exif pcntl bcmath gd zip intl opcache \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
+    && rm -rf /var/lib/apt/lists/* /tmp/pear
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Node para o site:prerender. O node_modules de Linux fica na imagem e vira o volume
+# node_modules do compose, porque o do host tem binarios nativos do macOS.
+COPY --from=node:22-bookworm-slim /usr/local/bin/node /usr/local/bin/node
+COPY --from=node:22-bookworm-slim /usr/local/lib/node_modules /usr/local/lib/node_modules
+RUN ln -s ../lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
+
+WORKDIR /var/www/html
+COPY package.json package-lock.json ./
+RUN npm ci --no-audit --no-fund && rm package.json package-lock.json
+
+COPY docker/php.ini /usr/local/etc/php/conf.d/zz-quatroventos.ini
+COPY docker/nginx.conf /etc/nginx/sites-available/default
+COPY docker/entrypoint.sh /entrypoint.sh
+
+RUN ln -sfn /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default \
+    && chmod +x /entrypoint.sh
+
+WORKDIR /var/www/html
+
+EXPOSE 8000
+
+ENTRYPOINT ["/entrypoint.sh"]

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quatro Ventos | Showreel</title>
+<style>
+@font-face{font-family:"Host Grotesk";src:url(fonts/host-grotesk.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Martian Mono";src:url(fonts/martian-mono.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--bg:#08080A;--fg:#F3F3F1;--mute:#9C9C98;--line:#26262A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{font-family:"Host Grotesk",system-ui,sans-serif;color:var(--fg);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+nav{position:fixed;inset:0 0 auto;z-index:10;display:flex;align-items:center;height:92px;padding:0 clamp(20px,3vw,44px);gap:40px;background:linear-gradient(#08080AEE,#08080A00)}
+.logo{font-weight:700;font-size:24px;letter-spacing:-.035em}
+.links{display:flex;gap:34px;margin:0 auto;font-size:16px;color:var(--mute)}
+.links a:hover{color:var(--fg)}
+.pill{display:inline-flex;align-items:center;height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.pill:hover{transform:translateY(-2px)}
+.pill.light{background:var(--fg);color:var(--bg)}
+.pill.line{box-shadow:inset 0 0 0 1.5px #5A5A58}
+.intro{padding:150px clamp(20px,3vw,44px) 44px}
+h1{font-weight:720;font-size:clamp(64px,9vw,136px);line-height:.88;letter-spacing:-.06em;max-width:15ch}
+h1 .w{display:inline-block;opacity:0;transform:translateY(30px);animation:in .9s cubic-bezier(.2,.75,.15,1) forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.sub{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-top:40px}
+.sub p{font-size:clamp(18px,1.5vw,22px);line-height:1.4;color:#C8C8C4;max-width:620px}
+.sub div{display:flex;gap:12px}
+.reel-wrap{height:170vh;position:relative}
+.reel{position:sticky;top:0;height:100vh;display:grid;place-items:center}
+.frame{position:relative;width:calc(100% - 2*clamp(20px,3vw,44px));height:62vh;border-radius:28px;overflow:hidden;background:#13151C;transform-origin:center;will-change:width,height,border-radius}
+.slide{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity 1s ease}
+.slide.on{opacity:1}
+.slide:nth-child(1){background:radial-gradient(120% 100% at 30% 20%,#2A3A78,#0F1530)}
+.slide:nth-child(2){background:radial-gradient(120% 100% at 70% 30%,#3D3A2E,#14130F)}
+.slide:nth-child(3){background:radial-gradient(120% 100% at 40% 70%,#1D4A47,#0A1918)}
+.slide img.d{height:84%;filter:drop-shadow(0 40px 60px #0009);transform:translateX(-8%) scale(.96);transition:transform 6s linear}
+.slide img.m{position:absolute;height:62%;right:16%;bottom:-4%;filter:drop-shadow(0 30px 50px #000a);transform:rotate(6deg)}
+.slide.on img.d{transform:translateX(-8%) scale(1.02)}
+.cap{position:absolute;left:28px;right:28px;bottom:24px;display:flex;justify-content:space-between;align-items:center;z-index:2}
+.cap b{font-size:24px;font-weight:650;letter-spacing:-.02em}
+.cap span{font-family:"Martian Mono",monospace;font-size:13px;color:#C8C8C4;margin-left:14px}
+.dots{display:flex;gap:8px}
+.dots i{width:28px;height:3px;border-radius:2px;background:#FFFFFF40;overflow:hidden;position:relative}
+.dots i.on::after{content:"";position:absolute;inset:0;background:#fff;animation:bar 4.5s linear forwards;transform-origin:left}
+@keyframes bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.logos{border-top:1px solid var(--line);padding:30px clamp(20px,3vw,44px);display:flex;justify-content:space-between;color:var(--mute);font-weight:600;font-size:18px;letter-spacing:-.01em}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}h1 .w{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="#">Quatro Ventos</a><div class="links"><a href="#">Inteligência artificial</a><a href="#">Software</a><a href="#">Web</a><a href="#">Suporte</a><a href="#">Cases</a><a href="#">Sobre</a></div><a class="pill light" href="#">Iniciar um projeto</a></nav>
+<section class="intro">
+  <h1><span class="w">Processos</span> <span class="w" style="animation-delay:.06s">melhores</span> <span class="w" style="animation-delay:.12s">com</span> <span class="w" style="animation-delay:.18s">inteligência</span> <span class="w" style="animation-delay:.24s">artificial.</span></h1>
+  <div class="sub"><p>Ajudamos empresas a melhorar processos com soluções criativas de IA. Agentes, automações e sistemas desenhados para a operação de cada negócio, do diagnóstico à produção.</p><div><a class="pill light" href="#">Iniciar um projeto</a><a class="pill line" href="#">Conhecer os serviços</a></div></div>
+</section>
+<section class="reel-wrap">
+  <div class="reel">
+    <div class="frame" id="frame">
+      <div class="slide on"><img class="d" src="img/digio.webp" alt="Digio, simulador de antecipação do FGTS"><img class="m" src="img/digio-mobile.webp" alt=""></div>
+      <div class="slide"><img class="d" src="img/hemera.webp" alt="Hemera DTVM, site institucional"><img class="m" src="img/hemera-mobile.webp" alt=""></div>
+      <div class="slide"><img class="d" src="img/multiversidade.webp" alt="Multiversidade PUCPR"></div>
+      <div class="cap"><div><b id="cn">Digio</b><span id="cs">Finanças</span></div><div class="dots"><i class="on"></i><i></i><i></i></div></div>
+    </div>
+  </div>
+</section>
+<div class="logos"><span>Digio</span><span>Hemera DTVM</span><span>Santa Plural</span><span>Inove IT</span><span>Liv Decora</span><span>Garimpo Home</span><span>Data Driven Mkt</span></div>
+<script>
+const s=[...document.querySelectorAll('.slide')],d=[...document.querySelectorAll('.dots i')],n=[['Digio','Finanças'],['Hemera DTVM','Finanças'],['Multiversidade PUCPR','Educação']];let i=0;
+setInterval(()=>{s[i].classList.remove('on');d[i].classList.remove('on');i=(i+1)%s.length;s[i].classList.add('on');void d[i].offsetWidth;d[i].classList.add('on');cn.textContent=n[i][0];cs.textContent=n[i][1]},4500);
+const f=document.getElementById('frame'),w=document.querySelector('.reel-wrap');
+addEventListener('scroll',()=>{const r=w.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/(innerHeight*.6)));const pad=Math.min(44,innerWidth*.03)*(1-p);f.style.width=`calc(100% - ${pad*2}px)`;f.style.height=`${62+38*p}vh`;f.style.borderRadius=`${28*(1-p)}px`},{passive:true});
+</script>
+</body>
+</html>

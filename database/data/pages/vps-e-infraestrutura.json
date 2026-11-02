@@ -1,0 +1,256 @@
+{
+  "slug": "vps-e-infraestrutura",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "VPS gerenciado para n8n e IA | Quatro Ventos",
+  "seo_description": "Cloud VPS gerenciado com infraestrutura própria para sistemas, n8n, aplicações de IA e sites. Planos, recursos e suporte humano.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/vps-e-infraestrutura.jpg",
+  "og_image_alt": "VPS e infraestrutura gerenciada. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "VPS e infraestrutura *gerenciada.*",
+        "subtitle": "<p>VPS gerenciado é um servidor virtual configurado e mantido por quem desenvolve as aplicações que rodam nele. Oferecemos Cloud VPS em infraestrutura própria, operada pela Firefly Host, para sistemas, APIs, bancos de dados, n8n e aplicações de IA, com monitoramento, backup e suporte humano.</p>",
+        "visual": "vps",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20um%20VPS%20gerenciado."
+      }
+    },
+    {
+      "id": "pricing-1",
+      "type": "site.pricing",
+      "data": {
+        "title": "Planos de Cloud VPS *para cada carga.*",
+        "billing": true,
+        "base_title": "Em todos os planos",
+        "base_text": "Os planos mudam em vCPUs, memória e armazenamento. O resto vem em todos.",
+        "categories": [
+          {
+            "id": "padrao",
+            "tab": "VPS padrão",
+            "title": "Cloud VPS padrão",
+            "text": "Para cargas variáveis e aplicações de consumo baixo a médio de processamento.",
+            "plans": [
+              {
+                "name": "VPS 2x4",
+                "monthly": "250",
+                "annual": "2500",
+                "adds": [
+                  "2 vCPUs",
+                  "4 GB de RAM",
+                  "40 GB de armazenamento NVMe"
+                ],
+                "href": "https://wa.me/554130399593?text=Gostaria%20de%20contratar%20o%20VPS%202x4."
+              },
+              {
+                "name": "VPS 4x8",
+                "monthly": "410",
+                "annual": "4100",
+                "adds": [
+                  "4 vCPUs",
+                  "8 GB de RAM",
+                  "80 GB de armazenamento NVMe"
+                ],
+                "href": "https://wa.me/554130399593?text=Gostaria%20de%20contratar%20o%20VPS%204x8."
+              },
+              {
+                "name": "VPS 8x16",
+                "monthly": "750",
+                "annual": "7500",
+                "adds": [
+                  "8 vCPUs",
+                  "16 GB de RAM",
+                  "160 GB de armazenamento NVMe"
+                ],
+                "href": "https://wa.me/554130399593?text=Gostaria%20de%20contratar%20o%20VPS%208x16."
+              }
+            ],
+            "base_items": [
+              "20 TB de tráfego",
+              "Backups diários",
+              "1 IP dedicado",
+              "Instalação grátis"
+            ]
+          },
+          {
+            "id": "dedicado",
+            "tab": "Alto desempenho",
+            "title": "Cloud VPS de alto desempenho",
+            "text": "vCPUs dedicadas na geração de hardware mais recente, para produção crítica com uso contínuo de CPU.",
+            "plans": [
+              {
+                "name": "VPS 8x16 dedicado",
+                "monthly": "850",
+                "annual": "8500",
+                "adds": [
+                  "8 vCPUs AMD",
+                  "16 GB de RAM",
+                  "320 GB de armazenamento NVMe"
+                ],
+                "href": "https://wa.me/554130399593?text=Gostaria%20de%20contratar%20o%20VPS%208x16%20dedicado."
+              },
+              {
+                "name": "VPS 12x24 dedicado",
+                "monthly": "1250",
+                "annual": "12500",
+                "adds": [
+                  "12 vCPUs",
+                  "24 GB de RAM",
+                  "480 GB de armazenamento NVMe"
+                ],
+                "href": "https://wa.me/554130399593?text=Gostaria%20de%20contratar%20o%20VPS%2012x24%20dedicado."
+              },
+              {
+                "name": "VPS 16x32 dedicado",
+                "monthly": "1550",
+                "annual": "15500",
+                "adds": [
+                  "16 vCPUs",
+                  "32 GB de RAM",
+                  "640 GB de armazenamento NVMe"
+                ],
+                "href": "https://wa.me/554130399593?text=Gostaria%20de%20contratar%20o%20VPS%2016x32%20dedicado."
+              }
+            ],
+            "base_items": [
+              "vCPUs e recursos dedicados",
+              "20 TB de tráfego",
+              "Backups diários",
+              "1 IP dedicado",
+              "Instalação grátis"
+            ]
+          }
+        ],
+        "tabs_label": "Tipo de VPS",
+        "panel_id": "planos-vps",
+        "note": "<p>Infraestrutura da Firefly Host, a empresa de hospedagem da Quatro Ventos. O plano cobre o servidor e a instalação; a gestão da aplicação (deploy com Docker, monitoramento e suporte) é orçada à parte. Para sites, WordPress e WooCommerce, veja os planos de <a href=\"/hospedagem-de-sites#planos\">hospedagem de sites</a>.</p>"
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "O que roda *no servidor.*",
+        "intro": "<p>Aplicações que precisam de ambiente controlado, com acesso, dados e desempenho sob gestão de quem desenvolve.</p>",
+        "items": [
+          {
+            "title": "Aplicações e APIs",
+            "text": "Sistemas web e APIs em containers Docker, com deploy padronizado."
+          },
+          {
+            "title": "n8n e automações",
+            "text": "n8n e serviços de automação em servidor próprio, com controle de acesso e logs."
+          },
+          {
+            "title": "Bancos de dados",
+            "text": "Banco dedicado à aplicação, com backup e acesso restrito."
+          },
+          {
+            "title": "Modelos de IA",
+            "text": "Modelos e serviços de IA em ambiente controlado, quando os dados não podem sair dele."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "Infraestrutura *própria.*",
+        "body": "<p>A Quatro Ventos mantém infraestrutura própria de hospedagem e servidores, operada pela Firefly Host, a empresa de hospedagem do grupo. Quando a aplicação exige mais controle, privacidade ou desempenho, o VPS é configurado sob medida.</p>",
+        "logo": "/assets/parceiros/firefly-host.svg",
+        "logo_alt": "Firefly Host",
+        "cta_label": "Avaliar a infraestrutura",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20um%20VPS%20gerenciado.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Da aplicação ao servidor em operação.",
+        "intro": "<p>O servidor é montado a partir do que a aplicação precisa e segue mantido depois da publicação.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Levantamento",
+            "body": "<p>Recursos, serviços, acessos e dados que a aplicação precisa.</p>"
+          },
+          {
+            "title": "Provisionamento",
+            "body": "<p>Servidor criado e configurado, com SSL, firewall e atualizações de segurança.</p>"
+          },
+          {
+            "title": "Deploy",
+            "body": "<p>Aplicação publicada com Docker e testada no novo ambiente.</p>"
+          },
+          {
+            "title": "Operação",
+            "body": "<p>Backups, monitoramento e suporte de quem conhece a aplicação.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "O que o serviço *inclui.*",
+        "items": [
+          "Provisionamento e configuração do servidor",
+          "Deploy de aplicações com Docker",
+          "SSL, firewall e atualizações de segurança",
+          "Backups e monitoramento",
+          "Hospedagem de n8n e serviços de automação",
+          "Suporte de quem conhece a aplicação"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "Qual a diferença entre hospedagem e VPS?",
+            "answer": "<p>Os planos de hospedagem atendem sites e e-mails. O VPS é um servidor configurado sob medida para a aplicação, quando ela exige mais controle, privacidade ou desempenho. Veja os planos de <a href=\"/hospedagem-de-sites#planos\">hospedagem de sites</a>.</p>"
+          },
+          {
+            "question": "Vocês hospedam n8n?",
+            "answer": "<p>Sim. O n8n e outros serviços de automação rodam no servidor, com controle de acesso e logs.</p>"
+          },
+          {
+            "question": "Por que Docker?",
+            "answer": "<p>A aplicação roda em containers, o que padroniza o deploy e simplifica atualizar a aplicação ou movê-la para outro servidor.</p>"
+          },
+          {
+            "question": "Quem cuida do servidor depois da entrega?",
+            "answer": "<p>A Quatro Ventos. Atualizações de segurança, backups e monitoramento seguem com o mesmo time, que conhece a aplicação.</p>"
+          },
+          {
+            "question": "Qual plano escolher para rodar n8n?",
+            "answer": "<p>Depende do número de fluxos e de execuções por dia. [PREENCHER: plano indicado para n8n] O n8n é a base das nossas <a href=\"/automacao-com-ia\">automações com IA</a>, e o servidor pode ficar em <a href=\"/sustentacao-de-software\">sustentação</a> junto com a aplicação.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "Uma aplicação pronta para o *servidor certo.*",
+        "body": "<p>Conte o que a aplicação precisa rodar e onde ela está hoje. Avaliamos o servidor e o caminho para a migração.</p>",
+        "cta_label": "Falar com um especialista",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20um%20VPS%20gerenciado."
+      }
+    }
+  ]
+}

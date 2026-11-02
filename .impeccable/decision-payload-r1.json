@@ -1,0 +1,215 @@
+{
+  "title": "Direção visual, segunda mão",
+  "question": "Nova mão, mantendo o registro das referências (tipo gigante, botões em pílula, trabalho em destaque).",
+  "options": [
+    {
+      "id": "campo-cor",
+      "kind": "assigned",
+      "label": "Campo de cor",
+      "kicker": "THE ROLL",
+      "lineage": "registro Huge/Vime (tipo gigante, palavra em destaque, pílulas) num campo de cor saturada inteiro",
+      "thesis": "A primeira tela é um campo inteiro de azul ultramar; o H1 gigante em preto com \"IA.\" em branco.",
+      "palette": [
+        "#2036FF",
+        "#0A0A12",
+        "#FFFFFF",
+        "#E9E6DF"
+      ],
+      "materials": [
+        "campo de cor saturada",
+        "grotesca gigante",
+        "print do case recortado em quadrado",
+        "pílulas brancas e pretas"
+      ],
+      "viewport": "Azul ultramar de borda a borda, H1 enorme à esquerda, print quadrado do case à direita, as quatro capacidades numeradas no canto inferior.",
+      "risk": "Cor saturada em página inteira é aposta forte; precisa variar o campo por seção para não cansar.",
+      "raised": [
+        {
+          "from": "challenger-yeye",
+          "raise": "As quatro capacidades viram um conjunto fechado e ranqueado no canto, como faixas de disco."
+        },
+        {
+          "from": "challenger-deck",
+          "raise": "Cada função tem controle próprio e rotulado; nada escondido em menu genérico."
+        },
+        {
+          "from": "challenger-pele",
+          "raise": "O peso da fonte acompanha o estado: ativo engrossa, inativo afina."
+        },
+        {
+          "from": "challenger-ikeda",
+          "raise": "Números de planos e preços em colunas tabulares de densidade alta."
+        }
+      ],
+      "html": ".impeccable/mocks/decision/r1-cor.html"
+    },
+    {
+      "id": "showreel",
+      "kind": "pick",
+      "label": "Showreel",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Huge (showreel fixo que expande na rolagem) e Vucko (reel de projetos na abertura)",
+      "thesis": "H1 gigante sobre preto e, logo abaixo, um painel arredondado com o reel dos cases que cresce até tela cheia na rolagem.",
+      "palette": [
+        "#08080A",
+        "#F3F3F1",
+        "#B9B9B6",
+        "#1B2A4A"
+      ],
+      "materials": [
+        "painel de vídeo arredondado",
+        "grotesca gigante",
+        "pílulas",
+        "rolagem que expande o reel"
+      ],
+      "viewport": "Nav com pílula, H1 em duas linhas, painel do reel com prints dos cases em movimento e botão Assistir.",
+      "risk": "É a solução mais comum entre estúdios; depende de um reel bem editado com prints reais.",
+      "html": ".impeccable/mocks/decision/r1-reel.html"
+    },
+    {
+      "id": "challenger-letras",
+      "kind": "challenger",
+      "catalogId": "dream-surreal-impossible-worlds-alphabet-storm",
+      "label": "Tempestade de letras",
+      "verdict": "competitive",
+      "lineage": "tipografia monumental que se desfaz e se recompõe",
+      "thesis": "O nome da etapa manual se desmancha em letras e se recompõe como a solução de IA, em grotesca monumental.",
+      "palette": [
+        "#FAFAF8",
+        "#0B0B0B",
+        "#5F6670",
+        "#C9C9C6"
+      ],
+      "materials": [
+        "grotesca monumental como matéria",
+        "letras em movimento",
+        "fundo claro",
+        "pílulas pretas"
+      ],
+      "viewport": "\"Conferência\" se desfazendo em letras soltas, \"Agente de IA.\" recomposto abaixo, lead e CTAs na base.",
+      "case": "Funde bem com o eixo da copy (processo que melhora) e com o tipo gigante das referências; perde em prova, porque não mostra trabalho real na primeira tela.",
+      "risk": "Pode ler como peça de motion em vez de empresa de serviço se a animação não for curta.",
+      "html": ".impeccable/mocks/decision/r1-letras.html",
+      "hero": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-alphabet-storm-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-alphabet-storm.webp"
+    },
+    {
+      "id": "challenger-yeye",
+      "kind": "challenger",
+      "catalogId": "posters-covers-sleeves-yeye-pop-sleeve",
+      "label": "Capa de disco pop",
+      "verdict": "declined",
+      "lineage": "capas de disco yéyé francesas",
+      "thesis": "Campo saturado, retrato recortado e lista curta no canto.",
+      "palette": [
+        "#FF7A1A",
+        "#FFFFFF",
+        "#2EC4B6"
+      ],
+      "materials": [
+        "cor chapada",
+        "retrato quente"
+      ],
+      "viewport": "Campo laranja com retrato e quatro faixas.",
+      "case": "Perde nos dois eixos sozinha; a direção sorteada já carrega o campo de cor.",
+      "kept": "Conjunto fechado e ranqueado de capacidades.",
+      "risk": "Retrô.",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-yeye-pop-sleeve-hero.webp"
+    },
+    {
+      "id": "challenger-deck",
+      "kind": "challenger",
+      "catalogId": "pop-culture-shelf-cassette-futurism-deck",
+      "label": "Deck de fita",
+      "verdict": "declined",
+      "lineage": "painéis de tape deck",
+      "thesis": "Tudo num painel com controles rotulados.",
+      "palette": [
+        "#C9C9C4",
+        "#E8DCC4",
+        "#FF9A1F"
+      ],
+      "materials": [
+        "alumínio escovado",
+        "LEDs âmbar"
+      ],
+      "viewport": "Painel de controles.",
+      "case": "Perde nos dois eixos: nostalgia de hardware não conversa com o público.",
+      "kept": "Cada função com controle próprio e rotulado.",
+      "risk": "Fantasia retrô.",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-cassette-futurism-deck-hero.webp"
+    },
+    {
+      "id": "challenger-pele",
+      "kind": "challenger",
+      "catalogId": "reefs-bioluminescent-nocturnal-chromatophore-skin-language",
+      "label": "Pele de cefalópode",
+      "verdict": "declined",
+      "lineage": "cromatóforos",
+      "thesis": "Superfície viva que muda de padrão.",
+      "palette": [
+        "#F1E6D6",
+        "#8A3B24",
+        "#2FB59A"
+      ],
+      "materials": [
+        "shaders celulares"
+      ],
+      "viewport": "Pele em padrões.",
+      "case": "Perde nos dois eixos: biologia abstrata não explica o serviço.",
+      "kept": "Peso tipográfico que acompanha o estado.",
+      "risk": "Abstrato demais.",
+      "hero": "https://impeccable.style/worlds/cards/reefs-bioluminescent-nocturnal-chromatophore-skin-language-hero.webp"
+    },
+    {
+      "id": "challenger-ikeda",
+      "kind": "challenger",
+      "catalogId": "ikeda-datamatics",
+      "label": "Datamatics",
+      "verdict": "declined",
+      "lineage": "Ryoji Ikeda",
+      "thesis": "Campos de código de barras em preto e branco puro.",
+      "palette": [
+        "#000000",
+        "#FFFFFF"
+      ],
+      "materials": [
+        "barras",
+        "monoespaçada"
+      ],
+      "viewport": "Parede de barras.",
+      "case": "Perde nos dois eixos: estética de dado escuro cai em IA genérica.",
+      "kept": "Números em colunas tabulares densas.",
+      "risk": "Frio e estroboscópico.",
+      "hero": "https://impeccable.style/worlds/cards/ikeda-datamatics-hero.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "code"
+  },
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "Padrão de estúdio",
+    "thesis": "Site de estúdio escuro no padrão Huge/Fantasy, sem conceito próprio, executado com rigor.",
+    "palette": [
+      "#0A0A0A",
+      "#F2F2F0",
+      "#8A8A8A"
+    ],
+    "materials": [
+      "preto",
+      "grotesca grande",
+      "prints de cases"
+    ],
+    "viewport": "H1 grande sobre preto, cases em grade abaixo.",
+    "risk": "Igual a muitos estúdios."
+  },
+  "steer": true
+}

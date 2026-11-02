@@ -1,0 +1,220 @@
+{
+  "slug": "sustentacao-de-software",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Sustentação e suporte de software | Quatro Ventos",
+  "seo_description": "Monitoramento, correções, atualizações e evolução de sistemas em produção, inclusive de terceiros. Pacotes de horas com SLA.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/sustentacao-de-software.jpg",
+  "og_image_alt": "Sustentação de software. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Sustentação *de software.*",
+        "subtitle": "<p>Suporte de software é o acompanhamento do sistema depois da publicação. Na sustentação, monitoramos, corrigimos, atualizamos e evoluímos sistemas em produção, inclusive os desenvolvidos por outras empresas, com um time que conhece o código e registra o que sabe, para que o conhecimento fique com a empresa.</p>",
+        "visual": "sustain",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20sustenta%C3%A7%C3%A3o%20de%20software."
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "Sistema no ar, *todos os dias.*",
+        "intro": "<p>O sistema em produção acompanhado de perto: no ar, atualizado, com cópia de segurança e com o conhecimento registrado.</p>",
+        "items": [
+          {
+            "title": "Monitoramento",
+            "text": "Disponibilidade e erros acompanhados, com aviso antes de o usuário perceber."
+          },
+          {
+            "title": "Correção",
+            "text": "Bugs e incidentes resolvidos por quem conhece o código e as integrações."
+          },
+          {
+            "title": "Atualização",
+            "text": "Dependências, frameworks e servidor nas versões corrigidas e seguras."
+          },
+          {
+            "title": "Evolução",
+            "text": "Pequenas melhorias a partir do uso real do sistema."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "examples-1",
+      "type": "site.examples",
+      "data": {
+        "title": "O que dá para *sustentar.*",
+        "intro": "<p>Qualquer sistema que a operação usa todos os dias e não pode parar. Alguns exemplos.</p>",
+        "items": [
+          {
+            "title": "ERP e sistemas internos",
+            "text": "Cadastros, estoque, financeiro e relatórios que a operação usa todo dia."
+          },
+          {
+            "title": "Portal do cliente",
+            "text": "Área logada com pedidos, boletos, documentos e chamados."
+          },
+          {
+            "title": "APIs e integrações",
+            "text": "Conexões com ERP, CRM, pagamentos e emissão fiscal que não podem parar."
+          },
+          {
+            "title": "SaaS em produção",
+            "text": "Produto com clientes ativos, planos, cobrança e atualizações frequentes."
+          },
+          {
+            "title": "Automações e n8n",
+            "text": "Fluxos que movem dados entre sistemas e precisam de monitoramento."
+          },
+          {
+            "title": "Aplicativos",
+            "text": "Apps e seus backends, com atualização de bibliotecas e lojas."
+          },
+          {
+            "title": "Sistemas com IA",
+            "text": "Agentes e integrações de LLM com custo, qualidade e logs acompanhados."
+          },
+          {
+            "title": "Sistemas legados",
+            "text": "Código antigo mantido estável enquanto a modernização é planejada."
+          }
+        ],
+        "more_title": "Sistema feito por outro time",
+        "more_text": "A auditoria mostra o estado do código e da infraestrutura antes de assumir a sustentação.",
+        "more_label": "Conte qual é o seu",
+        "more_href": "#contato",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "Sistemas *de terceiros.*",
+        "body": "<p>O trabalho começa com uma auditoria técnica de código, infraestrutura e riscos. Em seguida, o suporte é assumido com um plano claro de prioridades.</p>",
+        "cta_label": "Avaliar um sistema",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20sustenta%C3%A7%C3%A3o%20de%20software.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Da auditoria à sustentação em rotina.",
+        "intro": "<p>Antes de assumir o sistema, o time entende o código e os riscos. Depois, a sustentação segue um plano de prioridades.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Auditoria",
+            "body": "<p>Código, infraestrutura e riscos avaliados antes de assumir o sistema.</p>"
+          },
+          {
+            "title": "Plano de prioridades",
+            "body": "<p>O que corrigir, atualizar e proteger primeiro.</p>"
+          },
+          {
+            "title": "Sustentação",
+            "body": "<p>Monitoramento, correções e atualizações em rotina.</p>"
+          },
+          {
+            "title": "Evolução",
+            "body": "<p>Pequenas melhorias a partir do uso do sistema.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "O que a sustentação *cobre.*",
+        "items": [
+          "Monitoramento de disponibilidade e erros",
+          "Correção de bugs e incidentes",
+          "Atualização de dependências, frameworks e segurança",
+          "Backups e plano de recuperação",
+          "Pequenas melhorias e evolução contínua",
+          "Documentação e passagem de conhecimento"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "showcase-1",
+      "type": "site.showcase",
+      "data": {
+        "title": "Sistemas em sustentação.",
+        "intro": "<p>Sistemas em produção acompanhados pelo time, com correções, atualizações e evolução em rotina.</p>",
+        "items": [],
+        "placeholders": [
+          {
+            "name": "Case em breve",
+            "tags": [
+              "Sustentação"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          },
+          {
+            "name": "Case em breve",
+            "tags": [
+              "Sistema de terceiros"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          }
+        ]
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "Vocês assumem sistemas desenvolvidos por terceiros?",
+            "answer": "<p>Sim. O trabalho começa com uma auditoria técnica de código, infraestrutura e riscos. Em seguida, o suporte é assumido com um plano claro de prioridades.</p>"
+          },
+          {
+            "question": "O que entra na sustentação?",
+            "answer": "<p>Monitoramento de disponibilidade e erros, correção de bugs e incidentes, atualização de dependências, frameworks e segurança, backups e plano de recuperação, pequenas melhorias e documentação.</p>"
+          },
+          {
+            "question": "A sustentação inclui melhorias no sistema?",
+            "answer": "<p>Sim, pequenas melhorias e evolução contínua fazem parte do escopo. Projetos maiores são avaliados à parte.</p>"
+          },
+          {
+            "question": "O conhecimento sobre o sistema fica com a empresa?",
+            "answer": "<p>Sim. Documentação e passagem de conhecimento fazem parte do escopo, para que o sistema não dependa de uma única pessoa.</p>"
+          },
+          {
+            "question": "Como funcionam os pacotes de horas e o SLA?",
+            "answer": "<p>A sustentação é contratada em pacotes mensais de horas, com prazo de atendimento definido pela gravidade do problema. [PREENCHER: pacotes, horas incluídas, SLA e valores de cada um]</p>"
+          },
+          {
+            "question": "Em quanto tempo vocês assumem um sistema?",
+            "answer": "<p>Depois da auditoria técnica de código, infraestrutura e riscos. [PREENCHER: prazo típico da auditoria] Sistemas antigos podem precisar antes de <a href=\"/modernizacao-de-sistemas\">modernização</a>, e o servidor pode ficar em uma <a href=\"/vps-e-infraestrutura\">VPS gerenciada</a> pelo mesmo time.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "Sistema em produção *sem sustentação?*",
+        "body": "<p>Uma conversa basta para entender o sistema, quem cuida dele hoje e o que a auditoria precisa cobrir.</p>",
+        "cta_label": "Falar com um especialista",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20sustenta%C3%A7%C3%A3o%20de%20software."
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Trabalho em cena</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:900px;overflow:hidden}
+body{background:#0B0B0C;color:#F2F2F0;font-family:"Helvetica Neue",Arial,sans-serif;position:relative}
+.device{position:absolute;left:520px;top:-60px;width:620px;height:1100px;border-radius:90px;background:#1C1C1F;border:14px solid #2B2B2F;transform:rotate(-28deg) skewX(8deg);box-shadow:0 60px 160px #000;filter:blur(1.5px)}
+.device .scr{position:absolute;inset:40px 30px;border-radius:60px;background:linear-gradient(180deg,#26262A 0 46%,#C9C3B8 46% 100%)}
+.device .t{position:absolute;left:70px;top:150px;font-size:74px;font-weight:700;line-height:.95;color:#F2F2F0;letter-spacing:-.02em}
+.device .s{position:absolute;left:70px;top:90px;font-size:30px;color:#9A9A9E}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,#0B0B0C 0%,#0B0B0Cee 34%,#0B0B0C00 62%)}
+nav{position:absolute;left:0;right:0;top:0;height:100px;display:flex;align-items:center;padding:0 40px;z-index:3}
+.logo{font-weight:700;font-size:24px;letter-spacing:.18em;text-transform:uppercase}
+.menu{margin-left:auto;background:#2A2A2D;padding:15px 26px;border-radius:10px;font-weight:600;font-size:16px}
+.hero{position:absolute;left:40px;top:230px;width:640px;z-index:2}
+h1{font-size:96px;line-height:.94;letter-spacing:-.04em;font-weight:700}
+h1 .rot{display:block;color:#C6F24E}
+.lead{font-size:22px;line-height:1.4;color:#BDBDB9;margin-top:28px;max-width:560px}
+.row{display:flex;gap:12px;margin-top:36px}
+.row a{padding:17px 26px;border-radius:999px;font-weight:600;font-size:16px}
+.row a:first-child{background:#C6F24E;color:#0B0B0C}
+.row a:last-child{border:1.5px solid #F2F2F0}
+.foot{position:absolute;left:40px;right:40px;bottom:34px;display:flex;justify-content:space-between;font-size:16px;z-index:2;color:#BDBDB9}
+</style>
+</head>
+<body>
+<div class="device"><div class="scr"></div><div class="s">Digio / App</div><div class="t">Atendimento<br>com agente<br>de IA</div></div>
+<div class="shade"></div>
+<nav><div class="logo">Quatro Ventos</div><div class="menu">Menu</div></nav>
+<section class="hero">
+  <h1>Processos melhores com <span class="rot">agentes de IA.</span></h1>
+  <p class="lead">Ajudamos empresas a melhorar processos com soluções criativas de IA. Agentes, automações e sistemas desenhados para a operação de cada negócio.</p>
+  <div class="row"><a>Iniciar um projeto</a><a>Ver cases</a></div>
+</section>
+<div class="foot"><span>Case em destaque: Digio</span><span>Role para ver os projetos ↓</span></div>
+</body>
+</html>

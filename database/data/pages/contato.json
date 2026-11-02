@@ -1,0 +1,70 @@
+{
+  "slug": "contato",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Contato: WhatsApp (41) 3039-9593 | Quatro Ventos",
+  "seo_description": "Fale com a Quatro Ventos pelo WhatsApp (41) 3039-9593, e-mail contato@quatroventos.com.br ou formulário. Curitiba-PR.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/contato.jpg",
+  "og_image_alt": "Vamos conversar sobre o seu projeto. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Fale com a Quatro Ventos sobre",
+        "rotating": [
+          "o seu projeto.",
+          "inteligência artificial.",
+          "automação de processos.",
+          "sistemas sob medida."
+        ],
+        "subtitle": "<p>Fale com a Quatro Ventos pelo WhatsApp ou telefone (41) 3039-9593, pelo e-mail contato@quatroventos.com.br ou pelo formulário abaixo. Somos uma empresa de tecnologia de Curitiba-PR; descreva o processo ou o projeto e retornamos com o próximo passo.</p>",
+        "primary_label": "Chamar no WhatsApp",
+        "primary_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento.",
+        "secondary_label": "Enviar uma mensagem",
+        "secondary_href": "#contato"
+      }
+    },
+    {
+      "id": "glyphs-1",
+      "type": "site.glyphs",
+      "data": {
+        "title": "Canais de *atendimento.*",
+        "intro": "<p>Escolha o canal mais prático. Clientes com contrato ativo abrem chamado direto no suporte.</p>",
+        "items": [
+          {
+            "glyph": "whatsapp",
+            "title": "WhatsApp e telefone",
+            "text": "(41) 3039-9593",
+            "href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento."
+          },
+          {
+            "glyph": "mail",
+            "title": "E-mail",
+            "text": "contato@quatroventos.com.br",
+            "href": "mailto:contato@quatroventos.com.br"
+          },
+          {
+            "glyph": "support",
+            "title": "Suporte para clientes",
+            "text": "Abertura de chamado no suporte",
+            "href": "https://quatroventos.freshdesk.com/support/home"
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "contact-1",
+      "type": "site.contact",
+      "data": {
+        "title": "Envie uma *mensagem.*",
+        "intro": "<p>Conte qual processo ou projeto quer melhorar. Avaliamos o caso e indicamos por onde começar.</p><p>Curitiba, PR</p>",
+        "variant": "split",
+        "tone": "dark"
+      }
+    }
+  ]
+}

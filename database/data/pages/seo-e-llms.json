@@ -1,0 +1,221 @@
+{
+  "slug": "seo-e-llms",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "SEO e GEO: otimização para Google e IAs | Quatro Ventos",
+  "seo_description": "SEO técnico e de conteúdo para o Google e GEO para aparecer em respostas do ChatGPT, Gemini e Perplexity. Diagnóstico e plano por página.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/seo-e-llms.jpg",
+  "og_image_alt": "SEO para o Google e para as respostas de IA. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "SEO para o Google e GEO *para as respostas de IA.*",
+        "subtitle": "<p>GEO, ou otimização para mecanismos generativos, é preparar o site para ser citado nas respostas do ChatGPT, do Gemini e do Perplexity, assim como o SEO prepara para o Google. Fazemos os dois: SEO técnico e de conteúdo, dados estruturados e um plano por página, a partir de um diagnóstico do site.</p>",
+        "visual": "seo",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20um%20diagn%C3%B3stico%20de%20SEO%20e%20presen%C3%A7a%20em%20IA."
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "Onde o site precisa *aparecer.*",
+        "intro": "<p>A mesma base técnica e de conteúdo faz o site ser encontrado na busca tradicional e citado nas respostas geradas por IA.</p>",
+        "items": [
+          {
+            "title": "Google",
+            "text": "Resultados orgânicos para as buscas que trazem cliente."
+          },
+          {
+            "title": "Resumos de IA",
+            "text": "As respostas geradas pelo Google no topo da busca, com os sites usados como fonte."
+          },
+          {
+            "title": "ChatGPT",
+            "text": "Respostas com fontes quando o cliente pergunta ao assistente quem resolve o problema dele."
+          },
+          {
+            "title": "Gemini e Perplexity",
+            "text": "Outros assistentes que pesquisam na web e citam sites como referência."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "examples-1",
+      "type": "site.examples",
+      "data": {
+        "title": "O que *fazemos.*",
+        "intro": "<p>As frentes que fazem o site ser encontrado no Google e usado como fonte pelas IAs.</p>",
+        "items": [
+          {
+            "title": "SEO técnico",
+            "text": "Velocidade, indexação, sitemap, arquitetura de URLs e Core Web Vitals."
+          },
+          {
+            "title": "Conteúdo",
+            "text": "Páginas e artigos que respondem às perguntas reais do público."
+          },
+          {
+            "title": "Dados estruturados",
+            "text": "Schema.org para organização, serviços, produtos e perguntas frequentes."
+          },
+          {
+            "title": "Otimização para LLMs",
+            "text": "Conteúdo citável, llms.txt e acesso liberado aos rastreadores de IA."
+          },
+          {
+            "title": "Autoridade",
+            "text": "Presença nas fontes que buscadores e IAs usam como referência."
+          },
+          {
+            "title": "SEO local",
+            "text": "Perfil da empresa no Google e páginas por cidade ou região atendida."
+          },
+          {
+            "title": "Migração sem perda",
+            "text": "Redirecionamentos e acompanhamento quando o site muda de endereço ou de plataforma."
+          },
+          {
+            "title": "Medição",
+            "text": "Search Console, posições e menções da marca em respostas de IA."
+          }
+        ],
+        "more_title": "Por onde começar",
+        "more_text": "O diagnóstico mostra onde o site está hoje no Google e nas respostas de IA, e quais frentes trazem resultado primeiro.",
+        "more_label": "Pedir um diagnóstico",
+        "more_href": "#contato",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "A busca também acontece *nas respostas de IA.*",
+        "body": "<p>Parte das pesquisas já termina numa resposta gerada por IA, sem clique. Para ser citado nessas respostas, o site precisa ser fácil de rastrear, ter conteúdo claro e verificável e ser referenciado por outras fontes. O trabalho combina o SEO tradicional com a otimização para modelos de linguagem.</p>",
+        "variant": "light",
+        "cta_label": "Pedir um diagnóstico",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20diagn%C3%B3stico%20de%20SEO%20e%20presen%C3%A7a%20em%20IA.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Do diagnóstico ao relatório mensal.",
+        "intro": "<p>O trabalho começa por um diagnóstico e segue com acompanhamento mensal, para ajustar as prioridades conforme os resultados aparecem.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Diagnóstico",
+            "body": "<p>Auditoria técnica, de conteúdo e de presença nas respostas de IA.</p>"
+          },
+          {
+            "title": "Plano",
+            "body": "<p>Prioridades por impacto, com as buscas e perguntas que importam para o negócio.</p>"
+          },
+          {
+            "title": "Execução",
+            "body": "<p>Correções técnicas, conteúdo e dados estruturados aplicados no site.</p>"
+          },
+          {
+            "title": "Acompanhamento",
+            "body": "<p>Relatório mensal de posições, tráfego e citações.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "O que o projeto *entrega.*",
+        "items": [
+          "Auditoria técnica, de conteúdo e de presença em IA",
+          "Plano de prioridades por impacto",
+          "Correções técnicas aplicadas no site",
+          "Dados estruturados em Schema.org",
+          "llms.txt e acesso aos rastreadores de IA",
+          "Relatório mensal de posições, tráfego e citações"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "showcase-1",
+      "type": "site.showcase",
+      "data": {
+        "title": "Resultados de busca.",
+        "intro": "<p>Sites que passaram a ser encontrados no Google e citados nas respostas de IA.</p>",
+        "items": [],
+        "placeholders": [
+          {
+            "name": "Case em breve",
+            "tags": [
+              "SEO"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          },
+          {
+            "name": "Case em breve",
+            "tags": [
+              "Otimização para LLMs"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          }
+        ]
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "Qual a diferença entre SEO e otimização para LLMs?",
+            "answer": "<p>O SEO trabalha a posição nos resultados do Google. A otimização para LLMs trabalha para que o site seja usado como fonte nas respostas do ChatGPT, do Gemini, do Perplexity e dos resumos de IA do Google. A mesma base técnica e de conteúdo atende aos dois.</p>"
+          },
+          {
+            "question": "Em quanto tempo aparecem resultados?",
+            "answer": "<p>Correções técnicas costumam ter efeito em semanas; conteúdo e autoridade, em meses. O relatório mensal mostra a evolução.</p>"
+          },
+          {
+            "question": "Funciona para sites em WordPress?",
+            "answer": "<p>Sim. Atendemos sites em WordPress, sites sob medida e lojas virtuais. <a href=\"/sites-wordpress\">Sites em WordPress</a></p>"
+          },
+          {
+            "question": "Dá para começar por um diagnóstico?",
+            "answer": "<p>Sim. O diagnóstico gratuito avalia SEO on-page, velocidade e segurança do site. <a href=\"/diagnostico-de-site\">Por que o site não vende?</a></p>"
+          },
+          {
+            "question": "O que é GEO?",
+            "answer": "<p>É a sigla em inglês para otimização para mecanismos generativos. O SEO trabalha para a página aparecer entre os links do Google; o GEO, para que o conteúdo seja usado e citado quando alguém pergunta a uma IA.</p>"
+          },
+          {
+            "question": "Quanto custa?",
+            "answer": "<p>O trabalho começa por um diagnóstico e segue com acompanhamento mensal. [PREENCHER: valor do diagnóstico e do acompanhamento] Para começar, peça o <a href=\"/diagnostico-de-site\">diagnóstico gratuito de site</a>.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "Ser encontrado no Google e *citado pela IA.*",
+        "body": "<p>Mande o endereço do site. O diagnóstico mostra onde ele está hoje no Google e nas respostas de IA, e por onde começar.</p>",
+        "cta_label": "Falar com um especialista",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20diagn%C3%B3stico%20de%20SEO%20e%20presen%C3%A7a%20em%20IA."
+      }
+    }
+  ]
+}

@@ -1,0 +1,492 @@
+{
+  "schemaVersion": 3,
+  "stage": "components",
+  "id": "components",
+  "title": "Plan and asset review · resources/js/site/App.tsx",
+  "comp": {
+    "path": ".impeccable/mocks/decision/assigned.webp",
+    "width": 1280,
+    "height": 720
+  },
+  "specSha256": "8f2e39c7fb766736802736821bdc1b95800bbb59ac2930c0f118eb9fa24dcfa4",
+  "components": [
+    {
+      "id": "card-top",
+      "name": "Card top",
+      "kind": "chrome",
+      "role": "plan",
+      "box": {
+        "x": 0.3125,
+        "y": 0.2389,
+        "w": 0.3984,
+        "h": 0.0167
+      },
+      "note": "Top edge of the white specimen frame.",
+      "medium": "code",
+      "preview": {
+        "kind": "comp-crop"
+      },
+      "codeDrawn": false,
+      "dependencies": []
+    },
+    {
+      "id": "card-right",
+      "name": "Card right",
+      "kind": "chrome",
+      "role": "plan",
+      "box": {
+        "x": 0.6797,
+        "y": 0.2333,
+        "w": 0.0453,
+        "h": 0.4722
+      },
+      "note": "Right edge of the white specimen frame.",
+      "medium": "code",
+      "preview": {
+        "kind": "comp-crop"
+      },
+      "codeDrawn": false,
+      "dependencies": []
+    },
+    {
+      "id": "station-arquitetura",
+      "name": "Station arquitetura",
+      "kind": "chrome",
+      "role": "plan",
+      "box": {
+        "x": 0.0547,
+        "y": 0.7667,
+        "w": 0.1563,
+        "h": 0.1333
+      },
+      "note": "Lit station mark and the line segment into Prototipagem.",
+      "medium": "code",
+      "preview": {
+        "kind": "comp-crop"
+      },
+      "codeDrawn": false,
+      "dependencies": []
+    },
+    {
+      "id": "station-prototipagem",
+      "name": "Station prototipagem",
+      "kind": "chrome",
+      "role": "plan",
+      "box": {
+        "x": 0.2109,
+        "y": 0.7667,
+        "w": 0.1563,
+        "h": 0.1333
+      },
+      "note": "Unlit Prototipagem mark and its line segment.",
+      "medium": "code",
+      "preview": {
+        "kind": "comp-crop"
+      },
+      "codeDrawn": false,
+      "dependencies": []
+    },
+    {
+      "id": "station-frontend",
+      "name": "Station frontend",
+      "kind": "chrome",
+      "role": "plan",
+      "box": {
+        "x": 0.3672,
+        "y": 0.7667,
+        "w": 0.1563,
+        "h": 0.1333
+      },
+      "note": "Unlit Frontend mark and its line segment.",
+      "medium": "code",
+      "preview": {
+        "kind": "comp-crop"
+      },
+      "codeDrawn": false,
+      "dependencies": []
+    },
+    {
+      "id": "station-backend",
+      "name": "Station backend",
+      "kind": "chrome",
+      "role": "plan",
+      "box": {
+        "x": 0.5234,
+        "y": 0.7667,
+        "w": 0.1563,
+        "h": 0.1333
+      },
+      "note": "Unlit Backend mark and its line segment.",
+      "medium": "code",
+      "preview": {
+        "kind": "comp-crop"
+      },
+      "codeDrawn": false,
+      "dependencies": []
+    },
+    {
+      "id": "station-homologacao",
+      "name": "Station homologacao",
+      "kind": "chrome",
+      "role": "plan",
+      "box": {
+        "x": 0.6797,
+        "y": 0.7667,
+        "w": 0.1563,
+        "h": 0.1333
+      },
+      "note": "Unlit Homologação mark and its line segment.",
+      "medium": "code",
+      "preview": {
+        "kind": "comp-crop"
+      },
+      "codeDrawn": false,
+      "dependencies": []
+    },
+    {
+      "id": "station-entrega",
+      "name": "Station entrega",
+      "kind": "chrome",
+      "role": "plan",
+      "box": {
+        "x": 0.8359,
+        "y": 0.7667,
+        "w": 0.0938,
+        "h": 0.1333
+      },
+      "note": "Unlit Entrega mark at the end of the line.",
+      "medium": "code",
+      "preview": {
+        "kind": "comp-crop"
+      },
+      "codeDrawn": false,
+      "dependencies": []
+    }
+  ],
+  "codeRegions": [
+    {
+      "id": "brand",
+      "name": "Brand",
+      "kind": "text",
+      "box": {
+        "x": 0.0156,
+        "y": 0.025,
+        "w": 0.1563,
+        "h": 0.05
+      },
+      "note": "Wordmark Quatro Ventos at the top left."
+    },
+    {
+      "id": "nav-sites",
+      "name": "Nav sites",
+      "kind": "text",
+      "box": {
+        "x": 0.5844,
+        "y": 0.0389,
+        "w": 0.1172,
+        "h": 0.0222
+      },
+      "note": "Header link Desenvolvimento de sites."
+    },
+    {
+      "id": "nav-manutencao",
+      "name": "Nav manutencao",
+      "kind": "text",
+      "box": {
+        "x": 0.725,
+        "y": 0.0389,
+        "w": 0.0938,
+        "h": 0.0222
+      },
+      "note": "Header link Manutenção de sites."
+    },
+    {
+      "id": "nav-hospedagem",
+      "name": "Nav hospedagem",
+      "kind": "text",
+      "box": {
+        "x": 0.8469,
+        "y": 0.0389,
+        "w": 0.0625,
+        "h": 0.0222
+      },
+      "note": "Header link Hospedagem."
+    },
+    {
+      "id": "nav-suporte",
+      "name": "Nav suporte",
+      "kind": "text",
+      "box": {
+        "x": 0.9344,
+        "y": 0.0389,
+        "w": 0.0406,
+        "h": 0.0222
+      },
+      "note": "Header link Suporte."
+    },
+    {
+      "id": "headline-design",
+      "name": "Headline design",
+      "kind": "text",
+      "box": {
+        "x": 0.0219,
+        "y": 0.125,
+        "w": 0.3438,
+        "h": 0.2569
+      },
+      "note": "Wall-scale word Design, in ink, left of the specimen."
+    },
+    {
+      "id": "headline-code",
+      "name": "Headline code",
+      "kind": "text",
+      "box": {
+        "x": 0.3594,
+        "y": 0.125,
+        "w": 0.5156,
+        "h": 0.2292
+      },
+      "note": "Wall-scale word Code, the caps visible above the specimen."
+    },
+    {
+      "id": "headline-test",
+      "name": "Headline test",
+      "kind": "text",
+      "box": {
+        "x": 0.0156,
+        "y": 0.3722,
+        "w": 0.3359,
+        "h": 0.2917
+      },
+      "note": "Wall-scale word Test, left, under Design."
+    },
+    {
+      "id": "headline-repeat",
+      "name": "Headline repeat",
+      "kind": "text",
+      "box": {
+        "x": 0.725,
+        "y": 0.4167,
+        "w": 0.1266,
+        "h": 0.2222
+      },
+      "note": "Wall-scale letters at of Repeat, right of the specimen."
+    },
+    {
+      "id": "headline-ellipsis",
+      "name": "Headline ellipsis",
+      "kind": "text",
+      "box": {
+        "x": 0.8547,
+        "y": 0.5556,
+        "w": 0.1031,
+        "h": 0.0694
+      },
+      "note": "Three squares that end Repeat... on the wall."
+    },
+    {
+      "id": "caption",
+      "name": "Caption",
+      "kind": "text",
+      "box": {
+        "x": 0.0156,
+        "y": 0.6472,
+        "w": 0.3125,
+        "h": 0.0444
+      },
+      "note": "Small line Estamos prontos para criar, programar e cuidar do seu site."
+    },
+    {
+      "id": "card-bottom",
+      "name": "Card bottom",
+      "kind": "chrome",
+      "box": {
+        "x": 0.3047,
+        "y": 0.6778,
+        "w": 0.4063,
+        "h": 0.0278
+      },
+      "note": "Bottom edge of the white specimen frame."
+    },
+    {
+      "id": "card-left",
+      "name": "Card left",
+      "kind": "chrome",
+      "box": {
+        "x": 0.3125,
+        "y": 0.2389,
+        "w": 0.0109,
+        "h": 0.4639
+      },
+      "note": "Left edge of the white specimen frame."
+    },
+    {
+      "id": "specimen-name",
+      "name": "Specimen name",
+      "kind": "text",
+      "box": {
+        "x": 0.3312,
+        "y": 0.275,
+        "w": 0.1094,
+        "h": 0.0222
+      },
+      "note": "Small Quatro Ventos inside the specimen."
+    },
+    {
+      "id": "specimen-menu",
+      "name": "Specimen menu",
+      "kind": "chrome",
+      "box": {
+        "x": 0.6516,
+        "y": 0.275,
+        "w": 0.0219,
+        "h": 0.0222
+      },
+      "note": "Three-line menu mark at the specimen's top right."
+    },
+    {
+      "id": "specimen-title",
+      "name": "Specimen title",
+      "kind": "text",
+      "box": {
+        "x": 0.3281,
+        "y": 0.3444,
+        "w": 0.3672,
+        "h": 0.1556
+      },
+      "note": "Two-line title inside the specimen, Desenvolvemos sites para quem exige mais."
+    },
+    {
+      "id": "specimen-body",
+      "name": "Specimen body",
+      "kind": "text",
+      "box": {
+        "x": 0.3281,
+        "y": 0.4556,
+        "w": 0.2813,
+        "h": 0.1444
+      },
+      "note": "Three short lines of body copy inside the specimen."
+    },
+    {
+      "id": "specimen-cta",
+      "name": "Specimen cta",
+      "kind": "control",
+      "box": {
+        "x": 0.3281,
+        "y": 0.5,
+        "w": 0.3906,
+        "h": 0.1111
+      },
+      "note": "Teal button Faça um orçamento sem compromisso! with an arrow."
+    },
+    {
+      "id": "specimen-rule",
+      "name": "Specimen rule",
+      "kind": "chrome",
+      "box": {
+        "x": 0.3312,
+        "y": 0.6347,
+        "w": 0.3594,
+        "h": 0.0056
+      },
+      "note": "Hairline above the specimen footer."
+    },
+    {
+      "id": "specimen-meta",
+      "name": "Specimen meta",
+      "kind": "text",
+      "box": {
+        "x": 0.3281,
+        "y": 0.6,
+        "w": 0.4063,
+        "h": 0.1111
+      },
+      "note": "Tiny footer line Tecnologia, Performance, Escala, Confiança."
+    },
+    {
+      "id": "specimen-dot",
+      "name": "Specimen dot",
+      "kind": "control",
+      "box": {
+        "x": 0.6594,
+        "y": 0.65,
+        "w": 0.0125,
+        "h": 0.0194
+      },
+      "note": "Single teal status dot at the specimen footer."
+    },
+    {
+      "id": "label-arquitetura",
+      "name": "Label arquitetura",
+      "kind": "text",
+      "box": {
+        "x": 0.0688,
+        "y": 0.9,
+        "w": 0.0563,
+        "h": 0.025
+      },
+      "note": "Station label Arquitetura."
+    },
+    {
+      "id": "label-prototipagem",
+      "name": "Label prototipagem",
+      "kind": "text",
+      "box": {
+        "x": 0.2,
+        "y": 0.8944,
+        "w": 0.1,
+        "h": 0.1056
+      },
+      "note": "Station label Prototipagem."
+    },
+    {
+      "id": "label-frontend",
+      "name": "Label frontend",
+      "kind": "text",
+      "box": {
+        "x": 0.3906,
+        "y": 0.9,
+        "w": 0.0547,
+        "h": 0.025
+      },
+      "note": "Station label Frontend."
+    },
+    {
+      "id": "label-backend",
+      "name": "Label backend",
+      "kind": "text",
+      "box": {
+        "x": 0.55,
+        "y": 0.9,
+        "w": 0.0469,
+        "h": 0.025
+      },
+      "note": "Station label Backend."
+    },
+    {
+      "id": "label-homologacao",
+      "name": "Label homologacao",
+      "kind": "text",
+      "box": {
+        "x": 0.6641,
+        "y": 0.8889,
+        "w": 0.1406,
+        "h": 0.1111
+      },
+      "note": "Station label Homologação."
+    },
+    {
+      "id": "label-entrega",
+      "name": "Label entrega",
+      "kind": "text",
+      "box": {
+        "x": 0.8656,
+        "y": 0.9,
+        "w": 0.0437,
+        "h": 0.025
+      },
+      "note": "Station label Entrega."
+    }
+  ]
+}

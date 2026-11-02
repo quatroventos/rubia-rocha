@@ -1,0 +1,48 @@
+{
+  "title": "Direção visual a partir das referências",
+  "question": "Três direções derivadas do visual real das referências. Escolha uma, ou peça ajuste.",
+  "options": [
+    {
+      "id": "objeto-marca",
+      "kind": "grounded",
+      "label": "Objeto-marca",
+      "kicker": "HUGE · ENDAVA",
+      "lineage": "Huge (H inflável 3D gigante sobre preto, \"Hello.\" enorme, botões em pílula), Endava (palavra-chave do título no acento)",
+      "thesis": "Um objeto 3D da marca Quatro Ventos ocupa o centro da tela e o H1 enorme passa por baixo dele.",
+      "palette": ["#050506", "#F4F4F2", "#4D7CFF", "#9A9A97"],
+      "materials": ["render 3D da marca com material próprio", "grotesca gigante com tracking negativo", "palavra de destaque em branco sobre título cinza", "botões em pílula"],
+      "viewport": "Preto, objeto 3D da marca no centro, \"Processos melhores com IA.\" gigante na base, linha com lead curto e dois CTAs em pílula.",
+      "risk": "Depende de um render 3D da marca de alta qualidade; sem ele, a direção perde o centro.",
+      "html": ".impeccable/mocks/decision/ref-estudio.html"
+    },
+    {
+      "id": "trabalho-em-cena",
+      "kind": "grounded",
+      "label": "Trabalho em cena",
+      "kicker": "FANTASY · VIME",
+      "lineage": "Fantasy (render do produto do cliente em perspectiva ocupando a tela, chrome mínimo), Vime (palavra rotativa no título em cor de destaque, CTA de WhatsApp)",
+      "thesis": "O print de um case real, em perspectiva e em tela cheia, é a primeira tela; o título troca a palavra final entre agentes, automações e sistemas.",
+      "palette": ["#0B0B0C", "#F2F2F0", "#C6F24E", "#2A2A2D"],
+      "materials": ["prints de cases em perspectiva", "palavra rotativa no H1", "menu único", "botões em pílula"],
+      "viewport": "Celular ou tela de sistema de um case inclinado à direita, H1 com a palavra rotativa em verde-limão à esquerda, lead e CTAs; rodapé da dobra com o case em destaque.",
+      "risk": "Fundo escuro com verde-limão encosta no visual de IA genérica que você vetou; precisa de prints reais bons.",
+      "html": ".impeccable/mocks/decision/ref-escuro.html"
+    },
+    {
+      "id": "painel-blocos",
+      "kind": "grounded",
+      "label": "Painel em blocos",
+      "kicker": "VUCKO · INNOWISE",
+      "lineage": "Vucko (cinza claro, coluna lateral de blocos arredondados com relógio, navegação em pílulas e lista de projetos com miniaturas), Innowise (grade de hubs, profundidade de conteúdo)",
+      "thesis": "A home é um painel: mídia grande do case à esquerda, coluna lateral com relógio de Curitiba, navegação e lista de cases.",
+      "palette": ["#ECECEA", "#111111", "#F7F7F5", "#2B3A55", "#E5484D"],
+      "materials": ["blocos arredondados", "pílulas de navegação", "miniaturas de cases", "tipo pequeno e preciso"],
+      "viewport": "Logo, H1 e lead em três colunas no topo; painel de mídia do case embaixo; coluna lateral fixa com relógio, menu em pílulas, CTA e lista de cases.",
+      "risk": "Tipo menor e composição de portfólio de estúdio; precisa de cuidado para a oferta de IA ficar clara em segundos.",
+      "html": ".impeccable/mocks/decision/ref-consultoria.html"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "steer": true
+}

@@ -1,0 +1,237 @@
+{
+  "slug": "desenvolvimento-de-sites",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Criação de sites em Curitiba sob medida | Quatro Ventos",
+  "seo_description": "Criação de sites sob medida em Curitiba desde 2005: responsivos, rápidos e gerenciáveis, com SEO e garantia de 30 dias. Peça um orçamento.",
+  "canonical": "https://www.quatroventos.com.br/desenvolvimento-de-sites",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/desenvolvimento-de-sites.jpg",
+  "og_image_alt": "Desenvolvimento de sites sob medida. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Criação de sites *sob medida em Curitiba.*",
+        "subtitle": "<p>Criação de sites em Curitiba, desde 2005: sites institucionais e corporativos desenhados para o seu público, programados do zero e entregues com painel para o time editar o conteúdo. Cada site sai responsivo, rápido e preparado para o Google, com 30 dias de garantia para ajustes depois da entrega.</p>",
+        "visual": "sites",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento%20de%20site%20sob%20medida."
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "Um site para *cada objetivo.*",
+        "intro": "<p>A estrutura do site parte do que ele precisa resolver: apresentar a empresa, organizar várias áreas, gerar contatos ou publicar conteúdo.</p>",
+        "items": [
+          {
+            "title": "Institucional",
+            "text": "Apresenta a empresa, os serviços e os canais de contato, com conteúdo editável pelo painel."
+          },
+          {
+            "title": "Corporativo",
+            "text": "Várias áreas, unidades ou públicos na mesma estrutura, com navegação pensada para cada um."
+          },
+          {
+            "title": "Captação",
+            "text": "Formulários e WhatsApp ligados ao CRM, para que cada contato chegue ao comercial."
+          },
+          {
+            "title": "Conteúdo",
+            "text": "Blog, notícias e materiais organizados para leitura e para os buscadores."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "examples-1",
+      "type": "site.examples",
+      "data": {
+        "title": "Sites para *cada segmento.*",
+        "intro": "<p>O conteúdo e as funcionalidades mudam conforme o negócio. Alguns exemplos do que costuma entrar em cada tipo de site.</p>",
+        "items": [
+          {
+            "title": "Escritório de advocacia",
+            "text": "Áreas de atuação, equipe e artigos, com contato direto pelo WhatsApp."
+          },
+          {
+            "title": "Clínica e consultório",
+            "text": "Especialidades, profissionais e agendamento online ligado à agenda."
+          },
+          {
+            "title": "Indústria",
+            "text": "Linhas de produto, catálogo técnico e pedidos de orçamento direto para o comercial."
+          },
+          {
+            "title": "Escola e curso",
+            "text": "Cursos, turmas e matrículas, com área exclusiva para alunos."
+          },
+          {
+            "title": "Construtora e imobiliária",
+            "text": "Empreendimentos, plantas e localização, com os contatos separados por empreendimento."
+          },
+          {
+            "title": "Associação e entidade",
+            "text": "Notícias, associados e eventos, com conteúdo atualizado pela própria equipe."
+          },
+          {
+            "title": "Restaurante e turismo",
+            "text": "Cardápio, reservas e roteiros, com fotos, mapa e idiomas."
+          },
+          {
+            "title": "Portal de conteúdo",
+            "text": "Blog e materiais ricos organizados para leitura e para os buscadores."
+          }
+        ],
+        "more_title": "Qualquer empresa que precisa ser encontrada",
+        "more_text": "Se o site precisa explicar o que a empresa faz e transformar visita em contato, a estrutura é desenhada para isso.",
+        "more_label": "Conte qual é o seu",
+        "more_href": "#contato",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "Um site integrado *ao processo.*",
+        "body": "<p>O site pode ir além da vitrine: um agente de IA que atende no chat, formulários que chegam direto ao CRM, conteúdo conectado aos sistemas internos. O projeto já considera essas integrações desde a arquitetura.</p>",
+        "cta_label": "Conversar sobre o site",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento%20de%20site%20sob%20medida.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Da arquitetura à publicação.",
+        "intro": "<p>Cada página passa por checklist de responsividade, velocidade, compatibilidade entre navegadores e funcionalidades.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Arquitetura",
+            "body": "<p>Comportamento do público estudado e caminho de navegação mapeado.</p>"
+          },
+          {
+            "title": "Prototipagem",
+            "body": "<p>Protótipos interativos para validar o site antes da programação.</p>"
+          },
+          {
+            "title": "Frontend",
+            "body": "<p>Interface convertida em código limpo e otimizado.</p>"
+          },
+          {
+            "title": "Backend",
+            "body": "<p>Parte funcional construída em paralelo, com performance e segurança.</p>"
+          },
+          {
+            "title": "Homologação",
+            "body": "<p>Testes em ambiente privado e rodada de ajustes.</p>"
+          },
+          {
+            "title": "Entrega",
+            "body": "<p>Publicação no endereço definitivo, com acompanhamento.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "Padrão de *entrega.*",
+        "items": [
+          "Responsivo em celular, tablet e desktop",
+          "Textos, imagens e páginas editados pelo painel",
+          "Arquivos e código otimizados para carregar rápido",
+          "Layout sob medida, sem template pronto",
+          "Estrutura semântica, metas e performance para o Google",
+          "30 dias de garantia para ajustes e correções após a entrega"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "showcase-1",
+      "type": "site.showcase",
+      "data": {
+        "title": "Sites no ar.",
+        "intro": "<p>Projetos institucionais e corporativos desenvolvidos sob medida, com painel de conteúdo e integrações.</p>",
+        "items": [],
+        "placeholders": [
+          {
+            "name": "Case em breve",
+            "tags": [
+              "Site institucional"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          },
+          {
+            "name": "Case em breve",
+            "tags": [
+              "Site corporativo"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          }
+        ]
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "O conteúdo é editável?",
+            "answer": "<p>Sim. Todo site é entregue com painel para editar textos, imagens e páginas.</p>"
+          },
+          {
+            "question": "O site vem preparado para o Google?",
+            "answer": "<p>Sim. Estrutura semântica, metas e performance fazem parte do padrão de entrega.</p>"
+          },
+          {
+            "question": "O site se integra ao CRM ou a um agente de IA?",
+            "answer": "<p>Sim. Formulários que chegam ao CRM, agente de IA no chat e conteúdo conectado aos sistemas internos são considerados desde a arquitetura.</p>"
+          },
+          {
+            "question": "A hospedagem está inclusa?",
+            "answer": "<p>Pode estar. Planos em <a href=\"/hospedagem-de-sites\">Hospedagem de sites</a>.</p>"
+          },
+          {
+            "question": "E após a publicação?",
+            "answer": "<p>30 dias de garantia e planos de manutenção em <a href=\"/manutencao-de-sites\">Manutenção de sites e WordPress</a>.</p>"
+          },
+          {
+            "question": "Quanto custa um site em Curitiba?",
+            "answer": "<p>Depende do número de páginas, das funcionalidades e das integrações, como CRM, agente de IA ou área restrita. [PREENCHER: faixa real de preço de site institucional]</p>"
+          },
+          {
+            "question": "Quanto tempo leva para criar um site?",
+            "answer": "<p>O prazo segue as etapas de arquitetura, protótipo, desenvolvimento e homologação, e é fechado no orçamento. [PREENCHER: prazo típico]</p>"
+          },
+          {
+            "question": "Vocês atendem fora de Curitiba?",
+            "answer": "<p>Sim. O time trabalha em home office desde 2014, então o atendimento é o mesmo para qualquer cidade. Alguns sites no ar: <a href=\"/cases/ramos-benedetti\">Ramos Benedetti Advogados</a> e <a href=\"/cases/produtive\">Produtive</a>.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "Orçamento de site *sob medida.*",
+        "body": "<p>Uma conversa basta para entender o público, o conteúdo e as integrações que o site precisa ter.</p>",
+        "cta_label": "Falar com um especialista",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento%20de%20site%20sob%20medida."
+      }
+    }
+  ]
+}

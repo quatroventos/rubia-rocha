@@ -1,0 +1,244 @@
+{
+  "slug": "landing-pages",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Criação de landing page que converte | Quatro Ventos",
+  "seo_description": "Landing pages sob medida focadas em conversão, integradas a WhatsApp, formulários e anúncios. Preço publicado e entrega rápida.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/landing-pages.jpg",
+  "og_image_alt": "Cliques convertidos em clientes. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Criação de landing pages que convertem *cliques em clientes.*",
+        "subtitle": "<p>Uma landing page é uma página com um único objetivo: levar quem chega de um anúncio ou campanha a entrar em contato ou comprar. Fazemos landing pages sob medida, integradas ao WhatsApp, a formulários e às ferramentas de anúncio, prontas em até 24 horas, a partir de R$ 350,00 com um ano de hospedagem.</p>",
+        "visual": "landing",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento%20de%20landing%20page."
+      }
+    },
+    {
+      "id": "figures-1",
+      "type": "site.figures",
+      "data": {
+        "items": [
+          {
+            "prefix": "",
+            "value": "24h",
+            "caption": "do briefing à página no ar"
+          },
+          {
+            "prefix": "R$",
+            "value": "350",
+            "caption": "a partir de, com um ano de hospedagem incluso"
+          }
+        ],
+        "mini": true,
+        "body": "Domínio configurado e a página no ar em até 24 horas. A landing page tira o que distrai e leva o visitante a um único passo: o contato ou a compra.",
+        "cta_label": "Conversar sobre a página",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento%20de%20landing%20page.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "Quando usar uma *landing page.*",
+        "intro": "<p>Sempre que o visitante chega com um objetivo e a página precisa levar a uma única ação.</p>",
+        "items": [
+          {
+            "title": "Campanhas",
+            "text": "Um destino próprio para cada anúncio, com a mensagem alinhada ao que trouxe o clique."
+          },
+          {
+            "title": "Lançamentos",
+            "text": "Produto, serviço ou unidade nova apresentados numa página só, com uma ação clara."
+          },
+          {
+            "title": "Captação",
+            "text": "Formulário ou WhatsApp como único caminho, com o contato chegando às ferramentas do time."
+          },
+          {
+            "title": "Eventos",
+            "text": "Programação, local e inscrição reunidos na mesma página."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "examples-1",
+      "type": "site.examples",
+      "data": {
+        "title": "Uma página para *cada campanha.*",
+        "intro": "<p>Cada objetivo pede uma estrutura diferente. Alguns exemplos de landing pages e do que cada uma precisa ter.</p>",
+        "items": [
+          {
+            "title": "Campanha de Google Ads",
+            "text": "A mesma promessa do anúncio no topo da página e um formulário curto logo na primeira dobra."
+          },
+          {
+            "title": "Lançamento de produto",
+            "text": "Benefícios, prova e condição de lançamento com prazo definido."
+          },
+          {
+            "title": "Captação para clínica",
+            "text": "Especialidade, profissional e agendamento direto pelo WhatsApp."
+          },
+          {
+            "title": "Pré-venda de imóvel",
+            "text": "Planta, localização e cadastro de interesse antes do lançamento oficial."
+          },
+          {
+            "title": "Inscrição em evento",
+            "text": "Programação, palestrantes e inscrição com pagamento na própria página."
+          },
+          {
+            "title": "Material gratuito",
+            "text": "E-book, planilha ou aula em troca do contato, entregue automaticamente por e-mail."
+          },
+          {
+            "title": "Oferta sazonal",
+            "text": "Black Friday ou data comemorativa com produto, condição e prazo claros."
+          },
+          {
+            "title": "Recrutamento",
+            "text": "Vagas, benefícios e candidatura reunidos numa página só."
+          }
+        ],
+        "more_title": "Qualquer oferta com um público definido",
+        "more_text": "Se existe uma oferta e um público que chega por anúncio, busca ou indicação, a página é construída para levar à ação.",
+        "more_label": "Conte qual é a sua",
+        "more_href": "#contato",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Processo enxuto.",
+        "intro": "<p>Do briefing à página no ar em até 24 horas, com os resultados acompanhados depois da publicação.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Briefing",
+            "body": "<p>Negócio, público, oferta e concorrência.</p>"
+          },
+          {
+            "title": "Página",
+            "body": "<p>Layout, texto e integrações montados em até 24 horas.</p>"
+          },
+          {
+            "title": "Publicação",
+            "body": "<p>Página no domínio definitivo, com um ano de hospedagem incluso.</p>"
+          },
+          {
+            "title": "Acompanhamento",
+            "body": "<p>Resultados medidos e sugestões de melhoria após a publicação.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "Diferenciais de *cada página.*",
+        "items": [
+          "Página pensada para o público e a concorrência",
+          "Responsiva em celular, computador e tablet",
+          "Texto escrito para levar ao contato ou à compra",
+          "Leve e preparada para buscadores",
+          "Integração com WhatsApp, Instagram, e-mail, pagamentos e outras ferramentas",
+          "Acompanhamento de resultados e sugestões de melhoria após a publicação"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "showcase-1",
+      "type": "site.showcase",
+      "data": {
+        "title": "Landing pages no ar.",
+        "intro": "<p>Páginas criadas para campanhas, lançamentos e captação, integradas às ferramentas de atendimento de cada cliente.</p>",
+        "items": [],
+        "placeholders": [
+          {
+            "name": "Case em breve",
+            "tags": [
+              "Campanha"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          },
+          {
+            "name": "Case em breve",
+            "tags": [
+              "Captação"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          }
+        ]
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "Quanto custa?",
+            "answer": "<p>A partir de R$ 350,00, com um ano de hospedagem incluso. O valor final depende do conteúdo e das integrações.</p>"
+          },
+          {
+            "question": "Qual o prazo?",
+            "answer": "<p>A landing page fica pronta em até 24 horas após o briefing.</p>"
+          },
+          {
+            "question": "É preciso ter domínio ou hospedagem?",
+            "answer": "<p>Não. O registro do domínio e a configuração da hospedagem fazem parte do serviço, e cada contratação inclui um ano de hospedagem.</p>"
+          },
+          {
+            "question": "A página é editável?",
+            "answer": "<p>Sim. Textos, imagens e cores são editados de forma visual.</p>"
+          },
+          {
+            "question": "A página vem otimizada para o Google?",
+            "answer": "<p>Com otimizações básicas de SEO: título, descrição, metas e carregamento rápido. Estratégia avançada de SEO não faz parte do escopo.</p>"
+          },
+          {
+            "question": "O que está incluso?",
+            "answer": "<p>Design exclusivo, textos estratégicos, versão para celular, publicação no domínio, integrações básicas (WhatsApp, tags e formulários) e 30 dias de suporte técnico após a entrega.</p>"
+          },
+          {
+            "question": "A Quatro Ventos gerencia anúncios?",
+            "answer": "<p>Não. O foco é a página, entregue pronta para divulgação.</p>"
+          },
+          {
+            "question": "Qual a diferença entre landing page e site?",
+            "answer": "<p>O site apresenta a empresa inteira, com várias páginas e caminhos. A landing page tira o que distrai e leva a uma única ação, o que favorece a conversão do tráfego pago; muitas empresas usam os dois, o site institucional e uma landing page por campanha.</p>"
+          },
+          {
+            "question": "Dá para criar landing pages com IA?",
+            "answer": "<p>Sim. O <a href=\"/cases/firefly-webmaker\">Firefly Webmaker</a>, que construímos, cria e publica landing pages com agentes de IA a partir de uma descrição do negócio. A hospedagem pode ficar na <a href=\"/hospedagem-de-sites\">Firefly Host</a>.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "Uma landing page pronta *para converter.*",
+        "body": "<p>Uma conversa basta para entender o público, a oferta e as ferramentas que a página precisa conectar.</p>",
+        "cta_label": "Solicitar landing page",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento%20de%20landing%20page."
+      }
+    }
+  ]
+}

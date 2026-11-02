@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Painel de Operação</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:900px;overflow:hidden}
+body{background:#F5F5F2;color:#111418;font-family:"Helvetica Neue",Arial,sans-serif}
+nav{height:72px;display:flex;align-items:center;padding:0 48px;gap:40px;background:#111418;color:#F5F5F2}
+.logo{font-weight:800;font-size:22px;letter-spacing:.04em;text-transform:uppercase}
+.links{display:flex;gap:30px;font:14px ui-monospace,Menlo,monospace;text-transform:uppercase;margin-left:auto}
+.wa{background:#FFB000;color:#111418;padding:12px 20px;font:700 14px ui-monospace,Menlo,monospace;text-transform:uppercase}
+.top{display:grid;grid-template-columns:1fr 1fr;height:420px}
+.copy{padding:56px 48px}
+h1{font-size:68px;line-height:1;font-weight:800;letter-spacing:-.02em}
+.lead{font-size:18px;line-height:1.5;margin-top:22px;max-width:560px}
+.cta{display:inline-block;margin-top:28px;background:#111418;color:#F5F5F2;padding:18px 26px;font:700 15px ui-monospace,Menlo,monospace;text-transform:uppercase}
+.board{background:#111418;color:#F5F5F2;margin:40px 48px 0 0;padding:20px 24px;font-family:ui-monospace,Menlo,monospace}
+.head,.row{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.2fr;gap:12px;padding:12px 0;border-bottom:1px solid #2A3038}
+.head{font-size:12px;color:#8A93A0;text-transform:uppercase;letter-spacing:.1em}
+.row{font-size:17px;text-transform:uppercase}
+.row.on{color:#FFB000}
+.note{font-size:11px;color:#8A93A0;margin-top:10px;text-transform:uppercase}
+.passes{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:40px 48px}
+.pass{background:#fff;border:2px solid #111418;display:grid;grid-template-columns:1fr 90px;height:300px}
+.pass .a{padding:20px;border-right:2px dashed #111418}
+.pass .k{font:11px ui-monospace,Menlo,monospace;text-transform:uppercase;color:#5B636E}
+.pass h2{font-size:26px;font-weight:800;margin-top:8px;line-height:1.05}
+.pass .b{padding:20px 10px;font:12px ui-monospace,Menlo,monospace;writing-mode:vertical-rl}
+</style>
+</head>
+<body>
+<nav><div class="logo">Quatro Ventos</div><div class="links"><span>Inteligência artificial</span><span>Software</span><span>Web</span><span>Suporte e infraestrutura</span><span>Cases</span><span>Sobre</span><span>Contato</span></div><div class="wa">Iniciar um projeto</div></nav>
+<section class="top">
+  <div class="copy">
+    <h1>Processos melhores com inteligência artificial.</h1>
+    <p class="lead">Ajudamos empresas a melhorar processos com soluções criativas de IA. Agentes, automações e sistemas desenhados para a operação de cada negócio, do diagnóstico à produção.</p>
+    <a class="cta">Iniciar um projeto</a>
+  </div>
+  <div class="board">
+    <div class="head"><span>Processo</span><span>Etapa</span><span>Status</span><span>Responsável</span></div>
+    <div class="row"><span>Cadastro de clientes</span><span>03</span><span>Em dia</span><span>Equipe</span></div>
+    <div class="row on"><span>Conferência de pedidos</span><span>02</span><span>Revisado</span><span>Agente de IA</span></div>
+    <div class="row"><span>Emissão de notas</span><span>04</span><span>Em dia</span><span>Sistema</span></div>
+    <div class="row"><span>Atendimento</span><span>01</span><span>Em dia</span><span>Equipe</span></div>
+    <div class="row"><span>Relatórios</span><span>05</span><span>Em dia</span><span>Automação</span></div>
+    <div class="note">Exemplo ilustrativo</div>
+  </div>
+</section>
+<section class="passes">
+  <div class="pass"><div class="a"><div class="k">Serviço 01</div><h2>Inteligência artificial</h2></div><div class="b">QV-IA-01</div></div>
+  <div class="pass"><div class="a"><div class="k">Serviço 02</div><h2>Engenharia de software</h2></div><div class="b">QV-SW-02</div></div>
+  <div class="pass"><div class="a"><div class="k">Serviço 03</div><h2>Desenvolvimento web</h2></div><div class="b">QV-WEB-03</div></div>
+  <div class="pass"><div class="a"><div class="k">Serviço 04</div><h2>Suporte e infraestrutura</h2></div><div class="b">QV-SUP-04</div></div>
+</section>
+</body>
+</html>

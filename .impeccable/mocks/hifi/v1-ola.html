@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quatro Ventos | Opção 1: Olá</title>
+<style>
+@font-face{font-family:"Host Grotesk";src:url(fonts/host-grotesk.woff2) format("woff2");font-weight:300 800;font-display:swap}
+@font-face{font-family:"Martian Mono";src:url(fonts/martian-mono.woff2) format("woff2");font-weight:100 800;font-display:swap}
+:root{--bg:#050506;--fg:#F4F4F2;--gray:#8E8E8A;--acc:#6A3CFF;--line:#1E1E22}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{font-family:"Host Grotesk",system-ui,sans-serif;color:var(--fg);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+nav{position:fixed;inset:0 0 auto;z-index:5;height:92px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 clamp(20px,3vw,44px)}
+.logo{font-size:26px;letter-spacing:-.04em;font-weight:300}
+.logo b{font-weight:700}
+.links{display:flex;gap:34px;font-size:16px;color:#B8B8B4}
+.links a:hover{color:var(--fg)}
+.pill{justify-self:end;display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .25s cubic-bezier(.2,.7,.2,1),background .25s}
+.pill:hover{transform:translateY(-2px)}
+.pill.gray{background:#E6E6E2;color:var(--bg)}
+.pill.acc{background:var(--acc);color:#fff}
+.pill.line{box-shadow:inset 0 0 0 1.5px #4A4A48}
+.hero{position:relative;height:100vh;min-height:720px;overflow:hidden}
+#gl{position:absolute;inset:0;width:100%;height:100%}
+.fallback{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-size:60vh;font-weight:800;color:var(--acc);display:none}
+.hello{position:absolute;left:clamp(16px,2.4vw,36px);bottom:clamp(96px,14vh,140px);font-weight:700;font-size:clamp(120px,19vw,300px);line-height:.8;letter-spacing:-.07em;color:var(--gray);mix-blend-mode:normal;pointer-events:none}
+.line1{position:absolute;left:clamp(20px,3vw,44px);right:clamp(20px,3vw,44px);bottom:40px;display:flex;justify-content:space-between;align-items:end;gap:40px}
+.rot{font-size:clamp(26px,2.6vw,40px);font-weight:600;letter-spacing:-.03em;line-height:1.05;color:#CFCFCB}
+.rot .slot{display:inline-block;position:relative;height:1.1em;overflow:hidden;vertical-align:bottom;color:var(--fg)}
+.rot .slot span{display:block;transition:transform .7s cubic-bezier(.7,0,.2,1)}
+.line1 .ctas{display:flex;gap:12px}
+.statement{padding:140px clamp(20px,3vw,44px) 60px;border-top:1px solid var(--line)}
+.statement p{font-size:clamp(40px,5.4vw,88px);line-height:.98;letter-spacing:-.05em;font-weight:650;max-width:18ch}
+.statement p em{font-style:normal;color:var(--acc)}
+.sol{padding:40px clamp(20px,3vw,44px) 120px}
+.sol h2{font-size:15px;font-family:"Martian Mono",monospace;font-weight:400;color:var(--gray);margin-bottom:22px;letter-spacing:.02em}
+.sol ol{list-style:none;counter-reset:s}
+.sol li{counter-increment:s;border-top:1px solid var(--line)}
+.sol a{display:grid;grid-template-columns:90px 1fr 1fr 40px;align-items:baseline;padding:30px 0;transition:color .3s}
+.sol a::before{content:counter(s,decimal-leading-zero);font-family:"Martian Mono",monospace;font-size:14px;color:var(--gray)}
+.sol a b{font-size:clamp(30px,3.4vw,52px);letter-spacing:-.045em;font-weight:650}
+.sol a span{font-size:18px;color:#B8B8B4;line-height:1.4}
+.sol a i{font-style:normal;font-size:26px;opacity:0;transform:translateX(-10px);transition:all .3s}
+.sol a:hover b{color:var(--acc)}
+.sol a:hover i{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="#">quatro<b>ventos</b></a><div class="links"><a href="#">Inteligência artificial</a><a href="#">Software</a><a href="#">Web</a><a href="#">Suporte</a><a href="#">Cases</a><a href="#">Sobre</a></div><a class="pill gray" href="#">Iniciar um projeto</a></nav>
+<section class="hero">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="fallback" id="fb">4</div>
+  <h1 class="hello">Olá.</h1>
+  <div class="line1">
+    <p class="rot">Melhoramos processos<br><span class="slot" id="slot"><span>de atendimento.</span><span>financeiros.</span><span>comerciais.</span><span>de operação.</span><span>de atendimento.</span></span> com IA.</p>
+    <div class="ctas"><a class="pill acc" href="#">Iniciar um projeto</a><a class="pill line" href="#">Conhecer os serviços</a></div>
+  </div>
+</section>
+<section class="statement"><p>Processos melhores com <em>inteligência artificial.</em> Agentes, automações e sistemas desenhados para a operação de cada negócio.</p></section>
+<section class="sol">
+  <h2>Capacidades</h2>
+  <ol>
+    <li><a href="#"><b>Inteligência artificial</b><span>Agentes, automação de processos, IA sobre dados proprietários e integração de LLMs.</span><i>→</i></a></li>
+    <li><a href="#"><b>Engenharia de software</b><span>Plataformas sob medida, SaaS, ERP e CRM, modernização de legado.</span><i>→</i></a></li>
+    <li><a href="#"><b>Desenvolvimento web</b><span>Sites, landing pages, e-commerce e WordPress.</span><i>→</i></a></li>
+    <li><a href="#"><b>Suporte e infraestrutura</b><span>Sustentação, manutenção, hospedagem e VPS.</span><i>→</i></a></li>
+  </ol>
+</section>
+<script>
+const slot=document.getElementById('slot'),items=slot.children,h=()=>items[0].getBoundingClientRect().height;let k=0;
+setInterval(()=>{k++;[...items].forEach(s=>s.style.transform=`translateY(${-k*h()}px)`);if(k===items.length-1){setTimeout(()=>{[...items].forEach(s=>{s.style.transition='none';s.style.transform='none'});k=0;requestAnimationFrame(()=>[...items].forEach(s=>s.style.transition=''))},750)}},2200);
+</script>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.170.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.170.0/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+try{
+const c=document.getElementById('gl');
+const r=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=1.05;
+const scene=new THREE.Scene();const pm=new THREE.PMREMGenerator(r);scene.environment=pm.fromScene(new RoomEnvironment(),.04).texture;
+const cam=new THREE.PerspectiveCamera(32,1,.1,100);cam.position.set(0,0,13);
+const s=new THREE.Shape();[[1.5,4.2],[2.7,4.2],[2.7,1.55],[3.35,1.55],[3.35,.65],[2.7,.65],[2.7,-.4],[1.65,-.4],[1.65,.65],[-.45,.65],[-.45,1.45]].forEach(([x,y],i)=>i?s.lineTo(x,y):s.moveTo(x,y));s.closePath();
+const hole=new THREE.Path();hole.moveTo(.75,1.55);hole.lineTo(1.65,1.55);hole.lineTo(1.65,2.95);hole.closePath();s.holes.push(hole);
+const g=new THREE.ExtrudeGeometry(s,{depth:.5,bevelEnabled:true,bevelThickness:.55,bevelSize:.32,bevelSegments:24,curveSegments:24});g.center();
+const pos=g.attributes.position,v=new THREE.Vector3();for(let i=0;i<pos.count;i++){v.fromBufferAttribute(pos,i);const n=Math.sin(v.x*7)*Math.cos(v.y*6)*.025;pos.setZ(i,v.z+(v.z>0?n:-n))}g.computeVertexNormals();
+const m=new THREE.MeshPhysicalMaterial({color:'#6A3CFF',roughness:.42,metalness:0,clearcoat:.6,clearcoatRoughness:.25,sheen:1,sheenColor:new THREE.Color('#C9B8FF'),sheenRoughness:.4});
+const rimM=new THREE.MeshPhysicalMaterial({color:'#D8D8DE',metalness:1,roughness:.18});
+const mesh=new THREE.Mesh(g,[m,rimM]);mesh.scale.setScalar(1.25);scene.add(mesh);
+const key=new THREE.DirectionalLight('#ffffff',1.6);key.position.set(4,6,8);scene.add(key);
+let tx=0,ty=0;addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*.6;ty=(e.clientY/innerHeight-.5)*.4});
+function size(){const w=c.clientWidth,h=c.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();mesh.position.y=h<800?.4:.5}
+addEventListener('resize',size);size();
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let t=0;
+(function loop(){t+=.01;mesh.rotation.y+=((reduce?0:Math.sin(t)*.35)+tx-mesh.rotation.y)*.05;mesh.rotation.x+=(ty-mesh.rotation.x)*.05;r.render(scene,cam);requestAnimationFrame(loop)})();
+}catch(e){document.getElementById('fb').style.display='block'}
+</script>
+</body>
+</html>

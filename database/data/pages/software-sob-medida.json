@@ -1,0 +1,214 @@
+{
+  "slug": "software-sob-medida",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Software sob medida e web apps | Quatro Ventos",
+  "seo_description": "Web apps e plataformas sob medida desenhados a partir do seu processo, com frontend, backend, hospedagem e sustentação no mesmo time.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/software-sob-medida.jpg",
+  "og_image_alt": "Software desenhado a partir do processo. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Software sob medida desenhado *a partir do processo.*",
+        "subtitle": "<p>Software sob medida é um sistema construído em volta da forma como a sua operação funciona, em vez de adaptar a operação a uma ferramenta pronta. Desenvolvemos web apps, portais e painéis com frontend, backend, hospedagem e sustentação no mesmo time, como as calculadoras técnicas da Moltec e da Cyclolux.</p>",
+        "visual": "software",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20um%20software%20sob%20medida."
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "Aplicações de um *sistema próprio.*",
+        "intro": "<p>Os tipos de sistema que mais aparecem quando a operação já não cabe em planilhas ou em uma ferramenta genérica.</p>",
+        "items": [
+          {
+            "title": "Gestão",
+            "text": "Cadastros, aprovações, relatórios e permissões por perfil, no lugar de planilhas compartilhadas."
+          },
+          {
+            "title": "Portais",
+            "text": "Área logada para clientes, fornecedores e parceiros acompanharem pedidos e enviarem documentos."
+          },
+          {
+            "title": "Integrações",
+            "text": "Dados circulando entre ERP, CRM, loja virtual e ferramentas internas sem digitação manual."
+          },
+          {
+            "title": "MVPs",
+            "text": "Uma primeira versão com o mínimo que resolve, para testar com usuários reais antes do produto inteiro."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "examples-1",
+      "type": "site.examples",
+      "data": {
+        "title": "Exemplos de *sistemas.*",
+        "intro": "<p>Processos que costumam viver em planilhas, e-mails e mensagens até ganharem um sistema próprio.</p>",
+        "items": [
+          {
+            "title": "Controle de ordens de serviço",
+            "text": "Abertura, distribuição para a equipe, registro em campo e fechamento com histórico por cliente."
+          },
+          {
+            "title": "Portal do cliente",
+            "text": "O cliente acompanha pedidos, baixa notas e boletos e abre solicitações sem precisar ligar."
+          },
+          {
+            "title": "Gestão de contratos",
+            "text": "Contratos com vencimentos, reajustes e renovações acompanhados, com aviso antes do prazo."
+          },
+          {
+            "title": "Agendamento online",
+            "text": "Agenda por profissional, unidade ou recurso, com confirmação e lembrete por WhatsApp ou e-mail."
+          },
+          {
+            "title": "Cotação e pedidos B2B",
+            "text": "Catálogo com preço por cliente, montagem de pedido e envio direto para o ERP."
+          },
+          {
+            "title": "Painel de indicadores",
+            "text": "Dados de vendas, operação e financeiro reunidos em um painel atualizado a partir dos sistemas."
+          },
+          {
+            "title": "Fluxo de aprovações",
+            "text": "Compras, descontos e reembolsos com regras de alçada, histórico e notificação a cada etapa."
+          },
+          {
+            "title": "Gestão de documentos",
+            "text": "Envio, versão, validade e assinatura de documentos de clientes, fornecedores ou colaboradores."
+          }
+        ],
+        "more_title": "Qualquer processo da operação",
+        "more_text": "Se o processo tem regras próprias e hoje depende de planilhas, retrabalho ou de uma ferramenta que não encaixa, ele pode virar um sistema.",
+        "more_label": "Conte qual é o seu",
+        "more_href": "#contato",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "Full stack *de verdade.*",
+        "body": "<p>O mesmo time desenha a arquitetura, programa a interface e constrói o backend. Menos repasse, menos ruído e decisões técnicas coerentes do banco de dados à tela.</p>",
+        "cta_label": "Conversar sobre um sistema",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20um%20software%20sob%20medida.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Do processo ao sistema em uso.",
+        "intro": "<p>As telas são validadas antes do código e o sistema passa por homologação em ambiente privado antes da publicação.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Arquitetura",
+            "body": "<p>Fluxos, dados e integrações.</p>"
+          },
+          {
+            "title": "Prototipagem",
+            "body": "<p>Telas validadas antes do código.</p>"
+          },
+          {
+            "title": "Frontend",
+            "body": "<p>Interface rápida e acessível.</p>"
+          },
+          {
+            "title": "Backend",
+            "body": "<p>Regras, APIs, integrações e segurança.</p>"
+          },
+          {
+            "title": "Homologação",
+            "body": "<p>Testes em ambiente privado.</p>"
+          },
+          {
+            "title": "Entrega e evolução",
+            "body": "<p>Publicação, monitoramento e melhorias.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "O que o projeto *entrega.*",
+        "items": [
+          "Mapeamento do processo e desenho da arquitetura",
+          "Protótipo das telas validado antes do código",
+          "Frontend e backend do sistema",
+          "Integrações com os sistemas e APIs da operação",
+          "Homologação em ambiente privado",
+          "Publicação, monitoramento e melhorias contínuas"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "showcase-1",
+      "type": "site.showcase",
+      "data": {
+        "title": "Software sob medida em produção.",
+        "intro": "<p>Um sistema construído em volta da operação do cliente, ligado ao que ela já usava.</p>",
+        "items": [
+          "fiscal-hub"
+        ]
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "Por que não usar um sistema pronto?",
+            "answer": "<p>Quando um sistema de prateleira atende, ele costuma ser o melhor caminho. O sob medida faz sentido quando o processo não cabe na ferramenta e a operação passa a se adaptar a ela, com planilhas e retrabalho ao redor.</p>"
+          },
+          {
+            "question": "O sistema conversa com o que já usamos?",
+            "answer": "<p>Sim. Integrações com ERP, CRM, loja virtual, planilhas e APIs fazem parte do desenho da arquitetura, logo no início do projeto.</p>"
+          },
+          {
+            "question": "Dá para começar com uma versão menor?",
+            "answer": "<p>Sim. Um MVP com o mínimo que resolve permite validar o sistema com usuários reais e definir as próximas etapas a partir do uso.</p>"
+          },
+          {
+            "question": "Quem faz o frontend e quem faz o backend?",
+            "answer": "<p>O mesmo time. Arquitetura, interface e backend ficam com as mesmas pessoas, do banco de dados à tela.</p>"
+          },
+          {
+            "question": "Software sob medida ou sistema pronto (SaaS)?",
+            "answer": "<p>O sistema pronto vale quando o processo é padrão e a ferramenta cobre o que a empresa faz; sai mais rápido e mais barato no começo. O sob medida vale quando a operação tem regras próprias, quando a mensalidade por usuário pesa ou quando é preciso integrar sistemas que a ferramenta não alcança. Exemplos: a <a href=\"/cases/moltec\">calculadora de molas da Moltec</a> e a <a href=\"/cases/cyclolux\">calculadora industrial da Cyclolux</a>.</p>"
+          },
+          {
+            "question": "Quanto tempo leva e quanto custa?",
+            "answer": "<p>Depende do número de telas, regras e integrações; começar por uma versão menor reduz o prazo e o custo da primeira entrega. [PREENCHER: faixa de investimento e prazo típico] Depois da publicação, o sistema pode seguir em <a href=\"/sustentacao-de-software\">sustentação de software</a>.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "Qual processo precisa de *um sistema próprio?*",
+        "body": "<p>Uma conversa basta para entender o processo, ver com quais sistemas ele precisa conversar e por onde começar.</p>",
+        "cta_label": "Falar com um especialista",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20um%20software%20sob%20medida."
+      }
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      default:
+        aliases:
+          - quatroventos-redis
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: quatroventos-site:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
+      RUN_MIGRATIONS: "true"
+      RUN_SEED: "false"
+      DB_CONNECTION: mysql
+      REDIS_HOST: quatroventos-redis
+      QUEUE_CONNECTION: redis
+      CACHE_STORE: redis
+      SESSION_DRIVER: redis
+      SESSION_SECURE_COOKIE: "true"
+    volumes:
+      - app_storage:/var/www/html/storage
+    networks:
+      default:
+        aliases:
+          - quatroventos-app
+      easypanel: {}
+    depends_on:
+      - redis
+
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: quatroventos-site:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      RUN_MIGRATIONS: "false"
+      RUN_SEED: "false"
+      DB_CONNECTION: mysql
+      REDIS_HOST: quatroventos-redis
+      QUEUE_CONNECTION: redis
+      CACHE_STORE: redis
+      OG_CAPTURE_URL: "http://quatroventos-app:8000"
+    volumes:
+      - app_storage:/var/www/html/storage
+    entrypoint: ["/bin/sh", "-c", "php artisan queue:work --sleep=1 --tries=3"]
+    networks:
+      - default
+      - easypanel
+    depends_on:
+      - app
+
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: quatroventos-site:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      RUN_MIGRATIONS: "false"
+      RUN_SEED: "false"
+      DB_CONNECTION: mysql
+      REDIS_HOST: quatroventos-redis
+      QUEUE_CONNECTION: redis
+      CACHE_STORE: redis
+    volumes:
+      - app_storage:/var/www/html/storage
+    entrypoint: ["/bin/sh", "-c", "php artisan schedule:work"]
+    networks:
+      - default
+      - easypanel
+    depends_on:
+      - app
+
+networks:
+  easypanel:
+    external: true
+
+volumes:
+  redis_data:
+  app_storage:

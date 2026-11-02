@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "montserrat",
+        "createdAt": "2026-10-28T22:33:47.217Z",
+        "reason": "Fonte publicada do site da Quatro Ventos; o porte do CMS mantém Montserrat de propósito."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "playfair display",
+        "createdAt": "2026-11-02T02:53:52.908Z",
+        "reason": "Prancha de sistema do PDF da Rubia Rocha pina Playfair Display"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "work sans",
+        "createdAt": "2026-11-02T02:53:52.926Z",
+        "reason": "Prancha de sistema do PDF da Rubia Rocha pina Work Sans"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "public/estudio/index.html"
+        ],
+        "createdAt": "2026-11-02T03:25:18.376Z",
+        "reason": "Shell do build não define fundo; o creme é o --paper pinado pela prancha"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Painel em blocos</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:900px;overflow:hidden}
+body{background:#ECECEA;color:#111;font-family:"Helvetica Neue",Arial,sans-serif;display:grid;grid-template-columns:1fr 300px;gap:16px;padding:24px}
+.main{display:grid;grid-template-rows:200px 1fr;gap:16px}
+.top{display:grid;grid-template-columns:260px 1fr 1fr;gap:32px;padding:12px 8px 0}
+.logo{font-weight:800;font-size:28px;letter-spacing:-.02em}
+h1{font-size:44px;line-height:1.02;letter-spacing:-.03em;font-weight:600}
+.top p{font-size:16px;line-height:1.5;color:#3A3A38}
+.media{border-radius:22px;background:#2B3A55;position:relative;overflow:hidden}
+.media .shot{position:absolute;left:120px;top:70px;right:120px;bottom:-40px;border-radius:14px;background:#F6F6F4;box-shadow:0 30px 80px #0006}
+.media .bar{position:absolute;left:150px;top:100px;width:420px;height:28px;border-radius:6px;background:#2B3A55}
+.media .cap{position:absolute;left:28px;bottom:24px;color:#fff;font-size:26px;font-weight:600}
+.side{display:flex;flex-direction:column;gap:10px}
+.clock{height:250px;border-radius:22px;background:#F7F7F5;position:relative}
+.clock span{position:absolute;font-size:15px;color:#555}
+.clock i{position:absolute;left:150px;top:30px;width:2px;height:95px;background:#E5484D;transform-origin:bottom;transform:rotate(8deg)}
+.pills{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.pills div,.wide{background:#F7F7F5;border-radius:999px;padding:13px 0;text-align:center;font-size:14px}
+.wide{background:#111;color:#fff;font-weight:600}
+.item{background:#F7F7F5;border-radius:16px;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 16px;font-size:14px}
+.item b{display:block;font-weight:600}
+.item i{width:64px;height:54px;border-radius:10px;background:#2B3A55}
+.item:nth-child(2) i{background:#E8E2D6}
+.item:nth-child(3) i{background:#1F5C4A}
+.item:nth-child(4) i{background:#111}
+</style>
+</head>
+<body>
+<div class="main">
+  <div class="top">
+    <div class="logo">QUATRO VENTOS</div>
+    <h1>Processos melhores com inteligência artificial.</h1>
+    <p>Ajudamos empresas a melhorar processos com soluções criativas de IA. Agentes, automações e sistemas desenhados para a operação de cada negócio, do diagnóstico à produção.</p>
+  </div>
+  <div class="media"><div class="shot"></div><div class="bar"></div><div class="cap">Hemera DTVM</div></div>
+</div>
+<aside class="side">
+  <div class="clock"><i></i><span style="left:22px;top:118px">09:42</span><span style="right:22px;top:118px">Curitiba</span></div>
+  <div class="pills"><div>IA</div><div>Software</div><div>Web</div></div>
+  <div class="pills"><div>Suporte</div><div>Cases</div><div>Sobre</div></div>
+  <div class="wide">Iniciar um projeto</div>
+  <div class="item"><span><b>Digio</b>Finanças</span><i></i></div>
+  <div class="item"><span><b>Multiversidade PUCPR</b>Educação</span><i></i></div>
+  <div class="item"><span><b>Facilitapay</b>Finanças</span><i></i></div>
+  <div class="item"><span><b>Hemera DTVM</b>Finanças</span><i></i></div>
+</aside>
+</body>
+</html>

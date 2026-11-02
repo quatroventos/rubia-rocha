@@ -1,0 +1,151 @@
+{
+  "slug": "cases",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Cases de IA, software e sites | Quatro Ventos",
+  "seo_description": "Cases de inteligência artificial, software e web da Quatro Ventos: B.I.A, Fiscal Hub, Webmaker, Moltec e outros, com o problema e a solução.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/cases.jpg",
+  "og_image_alt": "Projetos de inteligência artificial. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Cases de",
+        "rotating": [
+          "inteligência artificial.",
+          "software sob medida.",
+          "sites e webapps."
+        ],
+        "subtitle": "<p>Cases da Quatro Ventos em inteligência artificial, software e web, com o problema de cada cliente e a solução publicada. Entre eles, a B.I.A, SDR com IA da Hive Hub, o Fiscal Hub, o Firefly Webmaker e as calculadoras industriais da Moltec e da Cyclolux, em finanças, indústria, varejo e serviços.</p>",
+        "primary_label": "Iniciar um projeto",
+        "primary_href": "https://wa.me/554130399593?text=Vi%20os%20cases%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.",
+        "secondary_label": "Ver os projetos",
+        "secondary_href": "#projetos"
+      }
+    },
+    {
+      "id": "cases-browser-1",
+      "type": "site.cases-browser",
+      "data": {
+        "title": "Projetos que *entregamos.*",
+        "intro": "<p>Agentes de IA, plataformas SaaS, calculadoras industriais, sites e webapps, do planejamento à publicação.</p>",
+        "categories": [
+          {
+            "id": "ia",
+            "label": "Inteligência artificial",
+            "services": [
+              "inteligencia-artificial",
+              "agentes-de-ia",
+              "automacao-com-ia",
+              "ia-com-dados-da-empresa",
+              "integracao-de-llm",
+              "sistemas-com-ia"
+            ]
+          },
+          {
+            "id": "software",
+            "label": "Software e webapps",
+            "services": [
+              "desenvolvimento-de-software",
+              "software-sob-medida",
+              "desenvolvimento-de-saas",
+              "modernizacao-de-sistemas",
+              "erp-e-crm",
+              "ui-ux-design",
+              "qa-e-testes",
+              "desenvolvimento-de-ecommerce",
+              "sustentacao-de-software"
+            ]
+          },
+          {
+            "id": "sites",
+            "label": "Sites",
+            "services": [
+              "desenvolvimento-web",
+              "desenvolvimento-de-sites",
+              "landing-pages",
+              "sites-wordpress",
+              "seo-e-llms",
+              "manutencao-de-sites",
+              "recuperacao-de-site-wordpress"
+            ]
+          }
+        ],
+        "mark_draw": true,
+        "anchor": "projetos"
+      }
+    },
+    {
+      "id": "logos-1",
+      "type": "site.logos",
+      "data": {
+        "title": "Empresas que *crescem com a gente.*",
+        "intro": "<p>Do mercado financeiro à saúde e ao varejo, atendemos empresas de portes e setores diferentes com o mesmo cuidado: projeto bem planejado, entrega no prazo e suporte depois da publicação.</p>",
+        "clients": true,
+        "mono": true,
+        "items": [
+          {
+            "name": "Incavel",
+            "image": "/assets/clientes/lampa/incavel.svg",
+            "image_alt": "Incavel"
+          },
+          {
+            "name": "4KST",
+            "image": "/assets/clientes/lampa/4kst.svg",
+            "image_alt": "4KST"
+          },
+          {
+            "name": "Aliança Francesa",
+            "image": "/assets/clientes/lampa/af.svg",
+            "image_alt": "Aliança Francesa"
+          },
+          {
+            "name": "AGMov",
+            "image": "/assets/clientes/lampa/agmov.svg",
+            "image_alt": "AGMov"
+          },
+          {
+            "name": "Bisuti",
+            "image": "/assets/clientes/lampa/bisuti.png",
+            "image_alt": "Bisuti"
+          },
+          {
+            "name": "Conela",
+            "image": "/assets/clientes/lampa/conela.svg",
+            "image_alt": "Conela"
+          },
+          {
+            "name": "Costi",
+            "image": "/assets/clientes/lampa/costi.png",
+            "image_alt": "Costi"
+          },
+          {
+            "name": "Momentum",
+            "image": "/assets/clientes/lampa/momentum.svg",
+            "image_alt": "Momentum"
+          },
+          {
+            "name": "Produtive",
+            "image": "/assets/clientes/lampa/produtive.svg",
+            "image_alt": "Produtive"
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "O próximo projeto começa *com uma conversa.*",
+        "body": "<p>Conte qual processo precisa melhorar. Avaliamos o caso e indicamos por onde começar.</p>",
+        "cta_label": "Falar com um especialista",
+        "cta_href": "https://wa.me/554130399593?text=Vi%20os%20cases%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.",
+        "tone": "white"
+      }
+    }
+  ]
+}

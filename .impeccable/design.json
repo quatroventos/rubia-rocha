@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-02T04:25:00-03:00",
+  "title": "Design System: Rubia Rocha Fotografia",
+  "extensions": {
+    "colorMeta": {
+      "tinta": {
+        "role": "primary",
+        "displayName": "Tinta",
+        "canonical": "#100f17",
+        "tonalRamp": ["#16151a", "#333239", "#52515b", "#74737d", "#9897a0", "#b7b6be", "#d7d7dc", "#eeeef2"]
+      },
+      "grafite": {
+        "role": "neutral",
+        "displayName": "Grafite",
+        "canonical": "#5c5858",
+        "tonalRamp": ["#171515", "#353232", "#555151", "#777373", "#9b9797", "#b9b6b6", "#d9d7d7", "#efeeee"]
+      },
+      "papel": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "#f6f1eb",
+        "tonalRamp": ["#181613", "#35322f", "#56524d", "#78746f", "#9b9893", "#bab7b3", "#d9d7d4", "#f0eeec"]
+      },
+      "folha": {
+        "role": "neutral",
+        "displayName": "Folha",
+        "canonical": "#fffcf9",
+        "tonalRamp": ["#171615", "#343231", "#545250", "#767471", "#9a9896", "#b9b7b5", "#d8d7d6", "#efeeed"]
+      },
+      "branco": {
+        "role": "neutral",
+        "displayName": "Branco",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#161616", "#333333", "#525252", "#747474", "#989898", "#b7b7b7", "#d7d7d7", "#eeeeee"]
+      },
+      "blush": {
+        "role": "secondary",
+        "displayName": "Blush",
+        "canonical": "#f3e4dc",
+        "tonalRamp": ["#1a1511", "#39312c", "#5b504a", "#7e726b", "#a09690", "#beb5b1", "#dcd6d3", "#f2edeb"]
+      },
+      "rosa-queimado": {
+        "role": "secondary",
+        "displayName": "Rosa queimado",
+        "canonical": "#b08978",
+        "tonalRamp": ["#22110a", "#452c21", "#6a4a3c", "#8e6b5c", "#af9184", "#cab1a6", "#e5d3cb", "#f9ebe5"]
+      },
+      "barro": {
+        "role": "secondary",
+        "displayName": "Barro",
+        "canonical": "#8d6e60",
+        "tonalRamp": ["#20120c", "#422d24", "#664c3f", "#8a6d60", "#ab9287", "#c7b2a9", "#e3d4cd", "#f7ece7"]
+      },
+      "sepia": {
+        "role": "secondary",
+        "displayName": "Sépia",
+        "canonical": "#826559",
+        "tonalRamp": ["#1f120d", "#412e26", "#654c41", "#896e62", "#aa9289", "#c6b3aa", "#e2d4ce", "#f7ece7"]
+      },
+      "linho": {
+        "role": "neutral",
+        "displayName": "Linho",
+        "canonical": "#c9b2a6",
+        "tonalRamp": ["#1d140f", "#3d2f28", "#604e44", "#837066", "#a5948b", "#c2b4ad", "#dfd5d0", "#f4ede9"]
+      },
+      "whatsapp": {
+        "role": "tertiary",
+        "displayName": "Verde WhatsApp",
+        "canonical": "#128c7e",
+        "tonalRamp": ["#001e18", "#003f36", "#006257", "#1e8679", "#5ea89c", "#8cc5ba", "#bae1da", "#d8f6f0"]
+      },
+      "whatsapp-fundo": {
+        "role": "tertiary",
+        "displayName": "Verde fundo",
+        "canonical": "#075e54",
+        "tonalRamp": ["#001c18", "#003c35", "#185f56", "#408278", "#70a49b", "#97c2ba", "#c1dfd9", "#def4f0"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "H1, centrado, Playfair Display." },
+      "headline": { "displayName": "Headline", "purpose": "H2 de seção, Playfair Display." },
+      "title": { "displayName": "Title", "purpose": "H3, Playfair Display." },
+      "body": { "displayName": "Body", "purpose": "Texto corrido, Work Sans, até 66ch." },
+      "label": { "displayName": "Label", "purpose": "Botão, kicker e rótulo, Work Sans, caixa alta." },
+      "contrast": { "displayName": "Contrast", "purpose": "Menu, nome sobre a foto e assinatura, Kudryashev Display Contrast." }
+    },
+    "shadows": [
+      {
+        "name": "folha",
+        "value": "0 10px 18px -14px rgb(16 15 23 / 0.28)",
+        "purpose": "A seção clara pousada no papel."
+      },
+      {
+        "name": "flutuante",
+        "value": "0 8px 20px rgb(16 15 23 / 0.18)",
+        "purpose": "O botão de WhatsApp, fora do fluxo da página."
+      }
+    ],
+    "motion": [
+      {
+        "name": "chegada",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "O deslize do hero em 700ms e a entrada da grade em 0.45s."
+      },
+      {
+        "name": "estado",
+        "value": "150ms ease",
+        "purpose": "Troca de cor do botão e do item de menu."
+      }
+    ],
+    "breakpoints": [
+      { "name": "menu", "value": "800px" },
+      { "name": "hero", "value": "560px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão de linha",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Pedido de orçamento. Face branca, borda barro, rótulo em caixa alta.",
+      "html": "<a class=\"ds-btn ds-btn-line\" href=\"#\">Quero um orçamento <span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 44px; padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none; letter-spacing: 0.14em; text-transform: uppercase; font-family: \"Work Sans\", \"Avenir Next\", sans-serif; font-size: 0.75rem; font-weight: 500; transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease; } .ds-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; } .ds-btn-line { border: 1px solid var(--rose-deep); background: #fff; color: var(--ink); } .ds-btn-line:hover { background: var(--ink); color: var(--sheet); border-color: var(--ink); }"
+    },
+    {
+      "name": "Botão cheio",
+      "kind": "button",
+      "refersTo": "button-fill",
+      "description": "Chamado dentro da página. Face blush, sem borda, o mesmo hover do botão de linha.",
+      "html": "<a class=\"ds-btn ds-btn-fill\" href=\"#\">Fale comigo no Whats <span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 44px; padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none; letter-spacing: 0.14em; text-transform: uppercase; font-family: \"Work Sans\", \"Avenir Next\", sans-serif; font-size: 0.75rem; font-weight: 500; transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease; } .ds-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; } .ds-btn-fill { border: 1px solid transparent; background: var(--blush); color: var(--ink); } .ds-btn-fill:hover { background: var(--ink); color: var(--sheet); border-color: var(--ink); }"
+    },
+    {
+      "name": "Campo",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Fio inferior em linho, canto de 2px, sem caixa.",
+      "html": "<label class=\"ds-field\"><span>Nome</span><input type=\"text\" /></label>",
+      "css": ".ds-field { display: grid; gap: 0.5rem; font-family: \"Work Sans\", \"Avenir Next\", sans-serif; font-size: 0.875rem; color: var(--muted); } .ds-field input { width: 100%; border: 0; border-bottom: 1px solid var(--line); background: transparent; padding: 0.5rem 0; border-radius: 2px; color: var(--ink); font: inherit; } .ds-field input:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Menu",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Kudryashev Display Contrast, pílula sem borda, blush na página atual.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Home</a><a href=\"#\">Ensaios</a><a href=\"#\">Contato</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 0.5rem; font-family: \"Kudryashev Display Contrast\", Palatino, serif; font-size: 0.875rem; } .ds-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0.5rem 0.75rem; border-radius: 999px; color: var(--ink); text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current=\"page\"] { background: var(--blush); } .ds-nav a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "WhatsApp flutuante",
+      "kind": "button",
+      "refersTo": "whatsapp-float",
+      "description": "O único verde e a única sombra de objeto solto.",
+      "html": "<a class=\"ds-wa\" href=\"#\" aria-label=\"Chamar no WhatsApp\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 4a8 8 0 0 0-6.9 12l-.7 3.2 3.3-.7A8 8 0 1 0 12 4zm4.4 11.3c-.2.5-1 1-1.4 1-.4.1-.8.2-2.6-.6-2.2-.9-3.6-3.1-3.7-3.2-.1-.2-.9-1.2-.9-2.3s.6-1.6.8-1.8c.2-.2.4-.3.6-.3h.4c.1 0 .3 0 .5.4.2.5.6 1.6.7 1.7.1.1.1.3 0 .4-.1.2-.2.3-.3.5l-.2.3c-.1.1-.2.3-.1.5.2.3.7 1.1 1.5 1.8.9.8 1.7 1 1.9 1.1.2.1.4.1.5-.1.1-.2.6-.7.7-.9.2-.2.3-.2.5-.1.2.1 1.4.7 1.6.8.2.1.4.2.4.3.1.2 0 .7-.2 1.1z\"/></svg></a>",
+      "css": ".ds-wa { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--whatsapp); background: var(--whatsapp); color: #fff; box-shadow: 0 8px 20px rgb(16 15 23 / 0.18); } .ds-wa svg { width: 28px; height: 28px; fill: currentColor; } .ds-wa:hover { background: #075e54; border-color: #075e54; } .ds-wa:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Folha",
+      "kind": "card",
+      "description": "A seção clara pousada no papel, com a sombra curta.",
+      "html": "<section class=\"ds-sheet\"><p class=\"ds-kicker\">Fotografia da vida real</p><h2>O que eu fotografo?</h2></section>",
+      "css": ".ds-sheet { background: var(--sheet); color: var(--ink); padding: 4.5rem 2rem; border-radius: 2px; box-shadow: 0 10px 18px -14px rgb(16 15 23 / 0.28); } .ds-kicker { margin: 0 0 0.5rem; font-family: \"Work Sans\", \"Avenir Next\", sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); } .ds-sheet h2 { margin: 0; font-family: \"Playfair Display\", Palatino, serif; font-weight: 400; font-size: clamp(2rem, 3vw, 2.25rem); letter-spacing: -0.02em; line-height: 1.2; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "O estúdio de dia",
+    "overview": "A parede é clara e a prova está na parede. Não há cenário escuro, vinheta de estúdio nem letreiro de agência. A página é o papel em que as fotos pousam, e o texto fica perto, em primeira pessoa, falando de gente. Pacote, pose engessada e slogan não entram nessa voz.\n\nA densidade é baixa. A fotografia ocupa o vão; o controle é uma pílula pequena, em caixa alta, que não compete com a imagem. O rosa aparece como marca, não como pintura. O verde existe num lugar só, o botão que chama.",
+    "keyCharacteristics": [
+      "Papel creme na página e uma folha mais clara pousada em cima, com sombra curta.",
+      "Três vozes: Playfair Display nos títulos, Work Sans no texto e nos botões, Kudryashev Display Contrast no menu, no nome sobre a foto e no nome do depoimento.",
+      "Fotografia com canto de 2px. O hero guarda a proporção da prancha: laterais estreitas, centro mais largo, a mesma altura.",
+      "Pílula só no controle. Caixa alta e tracking largo só em botão, kicker e rótulo.",
+      "Rosa queimado é marca. Barro é a borda do botão de linha. Sépia é o rótulo curto. Verde é só o WhatsApp."
+    ],
+    "rules": [
+      { "name": "The Rose Is a Mark Rule", "body": "Rosa queimado não entra em parágrafo. Barro só na borda do botão de linha. Sépia só em rótulo curto.", "section": "colors" },
+      { "name": "The Green Is the Channel Rule", "body": "Verde WhatsApp e verde fundo existem só no botão flutuante.", "section": "colors" },
+      { "name": "The Three Voices Rule", "body": "Playfair Display nos títulos, no depoimento, na pergunta do FAQ e no título de card. Work Sans no texto, no botão, no kicker e em “Ver galeria”. Kudryashev Display Contrast no menu, no nome sobre a foto e no nome de quem assina o depoimento.", "section": "typography" },
+      { "name": "The Uppercase Is the Control Rule", "body": "Caixa alta e tracking largo marcam controle e rótulo. Título fica em caixa de frase.", "section": "typography" },
+      { "name": "The Frame Rule", "body": "O vão entre as fotos do hero é frame. Grade e trio usam group, um passo abaixo. O texto da página não encosta na prova: o intervalo seguinte é section ou break.", "section": "layout" },
+      { "name": "The Same Height Rule", "body": "No hero, laterais e centro compartilham a altura. A largura muda; a altura não.", "section": "layout" },
+      { "name": "The Sheet Rule", "body": "A folha separa-se do papel pela cor e por essa sombra curta. Foto, card e campo não ganham sombra.", "section": "elevation" },
+      { "name": "The Float Rule", "body": "Sombra de objeto solto existe só no botão de WhatsApp.", "section": "elevation" },
+      { "name": "The Two-Pixel Frame Rule", "body": "O que era canto vivo leva 2px. Pílula e círculo ficam como estão.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do deixar a fotografia na frente e o controle em pílula pequena.",
+      "Do usar as três famílias já carregadas, cada uma no papel da The Three Voices Rule.",
+      "Do manter o hero na razão 0.448 / 1.046, com o vão em frame.",
+      "Do falar de gente, em primeira pessoa, como a Rubia.",
+      "Do manter o kicker quando a prancha tem um. Ele é rótulo do desenho, em Work Sans, caixa alta.",
+      "Do desligar o deslize do hero e a entrada da grade quando o visitante pede menos movimento."
+    ],
+    "donts": [
+      "Don't pintar parágrafo com rosa queimado, nem usar verde fora do botão flutuante.",
+      "Don't passar de 2px na fotografia, nem trocar pílula e círculo por esse canto.",
+      "Don't dar sombra a foto, card ou campo.",
+      "Don't trazer fundo preto, limão ou outra família de tipo para estas páginas. O rodapé contrasta em sépia, não em tinta.",
+      "Don't escrever como pacote, pose ou slogan de agência.",
+      "Don't inventar depoimento, preço ou telefone que a prancha não tenha."
+    ]
+  }
+}

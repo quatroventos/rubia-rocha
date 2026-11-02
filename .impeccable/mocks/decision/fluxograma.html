@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Fluxograma em Raias</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:900px;overflow:hidden}
+body{background:#FFFFFF;color:#22252B;font-family:"Helvetica Neue",Arial,sans-serif}
+nav{height:76px;display:flex;align-items:center;padding:0 48px;gap:40px;border-bottom:1px solid #D9DDE3}
+.logo{font-weight:800;font-size:22px}
+.links{display:flex;gap:30px;font-size:15px;margin-left:auto}
+.wa{background:#0E7C66;color:#fff;padding:12px 20px;font-weight:600;font-size:15px;border-radius:2px}
+.lanes{position:relative;height:824px}
+.lane{position:absolute;left:0;right:0;border-bottom:1px solid #D9DDE3;display:flex}
+.lane .tag{width:120px;border-right:1px solid #D9DDE3;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:center;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#6B7280}
+.l1{top:0;height:330px}
+.l2{top:330px;height:170px;background:#F7F8FA}
+.l3{top:500px;height:170px;background:#EEF7F4}
+.l4{top:670px;height:154px}
+.hero{position:absolute;left:170px;top:56px;width:820px}
+h1{font-size:72px;line-height:1.02;font-weight:800;letter-spacing:-.02em}
+.lead{font-size:19px;line-height:1.5;margin-top:22px;max-width:640px;color:#4B5160}
+.ctas{position:absolute;left:1040px;top:120px;display:flex;flex-direction:column;gap:14px}
+.ctas a{display:block;padding:18px 26px;font-weight:700;font-size:16px;width:280px}
+.ctas a:first-child{background:#0E7C66;color:#fff}
+.ctas a:last-child{border:2px solid #22252B}
+svg{position:absolute;inset:0}
+.node{position:absolute;font-size:14px;font-weight:600}
+</style>
+</head>
+<body>
+<nav><div class="logo">Quatro Ventos</div><div class="links"><span>Inteligência artificial</span><span>Software</span><span>Web</span><span>Suporte e infraestrutura</span><span>Cases</span><span>Sobre</span><span>Contato</span></div><div class="wa">Iniciar um projeto</div></nav>
+<div class="lanes">
+  <div class="lane l1"><div class="tag">Quatro Ventos</div></div>
+  <div class="lane l2"><div class="tag">Processo atual</div></div>
+  <div class="lane l3"><div class="tag">Com IA</div></div>
+  <div class="lane l4"><div class="tag">Serviços</div></div>
+  <div class="hero">
+    <h1>Processos melhores com inteligência artificial.</h1>
+    <p class="lead">Ajudamos empresas a melhorar processos com soluções criativas de IA. Agentes, automações e sistemas desenhados para a operação de cada negócio, do diagnóstico à produção.</p>
+  </div>
+  <div class="ctas"><a>Iniciar um projeto</a><a>Conhecer os serviços</a></div>
+  <svg viewBox="0 0 1440 824" fill="none" stroke-width="2">
+    <circle cx="190" cy="415" r="18" stroke="#9AA3B2"/>
+    <rect x="250" y="390" width="180" height="50" stroke="#9AA3B2"/>
+    <rect x="490" y="390" width="180" height="50" stroke="#9AA3B2"/>
+    <path d="M760 390l30 25-30 25-30-25z" stroke="#9AA3B2"/>
+    <rect x="850" y="390" width="180" height="50" stroke="#9AA3B2"/>
+    <path d="M208 415h42M430 415h60M670 415h60M790 415h60" stroke="#9AA3B2"/>
+    <rect x="490" y="560" width="180" height="50" stroke="#0E7C66" fill="#0E7C66"/>
+    <path d="M340 440v145h150M670 585h420v-145" stroke="#0E7C66" stroke-width="3"/>
+    <circle cx="1110" cy="415" r="18" stroke="#22252B" stroke-width="4"/>
+    <path d="M1030 415h62" stroke="#9AA3B2"/>
+  </svg>
+  <span class="node" style="left:270px;top:405px;color:#6B7280">Pedido</span>
+  <span class="node" style="left:505px;top:405px;color:#6B7280">Conferência manual</span>
+  <span class="node" style="left:870px;top:405px;color:#6B7280">Emissão</span>
+  <span class="node" style="left:520px;top:575px;color:#fff">Agente de IA</span>
+  <span class="node" style="left:700px;top:620px;color:#0E7C66">exemplo ilustrativo</span>
+  <span class="node" style="left:170px;top:720px;font-size:22px">Inteligência artificial</span>
+  <span class="node" style="left:480px;top:720px;font-size:22px">Engenharia de software</span>
+  <span class="node" style="left:790px;top:720px;font-size:22px">Desenvolvimento web</span>
+  <span class="node" style="left:1060px;top:720px;font-size:22px">Suporte e infraestrutura</span>
+</div>
+</body>
+</html>

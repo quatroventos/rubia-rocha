@@ -1,0 +1,248 @@
+{
+  "title": "Direção visual do site da Quatro Ventos",
+  "question": "O sorteio indicou a Prancha Técnica. Mantenha, escolha uma alternativa ou sorteie outra mão.",
+  "options": [
+    {
+      "id": "prancha",
+      "kind": "assigned",
+      "label": "Prancha Técnica",
+      "kicker": "THE ROLL",
+      "lineage": "pranchas de desenho técnico (ABNT/ISO), cópias heliográficas e o carimbo da folha",
+      "thesis": "O site é a folha de projeto de um processo: diagnóstico desenhado, ponto de melhoria marcado, solução detalhada.",
+      "palette": [
+        "#F3F4F1",
+        "#1E3A8A",
+        "#0F1726",
+        "#F2C230",
+        "#9AA3B2"
+      ],
+      "materials": [
+        "papel técnico frio",
+        "campos em azul heliográfico",
+        "traço de nanquim com cotas e linhas de chamada",
+        "amarelo de marcação"
+      ],
+      "viewport": "Fluxo de processo desenhado ocupando a folha, a etapa travada recebendo nuvem de revisão e um agente de IA no lugar; H1 e WhatsApp encaixados no carimbo.",
+      "risk": "Executado com timidez vira tema blueprint; exige compromisso total com a gramática da prancha.",
+      "raised": [
+        {
+          "from": "challenger-nixie",
+          "raise": "Todos os números (preços, planos, prazos) em posições tabulares fixas, como dígitos de contador."
+        },
+        {
+          "from": "challenger-tinta",
+          "raise": "A página é uma folha contínua: seções são regiões do mesmo desenho, nunca pilha de cards."
+        },
+        {
+          "from": "challenger-streetwear",
+          "raise": "Cada zona é rotulada pelo nome literal, como campo de carimbo (DET. 01, VISTA A, REV. 02)."
+        },
+        {
+          "from": "challenger-secao",
+          "raise": "Anotações presas ao desenho com carimbo de data e escala, régua contínua ao longo da página."
+        }
+      ],
+      "html": ".impeccable/mocks/decision/prancha.html"
+    },
+    {
+      "id": "fluxograma",
+      "kind": "pick",
+      "label": "Fluxograma em Raias",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "notação de processos em raias (BPMN, fluxogramas de O&M)",
+      "thesis": "Cada seção é uma raia do processo; a IA entra como a raia nova que encurta o caminho.",
+      "palette": [
+        "#FFFFFF",
+        "#22252B",
+        "#0E7C66",
+        "#E4572E",
+        "#D9DDE3"
+      ],
+      "materials": [
+        "raias horizontais",
+        "eventos e gateways",
+        "setas ortogonais"
+      ],
+      "viewport": "Diagrama em raias atravessando a tela, o caminho antigo em cinza e o novo em verde, H1 na raia de cima.",
+      "risk": "É a direção em que a maioria das execuções para \"processos\" cai; clara, porém menos memorável.",
+      "html": ".impeccable/mocks/decision/fluxograma.html"
+    },
+    {
+      "id": "challenger-painel",
+      "kind": "challenger",
+      "catalogId": "vernacular-ephemera-boarding-pass-and-gate-board",
+      "label": "Painel de Operação",
+      "verdict": "competitive",
+      "lineage": "painel de embarque e cartão de embarque segmentado",
+      "thesis": "Os processos do cliente como linhas de um painel que se reordenam no lugar quando melhoram.",
+      "palette": [
+        "#111418",
+        "#F5F5F2",
+        "#FFB000",
+        "#5B636E"
+      ],
+      "materials": [
+        "painéis neutros de alto contraste",
+        "bloco monoespaçado escaneável",
+        "cor única de mudança"
+      ],
+      "viewport": "Painel com processos em linhas, a etapa melhorada acesa em âmbar; planos como cartões de embarque segmentados.",
+      "case": "Funde bem com \"processo rodando\" e ganha em clareza; perde em identificação, o público não se vê num aeroporto.",
+      "risk": "Pode ler como dashboard de produto SaaS em vez de empresa de serviço.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-boarding-pass-and-gate-board-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/vernacular-ephemera-boarding-pass-and-gate-board.webp",
+      "html": ".impeccable/mocks/decision/painel.html"
+    },
+    {
+      "id": "challenger-nixie",
+      "kind": "challenger",
+      "catalogId": "signals-instruments-nixie-laboratory-counter",
+      "label": "Contador Nixie",
+      "verdict": "declined",
+      "lineage": "contadores de laboratório com válvulas nixie",
+      "thesis": "Quantidades como interface, cada métrica num banco de dígitos.",
+      "palette": [
+        "#121212",
+        "#FF6A13",
+        "#8A8F94"
+      ],
+      "materials": [
+        "vidro",
+        "aço escurecido",
+        "brilho de plasma"
+      ],
+      "viewport": "Bancos de dígitos com as métricas da operação.",
+      "case": "Perde nos dois eixos: exige métricas que a Quatro Ventos não publica e o fundo escuro com brilho cai em IA genérica.",
+      "kept": "Números em posições tabulares fixas.",
+      "risk": "Inventaria números.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-nixie-laboratory-counter-hero.webp"
+    },
+    {
+      "id": "challenger-tinta",
+      "kind": "challenger",
+      "catalogId": "medium-native-fluid-ink-basin",
+      "label": "Bacia de Tinta",
+      "verdict": "declined",
+      "lineage": "suminagashi, marmorização em água",
+      "thesis": "A página como superfície líquida contínua.",
+      "palette": [
+        "#F7F7F4",
+        "#26306B",
+        "#3A3A3A"
+      ],
+      "materials": [
+        "tinta sumi",
+        "água",
+        "simulação WebGL"
+      ],
+      "viewport": "Bacia de tinta reagindo ao ponteiro.",
+      "case": "Perde nos dois eixos: decorativa, não explica processo nem IA aplicada.",
+      "kept": "A página como uma superfície contínua.",
+      "risk": "Lê como agência criativa.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-fluid-ink-basin-hero.webp"
+    },
+    {
+      "id": "challenger-console",
+      "kind": "challenger",
+      "catalogId": "digital-design-canon-console-dashboard-atmosphere",
+      "label": "Menu de Console",
+      "verdict": "declined",
+      "lineage": "menus de sistema de console",
+      "thesis": "Áreas como salas escuras com objetos flutuantes.",
+      "palette": [
+        "#060A14",
+        "#DCE3F0",
+        "#F2A93B"
+      ],
+      "materials": [
+        "névoa",
+        "partículas",
+        "cubos translúcidos"
+      ],
+      "viewport": "Torres de luz no escuro.",
+      "case": "Perde nos dois eixos: é exatamente a startup de IA genérica que foi vetada.",
+      "kept": "Seleção que eleva um objeto enquanto o resto recua.",
+      "risk": "Fundo escuro e brilho.",
+      "hero": "https://impeccable.style/worlds/cards/digital-design-canon-console-dashboard-atmosphere-hero.webp"
+    },
+    {
+      "id": "challenger-streetwear",
+      "kind": "challenger",
+      "catalogId": "textiles-weave-drape-fashion-industrial-quote-grammar",
+      "label": "Gramática Industrial",
+      "verdict": "declined",
+      "lineage": "streetwear industrial com rótulos entre aspas",
+      "thesis": "Cada zona com seu nome literal entre aspas.",
+      "palette": [
+        "#FFFFFF",
+        "#111111",
+        "#FF5F1F"
+      ],
+      "materials": [
+        "algodão",
+        "nylon",
+        "faixas zebradas"
+      ],
+      "viewport": "Rótulos gigantes entre aspas e faixa de alerta diagonal.",
+      "case": "Perde nos dois eixos: moda não conversa com o público e o tom ironiza.",
+      "kept": "Rotulagem literal de cada zona.",
+      "risk": "Ironia contra a voz institucional.",
+      "hero": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-industrial-quote-grammar-hero.webp"
+    },
+    {
+      "id": "challenger-secao",
+      "kind": "challenger",
+      "catalogId": "architecture-inhabitable-space-daylight-section",
+      "label": "Corte com Luz do Dia",
+      "verdict": "declined",
+      "lineage": "cortes arquitetônicos com estudo solar",
+      "thesis": "Um corte contínuo do edifício atravessado pela luz.",
+      "palette": [
+        "#F4F1EA",
+        "#2B2B2B",
+        "#E3B341",
+        "#6B7FA3"
+      ],
+      "materials": [
+        "cal",
+        "poché carvão",
+        "faixa de sol"
+      ],
+      "viewport": "Corte longo com o feixe de luz percorrendo os ambientes.",
+      "case": "Perde nos dois eixos: arquitetura residencial não traduz processo empresarial.",
+      "kept": "Anotações presas ao desenho com régua contínua.",
+      "risk": "Poético demais para o público.",
+      "hero": "https://impeccable.style/worlds/cards/architecture-inhabitable-space-daylight-section-hero.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "code"
+  },
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "Padrão da categoria",
+    "thesis": "Site institucional de consultoria de tecnologia no nível Innowise e Endava, executado com rigor.",
+    "palette": [
+      "#FFFFFF",
+      "#111827",
+      "#2563EB",
+      "#F3F4F6"
+    ],
+    "materials": [
+      "grid limpo",
+      "prints de projetos",
+      "tipografia sans neutra"
+    ],
+    "viewport": "H1 grande à esquerda, prints de projetos à direita, faixa de logos de clientes abaixo.",
+    "risk": "Indistinguível da concorrência por definição.",
+    "html": ".impeccable/mocks/decision/canon.html"
+  },
+  "steer": true
+}

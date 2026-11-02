@@ -1,0 +1,163 @@
+{
+  "title": "Escolha o mundo visual",
+  "question": "A sala limpa saiu no sorteio. Fica com ela, pega uma alternativa, ou pede outra mão.",
+  "options": [
+    {
+      "id": "assigned",
+      "kind": "assigned",
+      "label": "Sala limpa",
+      "kicker": "THE ROLL",
+      "lineage": "bancada de laboratório, uma luz de status",
+      "thesis": "A página é uma sala branca: o projeto entra como espécime e sai publicado.",
+      "palette": ["#FDFFFC", "#011627", "#2EC4B6"],
+      "materials": ["parede branca", "equipamento em tinta escura", "uma luz teal"],
+      "viewport": "Um objeto no centro, o título em escala de sala, o WhatsApp como o único controle aceso.",
+      "risk": "Fica clínico e frio se o objeto não for o trabalho real.",
+      "raised": [
+        {
+          "from": "VU-meter bridge",
+          "raise": "A metodologia vira uma fileira de estações iguais. Só a estação ativa acende em teal."
+        },
+        {
+          "from": "variable font specimen",
+          "raise": "Uma palavra ocupa a sala. O resto da interface fica em legenda minúscula."
+        },
+        {
+          "from": "kiln shelf",
+          "raise": "A leitura desce numa só queda. A ação fica onde o fluxo para."
+        },
+        {
+          "from": "street poster",
+          "raise": "Uma palavra é a porta. Não um parágrafo."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick",
+      "kind": "pick",
+      "label": "Slide de keynote",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "slide de produto, uma frase no escuro",
+      "thesis": "Uma frase ocupa o campo escuro, no tamanho que o comprador já associa a produto.",
+      "palette": ["#011627", "#FDFFFC", "#2EC4B6"],
+      "materials": ["campo escuro", "tipo branco", "uma aresta teal"],
+      "viewport": "Quase nada: a frase publicada, o botão teal, o começo da prova logo abaixo.",
+      "risk": "É a direção em que quase todo site de tecnologia cai.",
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "challenger-brick",
+      "kind": "challenger",
+      "catalogId": "games-toys-physics-play-brick-build-instructions",
+      "label": "Manual de montagem",
+      "verdict": "competitive",
+      "lineage": "instruções numeradas, grade de encaixe, setas sem texto",
+      "thesis": "Os seis passos publicados viram a montagem, peça a peça.",
+      "palette": ["#7EC8E3", "#111111", "#E23D28", "#F5C518"],
+      "materials": ["página azul", "contorno preto", "peça nova em vermelho"],
+      "viewport": "Um passo enorme, a peça nova marcada, a seta até o encaixe.",
+      "case": "Clareza alta: a metodologia já é uma sequência. O comprador elegante não se reconhece no chão de carpete.",
+      "risk": "Vira brinquedo se a grade não mandar no alinhamento.",
+      "comp": ".impeccable/mocks/decision/challenger-brick.webp",
+      "hero": "https://impeccable.style/worlds/cards/games-toys-physics-play-brick-build-instructions-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/games-toys-physics-play-brick-build-instructions.webp"
+    },
+    {
+      "id": "challenger-installer",
+      "kind": "challenger",
+      "catalogId": "digital-design-canon-shareware-installer-screens",
+      "label": "Instalador",
+      "verdict": "competitive",
+      "lineage": "assistente de instalação, uma caixa, um próximo passo",
+      "thesis": "O orçamento é o único botão que avança. O resto espera.",
+      "palette": ["#C0C0C0", "#000080", "#008080", "#FFFFFF"],
+      "materials": ["caixa chanfrada", "faixa bitmap", "barra em blocos"],
+      "viewport": "Uma caixa estreita no centro, o campo e o botão Próximo.",
+      "case": "A ação fica impossível de perder. O chrome de 1994 briga com leve e elegante.",
+      "risk": "Lê como piada retrô se o bisel for o ponto.",
+      "comp": ".impeccable/mocks/decision/challenger-installer.webp",
+      "hero": "https://impeccable.style/worlds/cards/digital-design-canon-shareware-installer-screens-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/digital-design-canon-shareware-installer-screens.webp"
+    },
+    {
+      "id": "challenger-vu",
+      "kind": "challenger",
+      "catalogId": "signals-instruments-vu-meter-bridge",
+      "label": "Ponte de VU",
+      "verdict": "declined",
+      "lineage": "mesa de gravação, agulhas atrás do vidro",
+      "palette": ["#F3E6C8", "#1A1A1A", "#6B3A2A", "#C4382D"],
+      "materials": ["marfim", "nogal", "agulha"],
+      "viewport": "Uma fileira de medidores iguais.",
+      "case": "O comprador não se reconhece numa mesa de estúdio, e o site não é um nível de sinal.",
+      "kept": "Uma fileira que se lê de uma vez. Só um estado acende.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-vu-meter-bridge-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-vu-meter-bridge.webp"
+    },
+    {
+      "id": "challenger-specimen",
+      "kind": "challenger",
+      "catalogId": "variable-font-specimen",
+      "label": "Espécime tipográfico",
+      "verdict": "declined",
+      "lineage": "página de fundição, um eixo que muda tudo",
+      "palette": ["#F7F7F5", "#111111", "#2EC4B6"],
+      "materials": ["papel", "tinta", "um acento"],
+      "viewport": "Uma letra gigante e um controle.",
+      "case": "Escala forte, mas o comprador não veio explorar uma fonte.",
+      "kept": "Contraste de escala: uma palavra enorme, o resto em legenda.",
+      "hero": "https://impeccable.style/worlds/cards/variable-font-specimen-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/variable-font-specimen.webp"
+    },
+    {
+      "id": "challenger-kiln",
+      "kind": "challenger",
+      "catalogId": "clay-ceramics-fracture-glaze-river-shelf",
+      "label": "Prateleira de forno",
+      "verdict": "declined",
+      "lineage": "esmalte que escorre e para",
+      "palette": ["#F4F1EA", "#1C3D8F", "#16305C"],
+      "materials": ["prateleira branca", "esmalte cobalto"],
+      "viewport": "Uma fileira de peças, o fluxo vertical.",
+      "case": "Cerâmica não é o mundo de quem compara agências, e o serviço não é um esmalte.",
+      "kept": "Uma queda só. A ação fica onde o fluxo para.",
+      "hero": "https://impeccable.style/worlds/cards/clay-ceramics-fracture-glaze-river-shelf-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/clay-ceramics-fracture-glaze-river-shelf.webp"
+    },
+    {
+      "id": "challenger-poster",
+      "kind": "challenger",
+      "catalogId": "brand-identity-canon-scher-street-typography",
+      "label": "Cartaz de rua",
+      "verdict": "declined",
+      "lineage": "madeira condensada, a palavra cortada pela borda",
+      "palette": ["#F5C400", "#F7F4EA", "#111111", "#E23B2F"],
+      "materials": ["amarelo táxi", "tinta preta", "uma faixa"],
+      "viewport": "Uma palavra em escala de parede.",
+      "case": "Grita. O brief pede leve e elegante, e o comprador não atravessa a rua para ser gritado.",
+      "kept": "Uma palavra é a porta.",
+      "hero": "https://impeccable.style/worlds/cards/brand-identity-canon-scher-street-typography-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/brand-identity-canon-scher-street-typography.webp"
+    }
+  ],
+  "reroll": {
+    "registers": ["safer", "bolder"]
+  },
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "O padrão da categoria",
+    "thesis": "Hero, três cards, faixa de logos e um botão de orçamento.",
+    "palette": ["#FFFFFF", "#111827", "#2563EB"],
+    "materials": ["grade limpa", "foto de produto"],
+    "viewport": "Título à esquerda, imagem à direita, prova em cards iguais abaixo.",
+    "risk": "Indistinguível das outras agências, de propósito.",
+    "comp": ".impeccable/mocks/decision/canon.webp"
+  },
+  "steer": true
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quatro Ventos | Campo de cor</title>
+<style>
+@font-face{font-family:"Host Grotesk";src:url(fonts/host-grotesk.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Martian Mono";src:url(fonts/martian-mono.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--field:#2036FF;--ink:#0A0A12;--paper:#F1EEE7;--white:#FFFFFF}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--field)}
+body{font-family:"Host Grotesk",system-ui,sans-serif;color:var(--white);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.hero{position:relative;min-height:100vh;background:var(--field);overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;padding:0 clamp(20px,3vw,48px)}
+nav{display:flex;align-items:center;gap:40px;height:96px}
+.logo{font-weight:700;font-size:24px;letter-spacing:-.035em}
+.links{display:flex;gap:32px;margin-left:auto;font-size:16px;font-weight:450}
+.links a{opacity:.86;transition:opacity .2s}
+.links a:hover{opacity:1}
+.pill{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .25s cubic-bezier(.2,.7,.2,1),background .25s}
+.pill:hover{transform:translateY(-2px)}
+.pill.light{background:var(--white);color:var(--ink)}
+.pill.dark{background:var(--ink);color:var(--white)}
+.pill.line{box-shadow:inset 0 0 0 1.5px var(--white)}
+.stage{position:relative;display:grid;grid-template-columns:1fr minmax(300px,26vw);gap:3vw;align-items:start;padding-top:2vh}
+h1{font-weight:760;font-size:clamp(72px,11.6vw,176px);line-height:.84;letter-spacing:-.065em;color:var(--ink)}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+h1 .ln span{display:block;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.75,.15,1) forwards}
+h1 .ln:nth-child(2) span{animation-delay:.08s}
+h1 .ln:nth-child(3) span{animation-delay:.16s}
+h1 em{font-style:normal;color:var(--white)}
+@keyframes rise{to{transform:none}}
+.card{position:relative;aspect-ratio:1/1;background:var(--paper);border-radius:6px;overflow:hidden;opacity:0;animation:fade .9s .35s ease forwards}
+.card img{position:absolute;left:50%;top:9%;width:44%;transform:translateX(-50%) rotate(-7deg);filter:drop-shadow(0 30px 40px #0A0A1240);animation:float 7s ease-in-out infinite}
+.card .meta{position:absolute;left:18px;right:18px;bottom:16px;display:flex;justify-content:space-between;color:var(--ink);font-size:15px}
+.card .meta b{font-weight:650}
+.card .meta span{font-family:"Martian Mono",monospace;font-size:13px;opacity:.7}
+@keyframes float{50%{transform:translateX(-50%) rotate(-5deg) translateY(-10px)}}
+@keyframes fade{to{opacity:1}}
+.base{display:grid;grid-template-columns:minmax(0,560px) 1fr minmax(300px,26vw);gap:3vw;align-items:end;padding:0 0 44px}
+.lead{font-size:clamp(18px,1.5vw,22px);line-height:1.4;letter-spacing:-.01em}
+.ctas{display:flex;gap:12px;align-self:end}
+.ranked{list-style:none;counter-reset:r}
+.ranked li{counter-increment:r;border-top:1.5px solid #FFFFFF73}
+.ranked a{display:flex;align-items:baseline;gap:14px;padding:11px 0;font-size:20px;font-weight:550;letter-spacing:-.02em;transition:padding .25s,font-weight .25s}
+.ranked a::before{content:counter(r,decimal-leading-zero);font-family:"Martian Mono",monospace;font-size:13px;font-weight:400;opacity:.75}
+.ranked a::after{content:"→";margin-left:auto;opacity:0;transition:opacity .25s,transform .25s;transform:translateX(-6px)}
+.ranked a:hover{padding-left:6px;font-weight:700}
+.ranked a:hover::after{opacity:1;transform:none}
+.next{background:var(--paper);color:var(--ink);padding:72px clamp(20px,3vw,48px) 96px}
+.next header{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px}
+.next h2{font-size:clamp(40px,5vw,76px);letter-spacing:-.05em;line-height:.9;font-weight:740}
+.next header a{font-weight:600}
+.grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px}
+.case{background:#E4E0D6;border-radius:6px;aspect-ratio:4/3.4;position:relative;overflow:hidden}
+.case:first-child{background:#1F2B55}
+.case img{position:absolute;inset:8% 10% auto;width:80%;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.case:hover img{transform:scale(1.03) translateY(-6px)}
+.case p{position:absolute;left:18px;bottom:16px;font-size:20px;font-weight:650;letter-spacing:-.02em}
+.case:first-child p{color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}h1 .ln span{transform:none}.card{opacity:1}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <nav>
+    <a class="logo" href="#">Quatro Ventos</a>
+    <div class="links"><a href="#">Inteligência artificial</a><a href="#">Software</a><a href="#">Web</a><a href="#">Suporte</a><a href="#">Cases</a><a href="#">Sobre</a></div>
+    <a class="pill light" href="#">Iniciar um projeto</a>
+  </nav>
+  <div class="stage">
+    <h1><span class="ln"><span>Processos</span></span><span class="ln"><span>melhores</span></span><span class="ln"><span>com <em>IA.</em></span></span></h1>
+    <figure class="card"><img src="img/digio-mobile.webp" alt="App Digio: simulação de antecipação do saque-aniversário do FGTS"><figcaption class="meta"><b>Digio</b><span>Finanças</span></figcaption></figure>
+  </div>
+  <div class="base">
+    <p class="lead">Ajudamos empresas a melhorar processos com soluções criativas de IA. Agentes, automações e sistemas desenhados para a operação de cada negócio, do diagnóstico à produção.</p>
+    <div class="ctas"><a class="pill dark" href="#">Iniciar um projeto</a><a class="pill line" href="#">Conhecer os serviços</a></div>
+    <ol class="ranked"><li><a href="#">Inteligência artificial</a></li><li><a href="#">Engenharia de software</a></li><li><a href="#">Desenvolvimento web</a></li><li><a href="#">Suporte e infraestrutura</a></li></ol>
+  </div>
+</section>
+<section class="next">
+  <header><h2>Cases</h2><a href="#">Todos os cases →</a></header>
+  <div class="grid">
+    <article class="case"><img src="img/digio.webp" alt=""><p>Digio</p></article>
+    <article class="case"><img src="img/hemera.webp" alt=""><p>Hemera DTVM</p></article>
+    <article class="case"><img src="img/multiversidade.webp" alt=""><p>Multiversidade PUCPR</p></article>
+  </div>
+</section>
+</body>
+</html>

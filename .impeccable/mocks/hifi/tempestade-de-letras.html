@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quatro Ventos | Tempestade de letras</title>
+<style>
+@font-face{font-family:"Host Grotesk";src:url(fonts/host-grotesk.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Martian Mono";src:url(fonts/martian-mono.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--bg:#F7F7F4;--ink:#0B0B0B;--mute:#6A6A66;--soft:#D6D6D1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Host Grotesk",system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.hero{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;padding:0 clamp(20px,3vw,44px)}
+nav{display:flex;align-items:center;gap:40px;height:92px}
+.logo{font-weight:700;font-size:24px;letter-spacing:-.035em}
+.links{display:flex;gap:32px;margin-left:auto;font-size:16px}
+.pill{display:inline-flex;align-items:center;height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.pill:hover{transform:translateY(-2px)}
+.pill.dark{background:var(--ink);color:var(--bg)}
+.pill.line{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.storm{position:relative;align-self:center}
+.k{font-family:"Martian Mono",monospace;font-size:13px;color:var(--mute);display:flex;gap:18px;margin-bottom:18px;text-transform:uppercase;letter-spacing:.06em}
+.k b{color:var(--ink);font-weight:500}
+.word{position:relative;font-weight:780;font-size:clamp(64px,11vw,168px);line-height:.9;letter-spacing:-.06em;height:1.9em;white-space:nowrap}
+.word span{position:absolute;top:0;display:inline-block;transition:transform 1.1s cubic-bezier(.65,0,.2,1),opacity .9s ease,color .9s ease;will-change:transform}
+.proof{position:absolute;right:0;top:0;width:min(330px,24vw);background:#ECEBE6;border-radius:10px;padding:14px;display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center}
+.proof img{width:96px;border-radius:6px}
+.proof b{display:block;font-size:17px;letter-spacing:-.02em}
+.proof span{font-size:14px;color:var(--mute);line-height:1.35;display:block;margin-top:4px}
+.base{display:flex;justify-content:space-between;align-items:end;gap:40px;padding-bottom:44px}
+.base p{font-size:clamp(18px,1.5vw,22px);line-height:1.4;max-width:640px}
+.base div{display:flex;gap:12px}
+.note{font-family:"Martian Mono",monospace;font-size:12px;color:var(--mute);margin-top:10px}
+@media (prefers-reduced-motion:reduce){.word span{transition:none!important}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <nav><a class="logo" href="#">Quatro Ventos</a><div class="links"><a href="#">Inteligência artificial</a><a href="#">Software</a><a href="#">Web</a><a href="#">Suporte</a><a href="#">Cases</a><a href="#">Sobre</a></div><a class="pill dark" href="#">Iniciar um projeto</a></nav>
+  <div class="storm">
+    <div class="k"><span id="st">Antes</span><b id="lbl">Etapa manual</b></div>
+    <h1 class="word" id="word" aria-label="Processos melhores com inteligência artificial"></h1>
+    <p class="note">Exemplo ilustrativo de etapa revisada</p>
+    <aside class="proof"><img src="img/digio-mobile.webp" alt=""><div><b>Digio</b><span>Simulação do FGTS dentro do app, sem etapa manual.</span></div></aside>
+  </div>
+  <div class="base"><p>Processos melhores com inteligência artificial. Agentes, automações e sistemas desenhados para a operação de cada negócio, do diagnóstico à produção.</p><div><a class="pill dark" href="#">Iniciar um projeto</a><a class="pill line" href="#">Conhecer os serviços</a></div></div>
+</section>
+<script>
+const pairs=[["Conferência manual","Agente de IA."],["Planilha repetida","Automação."],["Fila de atendimento","Resposta em segundos."]];
+const el=document.getElementById('word'),st=document.getElementById('st'),lbl=document.getElementById('lbl');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function measure(t){const s=document.createElement('span');s.style.cssText='position:absolute;visibility:hidden;white-space:pre';el.appendChild(s);const xs=[];let acc='';for(const c of t){s.textContent=acc;xs.push(s.getBoundingClientRect().width);acc+=c}s.remove();return xs}
+function render(from,to){
+  el.innerHTML='';const a=[...from],b=[...to],fx=measure(from),tx=measure(to),pool=a.map((c,i)=>({c,i,used:false}));const spans=[];
+  b.forEach((c,j)=>{const m=pool.find(p=>!p.used&&p.c.toLowerCase()===c.toLowerCase());const s=document.createElement('span');s.textContent=c===' '?'\u00a0':c;el.appendChild(s);
+    if(m){m.used=true;s.style.transform=`translate(${fx[m.i]}px,0)`;s.dataset.x=tx[j];s.dataset.y=1}else{s.style.opacity=0;s.style.transform=`translate(${tx[j]}px,${(Math.random()*-1.2-0.4).toFixed(2)}em) rotate(${(Math.random()*60-30)|0}deg)`;s.dataset.x=tx[j];s.dataset.y=1}spans.push(s)});
+  pool.filter(p=>!p.used).forEach(p=>{const s=document.createElement('span');s.textContent=p.c===' '?'\u00a0':p.c;s.style.transform=`translate(${fx[p.i]}px,0)`;s.style.color='var(--soft)';el.appendChild(s);s.dataset.out=1;spans.push(s)});
+  return spans}
+let k=0;
+function cycle(){const [from,to]=pairs[k];st.textContent='Antes';lbl.textContent=from;const spans=render(from,to);
+  if(reduce){el.textContent=to;return}
+  setTimeout(()=>{st.textContent='Com IA';lbl.textContent=to.replace('.','');spans.forEach(s=>{if(s.dataset.out){s.style.opacity=0;s.style.transform+=` translate(${(Math.random()*400-200)|0}px,${(Math.random()*-200-60)|0}px) rotate(${(Math.random()*120-60)|0}deg)`}else{s.style.opacity=1;s.style.transform=`translate(${s.dataset.x}px,.95em)`}})},1400);
+  k=(k+1)%pairs.length;setTimeout(cycle,5200)}
+document.fonts.ready.then(cycle);
+</script>
+</body>
+</html>

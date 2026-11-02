@@ -1,0 +1,137 @@
+{
+  "slug": "suporte-e-infraestrutura",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Suporte, manutenção e infraestrutura | Quatro Ventos",
+  "seo_description": "Sustentação de software, manutenção de sites, recuperação de WordPress, hospedagem e VPS no mesmo time, com suporte humano.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/suporte-e-infraestrutura.jpg",
+  "og_image_alt": "Operação estável, todos os dias. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Suporte e infraestrutura para manter *a operação estável.*",
+        "subtitle": "<p>Suporte e infraestrutura reúnem o que mantém sistemas, automações e sites funcionando depois da entrega: sustentação de software, manutenção de sites, recuperação de WordPress, hospedagem e VPS. Tudo fica com o time que desenvolve, com atualização, backup, monitoramento e suporte humano quando algo sai do lugar.</p>",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20suporte%20e%20infraestrutura."
+      }
+    },
+    {
+      "id": "cards-1",
+      "type": "site.cards",
+      "data": {
+        "title": "Serviços para manter *tudo no ar.*",
+        "intro": "<p>Do sistema em produção ao servidor onde ele roda. Cada serviço cobre uma parte da operação, e todos ficam com o mesmo time.</p>",
+        "items": [
+          {
+            "title": "Sustentação de software",
+            "body": "<p>Suporte contínuo a sistemas em produção.</p>",
+            "href": "/sustentacao-de-software"
+          },
+          {
+            "title": "Manutenção de sites",
+            "body": "<p>Planos a partir de R$ 350/mês.</p>",
+            "href": "/manutencao-de-sites"
+          },
+          {
+            "title": "Recuperação de WordPress",
+            "body": "<p>Site invadido ou fora do ar.</p>",
+            "href": "/recuperacao-de-site-wordpress"
+          },
+          {
+            "title": "Hospedagem",
+            "body": "<p>A partir de R$ 37,50/mês no anual.</p>",
+            "href": "/hospedagem-de-sites"
+          },
+          {
+            "title": "VPS e infraestrutura",
+            "body": "<p>Servidores gerenciados para sistemas, automações e aplicações.</p>",
+            "href": "/vps-e-infraestrutura"
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "O que mantém a operação *estável.*",
+        "intro": "<p>Sistemas, automações e sites em produção dependem das mesmas quatro rotinas. Os serviços acima cobrem cada uma delas.</p>",
+        "items": [
+          {
+            "title": "Atualização",
+            "text": "Sistema, dependências, plugins e servidor nas versões corrigidas."
+          },
+          {
+            "title": "Backup",
+            "text": "Arquivos e banco de dados copiados periodicamente para fora do servidor."
+          },
+          {
+            "title": "Monitoramento",
+            "text": "Disponibilidade e funcionamento verificados, com aviso quando algo para."
+          },
+          {
+            "title": "Resposta rápida",
+            "text": "Chamado atendido por quem conhece o código e a infraestrutura."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "O mesmo time que *desenvolve, sustenta.*",
+        "body": "<p>Quem construiu o sistema conhece o código, as integrações e o servidor. Correções e atualizações partem desse conhecimento, sem repassar o contexto para outra equipe.</p>",
+        "variant": "light",
+        "cta_label": "Falar com um especialista",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20suporte%20e%20infraestrutura.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "Já sou cliente. Como abro um chamado?",
+            "answer": "<p>Pelo portal de suporte. <a href=\"https://quatroventos.freshdesk.com/support/home\" target=\"_blank\" rel=\"noreferrer\">Clientes: abrir chamado</a></p>"
+          },
+          {
+            "question": "Qual a diferença entre sustentação de software e manutenção de sites?",
+            "answer": "<p>A sustentação é o suporte contínuo a sistemas em produção. A manutenção cuida de sites e WordPress, com planos a partir de R$ 350/mês. <a href=\"/manutencao-de-sites\">Manutenção de sites</a></p>"
+          },
+          {
+            "question": "Hospedagem ou VPS?",
+            "answer": "<p>A hospedagem atende sites e e-mails, a partir de R$ 37,50/mês no plano anual. O VPS é um servidor gerenciado para sistemas, automações e aplicações que precisam de mais controle. <a href=\"/vps-e-infraestrutura\">VPS e infraestrutura</a></p>"
+          },
+          {
+            "question": "Meu site WordPress foi invadido. O que fazer?",
+            "answer": "<p>Quanto antes a recuperação começa, menor o dano. A recuperação remove o malware, corrige o que estava vulnerável e devolve o site ao ar. <a href=\"/recuperacao-de-site-wordpress\">Recuperação de site WordPress</a></p>"
+          },
+          {
+            "question": "Quanto custa cada serviço?",
+            "answer": "<p>A <a href=\"/manutencao-de-sites\">manutenção de sites</a> parte de R$ 350 por mês, a <a href=\"/hospedagem-de-sites\">hospedagem de sites</a> de R$ 45 por mês e a <a href=\"/vps-e-infraestrutura\">VPS gerenciada</a> de R$ 250 por mês. <a href=\"/sustentacao-de-software\">Sustentação de software</a> e <a href=\"/recuperacao-de-site-wordpress\">recuperação de WordPress</a> têm valor conforme o sistema. [PREENCHER: preço a partir de de sustentação e de recuperação]</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "Sustentação para sistemas e sites *em produção.*",
+        "body": "<p>Conte o que está em produção hoje e como é mantido. Indicamos o serviço que cobre cada parte.</p>",
+        "cta_label": "Falar com um especialista",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20suporte%20e%20infraestrutura."
+      }
+    }
+  ]
+}

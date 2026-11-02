@@ -1,0 +1,224 @@
+{
+  "slug": "sites-wordpress",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Criação de site WordPress sob medida | Quatro Ventos",
+  "seo_description": "Sites em WordPress com tema próprio, rápidos e fáceis de gerenciar, com hospedagem e manutenção do mesmo time. Garantia de 30 dias após a entrega.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/sites-wordpress.jpg",
+  "og_image_alt": "Sites em WordPress. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Criação de sites *em WordPress.*",
+        "subtitle": "<p>Criação de site WordPress com tema próprio, sem template comprado: o layout é desenhado para a empresa e o painel fica simples para o time atualizar páginas, notícias e produtos. Hospedagem e manutenção ficam com o mesmo time, e cada site tem 30 dias de garantia para ajustes depois da entrega.</p>",
+        "visual": "wp",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento%20de%20site%20em%20WordPress."
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "Por que *WordPress.*",
+        "intro": "<p>Para sites que precisam ser atualizados com frequência pelo próprio time, com um layout que não parece de template.</p>",
+        "items": [
+          {
+            "title": "Painel simples",
+            "text": "Textos, imagens e páginas editados pelo próprio time, sem depender de programação."
+          },
+          {
+            "title": "Tema próprio",
+            "text": "Layout desenvolvido para o projeto, sem template pronto."
+          },
+          {
+            "title": "Extensível",
+            "text": "Blog, formulários e integrações adicionados conforme o site cresce."
+          },
+          {
+            "title": "Manutenção",
+            "text": "Atualizações, backups e segurança cobertos pelos planos de manutenção."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "examples-1",
+      "type": "site.examples",
+      "data": {
+        "title": "O que dá para fazer *em WordPress.*",
+        "intro": "<p>Do site institucional à loja, sempre com o conteúdo nas mãos de quem atualiza. Alguns exemplos.</p>",
+        "items": [
+          {
+            "title": "Site institucional",
+            "text": "Empresa, serviços e contato, com páginas novas criadas pelo próprio time."
+          },
+          {
+            "title": "Blog e portal de notícias",
+            "text": "Publicação frequente pela equipe, com categorias, autores e newsletter."
+          },
+          {
+            "title": "Loja com WooCommerce",
+            "text": "Produtos, pagamento e frete no mesmo painel do conteúdo."
+          },
+          {
+            "title": "Site multilíngue",
+            "text": "Versões em português, inglês e espanhol gerenciadas no mesmo painel."
+          },
+          {
+            "title": "Área de membros",
+            "text": "Conteúdo restrito por cadastro ou assinatura."
+          },
+          {
+            "title": "Site de eventos",
+            "text": "Programação, palestrantes e inscrições atualizados pela equipe."
+          },
+          {
+            "title": "Catálogo de produtos",
+            "text": "Linhas e fichas técnicas com filtro e pedido de orçamento."
+          },
+          {
+            "title": "Migração para WordPress",
+            "text": "Conteúdo de outro sistema levado para o WordPress sem perder endereços nem posições no Google."
+          }
+        ],
+        "more_title": "Qualquer site que muda com frequência",
+        "more_text": "Se o time precisa publicar e atualizar sem esperar por programação, o WordPress com tema próprio resolve.",
+        "more_label": "Conte qual é o seu",
+        "more_href": "#contato",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "Tema próprio, *painel simples.*",
+        "body": "<p>Layout próprio, painel para editar o conteúdo e 30 dias de garantia para ajustes e correções após a entrega.</p>",
+        "cta_label": "Conversar sobre o site",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento%20de%20site%20em%20WordPress.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Da arquitetura à publicação.",
+        "intro": "<p>Cada página passa por checklist de responsividade, velocidade, compatibilidade entre navegadores e funcionalidades.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Arquitetura",
+            "body": "<p>Comportamento do público estudado e caminho de navegação mapeado.</p>"
+          },
+          {
+            "title": "Prototipagem",
+            "body": "<p>Protótipos interativos para validar o site antes da programação.</p>"
+          },
+          {
+            "title": "Frontend",
+            "body": "<p>Interface convertida em tema próprio, com código limpo e otimizado.</p>"
+          },
+          {
+            "title": "Backend",
+            "body": "<p>Blocos, campos e painel configurados para o time editar com segurança.</p>"
+          },
+          {
+            "title": "Homologação",
+            "body": "<p>Testes em ambiente privado e rodada de ajustes.</p>"
+          },
+          {
+            "title": "Entrega",
+            "body": "<p>Publicação no endereço definitivo, com acompanhamento.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "Padrão de *entrega.*",
+        "items": [
+          "Responsivo em celular, tablet e desktop",
+          "Textos, imagens e páginas editados pelo painel do WordPress",
+          "Arquivos e código otimizados para carregar rápido",
+          "Tema próprio, sem template pronto",
+          "Estrutura semântica, metas e performance para o Google",
+          "30 dias de garantia para ajustes e correções após a entrega"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "showcase-1",
+      "type": "site.showcase",
+      "data": {
+        "title": "Sites em WordPress no ar.",
+        "intro": "<p>Projetos com tema próprio, painel organizado para o time e manutenção em dia.</p>",
+        "items": [],
+        "placeholders": [
+          {
+            "name": "Case em breve",
+            "tags": [
+              "WordPress"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          },
+          {
+            "name": "Case em breve",
+            "tags": [
+              "WooCommerce"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          }
+        ]
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "O site é feito com template?",
+            "answer": "<p>Não. O layout é desenvolvido sob medida, sem template pronto.</p>"
+          },
+          {
+            "question": "Eu mesmo consigo editar o site?",
+            "answer": "<p>Sim. Textos, imagens e páginas são editados pelo painel do WordPress.</p>"
+          },
+          {
+            "question": "O site inclui manutenção?",
+            "answer": "<p>30 dias de garantia. Depois, os planos de manutenção cobrem atualizações, backups e segurança. <a href=\"/manutencao-de-sites\">Manutenção de sites e WordPress</a></p>"
+          },
+          {
+            "question": "WordPress é seguro?",
+            "answer": "<p>É, quando mantido. Invasões em WordPress costumam explorar plugin ou tema desatualizado, e uma rotina de atualização, backup e monitoramento fecha essa porta. Por isso oferecemos <a href=\"/manutencao-de-sites\">manutenção de sites</a> e, se o pior acontecer, a <a href=\"/recuperacao-de-site-wordpress\">recuperação de WordPress invadido</a>.</p>"
+          },
+          {
+            "question": "Quanto custa e quanto tempo leva?",
+            "answer": "<p>Depende do número de páginas e das funcionalidades. [PREENCHER: faixa de investimento e prazo típico] Um exemplo é o site da <a href=\"/cases/produtive\">Produtive</a>, em WordPress e em três idiomas.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "WordPress sob medida, *feito com método.*",
+        "body": "<p>Uma conversa basta para entender o conteúdo, as páginas e as integrações que o site precisa ter.</p>",
+        "cta_label": "Pedir orçamento",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento%20de%20site%20em%20WordPress."
+      }
+    }
+  ]
+}

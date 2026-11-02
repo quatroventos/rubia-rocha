@@ -1,0 +1,217 @@
+{
+  "slug": "ui-ux-design",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "UI/UX design e discovery de produto | Quatro Ventos",
+  "seo_description": "Discovery, arquitetura de informação, protótipo e UI design para produtos digitais, com design que vira código no mesmo time.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/ui-ux-design.jpg",
+  "og_image_alt": "UI/UX design e discovery de produto. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "UI/UX design e *discovery de produto.*",
+        "subtitle": "<p>UI/UX design é o trabalho de entender quem usa um produto e desenhar telas que levam essa pessoa ao resultado sem esforço. Fazemos discovery, arquitetura de informação, protótipo e design de interface, e o mesmo time transforma o protótipo aprovado em código, sem perder nada no repasse.</p>",
+        "visual": "ux",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20UI%2FUX%20design."
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "Onde o design *entra.*",
+        "intro": "<p>Em qualquer projeto em que alguém precise usar uma tela para chegar a um resultado: do produto que ainda é ideia ao sistema que o time usa todo dia.</p>",
+        "items": [
+          {
+            "title": "Produto novo",
+            "text": "A ideia vira fluxo e protótipo antes do investimento em desenvolvimento."
+          },
+          {
+            "title": "Sistema existente",
+            "text": "Telas e fluxos que geram dúvida, erro ou retrabalho são redesenhados."
+          },
+          {
+            "title": "Site e e-commerce",
+            "text": "Arquitetura de informação e interface pensadas para quem vai navegar e comprar."
+          },
+          {
+            "title": "Design recebido",
+            "text": "O layout pronto, do Figma ou de outro time, implementado fiel ao que foi aprovado."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "examples-1",
+      "type": "site.examples",
+      "data": {
+        "title": "Exemplos de *telas.*",
+        "intro": "<p>Interfaces em que um fluxo bem desenhado muda o resultado: mais vendas, menos chamados e menos erro de quem opera.</p>",
+        "items": [
+          {
+            "title": "Landing page de produto",
+            "text": "Mensagem, prova e chamada para ação organizadas e testadas no protótipo antes do lançamento."
+          },
+          {
+            "title": "Site institucional",
+            "text": "Páginas e conteúdos estruturados para quem procura a empresa e precisa encontrar rápido."
+          },
+          {
+            "title": "Checkout de e-commerce",
+            "text": "Etapas, campos e mensagens de erro desenhados para reduzir o abandono do carrinho."
+          },
+          {
+            "title": "Onboarding de SaaS",
+            "text": "Os primeiros passos do usuário até o primeiro resultado dentro do produto."
+          },
+          {
+            "title": "Painel administrativo",
+            "text": "Tabelas, filtros e ações em massa para quem opera o sistema todos os dias."
+          },
+          {
+            "title": "Agendamento online",
+            "text": "Escolha de serviço, horário e confirmação em poucos toques, no celular."
+          },
+          {
+            "title": "Portal do cliente",
+            "text": "Área logada com pedidos, documentos e solicitações reunidos em um só lugar."
+          },
+          {
+            "title": "Design system",
+            "text": "Componentes, cores e tipografia documentados para o time reutilizar em novas telas."
+          }
+        ],
+        "more_title": "Qualquer tela que gera dúvida",
+        "more_text": "Se uma tela gera erro, chamado ou retrabalho, ela pode ser redesenhada e validada antes de voltar para o código.",
+        "more_label": "Conte qual é a sua",
+        "more_href": "#contato",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "Design que *vira código.*",
+        "body": "<p>Como o mesmo time desenha e desenvolve, o protótipo já nasce viável e a interface publicada é fiel ao que foi aprovado. Quando o design chega pronto, ele é implementado com a mesma fidelidade.</p>",
+        "cta_label": "Conversar sobre o produto",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20UI%2FUX%20design.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Do problema à interface.",
+        "intro": "<p>As telas só seguem para o código depois de validadas no protótipo com quem vai usar.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Discovery",
+            "body": "<p>Objetivos, usuários e restrições.</p>"
+          },
+          {
+            "title": "Arquitetura de informação",
+            "body": "<p>Estrutura, navegação e fluxos.</p>"
+          },
+          {
+            "title": "Wireframes",
+            "body": "<p>O esqueleto das telas.</p>"
+          },
+          {
+            "title": "Protótipo navegável",
+            "body": "<p>Validação antes do código.</p>"
+          },
+          {
+            "title": "Design de interface",
+            "body": "<p>Visual final e sistema de componentes.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "O que o projeto *entrega.*",
+        "items": [
+          "Objetivos, usuários e restrições documentados",
+          "Arquitetura de informação e fluxos",
+          "Wireframes das telas",
+          "Protótipo navegável para validação",
+          "Interface final e sistema de componentes",
+          "Implementação fiel ao design aprovado"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "showcase-1",
+      "type": "site.showcase",
+      "data": {
+        "title": "Do design recebido ao site no ar.",
+        "intro": "<p>Layouts entregues pelos clientes, implementados fiéis ao design, com o CMS e a stack que cada projeto pedia.</p>",
+        "link_to": "url",
+        "cta_label": "Ver o site",
+        "items": [
+          "ramos-benedetti",
+          "produtive"
+        ]
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "O que é discovery?",
+            "answer": "<p>A etapa em que objetivos, usuários e restrições do produto são levantados antes de desenhar qualquer tela.</p>"
+          },
+          {
+            "question": "Qual a diferença entre wireframe e protótipo?",
+            "answer": "<p>O wireframe é o esqueleto das telas: estrutura e conteúdo, sem o visual final. O protótipo é navegável e permite validar o fluxo com quem vai usar antes do código.</p>"
+          },
+          {
+            "question": "Por que validar antes de programar?",
+            "answer": "<p>Ajustar um protótipo é mais rápido do que refazer telas já programadas. A validação com quem vai usar reduz retrabalho no desenvolvimento.</p>"
+          },
+          {
+            "question": "O mesmo time desenha e desenvolve?",
+            "answer": "<p>Sim. Por isso o protótipo já nasce viável e a interface publicada é fiel ao que foi aprovado.</p>"
+          },
+          {
+            "question": "Vocês desenvolvem a partir de um design que já temos?",
+            "answer": "<p>Sim. Recebemos o layout pronto, em Figma ou outra ferramenta, e implementamos o site ou sistema fiel a ele, em Laravel, WordPress ou na stack que o projeto pedir.</p>"
+          },
+          {
+            "question": "Qual a diferença entre UI e UX?",
+            "answer": "<p>UX é a experiência inteira: o caminho que a pessoa faz, o que ela entende e onde trava. UI é a camada visual dessa experiência, com telas, botões, tipografia e cores. Um visual bonito não salva um fluxo confuso, por isso o UX vem primeiro.</p>"
+          },
+          {
+            "question": "Quanto custa e quanto tempo leva?",
+            "answer": "<p>Depende do número de fluxos e telas e de quanto discovery o produto precisa. [PREENCHER: faixa de investimento e prazo típico] O design aprovado segue direto para <a href=\"/software-sob-medida\">software sob medida</a> ou para a <a href=\"/desenvolvimento-de-sites\">criação de sites</a>.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "Um produto pronto *para ser desenhado?*",
+        "body": "<p>Uma conversa basta para entender o problema, quem vai usar e por onde começar o discovery.</p>",
+        "cta_label": "Falar com um especialista",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20UI%2FUX%20design."
+      }
+    }
+  ]
+}

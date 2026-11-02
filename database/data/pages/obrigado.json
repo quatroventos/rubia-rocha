@@ -1,0 +1,26 @@
+{
+  "slug": "obrigado",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Mensagem recebida",
+  "seo_description": "",
+  "canonical": "https://www.quatroventos.com.br/obrigado",
+  "robots": "noindex, follow",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/obrigado.jpg",
+  "og_image_alt": "Mensagem recebida. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Mensagem recebida.",
+        "subtitle": "<p>Retornamos em breve. Para urgências, use o WhatsApp.</p>",
+        "primary_label": "Abrir WhatsApp",
+        "primary_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento.",
+        "secondary_label": "Voltar para o início",
+        "secondary_href": "/"
+      }
+    }
+  ]
+}

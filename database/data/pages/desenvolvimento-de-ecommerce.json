@@ -1,0 +1,183 @@
+{
+  "slug": "desenvolvimento-de-ecommerce",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Criação de loja virtual e e-commerce | Quatro Ventos",
+  "seo_description": "Lojas virtuais em Shopify, WooCommerce e Tray integradas a ERP, pagamentos e logística. Compare plataformas e veja como funciona.",
+  "canonical": "https://www.quatroventos.com.br/desenvolvimento-de-ecommerce",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/desenvolvimento-de-ecommerce.jpg",
+  "og_image_alt": "Desenvolvimento de e-commerce. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Criação de loja virtual *integrada à operação.*",
+        "subtitle": "<p>Criação de loja virtual em Shopify, WooCommerce, Tray ou sob medida, tratada como processo de ponta a ponta: vitrine, checkout, pagamento, estoque, emissão fiscal e atendimento. Integramos a loja ao ERP, aos meios de pagamento e à logística para que cada pedido chegue ao cliente sem digitação manual.</p>",
+        "visual": "ecom",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20uma%20loja%20virtual."
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "A plataforma certa *para a operação.*",
+        "intro": "<p>A escolha depende do porte da loja, do tamanho do catálogo e dos sistemas com que ela precisa conversar.</p>",
+        "items": [
+          {
+            "title": "Shopify",
+            "text": "Loja hospedada, rápida de colocar no ar, com apps para pagamento, frete e marketing."
+          },
+          {
+            "title": "WooCommerce",
+            "text": "Loja dentro do WordPress, com catálogo e conteúdo no mesmo painel."
+          },
+          {
+            "title": "Tray",
+            "text": "Plataforma brasileira com pagamento, frete, emissão fiscal e marketplaces integrados de fábrica."
+          },
+          {
+            "title": "Sob medida",
+            "text": "Quando a operação não cabe numa plataforma pronta e exige regras e integrações próprias."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "A venda não termina *no checkout.*",
+        "body": "<p>Pagamento, frete, estoque, nota fiscal e atendimento fazem parte da mesma operação. A loja é desenhada para que cada pedido siga até a entrega sem retrabalho entre sistemas.</p>",
+        "variant": "light",
+        "cta_label": "Conversar sobre a loja",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20uma%20loja%20virtual.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Da arquitetura à loja no ar.",
+        "intro": "<p>Cada página passa por checklist de responsividade, velocidade, compatibilidade entre navegadores e funcionalidades.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Arquitetura",
+            "body": "<p>Comportamento do público estudado e caminho de compra mapeado.</p>"
+          },
+          {
+            "title": "Prototipagem",
+            "body": "<p>Protótipos interativos para validar a loja antes da programação.</p>"
+          },
+          {
+            "title": "Frontend",
+            "body": "<p>Interface convertida em código limpo e otimizado.</p>"
+          },
+          {
+            "title": "Backend",
+            "body": "<p>Pagamento, frete, estoque e integrações construídos em paralelo, com performance e segurança.</p>"
+          },
+          {
+            "title": "Homologação",
+            "body": "<p>Pedidos de teste em ambiente privado e rodada de ajustes.</p>"
+          },
+          {
+            "title": "Entrega",
+            "body": "<p>Loja publicada no endereço definitivo, com acompanhamento.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "Escopo do *projeto.*",
+        "items": [
+          "Escolha da plataforma pelo porte e pela operação da loja",
+          "Layout sob medida e checkout otimizado",
+          "Integração com meios de pagamento e frete",
+          "Integração com ERP, estoque e emissão fiscal",
+          "Migração de outra plataforma",
+          "Automação e IA: descrições de produto, atendimento e recuperação de carrinho"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "showcase-1",
+      "type": "site.showcase",
+      "data": {
+        "title": "Lojas no ar.",
+        "intro": "<p>Lojas virtuais integradas a pagamento, estoque, emissão fiscal e atendimento.</p>",
+        "items": [],
+        "placeholders": [
+          {
+            "name": "Case em breve",
+            "tags": [
+              "Loja virtual"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          },
+          {
+            "name": "Case em breve",
+            "tags": [
+              "Integração com ERP"
+            ],
+            "text": "Case em preparação. Em breve, com capa, contexto do projeto e link para o que foi publicado."
+          }
+        ]
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "Qual plataforma escolher?",
+            "answer": "<p>Depende do porte, do catálogo e da operação da loja. A recomendação é feita no início do projeto, depois de entender produtos, volume e sistemas envolvidos.</p>"
+          },
+          {
+            "question": "É possível migrar de outra plataforma?",
+            "answer": "<p>Sim. A migração de outra plataforma pode fazer parte do escopo do projeto.</p>"
+          },
+          {
+            "question": "A loja se integra ao ERP?",
+            "answer": "<p>Sim. A integração com ERP, estoque e emissão fiscal faz parte do escopo, para que os pedidos sigam sem digitação entre sistemas.</p>"
+          },
+          {
+            "question": "Onde a IA entra na loja?",
+            "answer": "<p>Em descrições de produto, no atendimento e na recuperação de carrinho, conectados à operação da loja.</p>"
+          },
+          {
+            "question": "Shopify, WooCommerce ou Tray: qual a diferença?",
+            "answer": "<p>Shopify é uma plataforma paga por mensalidade, com hospedagem inclusa e muitos aplicativos, boa para começar rápido. WooCommerce roda sobre o WordPress, em hospedagem própria, e dá mais liberdade de layout e de regra. Tray é uma plataforma brasileira, com integrações prontas a meios de pagamento, frete e marketplaces nacionais. A escolha depende do catálogo, do volume e dos sistemas que a loja precisa acessar.</p>"
+          },
+          {
+            "question": "Quanto custa e quanto tempo leva uma loja virtual?",
+            "answer": "<p>Depende da plataforma, do tamanho do catálogo e das integrações com ERP, pagamento e frete. [PREENCHER: faixa de investimento e prazo típico] Lojas que precisam de gestão integrada passam por <a href=\"/erp-e-crm\">ERP e CRM</a>; um exemplo de plataforma é a <a href=\"/cases/seucommerce\">SeuCommerce</a>.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "Uma loja integrada *à operação.*",
+        "body": "<p>Uma conversa basta para entender o catálogo, os sistemas envolvidos e qual plataforma faz sentido para a loja.</p>",
+        "cta_label": "Falar com um especialista",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20uma%20loja%20virtual."
+      }
+    }
+  ]
+}

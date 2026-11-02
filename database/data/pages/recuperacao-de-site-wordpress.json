@@ -1,0 +1,193 @@
+{
+  "slug": "recuperacao-de-site-wordpress",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Site WordPress invadido? Recuperação | Quatro Ventos",
+  "seo_description": "Recuperamos sites WordPress invadidos: limpeza de malware, correção de brechas e site de volta ao ar. Atendimento humano.",
+  "canonical": "https://www.quatroventos.com.br/recuperacao-de-site-wordpress",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/recuperacao-de-site-wordpress.jpg",
+  "og_image_alt": "Recuperação de site WordPress. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Recuperação de site *WordPress invadido.*",
+        "subtitle": "<p>Recuperação de site WordPress invadido é o trabalho de remover o malware, fechar a brecha usada na invasão e devolver o site ao ar com segurança. Fazemos a limpeza, corrigimos o que estava vulnerável e testamos antes de publicar, com atendimento humano desde o primeiro contato pelo WhatsApp.</p>",
+        "visual": "recover",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Meu%20site%20WordPress%20foi%20invadido%20ou%20est%C3%A1%20fora%20do%20ar."
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "Sinais de que o site *foi invadido.*",
+        "intro": "<p>Nem toda invasão derruba o site. Alguns sinais aparecem antes, e cada um pede a mesma resposta: começar a recuperação.</p>",
+        "items": [
+          {
+            "title": "Popups e anúncios",
+            "text": "Janelas e anúncios que ninguém da empresa colocou no site."
+          },
+          {
+            "title": "Redirecionamentos",
+            "text": "Visitantes levados para outros endereços ao abrir uma página."
+          },
+          {
+            "title": "Envios suspeitos",
+            "text": "E-mails e spam saindo do servidor sem que ninguém tenha enviado."
+          },
+          {
+            "title": "Site quebrado",
+            "text": "Página em branco, erro no painel ou o site fora do ar."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "Tempo é *decisivo.*",
+        "body": "<p>Um site invadido afeta vendas, reputação e posicionamento no Google. Quanto antes a recuperação começa, menor o dano.</p>",
+        "variant": "light",
+        "price_from": "A partir de",
+        "price_value": "R$ 450,00",
+        "price_term": "Site recuperado em até 24 horas.*",
+        "price_note": "*Desde que informados os acessos corretos.",
+        "cta_label": "Começar a recuperação",
+        "cta_href": "https://wa.me/554130399593?text=Meu%20site%20WordPress%20foi%20invadido%20ou%20est%C3%A1%20fora%20do%20ar.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Da invasão ao site protegido.",
+        "intro": "<p>A recuperação remove a causa, não só o sintoma. O site volta ao ar testado e com o que estava vulnerável corrigido.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Análise",
+            "body": "<p>Identificação da invasão e do que foi afetado.</p>"
+          },
+          {
+            "title": "Limpeza",
+            "body": "<p>Remoção do malware e de arquivos comprometidos.</p>"
+          },
+          {
+            "title": "Correção",
+            "body": "<p>Atualização do que estava vulnerável.</p>"
+          },
+          {
+            "title": "Restauração",
+            "body": "<p>Site de volta ao ar, testado.</p>"
+          },
+          {
+            "title": "Proteção",
+            "body": "<p>Plano de manutenção para evitar reincidência.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "O que a recuperação *entrega.*",
+        "items": [
+          "Malware e arquivos comprometidos removidos",
+          "WordPress, plugins e tema atualizados",
+          "Senhas de acesso trocadas",
+          "Site testado antes de voltar ao ar",
+          "Relatório do que foi afetado e corrigido",
+          "Indicação do plano de manutenção para evitar reincidência"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "examples-1",
+      "type": "site.examples",
+      "data": {
+        "title": "Outros *atendimentos.*",
+        "intro": "<p>Nem todo problema é invasão. O mesmo time resolve o que deixa o site lento, quebrado ou sem hospedagem.</p>",
+        "items": [
+          {
+            "title": "Site lento",
+            "text": "Correção do que faz o visitante abandonar a página."
+          },
+          {
+            "title": "Malware",
+            "text": "Limpeza de popups, redirecionamentos e envios suspeitos."
+          },
+          {
+            "title": "Migração",
+            "text": "Troca de hospedagem com tudo ajustado e funcionando."
+          },
+          {
+            "title": "Site quebrado",
+            "text": "Restauração do site no ar."
+          },
+          {
+            "title": "Problemas complexos",
+            "text": "Diagnóstico e solução."
+          }
+        ],
+        "more_title": "Outro problema no site",
+        "more_text": "Conte o que está acontecendo. A análise mostra a causa e o caminho para resolver.",
+        "more_label": "Descrever o problema",
+        "more_href": "#contato",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "Em quanto tempo o site volta ao ar?",
+            "answer": "<p>Depende da extensão da invasão e do estado dos backups. A análise mostra o que foi afetado e qual o caminho mais curto para restaurar com segurança.</p>"
+          },
+          {
+            "question": "Preciso ter backup?",
+            "answer": "<p>Ajuda, mas não é obrigatório. Sem um backup limpo, a recuperação parte da limpeza dos arquivos e do banco de dados atuais.</p>"
+          },
+          {
+            "question": "Basta restaurar um backup antigo?",
+            "answer": "<p>Não. Se a falha que permitiu a invasão continuar aberta, o site pode ser invadido de novo. Por isso a recuperação inclui corrigir o que estava vulnerável.</p>"
+          },
+          {
+            "question": "Como evitar uma nova invasão?",
+            "answer": "<p>Com WordPress, plugins e tema atualizados, backups e monitoramento. É o que cobre o plano de manutenção. <a href=\"/manutencao-de-sites\">Manutenção de sites</a></p>"
+          },
+          {
+            "question": "Meu WordPress foi invadido. O que fazer nos primeiros minutos?",
+            "answer": "<p>Troque as senhas do painel, da hospedagem e do FTP; não apague arquivos nem restaure backups por conta própria, porque isso pode esconder a origem da invasão; anote o que mudou e desde quando; e chame o suporte. Quanto antes a análise começa, menor o dano no Google e nas vendas.</p>"
+          },
+          {
+            "question": "Quanto custa a recuperação?",
+            "answer": "<p>Depende do tamanho do site e da extensão da invasão, avaliados na primeira análise. [PREENCHER: preço a partir de da recuperação] Depois de recuperado, o site pode entrar num plano de <a href=\"/manutencao-de-sites\">manutenção de sites</a>.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "Site fora do ar *agora?*",
+        "body": "<p>Mande o endereço do site pelo WhatsApp. A análise começa pelo que foi afetado.</p>",
+        "cta_label": "Falar no WhatsApp",
+        "cta_href": "https://wa.me/554130399593?text=Meu%20site%20WordPress%20foi%20invadido%20ou%20est%C3%A1%20fora%20do%20ar."
+      }
+    }
+  ]
+}

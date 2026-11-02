@@ -1,0 +1,202 @@
+{
+  "slug": "modernizacao-de-sistemas",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Sistema legado: modernizar ou reescrever? | Quatro Ventos",
+  "seo_description": "Auditoria técnica e modernização de sistemas legados: refatoração, migração de stack e plano de transição sem parar a operação.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/modernizacao-de-sistemas.jpg",
+  "og_image_alt": "Modernização de sistemas legados. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Modernização de *sistemas legados.*",
+        "subtitle": "<p>Sistema legado é o software que ainda sustenta a operação, mas ficou lento, difícil de alterar ou preso a uma tecnologia antiga. Fazemos a auditoria técnica, decidimos com você entre refatorar, migrar ou reescrever e modernizamos em etapas, com o sistema atendendo durante toda a transição.</p>",
+        "visual": "modernize",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20pedir%20uma%20auditoria%20de%20sistema%20legado."
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "Quando *modernizar.*",
+        "intro": "<p>Os sinais que mais aparecem antes de um pedido de auditoria. Em geral, o sistema ainda atende, mas ninguém quer mexer nele.</p>",
+        "items": [
+          {
+            "title": "Lento",
+            "text": "Telas que demoram, relatórios que travam e rotinas que só rodam fora do horário de trabalho."
+          },
+          {
+            "title": "Difícil de alterar",
+            "text": "Cada mudança simples vira semanas de trabalho e o risco de quebrar outra parte do sistema."
+          },
+          {
+            "title": "Sem suporte",
+            "text": "Linguagem, framework ou servidor em versões que não recebem mais correções de segurança."
+          },
+          {
+            "title": "Dependente",
+            "text": "Só uma pessoa entende o código, e a operação para quando ela não está."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "examples-1",
+      "type": "site.examples",
+      "data": {
+        "title": "Caminhos de *modernização.*",
+        "intro": "<p>O caminho sai da auditoria. Em muitos sistemas, mais de um entra no plano, em ordem de prioridade.</p>",
+        "items": [
+          {
+            "title": "Refatoração gradual",
+            "text": "O código é reorganizado por partes, com o sistema em uso, começando pelos trechos que mais travam alterações."
+          },
+          {
+            "title": "Migração de framework ou linguagem",
+            "text": "Saída de versões sem suporte para uma base atual, módulo a módulo."
+          },
+          {
+            "title": "APIs e novo frontend",
+            "text": "As regras de negócio passam a ser expostas por APIs, e a interface é refeita sobre elas."
+          },
+          {
+            "title": "Migração de dados e infraestrutura",
+            "text": "Banco de dados, servidores e deploy levados para um ambiente atual, com validação dos dados migrados."
+          },
+          {
+            "title": "IA em fluxos existentes",
+            "text": "Etapas manuais do sistema, como ler documentos ou classificar solicitações, assumidas por IA."
+          }
+        ],
+        "more_title": "Qual caminho vem primeiro",
+        "more_text": "A auditoria mostra o que trava mais a operação e define a ordem: o que corrigir já e o que modernizar depois.",
+        "more_label": "Pedir auditoria",
+        "more_href": "#contato",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "Modernizar *sem parar a operação.*",
+        "body": "<p>O sistema continua atendendo enquanto é modernizado. Cada etapa entra em produção separadamente, depois de validada, começando pelo que mais trava o processo.</p>",
+        "cta_label": "Pedir auditoria",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20pedir%20uma%20auditoria%20de%20sistema%20legado.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Do diagnóstico ao sistema atualizado.",
+        "intro": "<p>Nenhuma alteração começa antes da auditoria. O plano define o que corrigir primeiro e o que modernizar depois.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Auditoria",
+            "body": "<p>Código, segurança, performance, dados e infraestrutura avaliados.</p>"
+          },
+          {
+            "title": "Priorização",
+            "body": "<p>Correções rápidas e plano ordenado pelo impacto.</p>"
+          },
+          {
+            "title": "Modernização",
+            "body": "<p>Execução por etapas, sem parar a operação.</p>"
+          },
+          {
+            "title": "Validação",
+            "body": "<p>Cada parte substitui a anterior só depois de validada.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "Escopo da *auditoria.*",
+        "intro": "<p>O primeiro passo de qualquer modernização. Ao final, um relatório com correções rápidas e um plano priorizado.</p>",
+        "items": [
+          "Arquitetura e qualidade do código",
+          "Segurança e versões desatualizadas",
+          "Performance e gargalos",
+          "Banco de dados e integrações",
+          "Infraestrutura e processo de deploy",
+          "Relatório com correções rápidas e plano priorizado"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "showcase-1",
+      "type": "site.showcase",
+      "data": {
+        "title": "Sistemas antigos, renovados.",
+        "intro": "<p>Calculadoras técnicas reconstruídas na web a partir dos sistemas antigos dos clientes.</p>",
+        "link_to": "url",
+        "cta_label": "Ver a calculadora",
+        "items": [
+          "moltec",
+          "cyclolux"
+        ]
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "É preciso parar o sistema para modernizar?",
+            "answer": "<p>Não. A modernização é feita por etapas, com o sistema atual em uso, e cada parte só substitui a anterior depois de validada.</p>"
+          },
+          {
+            "question": "Vale mais refatorar ou reescrever?",
+            "answer": "<p>Depende do estado do código e do que o negócio precisa. A auditoria aponta os riscos de cada caminho e o plano de modernização prioriza o que traz mais resultado primeiro.</p>"
+          },
+          {
+            "question": "O sistema foi feito por outra empresa. Vocês assumem?",
+            "answer": "<p>Sim. O trabalho começa pela auditoria técnica, justamente para entender o código, a infraestrutura e os riscos antes de qualquer alteração.</p>"
+          },
+          {
+            "question": "O que recebo ao final da auditoria?",
+            "answer": "<p>Um relatório com correções rápidas e um plano de modernização priorizado.</p>"
+          },
+          {
+            "question": "Quais os sinais de que o sistema legado precisa de modernização?",
+            "answer": "<p>Cinco aparecem com frequência: cada alteração demora e quebra outra parte; a linguagem ou o framework saiu de suporte; só uma pessoa sabe mexer no código; o sistema não se integra ao que a empresa passou a usar; e a lentidão já atrapalha quem opera. Com dois ou mais, vale uma auditoria.</p>"
+          },
+          {
+            "question": "Quanto custa e quanto tempo leva a modernização?",
+            "answer": "<p>A auditoria vem primeiro e define o plano, com prazos por etapa. O custo depende do tamanho do código e do caminho escolhido. [PREENCHER: faixa de investimento da auditoria]</p>"
+          },
+          {
+            "question": "Como evitar que o sistema volte a envelhecer?",
+            "answer": "<p>Com testes automatizados e uma rotina de atualização. Depois da modernização, o sistema pode seguir em <a href=\"/sustentacao-de-software\">sustentação</a>, com <a href=\"/qa-e-testes\">QA e testes</a> a cada versão. Um exemplo de reconstrução é a <a href=\"/cases/moltec\">calculadora da Moltec</a>.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "O sistema atual está *travando o processo?*",
+        "body": "<p>Uma conversa basta para entender o sistema, os sintomas e o que a auditoria precisa cobrir.</p>",
+        "cta_label": "Pedir auditoria",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20pedir%20uma%20auditoria%20de%20sistema%20legado."
+      }
+    }
+  ]
+}

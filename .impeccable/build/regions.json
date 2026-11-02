@@ -1,0 +1,226 @@
+{
+  "regions": [
+    {
+      "id": "brand",
+      "kind": "text",
+      "note": "Wordmark Quatro Ventos at the top left.",
+      "pixelBox": { "x": 20, "y": 18, "w": 200, "h": 36 }
+    },
+    {
+      "id": "nav-sites",
+      "kind": "text",
+      "note": "Header link Desenvolvimento de sites.",
+      "pixelBox": { "x": 748, "y": 28, "w": 150, "h": 16 }
+    },
+    {
+      "id": "nav-manutencao",
+      "kind": "text",
+      "note": "Header link Manutenção de sites.",
+      "pixelBox": { "x": 928, "y": 28, "w": 120, "h": 16 }
+    },
+    {
+      "id": "nav-hospedagem",
+      "kind": "text",
+      "note": "Header link Hospedagem.",
+      "pixelBox": { "x": 1084, "y": 28, "w": 80, "h": 16 }
+    },
+    {
+      "id": "nav-suporte",
+      "kind": "text",
+      "note": "Header link Suporte.",
+      "pixelBox": { "x": 1196, "y": 28, "w": 52, "h": 16 }
+    },
+    {
+      "id": "headline-design",
+      "kind": "text",
+      "note": "Wall-scale word Design, in ink, left of the specimen.",
+      "pixelBox": { "x": 28, "y": 90, "w": 440, "h": 185 }
+    },
+    {
+      "id": "headline-code",
+      "kind": "text",
+      "note": "Wall-scale word Code, the caps visible above the specimen.",
+      "pixelBox": { "x": 460, "y": 90, "w": 660, "h": 165 }
+    },
+    {
+      "id": "headline-test",
+      "kind": "text",
+      "note": "Wall-scale word Test, left, under Design.",
+      "pixelBox": { "x": 20, "y": 268, "w": 430, "h": 210 }
+    },
+    {
+      "id": "headline-repeat",
+      "kind": "text",
+      "note": "Wall-scale letters at of Repeat, right of the specimen.",
+      "pixelBox": { "x": 928, "y": 300, "w": 162, "h": 160 }
+    },
+    {
+      "id": "headline-ellipsis",
+      "kind": "text",
+      "note": "Three squares that end Repeat... on the wall.",
+      "pixelBox": { "x": 1094, "y": 400, "w": 132, "h": 50 }
+    },
+    {
+      "id": "caption",
+      "kind": "text",
+      "note": "Small line Estamos prontos para criar, programar e cuidar do seu site.",
+      "pixelBox": { "x": 20, "y": 466, "w": 400, "h": 32 }
+    },
+    {
+      "id": "card-top",
+      "kind": "chrome",
+      "note": "Top edge of the white specimen frame.",
+      "pixelBox": { "x": 400, "y": 172, "w": 510, "h": 12 }
+    },
+    {
+      "id": "card-bottom",
+      "kind": "chrome",
+      "note": "Bottom edge of the white specimen frame.",
+      "pixelBox": { "x": 390, "y": 488, "w": 520, "h": 20 }
+    },
+    {
+      "id": "card-left",
+      "kind": "chrome",
+      "note": "Left edge of the white specimen frame.",
+      "pixelBox": { "x": 400, "y": 172, "w": 14, "h": 334 }
+    },
+    {
+      "id": "card-right",
+      "kind": "chrome",
+      "note": "Right edge of the white specimen frame.",
+      "pixelBox": { "x": 870, "y": 168, "w": 58, "h": 340 }
+    },
+    {
+      "id": "specimen-name",
+      "kind": "text",
+      "note": "Small Quatro Ventos inside the specimen.",
+      "pixelBox": { "x": 424, "y": 198, "w": 140, "h": 16 }
+    },
+    {
+      "id": "specimen-menu",
+      "kind": "chrome",
+      "note": "Three-line menu mark at the specimen's top right.",
+      "pixelBox": { "x": 834, "y": 198, "w": 28, "h": 16 }
+    },
+    {
+      "id": "specimen-title",
+      "kind": "text",
+      "note": "Two-line title inside the specimen, Desenvolvemos sites para quem exige mais.",
+      "pixelBox": { "x": 420, "y": 248, "w": 470, "h": 112 }
+    },
+    {
+      "id": "specimen-body",
+      "kind": "text",
+      "note": "Three short lines of body copy inside the specimen.",
+      "pixelBox": { "x": 420, "y": 328, "w": 360, "h": 104 }
+    },
+    {
+      "id": "specimen-cta",
+      "kind": "control",
+      "note": "Teal button Faça um orçamento sem compromisso! with an arrow.",
+      "pixelBox": { "x": 420, "y": 360, "w": 500, "h": 80 }
+    },
+    {
+      "id": "specimen-rule",
+      "kind": "chrome",
+      "note": "Hairline above the specimen footer.",
+      "pixelBox": { "x": 424, "y": 457, "w": 460, "h": 4 }
+    },
+    {
+      "id": "specimen-meta",
+      "kind": "text",
+      "note": "Tiny footer line Tecnologia, Performance, Escala, Confiança.",
+      "pixelBox": { "x": 420, "y": 432, "w": 520, "h": 80 }
+    },
+    {
+      "id": "specimen-dot",
+      "kind": "control",
+      "note": "Single teal status dot at the specimen footer.",
+      "pixelBox": { "x": 844, "y": 468, "w": 16, "h": 14 }
+    },
+    {
+      "id": "station-arquitetura",
+      "kind": "chrome",
+      "note": "Lit station mark and the line segment into Prototipagem.",
+      "pixelBox": { "x": 70, "y": 552, "w": 200, "h": 96 },
+      "reviewGroup": "station-mark"
+    },
+    {
+      "id": "label-arquitetura",
+      "kind": "text",
+      "note": "Station label Arquitetura.",
+      "pixelBox": { "x": 88, "y": 648, "w": 72, "h": 18 },
+      "reviewGroup": "station-label"
+    },
+    {
+      "id": "station-prototipagem",
+      "kind": "chrome",
+      "note": "Unlit Prototipagem mark and its line segment.",
+      "pixelBox": { "x": 270, "y": 552, "w": 200, "h": 96 },
+      "reviewGroup": "station-mark"
+    },
+    {
+      "id": "label-prototipagem",
+      "kind": "text",
+      "note": "Station label Prototipagem.",
+      "pixelBox": { "x": 256, "y": 644, "w": 128, "h": 76 },
+      "reviewGroup": "station-label"
+    },
+    {
+      "id": "station-frontend",
+      "kind": "chrome",
+      "note": "Unlit Frontend mark and its line segment.",
+      "pixelBox": { "x": 470, "y": 552, "w": 200, "h": 96 },
+      "reviewGroup": "station-mark"
+    },
+    {
+      "id": "label-frontend",
+      "kind": "text",
+      "note": "Station label Frontend.",
+      "pixelBox": { "x": 500, "y": 648, "w": 70, "h": 18 },
+      "reviewGroup": "station-label"
+    },
+    {
+      "id": "station-backend",
+      "kind": "chrome",
+      "note": "Unlit Backend mark and its line segment.",
+      "pixelBox": { "x": 670, "y": 552, "w": 200, "h": 96 },
+      "reviewGroup": "station-mark"
+    },
+    {
+      "id": "label-backend",
+      "kind": "text",
+      "note": "Station label Backend.",
+      "pixelBox": { "x": 704, "y": 648, "w": 60, "h": 18 },
+      "reviewGroup": "station-label"
+    },
+    {
+      "id": "station-homologacao",
+      "kind": "chrome",
+      "note": "Unlit Homologação mark and its line segment.",
+      "pixelBox": { "x": 870, "y": 552, "w": 200, "h": 96 },
+      "reviewGroup": "station-mark"
+    },
+    {
+      "id": "label-homologacao",
+      "kind": "text",
+      "note": "Station label Homologação.",
+      "pixelBox": { "x": 850, "y": 640, "w": 180, "h": 80 },
+      "reviewGroup": "station-label"
+    },
+    {
+      "id": "station-entrega",
+      "kind": "chrome",
+      "note": "Unlit Entrega mark at the end of the line.",
+      "pixelBox": { "x": 1070, "y": 552, "w": 120, "h": 96 },
+      "reviewGroup": "station-mark"
+    },
+    {
+      "id": "label-entrega",
+      "kind": "text",
+      "note": "Station label Entrega.",
+      "pixelBox": { "x": 1108, "y": 648, "w": 56, "h": 18 },
+      "reviewGroup": "station-label"
+    }
+  ]
+}

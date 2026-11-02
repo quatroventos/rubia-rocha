@@ -1,0 +1,48 @@
+{
+  "title": "Qual composição segue",
+  "question": "A sala limpa está travada. Qual dessas três composições vira a home? O que deve continuar, o que fica falso, e se a escolhida deve ser aprovada, combinada ou refeita.",
+  "options": [
+    {
+      "id": "specimen",
+      "kind": "assigned",
+      "label": "Espécime na parede",
+      "kicker": "OPÇÃO 1",
+      "lineage": "a palavra na parede, o site emoldurado no centro",
+      "thesis": "O título ocupa a sala. O orçamento mora dentro do espécime.",
+      "palette": ["#FDFFFC", "#011627", "#2EC4B6"],
+      "materials": ["parede branca", "tipo cortado", "uma moldura"],
+      "viewport": "Design, Code, Test, Repeat... atrás de um quadro. Seis estações na base, só Arquitetura acesa.",
+      "risk": "O texto de dentro do quadro não é o texto publicado. Se ficar, sai.",
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "bench",
+      "kind": "grounded",
+      "label": "Repeat na bancada",
+      "lineage": "uma palavra é a parede, as estações são a coluna",
+      "thesis": "Repeat é a porta. O método é a coluna da direita, um controle aceso.",
+      "palette": ["#FDFFFC", "#011627", "#2EC4B6"],
+      "materials": ["trilho de equipamento", "tipo em escala de parede", "placas iguais"],
+      "viewport": "Repeat ocupa a esquerda. A coluna Arquitetura até Entrega ocupa a direita. O passo seguinte entra embaixo.",
+      "risk": "A frase publicada inteira some. Se ficar, Design, Code, Test volta como legenda.",
+      "comp": ".impeccable/mocks/comp-bench.webp"
+    },
+    {
+      "id": "pour",
+      "kind": "grounded",
+      "label": "Queda de placas",
+      "lineage": "uma placa alta, cinco placas curtas, a próxima já cortada",
+      "thesis": "A página é uma queda só. A ação fica na primeira placa. O resto espera.",
+      "palette": ["#FDFFFC", "#011627", "#2EC4B6"],
+      "materials": ["placas de largura total", "tinta", "uma luz na primeira"],
+      "viewport": "A frase e o orçamento na placa alta. Prototipagem até Entrega em placas curtas. Quem somos? entra cortado.",
+      "risk": "Os pontos no título não são o texto publicado. As vírgulas voltam.",
+      "comp": ".impeccable/mocks/comp-pour.webp"
+    }
+  ],
+  "steer": true,
+  "buildPath": {
+    "value": "comp",
+    "toggle": false
+  }
+}

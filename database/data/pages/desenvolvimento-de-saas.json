@@ -1,0 +1,219 @@
+{
+  "slug": "desenvolvimento-de-saas",
+  "template": "custom",
+  "status": "published",
+  "seo_title": "Desenvolvimento de SaaS: como criar o seu | Quatro Ventos",
+  "seo_description": "Do MVP ao SaaS em produção: arquitetura multi-tenant, cobrança recorrente, painel e evolução contínua. Veja etapas, prazos e exemplos.",
+  "robots": "index, follow, max-image-preview:large",
+  "twitter_card": "summary_large_image",
+  "og_image": "/assets/og/desenvolvimento-de-saas.jpg",
+  "og_image_alt": "Desenvolvimento de SaaS. Quatro Ventos.",
+  "sections": [
+    {
+      "id": "hero-1",
+      "type": "site.hero",
+      "data": {
+        "title": "Desenvolvimento de SaaS, *da ideia ao produto em uso.*",
+        "subtitle": "<p>Criar um SaaS é transformar uma solução que serve a muitas empresas em um produto cobrado por assinatura. Desenvolvemos do MVP ao produto em produção, com arquitetura multi-tenant, cobrança recorrente, painel administrativo e evolução contínua, como fizemos na SeuCommerce e no Firefly Webmaker.</p>",
+        "visual": "saas",
+        "lead_form": true,
+        "lead_whatsapp": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20SaaS."
+      }
+    },
+    {
+      "id": "uses-1",
+      "type": "site.uses",
+      "data": {
+        "title": "Tipos de *SaaS.*",
+        "intro": "<p>Os formatos de produto por assinatura que mais aparecem quando uma solução pode atender muitas empresas ao mesmo tempo.</p>",
+        "items": [
+          {
+            "title": "SaaS vertical",
+            "text": "Produto para um setor específico, com as regras do negócio que as ferramentas genéricas não cobrem."
+          },
+          {
+            "title": "Ferramenta interna",
+            "text": "O sistema que já resolve o problema da sua empresa, preparado para ser vendido a outras."
+          },
+          {
+            "title": "White label",
+            "text": "Plataforma revendida com a marca, o domínio e a configuração de cada cliente."
+          },
+          {
+            "title": "Produto com IA",
+            "text": "Inteligência artificial no centro do produto, com o custo de uso controlado no plano de cada cliente."
+          }
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "examples-1",
+      "type": "site.examples",
+      "data": {
+        "title": "Exemplos de *produtos.*",
+        "intro": "<p>Problemas que se repetem em muitas empresas e que podem ser resolvidos por um produto cobrado todo mês.</p>",
+        "items": [
+          {
+            "title": "Gestão para clínicas",
+            "text": "Agenda, prontuário, cobrança e lembretes ao paciente, com uma conta isolada por clínica."
+          },
+          {
+            "title": "Plataforma de cursos",
+            "text": "Alunos, turmas, conteúdo e certificados, com cobrança por assinatura ou por matrícula."
+          },
+          {
+            "title": "SDR com IA",
+            "text": "Atendimento e qualificação de leads 24 horas, com painel de conversas para cada empresa cliente."
+          },
+          {
+            "title": "Gerador de sites com IA",
+            "text": "Páginas criadas e publicadas a partir de uma conversa, com domínio e hospedagem incluídos no plano."
+          },
+          {
+            "title": "Gestão de frotas",
+            "text": "Veículos, motoristas, manutenção e custos por empresa, com acesso pelo celular para quem está em campo."
+          },
+          {
+            "title": "Portal de condomínios",
+            "text": "Comunicados, reservas, boletos e ocorrências, com um espaço próprio para cada condomínio."
+          },
+          {
+            "title": "Propostas comerciais",
+            "text": "Modelos, envio, assinatura e acompanhamento de propostas, com limite de usuários por plano."
+          },
+          {
+            "title": "Relatórios white label",
+            "text": "Painéis de indicadores entregues aos clientes finais com a marca e o domínio de cada revenda."
+          }
+        ],
+        "more_title": "Qualquer produto por assinatura",
+        "more_text": "Se o problema aparece em muitas empresas do mesmo jeito e a solução pode ser cobrada todo mês, ele pode virar um SaaS.",
+        "more_label": "Conte qual é a sua ideia",
+        "more_href": "#contato",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "panel-1",
+      "type": "site.panel",
+      "data": {
+        "title": "A base decidida *antes da primeira tela.*",
+        "body": "<p>Isolamento de dados, permissões e cobrança são definidos na arquitetura do MVP. Assim o produto ganha clientes e funcionalidades sem precisar refazer a base.</p>",
+        "cta_label": "Conversar sobre o produto",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20SaaS.",
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "steps-1",
+      "type": "site.steps",
+      "data": {
+        "title": "Da ideia ao produto em uso.",
+        "intro": "<p>O produto vai ao ar no menor formato que já resolve o problema e evolui a partir do que os clientes realmente usam.</p>",
+        "timeline": true,
+        "items": [
+          {
+            "title": "Discovery",
+            "body": "<p>Problema, público e modelo de negócio.</p>"
+          },
+          {
+            "title": "MVP",
+            "body": "<p>O mínimo que já resolve e já gera receita.</p>"
+          },
+          {
+            "title": "Lançamento",
+            "body": "<p>Infraestrutura, monitoramento e suporte.</p>"
+          },
+          {
+            "title": "Evolução",
+            "body": "<p>Roadmap guiado pelo uso real.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "checklist-1",
+      "type": "site.checklist",
+      "data": {
+        "title": "O escopo de *um SaaS.*",
+        "intro": "<p>Além da funcionalidade principal, um produto vendido por assinatura precisa de uma base que atenda vários clientes, controle acessos e cobre todo mês.</p>",
+        "items": [
+          "Arquitetura multi-tenant e isolamento de dados",
+          "Cadastro, login, perfis e permissões",
+          "Planos, assinatura e cobrança recorrente",
+          "Painel administrativo e métricas de uso",
+          "APIs e integrações para clientes",
+          "Funcionalidades de IA no produto"
+        ],
+        "mark_draw": true
+      }
+    },
+    {
+      "id": "showcase-1",
+      "type": "site.showcase",
+      "data": {
+        "title": "SaaS em produção.",
+        "intro": "<p>Produtos por assinatura que construímos e que estão no ar.</p>",
+        "link_to": "url",
+        "cta_label": "Ver o produto",
+        "items": [
+          "bia",
+          "firefly-webmaker",
+          "seucommerce"
+        ]
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "site.faq",
+      "data": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "O que é arquitetura multi-tenant?",
+            "answer": "<p>Uma única aplicação atende várias empresas clientes, cada uma enxergando apenas os próprios dados. O isolamento é definido na arquitetura, antes da primeira tela.</p>"
+          },
+          {
+            "question": "Por que começar por um MVP?",
+            "answer": "<p>Para colocar no ar o mínimo que já resolve o problema e já gera receita, e decidir as próximas funcionalidades a partir do uso real, não de suposições.</p>"
+          },
+          {
+            "question": "A cobrança recorrente fica dentro do produto?",
+            "answer": "<p>Sim. Planos, assinatura e cobrança recorrente fazem parte do escopo, integrados a um meio de pagamento escolhido no projeto.</p>"
+          },
+          {
+            "question": "Quem cuida do produto depois do lançamento?",
+            "answer": "<p>O mesmo time. O lançamento inclui infraestrutura, monitoramento e suporte, e a evolução segue um roadmap guiado pelo uso.</p>"
+          },
+          {
+            "question": "Dá para colocar IA no produto?",
+            "answer": "<p>Sim, quando o produto pede. Funcionalidades de IA entram como parte do escopo, com o modelo escolhido pelo equilíbrio entre custo e qualidade.</p>"
+          },
+          {
+            "question": "Como criar um SaaS, passo a passo?",
+            "answer": "<p>Em seis etapas: validar o problema com quem vai pagar; definir o MVP, com o mínimo que já resolve; desenhar a arquitetura multi-tenant, as permissões e a cobrança; desenvolver e testar; lançar para os primeiros clientes; e evoluir a partir do uso. O produto roda em <a href=\"/vps-e-infraestrutura\">infraestrutura gerenciada</a> desde o lançamento.</p>"
+          },
+          {
+            "question": "Quanto custa um MVP de SaaS?",
+            "answer": "<p>Depende das funcionalidades do MVP, das integrações e do modelo de cobrança. [PREENCHER: faixa de investimento e prazo de um MVP]</p>"
+          },
+          {
+            "question": "Que SaaS vocês já construíram?",
+            "answer": "<p>A <a href=\"/cases/seucommerce\">SeuCommerce</a>, plataforma em que o lojista cria e gerencia a própria loja por assinatura, e o <a href=\"/cases/firefly-webmaker\">Firefly Webmaker</a>, que cria e publica landing pages com agentes de IA.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel-2",
+      "type": "site.panel",
+      "data": {
+        "title": "Um SaaS pronto para *sair do papel?*",
+        "body": "<p>Uma conversa basta para entender o problema, o público e o modelo de negócio, e definir o que entra no MVP.</p>",
+        "cta_label": "Falar com um especialista",
+        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20SaaS."
+      }
+    }
+  ]
+}
