@@ -4,6 +4,8 @@ export const BASE = '/estudio';
 
 const WHATSAPP = '5541988658624';
 
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP}`;
+
 const FEED = [
   { group: 'ensaios', slug: 'familia', file: '01-2-fotografia-de-casal-curitiba1-960.webp', alt: 'Ensaio de família' },
   { group: 'ensaios', slug: 'casal', file: '01-ensaio-de-casal-curitiba6-960.webp', alt: 'Ensaio de casal' },
@@ -27,8 +29,8 @@ function href(id: string): string {
 }
 
 function current(path: string, id: string): boolean {
-  if (id === 'blog') {
-    return path === 'blog' || path.startsWith('blog/');
+  if (id === 'blog' || id === 'ensaios' || id === 'eventos') {
+    return path === id || path.startsWith(`${id}/`);
   }
 
   return path === id;
@@ -44,7 +46,7 @@ const ENTER = [
   '.menu a',
   '.hero-stage',
   '.dots',
-  '.portrait',
+  '.intro-photo',
   '.leaf',
   '.kicker',
   'h1',
@@ -66,7 +68,7 @@ const ENTER = [
   '.card',
   '.faq details',
   '.fields label',
-  '.quotes img',
+  '.quotes-wall',
   'blockquote',
   'figcaption',
   '.ig-feed li',
@@ -77,7 +79,7 @@ const ENTER = [
 ].join(',');
 
 function canEnter(node: HTMLElement): boolean {
-  if (node.classList.contains('visually-hidden') || node.closest('.hp, .lightbox')) {
+  if (node.classList.contains('visually-hidden') || node.closest('.hp, .lightbox, .quote-card')) {
     return false;
   }
 
@@ -163,13 +165,27 @@ export function Shell({ path, children }: { path: string; children: ReactNode })
 
   useEffect(() => {
     function onScroll() {
-      setScrolled(window.scrollY > 8);
+      setScrolled((current) => (current ? window.scrollY > 4 : window.scrollY > 32));
     }
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+    function onKey(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setOpen(false);
+      }
+    }
+    window.addEventListener('keydown', onKey);
+
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
 
   useLayoutEffect(() => {
     const main = document.getElementById('conteudo');
@@ -192,7 +208,7 @@ export function Shell({ path, children }: { path: string; children: ReactNode })
   return (
     <>
     <a className="skip" href="#conteudo">Ir para o conteúdo</a>
-    <div className="rr" data-page={path === '' ? 'home' : path}>
+    <div className="rr" data-page={path === '' ? 'home' : path.split('/')[0]}>
       <header className={scrolled ? 'bar is-scrolled' : 'bar'}>
         <a className="logo" href={href('')} aria-label="Rubia Rocha Fotografia, início">
           <img src="/rubia/img/logo-rubia-foto.svg" alt="" width="324" height="71" />
@@ -224,7 +240,7 @@ export function Shell({ path, children }: { path: string; children: ReactNode })
         <ul className="ig-feed">
           {FEED.map((photo) => (
             <li key={photo.file}>
-              <a href={href(`${photo.group}#${photo.slug}`)}>
+              <a href={href(`${photo.group}/${photo.slug}`)}>
                 <img src={`/rubia/img/albuns/${photo.slug}/${photo.file}`} alt={photo.alt} width="960" height="960" loading="lazy" />
               </a>
             </li>
@@ -250,7 +266,13 @@ export function Kicker({ children }: { children: ReactNode }) {
 }
 
 export function Button({ href: to, tone, children }: { href: string; tone: 'line' | 'fill'; children: ReactNode }) {
-  return <a className={`btn is-${tone}`} href={to}>{children}<span aria-hidden="true">→</span></a>;
+  const external = to.startsWith('http');
+
+  return (
+    <a className={`btn is-${tone}`} href={to} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>
+      {children}<span aria-hidden="true">→</span>
+    </a>
+  );
 }
 
 function Icon({ name }: { name: 'instagram' | 'whatsapp' }) {

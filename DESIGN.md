@@ -141,7 +141,7 @@ A paleta é de material de estúdio: papel, folha, tinta e um rosa de prova. O v
 ### Secondary
 
 - **Blush** (`blush`): fundo do botão cheio e do item de menu em hover ou na página atual.
-- **Rosa queimado** (`rosa-queimado`): marca decorativa. O ponto ativo do carrossel. Não é cor de parágrafo.
+- **Rosa queimado** (`rosa-queimado`): marca decorativa. Não é cor de parágrafo.
 - **Barro** (`barro`): borda de 1px do botão de linha. É o rosa escuro o bastante para a borda no papel e no branco.
 - **Sépia** (`sepia`): rótulo curto de categoria sobre a folha, como o “Ver galeria” não, e sim a linha de categoria do card. Texto pequeno, nunca um bloco.
 
@@ -159,7 +159,7 @@ A paleta é de material de estúdio: papel, folha, tinta e um rosa de prova. O v
 
 ### Named Rules
 
-**The Rose Is a Mark Rule.** Rosa queimado não entra em parágrafo. Barro só na borda do botão de linha. Sépia só em rótulo curto.
+**The Rose Is a Mark Rule.** Rosa queimado não entra em parágrafo. Barro só na borda do botão de linha. Sépia em rótulo curto, no rodapé e no véu das capas de foto.
 
 **The Green Is the Channel Rule.** Verde WhatsApp e verde fundo existem só no botão flutuante.
 
@@ -190,7 +190,7 @@ A paleta é de material de estúdio: papel, folha, tinta e um rosa de prova. O v
 
 Coluna central `min(1080px, 100% - 2rem)`, no passo `stack` de cada lado. O ritmo é uma escala só: tight 0.5rem, snug 0.75rem, stack 1rem, group 1.5rem, frame 2rem, section 3rem, break 4.5rem.
 
-O hero é a prova na parede. Três fotos, vão `frame`, laterais na razão 0.448 e centro na razão 1.046, a mesma altura. A foto da esquerda sai para a esquerda e as outras vêm da direita. Abaixo de 560px fica uma foto só, a do centro. Os pontos do carrossel ficam a `group` da faixa, mais perto dela do que do texto, que começa a `section`.
+O hero é a prova na parede. Três fotos, vão `frame`, laterais na razão 0.448 e centro na razão 1.046, a mesma altura. A foto da esquerda sai para a esquerda e as outras vêm da direita. Abaixo de 560px fica uma foto só, a do centro. Os pontos do carrossel ficam a `group` da faixa, mais perto dela do que do texto, que começa a `section`. O ponto é um anel sépia; o atual vira pílula sépia de 20px. Ao lado fica o botão de pausar, porque a troca automática não pode depender de hover.
 
 A folha de “o que eu fotografo” usa padding `break` na vertical e `frame` na lateral, e a grade de fotos usa vão `group`. O depoimento, o FAQ e o formulário separam-se por `break`. O rodapé sai da coluna, ocupa a largura da tela em sépia, e o miolo volta para a mesma medida da página.
 
@@ -219,7 +219,7 @@ A página é plana. A profundidade é a folha pousada no papel: a seção clara 
 
 ## Shapes
 
-Três silhuetas. A fotografia, a folha, a marca, o card, o campo e o painel do menu levam canto de 2px. O controle é pílula (`999px`): botão, item de menu e o alvo do menu. O retrato redondo, o ponto do carrossel, o ícone de rede e o WhatsApp são círculo. O campo continua um fio, só a borda de baixo, com o mesmo canto de 2px.
+Três silhuetas. A fotografia, a folha, a marca, o card, o campo e o painel do menu levam canto de 2px. O controle é pílula (`999px`): botão, item de menu e o alvo do menu. O retrato redondo, o ponto inativo do carrossel, o ícone de rede e o WhatsApp são círculo. O campo continua um fio, só a borda de baixo, com o mesmo canto de 2px.
 
 ### Named Rules
 
@@ -242,7 +242,7 @@ O controle é pequeno de propósito. A pílula não cresce para virar faixa, e o
 - **Background:** nenhum. O card senta no papel ou na folha.
 - **Shadow Strategy:** nenhuma. Ver The Sheet Rule.
 - **Border:** nenhuma.
-- **Internal Padding:** o texto da capa de foto usa `frame` acima e `snug` nas laterais e embaixo, sobre um véu escuro.
+- **Internal Padding:** o texto da capa de foto usa `frame` acima e `snug` nas laterais e embaixo, sobre um véu sépia que sobe de transparente a 86%. O título fica em folha e a pílula "Ver galeria" é folha com texto sépia.
 
 ### Inputs / Fields
 

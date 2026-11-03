@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent, type PointerEvent, type ReactNode } from 'react';
 import albumsFile from './albums.json';
-import { BASE, Button, Kicker } from './chrome';
+import { BASE, Button, Kicker, WHATSAPP_URL as WHATSAPP } from './chrome';
+import { contentPage, SUBPAGES, TESTIMONIALS, type ContentBlock, type ContentPage, type FaqItem } from './content';
 
 const VENUE = 'Escolher o local do mini wedding é uma das decisões mais importantes do planejamento. O espaço não define apenas o cenário da cerimônia: ele interfere no conforto dos convidados, na circulação dos fornecedores, no cronograma, na iluminação e até na forma como a história do casamento será registrada.';
 
@@ -67,6 +68,13 @@ const POST_COLUMNS: BlogPost[][] = [
 const POST_HREF = `${BASE}/blog/checklist-mini-wedding-curitiba`;
 const POST_TITLE = 'O casamento civil de Shante e Denise no cartório do Portão.';
 
+export function pageTitle(path: string): string | null {
+  const [group, slug = null] = path.split('/');
+  const page = group === 'ensaios' || group === 'eventos' ? contentPage(group, slug) : undefined;
+
+  return page ? page.title : null;
+}
+
 export function pageBody(path: string): ReactNode | null {
   if (path === '') {
     return <Home />;
@@ -74,11 +82,12 @@ export function pageBody(path: string): ReactNode | null {
   if (path === 'quem-sou') {
     return <About />;
   }
-  if (path === 'ensaios') {
-    return <Ensaios />;
-  }
-  if (path === 'eventos') {
-    return <Eventos />;
+  const [group, slug = null, extra] = path.split('/');
+  if ((group === 'ensaios' || group === 'eventos') && extra === undefined) {
+    const page = contentPage(group, slug);
+    if (page) {
+      return <ServicePage page={page} key={path} />;
+    }
   }
   if (path === 'blog') {
     return <Blog />;
@@ -97,24 +106,30 @@ function Home() {
   return (
     <>
       <HeroCarousel />
-      <section className="intro">
+      <section className="intro intro-side">
         <img
-          className="portrait"
-          src="/rubia/img/retrato-320.webp"
-          srcSet="/rubia/img/retrato-320.webp 320w, /rubia/img/retrato-448.webp 448w"
-          sizes="148px"
+          className="intro-photo"
+          src="/rubia/img/retrato-720.webp"
+          srcSet="/rubia/img/retrato-720.webp 720w, /rubia/img/retrato-1080.webp 1080w"
+          sizes="(max-width: 800px) calc(100vw - 32px), 460px"
           alt="Rubia Rocha com a câmera"
-          width="1400"
-          height="1400"
+          width="1080"
+          height="1080"
         />
-        <h1>Oi! Eu sou a Rubia.</h1>
-        <p>
-          Sou fotógrafa em Curitiba especializada em famílias, gestantes, bebês, casais e eventos com
-          afeto. Meu olhar busca o que importa: risadas espontâneas, abraços sinceros, momentos reais.
-          Se você procura um ensaio fotográfico em Curitiba leve, natural e cheio de emoção, vou adorar
-          registrar sua história com carinho e sensibilidade.
-        </p>
-        <Button href={`${BASE}/contato`} tone="line">Quero um orçamento</Button>
+        <div className="intro-copy">
+          <Kicker>Fotógrafa de famílias e eventos em Curitiba</Kicker>
+          <h1>Oi! Eu sou a Rubia.</h1>
+          <p>
+            Sou fotógrafa em Curitiba especializada em famílias, gestantes, bebês, casais e eventos com
+            afeto. Meu olhar busca o que importa: risadas espontâneas, abraços sinceros, momentos reais.
+            Se você procura um ensaio fotográfico em Curitiba leve, natural e cheio de emoção, vou adorar
+            registrar sua história com carinho e sensibilidade.
+          </p>
+          <div className="actions">
+            <Button href={WHATSAPP} tone="fill">Fale comigo no Whats</Button>
+            <Button href={`${BASE}/contato`} tone="line">Quero um orçamento</Button>
+          </div>
+        </div>
       </section>
       <section className="sheet">
         <img className="leaf" src="/rubia/img/folha.png" alt="" width="327" height="165" />
@@ -131,7 +146,7 @@ function Home() {
             const photo = coverPhoto(album);
 
             return (
-              <a className="shot" href={`${BASE}/${album.group}#${album.slug}`} key={album.slug}>
+              <a className="shot" href={`${BASE}/${album.group}/${album.slug}`} key={album.slug}>
                 <img
                   src={albumSrc(album.slug, photo.file)}
                   srcSet={albumSrcSet(album.slug, photo)}
@@ -148,31 +163,79 @@ function Home() {
             );
           })}
         </div>
-        <Button href={`${BASE}/contato`} tone="fill">Fale comigo no Whats</Button>
+        <Button href={WHATSAPP} tone="fill">Fale comigo no Whats</Button>
       </section>
-      <section className="quotes" aria-labelledby="depoimentos">
-        <Kicker>Depoimentos</Kicker>
-        <figure>
-          <img
-            src="/rubia/img/depoimento-216.webp"
-            srcSet="/rubia/img/depoimento-144.webp 144w, /rubia/img/depoimento-216.webp 216w"
-            sizes="72px"
-            alt=""
-            width="1395"
-            height="1400"
-            loading="lazy"
-          />
-          <blockquote id="depoimentos">
-            <p>
-              A Rúbia é uma profissional excelente, conseguiu captar a essência da festa
-              da minha pequena e as fotos ficaram lindas!! Será sempre a fotógrafa
-              das festas da minha família!
-            </p>
-          </blockquote>
-          <figcaption>Nathalia Pratt</figcaption>
-        </figure>
+      <Testimonials />
+      <section className="closing" aria-labelledby="vamos-conversar">
+        <div className="closing-copy">
+          <Kicker>Contato</Kicker>
+          <h2 id="vamos-conversar">Vamos conversar?</h2>
+          <p>
+            Me chama no WhatsApp ou escreva pelo formulário. Conte um pouco sobre o momento que deseja
+            registrar e eu te respondo com o orçamento.
+          </p>
+        </div>
+        <div className="actions">
+          <Button href={WHATSAPP} tone="fill">Fale comigo no Whats</Button>
+          <Button href={`${BASE}/contato`} tone="line">Quero um orçamento</Button>
+        </div>
       </section>
     </>
+  );
+}
+
+function usePageHidden(): boolean {
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    function onChange() {
+      setHidden(document.visibilityState === 'hidden');
+    }
+    document.addEventListener('visibilitychange', onChange);
+
+    return () => document.removeEventListener('visibilitychange', onChange);
+  }, []);
+
+  return hidden;
+}
+
+function PauseToggle({ stopped, onToggle }: { stopped: boolean; onToggle: () => void }) {
+  return (
+    <button type="button" className="dots-toggle" aria-pressed={stopped} aria-label={stopped ? 'Retomar a troca automática' : 'Pausar a troca automática'} onClick={onToggle}>
+      {stopped
+        ? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" /></svg>
+        : <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 5.5h3v13h-3zM13.5 5.5h3v13h-3z" /></svg>}
+    </button>
+  );
+}
+
+function Testimonials() {
+  return (
+    <section className="quotes" aria-labelledby="depoimentos">
+      <Kicker>Depoimentos</Kicker>
+      <h2 id="depoimentos" className="visually-hidden">Depoimentos</h2>
+      <div className="quotes-wall">
+        {TESTIMONIALS.slice(0, 4).map((testimonial) => (
+          <figure key={testimonial.name} className="quote-card">
+            {testimonial.photo ? (
+              <img
+                src="/rubia/img/depoimento-216.webp"
+                srcSet="/rubia/img/depoimento-144.webp 144w, /rubia/img/depoimento-216.webp 216w"
+                sizes="72px"
+                alt=""
+                width="216"
+                height="217"
+                loading="lazy"
+              />
+            ) : null}
+            <blockquote>
+              <p>{testimonial.text}</p>
+            </blockquote>
+            <figcaption>{testimonial.name}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -237,11 +300,13 @@ function HeroCarousel() {
   const [forward, setForward] = useState(true);
   const [entering, setEntering] = useState(false);
   const [paused, setPaused] = useState(false);
+  const [stopped, setStopped] = useState(false);
+  const hidden = usePageHidden();
   const dragX = useRef<number | null>(null);
   const photos = slidePlacements(index, from, forward, entering);
 
   useEffect(() => {
-    if (paused || from !== null || prefersReducedMotion()) {
+    if (paused || stopped || hidden || from !== null || prefersReducedMotion()) {
       return;
     }
     const id = window.setInterval(() => {
@@ -252,7 +317,7 @@ function HeroCarousel() {
     }, 5200);
 
     return () => window.clearInterval(id);
-  }, [paused, from, index]);
+  }, [paused, stopped, hidden, from, index]);
 
   useEffect(() => {
     if (!entering) {
@@ -342,17 +407,101 @@ function HeroCarousel() {
           />
         ))}
       </div>
-      <div className="dots" role="tablist" aria-label="Fotos do carrossel">
+      <div className="dots" role="group" aria-label="Escolher foto">
         {HERO.map((photo, dot) => (
           <button
             key={photo.src}
             type="button"
-            role="tab"
-            aria-label={photo.alt}
-            aria-selected={dot === index}
+            aria-label={`Foto ${dot + 1}: ${photo.alt}`}
+            aria-current={dot === index || undefined}
             onClick={() => show(dot)}
           />
         ))}
+        <PauseToggle stopped={stopped} onToggle={() => setStopped((value) => !value)} />
+      </div>
+    </section>
+  );
+}
+
+const TRIO = [
+  { slug: 'sobre-1', alt: 'Rubia abraçada pelos filhos gêmeos', width: 1400, height: 1263 },
+  { slug: 'sobre-2', alt: 'Rubia sorrindo', width: 1400, height: 1309 },
+  { slug: 'sobre-3', alt: 'Rubia com o marido e os gêmeos no Natal', width: 1400, height: 1267 },
+];
+
+const SPECIALTIES = [
+  { path: 'ensaios/gestante', label: 'Gestantes, com afeto e naturalidade' },
+  { path: 'ensaios/familia', label: 'Famílias, do jeito que elas são de verdade' },
+  { path: 'ensaios/bebes', label: 'Bebês e crianças, sempre no ritmo delas' },
+  { path: 'eventos/festa-infantil', label: 'Festas infantis cheias de cor, movimento e emoção' },
+  { path: 'eventos/mini-wedding', label: 'Mini weddings e celebrações íntimas' },
+  { path: 'ensaios/feminino', label: 'Mulheres, em retratos leves e espontâneos' },
+  { path: 'eventos', label: 'Aniversários e outros momentos de afeto' },
+];
+
+const FACT_TWINS = [
+  'Meu mundinho azul: onde a maternidade e a fotografia se encontram para contar histórias de verdade. Sou mãe de gêmeos que viraram meu mundo de cabeça pra baixo — e encheram ele de amor, brinquedos espalhados e muito aprendizado.',
+  'Foi depois da maternidade que a fotografia ganhou ainda mais sentido pra mim. Descobri o valor de guardar os pequenos momentos, porque eles passam rápido demais… e são justamente os que fazem a vida valer a pena.',
+  'Aqui no meu mundinho azul tem carrinho pelo chão, migalha de bolacha para tudo quanto é lado, desenhos colados na porta da geladeira, muito caos, afeto e risadas — e é isso que eu levo pra cada ensaio. Porque antes de ser fotógrafa, sou mãe. E isso muda tudo.',
+];
+
+const FACTS = [1, 2, 3].map((number) => ({ number, title: 'Sou mãe de gêmeos', paragraphs: FACT_TWINS }));
+
+function Facts() {
+  const [index, setIndex] = useState(0);
+  const [manual, setManual] = useState(false);
+
+  function show(next: number) {
+    setManual(true);
+    setIndex((next + FACTS.length) % FACTS.length);
+  }
+
+  return (
+    <section className="fact" aria-labelledby="fatos">
+      <img
+        src="/rubia/img/sobre-fatos-640.webp"
+        srcSet="/rubia/img/sobre-fatos-640.webp 640w, /rubia/img/sobre-fatos-941.webp 941w"
+        sizes="(max-width: 560px) calc(100vw - 64px), 380px"
+        alt="Rubia deitada com os filhos gêmeos"
+        width="941"
+        height="1400"
+        loading="lazy"
+        decoding="async"
+      />
+      <div className="fact-copy">
+        <Kicker>Fatos sobre mim</Kicker>
+        <h2 id="fatos" className="visually-hidden">Fatos sobre mim</h2>
+        <div className="fact-stack" aria-live={manual ? 'polite' : 'off'}>
+          {FACTS.map((fact, factIndex) => (
+            <article
+              key={fact.number}
+              className={factIndex === index ? 'fact-card is-current' : 'fact-card'}
+              aria-hidden={factIndex !== index || undefined}
+              inert={factIndex !== index}
+            >
+              <h3>#{fact.number}: {fact.title}</h3>
+              {fact.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </article>
+          ))}
+        </div>
+        <div className="dots fact-dots" role="group" aria-label="Escolher fato">
+          {FACTS.map((fact, dot) => (
+            <button
+              key={fact.number}
+              type="button"
+              aria-label={`Fato ${fact.number}`}
+              aria-current={dot === index || undefined}
+              onClick={() => show(dot)}
+            />
+          ))}
+          <button type="button" className="dots-next" aria-label="Próximo fato" onClick={() => show(index + 1)}>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6.5 18.5 12 13 17.5" /></svg>
+          </button>
+        </div>
+        <div className="actions">
+          <Button href={WHATSAPP} tone="fill">Fale comigo no Whats</Button>
+          <Button href={`${BASE}/contato`} tone="line">Quero um orçamento</Button>
+        </div>
       </div>
     </section>
   );
@@ -361,121 +510,163 @@ function HeroCarousel() {
 function About() {
   return (
     <>
-      <section className="trio" aria-label="Famílias">
-        <img src="/rubia/img/sobre-1.jpg" alt="Família abraçada" />
-        <img src="/rubia/img/sobre-2.jpg" alt="Rubia sorrindo" />
-        <img src="/rubia/img/sobre-3.jpg" alt="Crianças em festa" />
+      <section className="trio" aria-label="Rubia e a família">
+        {TRIO.map((photo) => (
+          <img
+            key={photo.slug}
+            src={`/rubia/img/${photo.slug}-720.webp`}
+            srcSet={`/rubia/img/${photo.slug}-720.webp 720w, /rubia/img/${photo.slug}-1080.webp 1080w`}
+            sizes="(max-width: 560px) calc(100vw - 32px), 344px"
+            alt={photo.alt}
+            width={photo.width}
+            height={photo.height}
+          />
+        ))}
       </section>
-      <section className="intro">
-        <Kicker>Fotógrafa de momentos reais em Curitiba</Kicker>
-        <h1>Rubia quem?</h1>
-        <p>
-          Prazer, sou a Rubia. Fotógrafa em Curitiba e defensora oficial de que a vida real é
-          muito mais interessante do que a perfeita. Desde 2019, minha missão é bem simples:
-          registrar a conexão entre as pessoas sem que ninguém precise ficar travado dizendo
-          “xis”.
-        </p>
-        <p>
-          Esqueça aquela pose durinha. O que eu gosto mesmo é de caçar a baguncinha boa
-          dos filhos, a risada solta do casal, a expectativa gigante da espera do bebê na gestação
-          e a energia das celebrações. Trabalho com fotografia estilo lifestyle e documental, de
-          um jeito leve que faz você olhar para a foto daqui a vinte anos e sentir exatamente o
-          que estava acontecendo naquele dia.
-        </p>
-        <Button href={`${BASE}/contato`} tone="fill">Fale comigo no Whats</Button>
-      </section>
-      <section className="fact">
-        <img src="/rubia/img/sobre-fatos.jpg" alt="Rubia com os filhos" />
-        <div>
-          <Kicker>Fatos sobre mim</Kicker>
-          <h2>#1: Sou mãe de gêmeos</h2>
+      <section className="intro intro-about">
+        <div className="intro-main">
+          <Kicker>Fotógrafa de momentos reais em Curitiba</Kicker>
+          <h1>Rubia quem?</h1>
           <p>
-            Eu já trabalhava com fotografia de produto, mas quando meus gêmeos completaram 7 meses,
-            minha chavinha virou. Mudei de rumo para fotografar famílias e nunca mais olhei para trás.
+            Oi! Sou a Rubia, fotógrafa de famílias, gestantes, casais, bebês e eventos afetivos em Curitiba.
+            Comecei como hobby em 2010 e encontrei minha paixão: registrar o que é de verdade — sorrisos
+            tímidos, olhares sinceros e aquela baguncinha boa.
           </p>
           <p>
-            Hoje, vivo cercada por carrinhos no chão, migalhas de bolacha pela casa e muito caos.
-            Foi essa maternidade real, bem longe dos comerciais de margarina, que me ensinou o valor
-            de guardar os pequenos instantes antes que eles passem rápido demais. Antes de ser
-            fotógrafa, sou mãe, e isso mudou completamente o meu olhar na hora de registrar as outras famílias.
+            Meu estilo mistura lifestyle com fotografia documental, de um jeito leve, natural e cheio de
+            significado. Se você está procurando uma fotógrafa em Curitiba que vai te acolher, te ouvir e
+            transformar seu momento em algo especial, seja bem-vinda! Vou amar contar a sua história do
+            jeitinho que ela merece.
           </p>
         </div>
+        <div className="intro-card">
+          <h2 className="intro-list-title">O que eu fotografo</h2>
+          <ul className="intro-list">
+            {SPECIALTIES.map((item) => (
+              <li key={item.path}><a href={`${BASE}/${item.path}`}>{item.label}</a></li>
+            ))}
+          </ul>
+          <Button href={WHATSAPP} tone="fill">Me conta o seu momento</Button>
+        </div>
       </section>
+      <Facts />
     </>
   );
 }
 
-function Folio({ tag, title, lede, photo, photoAlt, group }: { tag: string; title: string; lede: string; photo: string; photoAlt: string; group: Album['group'] }) {
-  return (
-    <article className="folio">
-      <header className="folio-top">
-        <div className="folio-lead">
-          <p className="folio-tag">{tag}</p>
-          <h1>{title}</h1>
-          <p className="folio-lede">{lede}</p>
-          <Button href={`${BASE}/contato`} tone="fill">Quero um orçamento</Button>
-        </div>
-        <img className="folio-photo" src={photo} alt={photoAlt} />
-      </header>
-      <div className="folio-body">
-        <p>{VENUE}</p>
-        <p>{REGION}</p>
-        <Specimen />
-      </div>
-      <AlbumList group={group} />
-    </article>
-  );
-}
+const HUB_PHOTOS: Record<ContentPage['group'], { slug: string; file: string; alt: string }> = {
+  ensaios: { slug: 'gestante', file: '13-fotografia-curitiba-ensaio-de-gestante-ata-felipe25.webp', alt: 'Ensaio de gestante' },
+  eventos: { slug: 'mini-wedding', file: '27-fotografia-de-casamento-curitiba-por-do-sol8.webp', alt: 'Casal em mini wedding' },
+};
 
-function Ensaios() {
-  return (
-    <Folio
-      tag="Ensaios"
-      title="Ensaios fotográficos em Curitiba"
-      lede="Momentos que viram memórias do jeitinho que sua família é."
-      photo={albumSrc('gestante', '13-fotografia-curitiba-ensaio-de-gestante-ata-felipe25.webp')}
-      photoAlt="Ensaio de gestante"
-      group="ensaios"
-    />
-  );
-}
+const GROUP_LABELS: Record<ContentPage['group'], string> = { ensaios: 'Ensaios', eventos: 'Eventos' };
 
-function Eventos() {
+const ITEM_LABEL = /^([^:]{2,48}):\s+(.+)$/;
+
+function ServicePage({ page }: { page: ContentPage }) {
+  const album = page.album === null ? undefined : ALBUMS.find((item) => item.slug === page.album);
+  const cover = album ? coverPhoto(album) : null;
+  const hub = HUB_PHOTOS[page.group];
+  const photo = album && cover ? albumSrc(album.slug, cover.file) : albumSrc(hub.slug, hub.file);
+  const tag = page.slug === null
+    ? GROUP_LABELS[page.group]
+    : SUBPAGES[page.group].find((item) => item.slug === page.slug)?.label ?? GROUP_LABELS[page.group];
+
   return (
     <>
-      <Folio
-        tag="Mini weddings e bodas"
-        title="Fotógrafa Mini Wedding Curitiba"
-        lede="Um olhar editorial e afetivo para bodas e casamentos intimistas."
-        photo={albumSrc('mini-wedding', '27-fotografia-de-casamento-curitiba-por-do-sol8.webp')}
-        photoAlt="Casal em mini wedding"
-        group="eventos"
-      />
-      <section className="faq faq-band" aria-labelledby="perguntas">
-        <img className="leaf" src="/rubia/img/folha.png" alt="" width="327" height="165" />
-        <Kicker>Perguntas frequentes</Kicker>
-        <h2 id="perguntas" className="visually-hidden">Perguntas frequentes</h2>
-        <details>
-          <summary>Que tipo de evento você fotografa?</summary>
-        </details>
-        <details>
-          <summary>Que tipo de evento você fotografa?</summary>
-        </details>
-        <details>
-          <summary>Que tipo de evento você fotografa?</summary>
-        </details>
-        <details open>
-          <summary>Que tipo de evento você fotografa?</summary>
-          <p>
-            Gosto de registrar momentos que tenham significado — desde as festinhas cheias de risadas
-            das crianças até mini weddings intimistas, bodas e eventos corporativos. Atendo aniversários,
-            batizados, encontros familiares, eventos de marcas, lançamentos, workshops e tudo que envolva
-            pessoas, conexão e emoção. Se o seu evento for diferente, me chama. Se tiver a ver com o meu
-            estilo, vai ser um prazer fotografar.
-          </p>
-        </details>
-      </section>
+      <header className="folio-top">
+        <img className="folio-photo" src={photo} alt={album ? album.title : hub.alt} />
+        <div className="folio-lead">
+          <p className="folio-tag">{tag}</p>
+          <h1>{page.title}</h1>
+          {page.lede ? <p className="folio-lede">{page.lede}</p> : null}
+          <Button href={`${BASE}/contato`} tone="fill">Quero um orçamento</Button>
+        </div>
+      </header>
+      <article className="folio">
+        <div className="folio-body">
+          {page.sections.map((section, sectionIndex) => (
+            <section className="prose-section" key={sectionIndex}>
+              {section.heading === null ? null : section.level === 2
+                ? <h2>{section.heading.replace(/:$/, '')}</h2>
+                : <h3>{section.heading.replace(/:$/, '')}</h3>}
+              {section.blocks.map((block, blockIndex) => <ProseBlock block={block} key={blockIndex} />)}
+            </section>
+          ))}
+          <Button href={WHATSAPP} tone="fill">Fale comigo no Whats</Button>
+        </div>
+        {album ? <div className="albums"><AlbumBlock album={album} /></div> : null}
+      </article>
+      {page.slug === null ? <Categories group={page.group} /> : null}
+      {page.faq.length > 0 ? <FaqBand items={page.faq} /> : null}
     </>
+  );
+}
+
+function ProseBlock({ block }: { block: ContentBlock }) {
+  if (block.type === 'list') {
+    return (
+      <ul>
+        {block.items.map((item) => {
+          const match = ITEM_LABEL.exec(item);
+
+          return <li key={item}>{match ? <><strong>{match[1]}:</strong> {match[2]}</> : item}</li>;
+        })}
+      </ul>
+    );
+  }
+
+  return <p>{block.label ? <><strong>{block.label}:</strong> </> : null}{block.text}</p>;
+}
+
+function Categories({ group }: { group: ContentPage['group'] }) {
+  return (
+    <section className="categories" aria-labelledby={`${group}-categorias`}>
+      <h2 id={`${group}-categorias`}>{group === 'ensaios' ? 'Escolha o seu ensaio' : 'Escolha o seu evento'}</h2>
+      <div className="shots">
+        {SUBPAGES[group].map(({ slug, label }) => {
+          const album = ALBUMS.find((item) => item.slug === slug);
+          if (!album) {
+            return null;
+          }
+          const photo = coverPhoto(album);
+
+          return (
+            <a className="shot" href={`${BASE}/${group}/${slug}`} key={slug}>
+              <img
+                src={albumSrc(slug, photo.file)}
+                srcSet={albumSrcSet(slug, photo)}
+                sizes={SHOT_SIZES}
+                alt=""
+                width={photo.width}
+                height={photo.height}
+                loading="lazy"
+              />
+              <span>
+                <strong>{label}</strong>
+                <em>Ver mais</em>
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function FaqBand({ items }: { items: FaqItem[] }) {
+  return (
+    <section className="faq faq-band" aria-labelledby="perguntas">
+      <img className="leaf" src="/rubia/img/folha.png" alt="" width="327" height="165" />
+      <Kicker>Perguntas frequentes</Kicker>
+      <h2 id="perguntas" className="visually-hidden">Perguntas frequentes</h2>
+      {items.map((item, index) => (
+        <details key={item.q} open={index === 0}>
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </section>
   );
 }
 
@@ -490,7 +681,7 @@ function Blog() {
         fotografia com afeto e um olhar atento para o que acontece nos bastidores
         da vida em Curitiba. Criatividade, experiência e zero poses engessadas.
       </p>
-      <Button href={`${BASE}/contato`} tone="fill">Fale comigo no Whats</Button>
+      <Button href={WHATSAPP} tone="fill">Fale comigo no Whats</Button>
       <div className="cards">
         {POST_COLUMNS.map((column, columnIndex) => (
           <div className="cards-column" key={columnIndex}>
@@ -570,15 +761,23 @@ function Contact() {
           <Kicker>Contato</Kicker>
           <h1>Let&apos;s talk!</h1>
           <p>
-            Se você está procurando uma fotógrafa profissional em Curitiba e região para registrar
-            um ensaio ou evento especial, este é o primeiro passo. Tire suas dúvidas, peça um
-            orçamento e me conte um pouco sobre o momento que deseja registrar.
+            Se você está procurando uma fotógrafa profissional em Curitiba para registrar um ensaio ou
+            evento especial, este é o primeiro passo. Aqui você pode tirar dúvidas, pedir orçamento e contar
+            um pouco sobre o momento que deseja registrar. Atendo Curitiba e região, com fotografia sensível,
+            natural e focada em histórias reais.
           </p>
           <Button href="#orcamento" tone="fill">Quero um orçamento</Button>
         </div>
       </section>
       <section className="form-block" id="orcamento">
-        <h2><span>Entre em</span> contato!</h2>
+        <div className="form-intro">
+          <h2><span>Entre em</span> contato!</h2>
+          <p>
+            Você pode pedir um orçamento diretamente pelo WhatsApp ou preencher o formulário para obter
+            mais informações.
+          </p>
+          <a className="form-whats" href={WHATSAPP}>Whats: 41 98865-8624</a>
+        </div>
         <form method="post" action={`${BASE}/contato`} noValidate onSubmit={onSubmit}>
           <p className="hp"><label>Empresa <input name="empresa_site" tabIndex={-1} autoComplete="off" /></label></p>
           {status === 'sent' ? <p className="form-status" role="status">Mensagem enviada. Vou retornar em breve.</p> : null}
@@ -601,24 +800,6 @@ function Contact() {
         </form>
       </section>
     </>
-  );
-}
-
-function AlbumList({ group }: { group: Album['group'] }) {
-  useEffect(() => {
-    const id = window.location.hash.replace('#', '');
-    if (id === '') {
-      return;
-    }
-    document.getElementById(id)?.scrollIntoView();
-  }, []);
-
-  return (
-    <div className="albums">
-      {ALBUMS.filter((album) => album.group === group).map((album) => (
-        <AlbumBlock album={album} key={album.slug} />
-      ))}
-    </div>
   );
 }
 
@@ -713,7 +894,7 @@ function Specimen({ cta = true }: { cta?: boolean }) {
       <h4>Título H4: Lorem Ipsum nono ?</h4>
       <h5>Título H5: Lorem Ipsum nono ?</h5>
       <p className="h6">Título H6: Momentos que viram memórias do jeitinho que sua família é.</p>
-      {cta ? <Button href={`${BASE}/contato`} tone="fill">Fale comigo no Whats</Button> : null}
+      {cta ? <Button href={WHATSAPP} tone="fill">Fale comigo no Whats</Button> : null}
     </div>
   );
 }

@@ -22,6 +22,13 @@ class RubiaSiteTest extends TestCase
             ->assertSee('/estudio/assets/', false);
     }
 
+    public function test_service_subpage_serves_the_static_site(): void
+    {
+        $this->get('/estudio/ensaios/gestante')->assertOk()->assertSee('id="rubia-root"', false);
+        $this->get('/estudio/eventos/corporativo')->assertOk();
+        $this->get('/estudio/ensaios/nao-existe')->assertNotFound();
+    }
+
     public function test_unknown_page_is_missing(): void
     {
         $this->get('/estudio/nao-existe')->assertNotFound();
