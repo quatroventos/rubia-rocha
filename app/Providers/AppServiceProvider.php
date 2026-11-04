@@ -3,12 +3,13 @@
 namespace App\Providers;
 
 use App\Http\Middleware\ThrottleRequestsPerRoute;
-use App\Models\CaseStudy;
 use App\Models\Certification;
 use App\Models\FormOption;
 use App\Models\MenuItem;
 use App\Models\Page;
+use App\Models\Redirect;
 use App\Models\SiteSetting;
+use App\Observers\CrawlerFilesObserver;
 use App\Observers\OgImageObserver;
 use App\Observers\SitePrerenderObserver;
 use App\Observers\SystemOptionsObserver;
@@ -38,18 +39,22 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(Certification::class, AdminOnlyPolicy::class);
         Gate::policy(FormOption::class, FormOptionPolicy::class);
         Gate::policy(SiteSetting::class, AdminOnlyPolicy::class);
+        Gate::policy(Redirect::class, AdminOnlyPolicy::class);
 
         SiteSetting::observe(SystemOptionsObserver::class);
         MenuItem::observe(SystemOptionsObserver::class);
         Certification::observe(SystemOptionsObserver::class);
         FormOption::observe(SystemOptionsObserver::class);
 
-        foreach ([Page::class, CaseStudy::class, SiteSetting::class, MenuItem::class, Certification::class, FormOption::class] as $model) {
+        foreach ([Page::class, SiteSetting::class, MenuItem::class, Certification::class, FormOption::class] as $model) {
             $model::observe(SitePrerenderObserver::class);
         }
 
+        foreach ([Page::class, SiteSetting::class, MenuItem::class] as $model) {
+            $model::observe(CrawlerFilesObserver::class);
+        }
+
         Page::observe(OgImageObserver::class);
-        CaseStudy::observe(OgImageObserver::class);
 
         $appUrl = (string) config('app.url');
         if (str_starts_with($appUrl, 'https://')) {
@@ -68,7 +73,7 @@ class AppServiceProvider extends ServiceProvider
             //
         }
 
-        View::composer(['layouts.site', 'layouts.error', 'partials.header', 'partials.footer', 'pages.*', 'sections.*', 'errors.*'], function ($view) {
+        View::composer(['layouts.error', 'errors.*'], function ($view) {
             $empty = [
                 'site' => null,
                 'headerMenu' => collect(),

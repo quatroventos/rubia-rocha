@@ -33,7 +33,7 @@ class PageTranslator
         $translated = $this->translator->translate(
             $strings + $meta,
             $locale,
-            'Page "'.$source->seo_title.'" ('.$source->publicPath().') of the Quatro Ventos website.'
+            'Page "'.$source->seo_title.'" ('.$source->publicPath().') of the Rubia Rocha Fotografia website.'
         );
 
         $translatedContent = ContentStrings::apply($content, $translated);

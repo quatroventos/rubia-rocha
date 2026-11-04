@@ -14,7 +14,14 @@ colors:
   linho: "#c9b2a6"
   whatsapp: "#128c7e"
   whatsapp-fundo: "#075e54"
+  erro: "#f3d6d2"
 typography:
+  hero:
+    fontFamily: "Playfair Display, Iowan Old Style, Palatino, serif"
+    fontSize: "clamp(2.75rem, 5.5vw, 4.25rem)"
+    fontWeight: 400
+    lineHeight: 1.02
+    letterSpacing: "-0.03em"
   display:
     fontFamily: "Playfair Display, Iowan Old Style, Palatino, serif"
     fontSize: "clamp(2.5rem, 4.5vw, 3.25rem)"
@@ -173,8 +180,9 @@ A paleta é de material de estúdio: papel, folha, tinta e um rosa de prova. O v
 
 ### Hierarchy
 
-- **Display** (400, `clamp(2.5rem, 4.5vw, 3.25rem)`, 1.2, tracking -0.02em): o H1, centrado, como “Oi! Eu sou a Rubia.”
-- **Headline** (400, `clamp(2rem, 3vw, 2.25rem)`, 1.2): o H2 de seção.
+- **Hero** (400, `clamp(2.75rem, 5.5vw, 4.25rem)`, 1.02, tracking -0.03em): o H1 que senta ao lado de uma foto de abertura. “Oi! Eu sou a Rubia.” na home, o título do serviço e o “Vamos conversar?” do contato.
+- **Display** (400, `clamp(2.5rem, 4.5vw, 3.25rem)`, 1.2, tracking -0.02em): o H1 de página sem foto ao lado, como “Rubia quem?”, “Blog” e o título do post.
+- **Headline** (400, `clamp(2rem, 3vw, 2.25rem)`, 1.2): o H2 de seção. Toda seção tem H2 visível; o kicker fica acima dele, nunca no lugar dele.
 - **Title** (400, 1.5rem, 1.2): o H3. O H4 fica em 1.25rem e o H5 em 1.125rem, mesma família e o mesmo tracking.
 - **Body** (400, 1rem, 1.65): texto corrido, até 66ch, cor grafite quando é prosa de página.
 - **Label** (500, 0.75rem, tracking 0.14em, caixa alta): botão, kicker e rótulo de categoria.
@@ -184,7 +192,9 @@ A paleta é de material de estúdio: papel, folha, tinta e um rosa de prova. O v
 
 **The Three Voices Rule.** Playfair Display nos títulos, no depoimento, na pergunta do FAQ e no título de card. Work Sans no texto, no botão, no kicker e em “Ver galeria”. Kudryashev Display Contrast no menu, no nome sobre a foto e no nome de quem assina o depoimento.
 
-**The Uppercase Is the Control Rule.** Caixa alta e tracking largo marcam controle e rótulo. Título fica em caixa de frase.
+**The Uppercase Is the Control Rule.** Caixa alta e tracking largo marcam controle e rótulo. Título e lede ficam em caixa de frase.
+
+**The Label Floor Rule.** Nenhum texto fica abaixo de 0.75rem. O rótulo é um só: Work Sans 500, 0.75rem, tracking 0.14em.
 
 ## Layout
 
@@ -201,6 +211,8 @@ Abaixo de 800px as grades de duas colunas continuam em duas, e o menu vira paine
 **The Frame Rule.** O vão entre as fotos do hero é `frame`. Grade e trio usam `group`, um passo abaixo. O texto da página não encosta na prova: o intervalo seguinte é `section` ou `break`.
 
 **The Same Height Rule.** No hero, laterais e centro compartilham a altura. A largura muda; a altura não.
+
+**The Left Edge Rule.** Kicker, título, texto e botão alinham à esquerda. Centraliza só o bloco que abre uma vitrine: a folha “O que eu fotografo”, o topo do blog, o topo do post, o “Escolha o seu ensaio” e o título do álbum. Dentro de um mesmo bloco não se mistura centro e esquerda.
 
 ## Elevation & Depth
 
@@ -235,6 +247,7 @@ O controle é pequeno de propósito. A pílula não cresce para virar faixa, e o
 - **Line:** face branca, borda de 1px em barro, texto tinta. É o pedido de orçamento.
 - **Fill:** face blush, sem borda, texto tinta. É o chamado do WhatsApp dentro da página, não o botão flutuante.
 - **Hover / Focus:** os dois fecham em tinta, texto folha, borda tinta. O foco de teclado é anel de 2px em tinta com offset de 3px, em qualquer controle.
+- **Rótulos:** a Rubia fala no botão. WhatsApp é sempre “Me chama no WhatsApp” (cheio). Orçamento é sempre “Me pede um orçamento” (linha). Capa de foto é sempre “Ver galeria”.
 
 ### Cards / Containers
 
@@ -248,7 +261,7 @@ O controle é pequeno de propósito. A pílula não cresce para virar faixa, e o
 
 - **Style:** fundo transparente, canto de 2px, só a borda inferior de 1px em linho, padding 0.5rem 0, texto na fonte do corpo.
 - **Focus:** o anel de 2px em tinta. A borda não troca de cor sozinha.
-- **Error / Disabled:** o estado de erro do envio é uma faixa blush; não há campo vermelho desenhado.
+- **Error / Disabled:** a confirmação do envio é uma faixa blush e o erro uma faixa `erro`. O campo com problema ganha a borda inferior em barro e a mensagem em sépia logo abaixo, ligada por `aria-describedby`.
 
 ### Navigation
 
@@ -261,6 +274,10 @@ Círculo de 56px, verde WhatsApp, ícone branco, fixo a `group` do canto (`stack
 ### Hero
 
 Três fotos na proporção da prancha, vão `frame`. A saída é para a esquerda, em 700ms, com 80ms entre uma foto e a outra, na curva `cubic-bezier(0.16, 1, 0.3, 1)`. Com `prefers-reduced-motion` a troca é imediata.
+
+### Entrada
+
+O conteúdo chega por bloco, não por parágrafo: opacidade de 0 a 1 e 8px de subida, 600ms, 70ms entre blocos visíveis ao mesmo tempo. Cabeçalho, rodapé e WhatsApp flutuante já estão lá. A única entrada autoral é o “Oi! Eu sou a Rubia.”, palavra por palavra.
 
 ## Do's and Don'ts
 

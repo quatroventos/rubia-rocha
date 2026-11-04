@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Cms\SectionCatalog;
 use App\Http\Controllers\Controller;
-use App\Models\CaseStudy;
 use App\Models\Page;
 use App\Services\Content\SectionCopyWriter;
 use App\Services\LighthouseService;
@@ -46,14 +45,8 @@ class SeoInsightsController extends Controller
     {
         $input = $this->input($request);
 
-        if ($input['kind'] === 'case' && $input['id'] === null) {
-            return response()->json(['message' => 'Salve o case para analisar a página renderizada.'], 422);
-        }
-
         try {
-            $html = $input['kind'] === 'page'
-                ? $renderer->page(Page::query()->findOrFail($input['id']), $input['sections'], $input['seo_title'] ?? null, $input['seo_description'] ?? null)
-                : $renderer->caseStudy(CaseStudy::query()->findOrFail($input['id']), $input['sections'], $input);
+            $html = $renderer->page(Page::query()->findOrFail($input['id']), $input['sections'], $input['seo_title'] ?? null, $input['seo_description'] ?? null);
         } catch (RuntimeException $exception) {
             return response()->json(['message' => $exception->getMessage()], 422);
         }
@@ -131,8 +124,8 @@ class SeoInsightsController extends Controller
         $target = $check['fix'];
         $context = [
             'kind' => $input['kind'],
-            'title' => $input['kind'] === 'case' ? trim(($input['client'] ?? '').': '.($input['title'] ?? ''), ': ') : ($input['seo_title'] ?? null),
-            'description' => $input['kind'] === 'case' ? ($input['summary'] ?? null) : null,
+            'title' => $input['seo_title'] ?? null,
+            'description' => null,
             'path' => $input['path'] ?? null,
         ];
 
@@ -210,15 +203,15 @@ class SeoInsightsController extends Controller
         return ['id' => $checkId, 'status' => (string) $request->input('status', 'bad'), 'message' => (string) $request->input('message', ''), 'fix' => $target];
     }
 
-    private function target(string $kind, int $id): Page|CaseStudy
+    private function target(string $kind, int $id): Page
     {
-        return $kind === 'cases' ? CaseStudy::query()->findOrFail($id) : Page::query()->findOrFail($id);
+        return Page::query()->findOrFail($id);
     }
 
     /**
      * @return array<string, mixed>
      */
-    private function unpublished(Page|CaseStudy $model): array
+    private function unpublished(Page $model): array
     {
         return [
             'url' => $model->publicPath(),
@@ -236,8 +229,8 @@ class SeoInsightsController extends Controller
     private function input(Request $request): array
     {
         $data = $request->validate([
-            'kind' => ['required', Rule::in(['page', 'case'])],
-            'id' => ['required_if:kind,page', 'nullable', 'integer'],
+            'kind' => ['required', Rule::in(['page'])],
+            'id' => ['required', 'integer'],
             'keyword' => ['nullable', 'string', 'max:120'],
             'seo_title' => ['nullable', 'string', 'max:255'],
             'seo_description' => ['nullable', 'string', 'max:500'],
@@ -253,17 +246,9 @@ class SeoInsightsController extends Controller
             'sections.*.data' => ['nullable', 'array'],
         ]);
 
-        $home = false;
-
-        if ($data['kind'] === 'page') {
-            $page = Page::query()->findOrFail($data['id']);
-            $this->authorize('update', $page);
-            $home = $page->isHome();
-        } elseif (filled($data['id'] ?? null)) {
-            $this->authorize('update', CaseStudy::query()->findOrFail($data['id']));
-        } else {
-            $this->authorize('create', CaseStudy::class);
-        }
+        $page = Page::query()->findOrFail($data['id']);
+        $this->authorize('update', $page);
+        $home = $page->isHome();
 
         return [
             ...$data,
@@ -282,24 +267,16 @@ class SeoInsightsController extends Controller
     private function marketTarget(Request $request): array
     {
         $data = $request->validate([
-            'kind' => ['required', Rule::in(['page', 'case'])],
-            'id' => ['required_if:kind,page', 'nullable', 'integer'],
+            'kind' => ['required', Rule::in(['page'])],
+            'id' => ['required', 'integer'],
             'keyword' => ['required', 'string', 'max:120'],
             'path' => ['nullable', 'string', 'max:255'],
         ]);
 
-        if ($data['kind'] === 'page') {
-            $model = Page::query()->findOrFail($data['id']);
-            $this->authorize('update', $model);
-        } elseif (filled($data['id'] ?? null)) {
-            $model = CaseStudy::query()->findOrFail($data['id']);
-            $this->authorize('update', $model);
-        } else {
-            $model = null;
-            $this->authorize('create', CaseStudy::class);
-        }
+        $model = Page::query()->findOrFail($data['id']);
+        $this->authorize('update', $model);
 
-        return [trim($data['keyword']), $model?->publicPath() ?? ($data['path'] ?? null)];
+        return [trim($data['keyword']), $model->publicPath()];
     }
 
     private function topQuery(MarketInsights $market, string $keyword, ?string $path): ?string
@@ -327,7 +304,7 @@ class SeoInsightsController extends Controller
     private function goal(string $checkId, string $status, string $keyword, bool $densityHigh = false): string
     {
         return match ($checkId) {
-            'h1_keyword' => 'Reescreva o título principal da página para conter a palavra-chave exata "'.$keyword.'". Continua curto e direto. Se houver trecho entre *asteriscos*, mantenha um destaque.',
+            'h1_keyword' => 'Reescreva o título principal da página para conter a palavra-chave exata "'.$keyword.'". Continua curto e direto.',
             'intro_keyword' => 'Reescreva o primeiro parágrafo para usar a palavra-chave exata "'.$keyword.'" uma vez, de preferência na primeira frase. Mantenha o tamanho e as informações.',
             'subheading_keyword' => 'Reescreva este subtítulo para usar "'.$keyword.'" ou uma variação próxima, sem perder o que a seção trata. Continua curto.',
             'density' => $status === 'bad' && $densityHigh

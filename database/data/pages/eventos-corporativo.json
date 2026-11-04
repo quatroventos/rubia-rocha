@@ -1,0 +1,156 @@
+{
+    "slug": "eventos/corporativo",
+    "template": "custom",
+    "status": "published",
+    "seo_title": "Fotografia Corporativa em Curitiba",
+    "seo_description": "Eventos e branding profissional.",
+    "robots": null,
+    "twitter_card": "summary_large_image",
+    "sections": [
+        {
+            "id": "folio-hero-1",
+            "type": "site.folio-hero",
+            "data": {
+                "image": "/rubia/img/albuns/corporativo/02-fotografo-para-empresas-curitiba1.webp",
+                "image_alt": "Corporativo e branding",
+                "kicker": "Corporativo e branding",
+                "title": "Fotografia Corporativa em Curitiba",
+                "lede": "Eventos e branding profissional.",
+                "cta_label": "Me pede um orçamento",
+                "cta_href": "/contato"
+            }
+        },
+        {
+            "id": "folio-2",
+            "type": "site.folio",
+            "data": {
+                "blocks": [
+                    {
+                        "heading": "",
+                        "level": "",
+                        "body": "<p>Se você busca excelência em fotografia corporativa em Curitiba, sabe que a imagem da sua empresa é o seu maior cartão de visitas. Seja na cobertura de um grande congresso ou na criação de retratos para posicionamento de marca, meu objetivo é capturar a essência e o profissionalismo do seu negócio com um olhar estratégico e atualizado.</p>",
+                        "image": "/rubia/img/albuns/corporativo/03-fotografo-para-empresas-curitiba2.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "A importância da fotografia corporativa em Curitiba para sua marca",
+                        "level": "",
+                        "body": "<p>Ter um registro profissional vai além de apenas documentar um momento; trata-se de construir autoridade. No mercado atual, utilizar fotografia corporativa em Curitiba de alta qualidade em seu site, LinkedIn e materiais de marketing diferencia sua empresa da concorrência e gera confiança imediata em seus clientes e parceiros.</p>",
+                        "image": "/rubia/img/albuns/corporativo/04-fotografo-para-empresas-curitiba4.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "O que entrego no seu projeto",
+                        "level": "3",
+                        "body": "<p><strong>Cobertura de Eventos:</strong> Congressos, palestras, feiras e workshops com foco na dinâmica e nos detalhes importantes.</p><p><strong>Branding e Retratos:</strong> Ensaios de posicionamento para executivos e equipes, transmitindo credibilidade.</p><p><strong>Fotografia de Produtos:</strong> Imagens de alta qualidade para catálogos, e-commerce e redes sociais. Valorizo cada detalhe do seu produto para destacar seus diferenciais competitivos e aumentar suas conversões de venda.</p><p><strong>Imagens Institucionais:</strong> Fotos das instalações e processos que humanizam a sua marca e mostram o “bastidor” do seu negócio.</p>",
+                        "image": "/rubia/img/albuns/corporativo/05-fotografo-para-empresas-curitiba6-1.webp",
+                        "image_alt": ""
+                    }
+                ],
+                "cta_label": "Me chama no WhatsApp",
+                "cta_href": "",
+                "album_title": "Corporativo e branding",
+                "album": [
+                    "/rubia/img/albuns/corporativo/01-fotografia-para-empresas-curitiba.webp",
+                    "/rubia/img/albuns/corporativo/02-fotografo-para-empresas-curitiba1.webp",
+                    "/rubia/img/albuns/corporativo/03-fotografo-para-empresas-curitiba2.webp",
+                    "/rubia/img/albuns/corporativo/04-fotografo-para-empresas-curitiba4.webp",
+                    "/rubia/img/albuns/corporativo/05-fotografo-para-empresas-curitiba6-1.webp",
+                    "/rubia/img/albuns/corporativo/06-fotografo-para-empresas-curitiba7.webp",
+                    "/rubia/img/albuns/corporativo/07-fotografo-para-empresas-curitiba8.webp",
+                    "/rubia/img/albuns/corporativo/08-fotografo-para-empresas-curitiba9.webp",
+                    "/rubia/img/albuns/corporativo/09-fotografo-para-empresas-curitiba11-1.webp",
+                    "/rubia/img/albuns/corporativo/10-fotografo-para-empresas-curitiba13.webp",
+                    "/rubia/img/albuns/corporativo/11-fotografo-para-empresas-curitiba14.webp",
+                    "/rubia/img/albuns/corporativo/12-fotografo-para-eventos-curitiba3-jpg.webp",
+                    "/rubia/img/albuns/corporativo/13-fotografo-para-eventos-curitiba5-jpg.webp",
+                    "/rubia/img/albuns/corporativo/14-fotografo-para-eventos-curitiba6-jpg.webp",
+                    "/rubia/img/albuns/corporativo/15-fotografo-para-eventos-curitiba8-jpg.webp",
+                    "/rubia/img/albuns/corporativo/16-fotografo-para-eventos-curitiba10-jpg.webp",
+                    "/rubia/img/albuns/corporativo/17-fotografo-para-eventos-curitiba11-jpg.webp",
+                    "/rubia/img/albuns/corporativo/18-fotografo-para-eventos-curitiba12-jpg.webp",
+                    "/rubia/img/albuns/corporativo/19-fotografo-para-eventos-curitiba13.webp",
+                    "/rubia/img/albuns/corporativo/20-fotografo-para-eventos-curitiba14-jpg.webp",
+                    "/rubia/img/albuns/corporativo/21-fotografo-para-eventos-curitiba15-jpg.webp",
+                    "/rubia/img/albuns/corporativo/22-fotografo-para-eventos-curitiba16-jpg.webp",
+                    "/rubia/img/albuns/corporativo/23-fotografo-para-eventos-curitiba20.webp",
+                    "/rubia/img/albuns/corporativo/24-fotografo-para-eventos-curitiba20-jpg.webp",
+                    "/rubia/img/albuns/corporativo/25-fotografo-para-eventos-curitiba21.webp",
+                    "/rubia/img/albuns/corporativo/26-ana-gogola-glicineas24.webp",
+                    "/rubia/img/albuns/corporativo/27-ana-gogola-glicineas76.webp",
+                    "/rubia/img/albuns/corporativo/28-ana-gogola-glicineas119-editar.webp",
+                    "/rubia/img/albuns/corporativo/29-ana-gogola-glicineas126.webp",
+                    "/rubia/img/albuns/corporativo/30-ana-gogola-glicineas145.webp",
+                    "/rubia/img/albuns/corporativo/31-ana-gogola-glicineas149.webp",
+                    "/rubia/img/albuns/corporativo/32-ana-gogola-glicineas264.webp",
+                    "/rubia/img/albuns/corporativo/33-ensaio-feminino-recanto-glicineas1.webp",
+                    "/rubia/img/albuns/corporativo/34-ensaio-feminino-recanto-glicineas3.webp",
+                    "/rubia/img/albuns/corporativo/35-ensaio-feminino-recanto-glicineas2.webp",
+                    "/rubia/img/albuns/corporativo/36-ensaio-feminino-recanto-glicineas4.webp",
+                    "/rubia/img/albuns/corporativo/37-ensaio-feminino-recanto-glicineas5.webp",
+                    "/rubia/img/albuns/corporativo/38-fotografia-comercial-curitiba10.webp",
+                    "/rubia/img/albuns/corporativo/39-fotografia-comercial-curitiba12.webp",
+                    "/rubia/img/albuns/corporativo/40-fotografia-corporativa-para-redes-sociais3.webp",
+                    "/rubia/img/albuns/corporativo/41-fotografo-para-eventos-curitiba18-jpg.webp",
+                    "/rubia/img/albuns/corporativo/42-fotografia-corporativa-para-redes-sociais2.webp",
+                    "/rubia/img/albuns/corporativo/43-fotografia-corporativa-para-redes-sociais.webp",
+                    "/rubia/img/albuns/corporativo/44-ensaio-corporativo-masculino-curitiba.webp",
+                    "/rubia/img/albuns/corporativo/45-ensaio-corporativo-masculino-curitiba2.webp",
+                    "/rubia/img/albuns/corporativo/46-ensaio-corporativo-masculino-curitiba3.webp",
+                    "/rubia/img/albuns/corporativo/47-ensaio-corporativo-masculino-curitiba4.webp",
+                    "/rubia/img/albuns/corporativo/48-ensaio-corporativo-masculino-curitiba6.webp",
+                    "/rubia/img/albuns/corporativo/49-ensaio-corporativo-masculino-curitiba5.webp",
+                    "/rubia/img/albuns/corporativo/50-fotografia-produto-curitiba3.webp",
+                    "/rubia/img/albuns/corporativo/51-fotografia-produto-curitiba5.webp",
+                    "/rubia/img/albuns/corporativo/52-fotografia-produto-curitiba7.webp",
+                    "/rubia/img/albuns/corporativo/53-fotografia-produto-curitiba9.webp",
+                    "/rubia/img/albuns/corporativo/54-fotografia-produto-curitiba12.webp",
+                    "/rubia/img/albuns/corporativo/55-fotografia-produto-curitiba31.webp",
+                    "/rubia/img/albuns/corporativo/56-fotografia-produto-curitiba32.webp",
+                    "/rubia/img/albuns/corporativo/57-fotografia-produto-curitiba34.webp",
+                    "/rubia/img/albuns/corporativo/58-fotografia-produto-curitiba35.webp",
+                    "/rubia/img/albuns/corporativo/59-10-fotografia-comercial-curitiba1.webp",
+                    "/rubia/img/albuns/corporativo/60-10-fotografia-comercial-curitiba2.webp",
+                    "/rubia/img/albuns/corporativo/61-10-fotografia-comercial-curitiba5.webp",
+                    "/rubia/img/albuns/corporativo/62-10-fotografia-comercial-curitiba6.webp",
+                    "/rubia/img/albuns/corporativo/63-10-fotografia-comercial-curitiba7.webp",
+                    "/rubia/img/albuns/corporativo/64-10-fotografia-comercial-curitiba8.webp"
+                ]
+            }
+        },
+        {
+            "id": "faq-3",
+            "type": "site.faq",
+            "data": {
+                "leaf": true,
+                "title": "Perguntas frequentes",
+                "items": [
+                    {
+                        "question": "Que tipo de evento você fotografa?",
+                        "answer": "Gosto de registrar momentos que tenham significado — desde as festinhas cheias de risadas das crianças até mini weddings intimistas, bodas e eventos corporativos. Atendo aniversários, batizados, encontros familiares, eventos de marcas, lançamentos, workshops e tudo que envolva pessoas, conexão e emoção. Se o seu evento for diferente, me chama! Se tiver a ver com o meu estilo, vai ser um prazer fotografar."
+                    },
+                    {
+                        "question": "Você atende apenas eventos em Curitiba?",
+                        "answer": "Atendo Curitiba e região metropolitana. Para outras cidades, podemos conversar sobre deslocamento."
+                    },
+                    {
+                        "question": "Quanto tempo de cobertura você oferece?",
+                        "answer": "A cobertura é personalizada. Pode ser por hora ou evento completo — depende do tipo e duração da festa ou cerimônia."
+                    },
+                    {
+                        "question": "Você trabalha sozinha ou com equipe?",
+                        "answer": "Na maioria dos eventos, sou eu quem fotografa. Para eventos maiores, posso levar assistente ou segundo fotógrafo."
+                    },
+                    {
+                        "question": "Em quanto tempo recebo as fotos?",
+                        "answer": "O prazo médio é de 10 a 20 dias úteis. Sempre envio com muito carinho e cuidado na edição."
+                    },
+                    {
+                        "question": "Você também faz filmagem?",
+                        "answer": "Depende do estilo e da proposta do evento. Para registros simples, como mini clipes com momentos especiais e edição leve, eu consigo sim oferecer algo complementar à fotografia. Mas se o evento exigir uma cobertura mais complexa em vídeo, posso indicar parceiros incríveis que trabalham alinhados com meu estilo."
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Jobs\GenerateOgImageJob;
-use App\Models\CaseStudy;
 use App\Models\Page;
 use App\Models\SiteSetting;
 use App\Services\Seo\OgImageCapture;
@@ -23,7 +22,7 @@ class OgImageGenerationTest extends TestCase
     {
         parent::setUp();
 
-        SiteSetting::query()->create(['name' => 'Quatro Ventos']);
+        SiteSetting::query()->create(['name' => 'Rubia Rocha Fotografia']);
     }
 
     private function page(array $overrides = []): Page
@@ -34,7 +33,7 @@ class OgImageGenerationTest extends TestCase
             'status' => 'published',
             'seo_title' => 'Agentes de IA',
             'published_at' => now(),
-            'content' => ['sections' => [['id' => 'hero-1', 'type' => 'site.hero', 'data' => ['title' => 'Agentes que *executam*']]]],
+            'content' => ['sections' => [['id' => 'intro-1', 'type' => 'site.intro', 'data' => ['title' => 'Fotografia de família']]]],
         ], $overrides));
     }
 
@@ -58,24 +57,16 @@ class OgImageGenerationTest extends TestCase
 
     public function test_generator_discards_previous_card_when_unused(): void
     {
-        $case = CaseStudy::query()->create([
-            'slug' => 'conexme',
-            'status' => 'published',
-            'client' => 'Conexme',
-            'title' => 'Plataforma',
-            'published_at' => now(),
-            'og_image' => '/storage/media/og/case-conexme-old.jpg',
-        ]);
+        $page = $this->page(['og_image' => '/storage/media/og/agentes-de-ia-pt-br-old.jpg']);
 
         $this->mock(OgImageCapture::class, function (MockInterface $mock) {
-            $mock->shouldReceive('capture')->once()->andReturn('/storage/media/og/case-conexme-new.jpg');
-            $mock->shouldReceive('discard')->once()->with('/storage/media/og/case-conexme-old.jpg');
+            $mock->shouldReceive('capture')->once()->andReturn('/storage/media/og/agentes-de-ia-pt-br-new.jpg');
+            $mock->shouldReceive('discard')->once()->with('/storage/media/og/agentes-de-ia-pt-br-old.jpg');
         });
 
-        app(OgImageGenerator::class)->caseStudy($case);
+        app(OgImageGenerator::class)->page($page);
 
-        $this->assertSame('/storage/media/og/case-conexme-new.jpg', $case->fresh()->og_image);
-        $this->getJson('/api/cases/conexme')->assertJsonPath('seo.og_image', url('/storage/media/og/case-conexme-new.jpg'));
+        $this->assertSame('/storage/media/og/agentes-de-ia-pt-br-new.jpg', $page->fresh()->og_image);
     }
 
     public function test_saving_regenerates_only_automatic_cards_when_shown_content_changes(): void
@@ -96,12 +87,12 @@ class OgImageGenerationTest extends TestCase
         Queue::assertPushed(GenerateOgImageJob::class, 2);
     }
 
-    public function test_admin_queues_all_published_pages_and_cases(): void
+    public function test_admin_queues_all_published_pages(): void
     {
         Bus::fake();
         $this->page();
+        $this->page(['slug' => 'quem-sou']);
         $this->page(['slug' => 'rascunho', 'status' => 'draft']);
-        CaseStudy::query()->create(['slug' => 'conexme', 'status' => 'published', 'client' => 'Conexme', 'title' => 'Plataforma', 'published_at' => now()]);
 
         $this->actingAs($this->makeAdmin())->postJson('/gestao/api/og-image/all')->assertOk();
 

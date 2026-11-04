@@ -18,7 +18,8 @@ class TextTranslator
      * @var list<string>
      */
     public const KEEP = [
-        'Quatro Ventos',
+        'Rubia Rocha Fotografia',
+        'Rubia Rocha',
         'WhatsApp',
         'WordPress',
         'Laravel',
@@ -131,8 +132,8 @@ class TextTranslator
         $language = Locales::aiName($locale);
 
         $decoded = $this->client->json(
-            'You are a senior SEO specialist writing metadata in '.$language.' for the website of Quatro Ventos, '
-                .'a Brazilian software, web and AI company. Do not translate literally: research intent and use the terms people '
+            'You are a senior SEO specialist writing metadata in '.$language.' for the website of Rubia Rocha Fotografia, '
+                .'a family, maternity, couple and event photographer from Curitiba, Brazil. Do not translate literally: research intent and use the terms people '
                 .'actually search for in '.$language.'. Title: up to '.Seo::titleBudget(SiteSetting::query()->first()).' characters including spaces, no brand suffix (it is added automatically). '
                 .'Description: '.Seo::DESCRIPTION_MIN.' to '.Seo::DESCRIPTION_MAX.' characters including spaces, declarative, no clickbait, no emojis. Slug: short, lowercase ASCII, '
                 .'words separated by hyphens, in '.$language.', main keyword first. Keep brand and product names untouched: '
@@ -162,8 +163,8 @@ class TextTranslator
     {
         $language = Locales::aiName($locale);
 
-        return 'You translate website copy from Brazilian Portuguese to '.$language.' for Quatro Ventos, '
-            .'a software, web and AI company from Curitiba, Brazil. Rules: '
+        return 'You translate website copy from Brazilian Portuguese to '.$language.' for Rubia Rocha Fotografia, '
+            .'a family, maternity, couple and event photographer from Curitiba, Brazil. Rules: '
             .'1) Write natural, idiomatic marketing copy for that market, not a literal translation. '
             .'2) Keep the voice declarative, direct and confident; short sentences; no exclamation marks; no emojis. '
             .'3) Preserve every HTML tag, attribute and entity exactly as received; translate only the human-readable text between tags. '

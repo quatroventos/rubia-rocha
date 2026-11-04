@@ -13,7 +13,7 @@ use Illuminate\Support\Arr;
 use RuntimeException;
 
 /**
- * Reescreve os textos de uma seção de página ou case com IA, usando o resto da página como contexto.
+ * Reescreve os textos de uma seção de página com IA, usando o resto da página como contexto.
  * Só campos de texto corrido entram; links, âncoras, nomes próprios e números ficam como estão.
  */
 class SectionCopyWriter
@@ -134,7 +134,7 @@ class SectionCopyWriter
             'sintetizar' => 'Condense o texto atual ao núcleo da mensagem.',
         ];
 
-        $prompt = ($context['kind'] === 'case' ? 'Página de case (projeto entregue pela Quatro Ventos)' : 'Página do site da Quatro Ventos')
+        $prompt = 'Página do site da Rubia Rocha Fotografia, fotógrafa de família, gestante, casal e eventos em Curitiba'
             .(filled($context['title'] ?? null) ? "\nTítulo: ".$context['title'] : '')
             .(filled($context['description'] ?? null) ? "\nResumo: ".$context['description'] : '')
             .(filled($context['path'] ?? null) ? "\nEndereço: ".$context['path'] : '')
@@ -180,7 +180,7 @@ class SectionCopyWriter
      */
     public function keywordRewrite(PageDocument $document, array $chunk, string $keyword, string $goal, int $max, array $context): string
     {
-        $prompt = ($context['kind'] === 'case' ? 'Página de case (projeto entregue pela Quatro Ventos)' : 'Página do site da Quatro Ventos')
+        $prompt = 'Página do site da Rubia Rocha Fotografia, fotógrafa de família, gestante, casal e eventos em Curitiba'
             .(filled($context['title'] ?? null) ? "\nTítulo: ".$context['title'] : '')
             .(filled($context['path'] ?? null) ? "\nEndereço: ".$context['path'] : '')
             ."\n\nPágina completa, na ordem de leitura (leia tudo antes de escrever):\n".$document->outline(self::CONTEXT_CHARS)
@@ -339,7 +339,7 @@ class SectionCopyWriter
             array_diff_key($this->entries($definition['fields'] ?? [], $sections[$index]['data']), $entries),
         );
 
-        return ($context['kind'] === 'case' ? 'Página de case (projeto entregue pela Quatro Ventos)' : 'Página do site da Quatro Ventos')
+        return 'Página do site da Rubia Rocha Fotografia, fotógrafa de família, gestante, casal e eventos em Curitiba'
             .(filled($context['title'] ?? null) ? "\nTítulo: ".$context['title'] : '')
             .(filled($context['description'] ?? null) ? "\nDescrição: ".$context['description'] : '')
             .(filled($context['path'] ?? null) ? "\nEndereço: ".$context['path'] : '')
@@ -382,14 +382,13 @@ DIRETRIZES DE ESCRITA:
 - Use voz ativa. Nunca use voz passiva desnecessária.
 - Varie o tamanho das frases. Misture frases curtas e de impacto com frases médias.
 - Seja direto ao ponto. Elimine introduções longas ("Claro, posso ajudar com isso!") e conclusões redundantes ("Em resumo...", "Concluindo...").
-- Mantenha o tom de um profissional humano experiente conversando com um colega: casual, técnico e sem bajulação ou entusiasmo artificial.
+- Escreva em primeira pessoa, como a própria fotógrafa: acolhedor, afetivo e próximo, sem bajulação ou entusiasmo artificial.
 
 REGRAS DO SITE:
 - Escreva em português do Brasil.
 - Use o contexto da página para entender o assunto e não repetir o que outras seções já dizem.
 - Não invente fatos, números, clientes, prazos ou promessas que não estejam no texto ou no contexto.
 - Não use travessão; prefira ponto, vírgula ou dois-pontos.
-- Trechos entre *asteriscos* são destaques visuais: mantenha a marcação, no máximo um destaque por campo.
 - Campos em formato html: devolva HTML simples, só com p, strong, em, a, ul, ol, li e br. Preserve os links (<a href>) existentes.
 - Campos em formato texto: devolva texto puro, sem HTML.
 - Títulos e rótulos de botão continuam curtos.

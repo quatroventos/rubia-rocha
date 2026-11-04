@@ -1,0 +1,128 @@
+{
+    "slug": "ensaios/bebes",
+    "template": "custom",
+    "status": "published",
+    "seo_title": "Acompanhamento de Bebê em Curitiba",
+    "seo_description": "O crescimento do seu filho registrado no lugar mais seguro do mundo: a sua casa.",
+    "robots": null,
+    "twitter_card": "summary_large_image",
+    "sections": [
+        {
+            "id": "folio-hero-1",
+            "type": "site.folio-hero",
+            "data": {
+                "image": "/rubia/img/albuns/bebes/01-fotografia-ensaio-de-bebes-curitiba1.webp",
+                "image_alt": "Acompanhamento de bebês",
+                "kicker": "Acompanhamento de bebês",
+                "title": "Acompanhamento de Bebê em Curitiba (Lifestyle)",
+                "lede": "O crescimento do seu filho registrado no lugar mais seguro do mundo: a sua casa.",
+                "cta_label": "Me pede um orçamento",
+                "cta_href": "/contato"
+            }
+        },
+        {
+            "id": "folio-2",
+            "type": "site.folio",
+            "data": {
+                "blocks": [
+                    {
+                        "heading": "",
+                        "level": "",
+                        "body": "<p>O primeiro ano de um bebê passa num piscar de olhos. A cada mês, é uma nova descoberta, uma nova dobrinha, um novo sorriso. Mas a maternidade real também é cansativa, e a ideia de arrumar malas, respeitar horários rígidos e sair de casa para ir a um estúdio pode ser exaustiva.</p><p>É por isso que o meu formato de acompanhamento de bebê em Curitiba é diferente. Eu vou até você.</p>",
+                        "image": "/rubia/img/albuns/bebes/03-fotografia-ensaio-de-bebes-curitiba3.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Como funciona a experiência?",
+                        "level": "",
+                        "body": "<p><strong>Visitas programadas:</strong> Definimos juntos a frequência (mensal, bimestral ou trimestral) para registrar os saltos de desenvolvimento do seu bebê.</p><p><strong>A direção fotográfica:</strong> Você não precisa se preocupar em “arrumar a casa” perfeitamente ou saber posar. Eu guio vocês com leveza, propondo brincadeiras e interações para capturar sorrisos sinceros.</p><p><strong>O Legado:</strong> No final de um ano, você terá um registro verdadeiro de como a sua família se transformou, documentado com a luz e a poesia do dia a dia. Fotografias que seu filho vai olhar no futuro e reconhecer a própria história, os próprios brinquedos e o lar onde cresceu.</p>",
+                        "image": "/rubia/img/albuns/bebes/04-fotografia-ensaio-de-bebes-curitiba4.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Vamos registrar o primeiro ano do seu bebê com verdade e conforto?",
+                        "level": "",
+                        "body": "<p>Se você busca um registro leve, sem estresse e cheio de significado, me chame. Vou adorar conhecer a sua família.</p>",
+                        "image": "/rubia/img/albuns/bebes/05-fotografia-ensaio-de-bebes-curitiba5.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "O que é o Acompanhamento Afetivo e Lifestyle?",
+                        "level": "",
+                        "body": "<p>Eu não uso cestos, fundos falsos ou fantasias. O meu foco é a fotografia documental e afetiva. Acredito que as memórias mais preciosas do seu filho não são aquelas em que ele está fantasiado de algo que não é, mas sim aquelas que mostram a vida como ela realmente acontecia.</p><p>Digo isso porque já estive exatamente desse lado da história. Quando o Tomás e o Vicente nasceram, eu entendi na pele o que é a beleza — e a exaustão — da maternidade real. Eu sei a logística (e o suor!) que envolve sair de casa com bebês. Por isso, guardo com tanto carinho os registros dos meninos crescendo livres na nossa casa, no nosso caos e no nosso amor. É essa mesma tranquilidade que quero entregar para a sua família.</p><p><strong>Sem sair de casa:</strong> O ensaio acontece no ambiente natural do bebê. Isso significa zero estresse com trânsito, horários de soneca ou trocas de fralda de emergência.</p><p><strong>Memórias do que importa:</strong> Fotografamos o quartinho que você planejou com tanto carinho, a hora do banho, a bagunça na cama dos pais, o gatinho ou cachorro da família participando do momento.</p><p><strong>O bebê no tempo dele:</strong> Sem poses forçadas. Se o bebê precisar mamar, nós pausamos. Se ele quiser dormir, fotografamos a paz do soninho. O ensaio respeita o ritmo de vocês, e não o contrário.</p>",
+                        "image": "/rubia/img/albuns/bebes/06-fotografia-ensaio-de-bebes-curitiba6.webp",
+                        "image_alt": ""
+                    }
+                ],
+                "cta_label": "Me chama no WhatsApp",
+                "cta_href": "",
+                "album_title": "Acompanhamento de bebês",
+                "album": [
+                    "/rubia/img/albuns/bebes/01-fotografia-ensaio-de-bebes-curitiba1.webp",
+                    "/rubia/img/albuns/bebes/02-fotografia-ensaio-de-bebes-curitiba2.webp",
+                    "/rubia/img/albuns/bebes/03-fotografia-ensaio-de-bebes-curitiba3.webp",
+                    "/rubia/img/albuns/bebes/04-fotografia-ensaio-de-bebes-curitiba4.webp",
+                    "/rubia/img/albuns/bebes/05-fotografia-ensaio-de-bebes-curitiba5.webp",
+                    "/rubia/img/albuns/bebes/06-fotografia-ensaio-de-bebes-curitiba6.webp",
+                    "/rubia/img/albuns/bebes/07-fotografia-ensaio-de-bebes-curitiba7.webp",
+                    "/rubia/img/albuns/bebes/08-fotografia-ensaio-de-bebes-curitiba8.webp",
+                    "/rubia/img/albuns/bebes/09-fotografia-ensaio-de-bebes-curitiba10.webp",
+                    "/rubia/img/albuns/bebes/10-bebe-2-1.webp",
+                    "/rubia/img/albuns/bebes/11-bebe-6-1.webp",
+                    "/rubia/img/albuns/bebes/12-bebe-4-1.webp",
+                    "/rubia/img/albuns/bebes/13-bebe-1-1.webp",
+                    "/rubia/img/albuns/bebes/14-bebe-5-1.webp",
+                    "/rubia/img/albuns/bebes/15-5-fotografia-de-bebes-curitiba8.webp",
+                    "/rubia/img/albuns/bebes/16-bebe-3-1.webp",
+                    "/rubia/img/albuns/bebes/17-bebe-7-1.webp"
+                ]
+            }
+        },
+        {
+            "id": "faq-3",
+            "type": "site.faq",
+            "data": {
+                "leaf": true,
+                "title": "Perguntas frequentes",
+                "items": [
+                    {
+                        "question": "Qual o melhor momento para fazer um ensaio de família?",
+                        "answer": "Sempre que você quiser eternizar uma fase! Não precisa esperar uma data especial."
+                    },
+                    {
+                        "question": "Meus filhos são agitados, vai dar certo?",
+                        "answer": "Com certeza! Meu trabalho é acompanhar o ritmo deles, sem pressão. É isso que torna o ensaio ainda mais real e especial."
+                    },
+                    {
+                        "question": "E se meus filhos não colaborarem?",
+                        "answer": "Isso é completamente normal e faz parte da bagunça da vida real! Eu recomendo que as crianças tirem uma soneca antes ou venham bem descansadas para o ensaio para que eles cheguem descontraídos e levem tudo na brincadeira. Não costuma falhar!"
+                    },
+                    {
+                        "question": "Pode ser feito em casa?",
+                        "answer": "Sim! Ensaio em casa fica super íntimo, leve e cheio de significado."
+                    },
+                    {
+                        "question": "Qual o melhor horário para o ensaio?",
+                        "answer": "Geralmente prefiro fotografar no início da manhã ou fim da tarde (golden hour), quando a luz é suave, dourada e favorece aquele clima acolhedor nas fotos. Se você tem crianças pequenas e horários fixos, podemos planejar juntos para respeitar a rotina delas."
+                    },
+                    {
+                        "question": "Onde os ensaios podem acontecer?",
+                        "answer": "Podemos fotografar em lugares que sejam especiais pra vocês: parques, praças, casa, praças de Curitiba, ou mesmo em locações com significado pessoal. O importante é que o ambiente reflita quem vocês são – e eu te ajudo a escolher!"
+                    },
+                    {
+                        "question": "O que devemos vestir?",
+                        "answer": "Roupas confortáveis e que combinem com o estilo de vocês. Evite estampas muito concorridas ou cores vibrantes que roubem atenção. Tons neutros, com harmonização de paleta entre as pessoas, funcionam super bem. Calçados confortáveis garantem liberdade para brincar e interagir naturalmente."
+                    },
+                    {
+                        "question": "Posamos ou fotografamos espontaneamente?",
+                        "answer": "Minha abordagem combina ambos: fazemos uns cliques dirigidos para garantir boas composições familiares, mas a maior parte do ensaio é documental, captando momentos de verdade, no ritmo de vocês."
+                    },
+                    {
+                        "question": "Se chover, o que fazemos?",
+                        "answer": "Tranquilo! Reagendamos para o próximo dia de sol ou partimos para um plano B em um local onde a garoa ou chuva fraca possa deixar o ensaio confortável. Tempo nublado ou garoa também garantem fotos maravilhosas, pode confiar."
+                    }
+                ]
+            }
+        }
+    ]
+}

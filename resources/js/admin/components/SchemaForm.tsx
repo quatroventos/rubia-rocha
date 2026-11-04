@@ -1,9 +1,7 @@
 import { type PointerEvent, type ReactNode } from 'react';
 import { GripVertical, Plus, Trash2 } from 'lucide-react';
 import { getPath, setPath } from '../lib';
-import { CasesPicker } from './CasesPicker';
-import { LogosField } from './LogosField';
-import { MediaField } from './MediaField';
+import { MediaField, MediaUploadMany } from './MediaField';
 import { RichText } from './RichText';
 import { SortableList } from './SortableList';
 import { acceptsAi, FieldAi, type FieldAiContext } from './SectionCopy';
@@ -79,24 +77,6 @@ function FieldControl({
   ai?: FieldAiContext;
   onChange: (value: unknown) => void;
 }) {
-  if (field.type === 'cases') {
-    return (
-      <CasesPicker
-        label={field.label}
-        value={value}
-        max={field.max ?? 2}
-        all={field.all}
-        pageSlug={context?.pageSlug}
-        hint={field.hint}
-        onChange={onChange}
-      />
-    );
-  }
-
-  if (field.type === 'logos') {
-    return <LogosField label={field.label} value={value} onChange={onChange} />;
-  }
-
   if (field.type === 'select') {
     return (
       <div className="field">
@@ -229,7 +209,17 @@ function FieldControl({
                   onChange(copy);
                 }}
               >
-                {field.itemType === 'rich' ? (
+                {field.itemType === 'media' ? (
+                  <MediaField
+                    label=""
+                    value={typeof item === 'string' ? item : ''}
+                    onChange={(next) => {
+                      const copy = [...items];
+                      copy[index] = next ?? '';
+                      onChange(copy);
+                    }}
+                  />
+                ) : field.itemType === 'rich' ? (
                   <RichText
                     value={typeof item === 'string' ? item : ''}
                     onChange={(next) => {
@@ -282,6 +272,9 @@ function FieldControl({
         >
           <Plus size={14} /> Adicionar
         </button>
+        {simple && field.itemType === 'media' ? (
+          <MediaUploadMany onUploaded={(paths) => onChange([...items, ...paths])} />
+        ) : null}
       </div>
     );
   }

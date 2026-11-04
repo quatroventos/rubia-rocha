@@ -8,6 +8,7 @@ export type Abilities = {
   backup: boolean;
   tags: boolean;
   sitemap: boolean;
+  redirects: boolean;
   seo: boolean;
   menu: boolean;
   certifications: boolean;

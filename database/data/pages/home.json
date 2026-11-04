@@ -1,225 +1,159 @@
 {
-  "slug": "home",
-  "template": "home",
-  "status": "published",
-  "seo_title": "Quatro Ventos: IA, automação e software em Curitiba",
-  "seo_description": "Empresa de Curitiba, desde 2005, que cria agentes de IA, automações e sistemas sob medida integrados ao ERP e ao WhatsApp. Um time constrói, hospeda e mantém.",
-  "canonical": "https://www.quatroventos.com.br/",
-  "robots": "index, follow, max-image-preview:large",
-  "twitter_card": "summary_large_image",
-  "og_image": "/assets/og/home.jpg",
-  "og_image_alt": "Processos melhores com inteligência artificial. Quatro Ventos.",
-  "sections": [
-    {
-      "id": "hero-1",
-      "type": "site.hero",
-      "data": {
-        "title": "Processos melhores com",
-        "rotating": [
-          "inteligência artificial.",
-          "agentes de IA.",
-          "automação de processos.",
-          "sistemas sob medida."
-        ],
-        "subtitle": "<p>A Quatro Ventos é uma empresa de tecnologia de Curitiba, fundada em 2005, que cria agentes de IA, automações e sistemas sob medida ligados ao que a empresa já usa, como WhatsApp, ERP e planilhas. O mesmo time desenha, desenvolve, hospeda e mantém, com custo previsível e uma pessoa revisando o que a IA decide.</p>",
-        "primary_label": "Iniciar um projeto",
-        "primary_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento.",
-        "secondary_label": "Conhecer os serviços",
-        "secondary_href": "/servicos"
-      }
-    },
-    {
-      "id": "cards-1",
-      "type": "site.cards",
-      "data": {
-        "title": "O que podemos fazer por *sua empresa?*",
-        "intro": "<p>Da arquitetura à infraestrutura: <a href=\"/agentes-de-ia\">agentes de IA</a>, <a href=\"/automacao-com-ia\">automação de processos</a>, software sob medida, <a href=\"/desenvolvimento-de-sites\">criação de sites em Curitiba</a> e lojas virtuais, com suporte contínuo depois da entrega.</p>",
-        "items": [
-          {
-            "title": "Inteligência artificial",
-            "body": "<p>Agentes, automação de processos, IA sobre dados proprietários e integração de LLMs.</p>",
-            "href": "/inteligencia-artificial"
-          },
-          {
-            "title": "Engenharia de software",
-            "body": "<p>Plataformas sob medida, SaaS, ERP e CRM, modernização de legado.</p>",
-            "href": "/desenvolvimento-de-software"
-          },
-          {
-            "title": "Desenvolvimento web",
-            "body": "<p>Sites, landing pages, e-commerce e WordPress.</p>",
-            "href": "/desenvolvimento-web"
-          },
-          {
-            "title": "Suporte e infraestrutura",
-            "body": "<p>Sustentação, manutenção, hospedagem e VPS.</p>",
-            "href": "/suporte-e-infraestrutura"
-          }
-        ],
-        "feature": true,
-        "mark_draw": true
-      }
-    },
-    {
-      "id": "panel-1",
-      "type": "site.panel",
-      "data": {
-        "title": "Todo processo tem um ponto que *pode render mais.*",
-        "body": "<p>Começamos pelo seu processo, não pela ferramenta. Identificamos onde a IA economiza tempo ou acelera uma decisão e entregamos a solução ligada aos sistemas que você já usa.</p>",
-        "variant": "light",
-        "cta_label": "Avaliar meu processo",
-        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20avaliar%20um%20processo.",
-        "mark_draw": true
-      }
-    },
-    {
-      "id": "steps-1",
-      "type": "site.steps",
-      "data": {
-        "title": "AI-native por método.",
-        "intro": "<p>A IA acelera cada etapa do nosso trabalho, da pesquisa aos testes, e entra no produto onde melhora o resultado da operação. Toda decisão passa por custo, segurança, qualidade e manutenção.</p>",
-        "timeline": true,
-        "items": [
-          {
-            "title": "Diagnóstico",
-            "body": "<p>Processos, sistemas e oportunidades mapeados.</p>"
-          },
-          {
-            "title": "Protótipo",
-            "body": "<p>A ideia validada em versão funcional.</p>"
-          },
-          {
-            "title": "Desenvolvimento",
-            "body": "<p>Frontend, backend, integrações e IA no mesmo time.</p>"
-          },
-          {
-            "title": "Homologação",
-            "body": "<p>Validação em ambiente privado antes da publicação.</p>"
-          },
-          {
-            "title": "Produção",
-            "body": "<p>Publicação, monitoramento e métricas.</p>"
-          },
-          {
-            "title": "Evolução",
-            "body": "<p>Melhoria contínua a partir do uso real.</p>"
-          }
-        ]
-      }
-    },
-    {
-      "id": "quotes-1",
-      "type": "site.quotes",
-      "data": {
-        "title": "O que dizem *nossos clientes.*",
-        "even": true,
-        "items": [
-          {
-            "quote": "<p>Sou cliente satisfeito e recorrente da Quatro Ventos. Recomendo a agência não só pela qualidade e profissionalismo, mas também pelo atendimento realmente comprometido. Dá pra ver que na Quatro Ventos o cliente importa.</p>",
-            "author": "Diogo Fontana",
-            "company": "Editora Danúbio"
-          },
-          {
-            "quote": "<p>Faz anos que contamos com os serviços da Quatro Ventos e sempre fui atendida com profissionalismo, agilidade e qualidade. O suporte é excelente e as soluções sempre atendem exatamente o que preciso. Recomendo muito para quem busca um serviço confiável e de alto nível!</p>",
-            "author": "Vivien Uhlmann",
-            "company": "Cycloar"
-          },
-          {
-            "quote": "<p>Trabalhar com a Quatro Ventos tem sido uma experiência excelente. A equipe é extremamente profissional, ágil e sempre disponível para oferecer suporte quando necessário. O site da Aliança Francesa de Curitiba é um reflexo desse trabalho cuidadoso e bem-executado.</p>",
-            "author": "Mayara Barros",
-            "company": "Aliança Francesa de Curitiba"
-          }
-        ],
-        "mark_draw": true
-      }
-    },
-    {
-      "id": "case-grid-1",
-      "type": "site.case-grid",
-      "data": {
-        "title": "Projetos que entregamos.",
-        "intro": "<p>Sites institucionais, webapps e plataformas para finanças, educação, turismo e tecnologia, do planejamento à publicação.</p>",
-        "featured": [
-          "fiscal-hub"
-        ],
-        "items": [
-          "assessment-produtive",
-          "alianca-francesa-brasilia",
-          "conexme",
-          "tripfy",
-          "alianca-francesa-curitiba",
-          "multiversidade-pucpr"
-        ]
-      }
-    },
-    {
-      "id": "logos-1",
-      "type": "site.logos",
-      "data": {
-        "title": "Empresas que *crescem com a gente.*",
-        "intro": "<p>Do mercado financeiro à saúde e ao varejo, atendemos empresas de portes e setores diferentes com o mesmo cuidado: projeto bem planejado, entrega no prazo e suporte depois da publicação.</p>",
-        "clients": true,
-        "mono": true,
-        "items": [
-          {
-            "name": "Incavel",
-            "image": "/assets/clientes/lampa/incavel.svg",
-            "image_alt": "Incavel"
-          },
-          {
-            "name": "4KST",
-            "image": "/assets/clientes/lampa/4kst.svg",
-            "image_alt": "4KST"
-          },
-          {
-            "name": "Aliança Francesa",
-            "image": "/assets/clientes/lampa/af.svg",
-            "image_alt": "Aliança Francesa"
-          },
-          {
-            "name": "AGMov",
-            "image": "/assets/clientes/lampa/agmov.svg",
-            "image_alt": "AGMov"
-          },
-          {
-            "name": "Bisuti",
-            "image": "/assets/clientes/lampa/bisuti.png",
-            "image_alt": "Bisuti"
-          },
-          {
-            "name": "Conela",
-            "image": "/assets/clientes/lampa/conela.svg",
-            "image_alt": "Conela"
-          },
-          {
-            "name": "Costi",
-            "image": "/assets/clientes/lampa/costi.png",
-            "image_alt": "Costi"
-          },
-          {
-            "name": "Momentum",
-            "image": "/assets/clientes/lampa/momentum.svg",
-            "image_alt": "Momentum"
-          },
-          {
-            "name": "Produtive",
-            "image": "/assets/clientes/lampa/produtive.svg",
-            "image_alt": "Produtive"
-          }
-        ],
-        "mark_draw": true
-      }
-    },
-    {
-      "id": "panel-2",
-      "type": "site.panel",
-      "data": {
-        "title": "Qual processo poderia *render mais?*",
-        "body": "<p>Uma conversa basta para avaliar onde a IA entra, como e por onde começar.</p>",
-        "cta_label": "Falar com um especialista",
-        "cta_href": "https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento.",
-        "tone": "white"
-      }
-    }
-  ]
+    "slug": "home",
+    "template": "home",
+    "status": "published",
+    "seo_title": "Fotógrafa em Curitiba",
+    "seo_description": "Fotografia de famílias, gestantes, casais, festas e mini weddings em Curitiba.",
+    "robots": null,
+    "twitter_card": "summary_large_image",
+    "sections": [
+        {
+            "id": "hero-1",
+            "type": "site.hero",
+            "data": {
+                "label": "Trabalhos recentes",
+                "photos": [
+                    {
+                        "image": "/rubia/img/albuns/festa-infantil/54-fotografa-festa-infantil-curitiba1.webp",
+                        "alt": "Mãe e filha em festa infantil"
+                    },
+                    {
+                        "image": "/rubia/img/albuns/casal/05-ensaio-de-casal-curitiba2.webp",
+                        "alt": "Casal em ensaio no jardim"
+                    },
+                    {
+                        "image": "/rubia/img/albuns/mini-wedding/27-fotografia-de-casamento-curitiba-por-do-sol8.webp",
+                        "alt": "Noiva em mini wedding"
+                    },
+                    {
+                        "image": "/rubia/img/albuns/gestante/13-fotografia-curitiba-ensaio-de-gestante-ata-felipe25.webp",
+                        "alt": "Ensaio de gestante"
+                    },
+                    {
+                        "image": "/rubia/img/albuns/mini-wedding/05-mini-wedding-curitiba-capela-nossa-senhora-salette5.webp",
+                        "alt": "Abraço na cerimônia"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "intro-2",
+            "type": "site.intro",
+            "data": {
+                "image": "/rubia/img/retrato-1080.webp",
+                "image_alt": "Rubia Rocha com a câmera",
+                "kicker": "Fotógrafa de famílias e eventos em Curitiba",
+                "title": "Oi! Eu sou a Rubia.",
+                "body": "<p>Sou fotógrafa em Curitiba especializada em famílias, gestantes, bebês, casais e eventos com afeto. Meu olhar busca o que importa: risadas espontâneas, abraços sinceros, momentos reais. Se você procura um ensaio fotográfico em Curitiba leve, natural e cheio de emoção, vou adorar registrar sua história com carinho e sensibilidade.</p>",
+                "primary_label": "Me chama no WhatsApp",
+                "primary_href": "",
+                "secondary_label": "Me pede um orçamento",
+                "secondary_href": "/contato"
+            }
+        },
+        {
+            "id": "sheet-3",
+            "type": "site.sheet",
+            "data": {
+                "leaf": true,
+                "kicker": "Fotografia da vida real",
+                "title": "O que eu fotografo?",
+                "body": "<p>Registro histórias reais: a doçura dos mini casamentos, a beleza transformadora da gestante, os laços da família e a cumplicidade dos casais. Capturo a alegria das festas infantis e aniversários. Minha lente busca não só momentos, mas a verdade por trás deles — autêntica, espontânea e cheia de vida.</p>",
+                "item_label": "Ver galeria",
+                "items": [
+                    {
+                        "title": "Mini wedding e bodas",
+                        "href": "/eventos/mini-wedding",
+                        "image": "/rubia/img/albuns/mini-wedding/02-mini-wedding-curitiba-capela-nossa-senhora-salette2.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "title": "Festa infantil e aniversários",
+                        "href": "/eventos/festa-infantil",
+                        "image": "/rubia/img/albuns/festa-infantil/01-7-fotografia-de-festa-infantil-curitiba22.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "title": "Corporativo e branding",
+                        "href": "/eventos/corporativo",
+                        "image": "/rubia/img/albuns/corporativo/02-fotografo-para-empresas-curitiba1.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "title": "Ensaio de família",
+                        "href": "/ensaios/familia",
+                        "image": "/rubia/img/albuns/familia/01-2-fotografia-de-casal-curitiba1.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "title": "Ensaio de gestante",
+                        "href": "/ensaios/gestante",
+                        "image": "/rubia/img/albuns/gestante/01-fotografia-curitiba-ensaio-de-gestante-ata-felipe43.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "title": "Acompanhamento de bebês",
+                        "href": "/ensaios/bebes",
+                        "image": "/rubia/img/albuns/bebes/01-fotografia-ensaio-de-bebes-curitiba1.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "title": "Ensaio de casal",
+                        "href": "/ensaios/casal",
+                        "image": "/rubia/img/albuns/casal/01-ensaio-de-casal-curitiba6.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "title": "Ensaio feminino",
+                        "href": "/ensaios/feminino",
+                        "image": "/rubia/img/albuns/feminino/01-1-ensaio-feminino-ao-ar-livre-curitiba5.webp",
+                        "image_alt": ""
+                    }
+                ]
+            }
+        },
+        {
+            "id": "quotes-4",
+            "type": "site.quotes",
+            "data": {
+                "kicker": "Depoimentos",
+                "title": "Quem já fotografou comigo",
+                "items": [
+                    {
+                        "text": "A Ru é uma fotógrafa incrível, registrou um dos momentos mais especiais da minha vida. Todas as fotos ficaram lindas, fora que ela é muito querida, atenciosa em todos os detalhes. Recomendo tanto, que vou fazer mais fotos com ela.",
+                        "name": "Nathalia Pratt",
+                        "photo": "/rubia/img/depoimento-216.webp"
+                    },
+                    {
+                        "text": "Rubia é uma profissional sensacional. Deixa a criança e nós muito à vontade. Suas fotos registram momentos realistas, com olhar do natural e simples, mas que encantam a todos. Super recomendo!",
+                        "name": "Fernanda (mãe do Chico)",
+                        "photo": ""
+                    },
+                    {
+                        "text": "A Rubia é uma excelente profissional. Fotografa todos os momentos da nossa família e é sempre muito divertido. Meus filhos amam fazer ensaios com ela. Mais do que recomendo.",
+                        "name": "Ana & Marquinho",
+                        "photo": ""
+                    },
+                    {
+                        "text": "Contratamos a Rúbia para um ensaio fotográfico familiar e amamos o resultado! Profissional e atenta, ela capturou momentos espontâneos, especialmente das crianças, em um clima descontraído. As fotos ficaram incríveis, com luz perfeita e um olhar artístico único. Recomendamos seu talento e mal podemos esperar por novas sessões. Obrigado, Rúbia, por eternizar nossa família com tanta sensibilidade!",
+                        "name": "Elisângela",
+                        "photo": ""
+                    }
+                ]
+            }
+        },
+        {
+            "id": "closing-5",
+            "type": "site.closing",
+            "data": {
+                "kicker": "Contato",
+                "title": "Vamos conversar?",
+                "body": "<p>Me chama no WhatsApp ou escreva pelo formulário. Conte um pouco sobre o momento que deseja registrar e eu te respondo com o orçamento.</p>",
+                "primary_label": "Me chama no WhatsApp",
+                "primary_href": "",
+                "secondary_label": "Me pede um orçamento",
+                "secondary_href": "/contato"
+            }
+        }
+    ]
 }

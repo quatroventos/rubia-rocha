@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Support\MediaPath;
+use App\Support\ResponsiveImage;
 use App\Support\SvgSanitizer;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -31,6 +32,10 @@ class MediaController extends Controller
         $path = $this->isSvg($file)
             ? $this->storeSvg($file, $sanitizer)
             : $file->store('media', 'public');
+
+        if ($kind === 'image' || $kind === '') {
+            ResponsiveImage::makeThumbnail(Storage::disk('public')->path($path));
+        }
 
         return response()->json([
             'path' => MediaPath::toPublic($path),

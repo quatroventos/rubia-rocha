@@ -1,5 +1,5 @@
 @include('layouts.error', [
-  'title' => 'Erro | Quatro Ventos',
-  'heading' => 'Não foi possível carregar esta página.',
-  'message' => 'Tente novamente em instantes.',
+  'title' => 'Erro',
+  'heading' => 'Não consegui carregar esta página.',
+  'message' => 'Tenta de novo em instantes.',
 ])

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Cms\PageContentMigrator;
+use App\Cms\SectionCatalog;
 use App\Models\FormOption;
 use App\Models\MenuItem;
 use App\Models\Page;
@@ -11,20 +12,73 @@ use App\Support\Locales;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 
+/**
+ * Conteúdo inicial da Rubia Rocha Fotografia. Rodar de novo não apaga o que foi editado no painel:
+ * configurações, páginas e menus só são gravados enquanto ainda estiverem com o conteúdo herdado.
+ */
 class SiteContentSeeder extends Seeder
 {
+    public const SITE_NAME = 'Rubia Rocha Fotografia';
+
     /**
-     * Paginas do site antigo que sairam da navegacao.
+     * Páginas do site anterior (RBA/Quatro Ventos) que não existem na Rubia.
      */
     public const LEGACY_PAGES = [
-        'criacao-de-sites',
-        'desenvolvimento-de-landing-page',
-        'desenvolvimento-de-sites-wordpress',
-        'desenvolvimento-full-stack',
-        'manutencao-de-sites-wordpress',
-        'porque-meu-site-nao-vende',
+        'agentes-de-ia',
+        'automacao-com-ia',
+        'cases',
         'consultoria-de-ia',
+        'criacao-de-sites',
+        'desenvolvimento-de-ecommerce',
+        'desenvolvimento-de-landing-page',
+        'desenvolvimento-de-saas',
+        'desenvolvimento-de-sites',
+        'desenvolvimento-de-sites-wordpress',
+        'desenvolvimento-de-software',
+        'desenvolvimento-full-stack',
+        'desenvolvimento-web',
+        'diagnostico-de-site',
+        'erp-e-crm',
+        'hospedagem-de-sites',
+        'ia-com-dados-da-empresa',
+        'integracao-de-llm',
+        'inteligencia-artificial',
+        'landing-pages',
+        'manutencao-de-sites',
+        'manutencao-de-sites-wordpress',
+        'modernizacao-de-sistemas',
+        'obrigado',
+        'porque-meu-site-nao-vende',
+        'qa-e-testes',
+        'recuperacao-de-site-wordpress',
+        'seo-e-llms',
+        'servicos',
+        'sistemas-com-ia',
+        'sites-wordpress',
+        'sobre',
+        'software-sob-medida',
+        'suporte-e-infraestrutura',
+        'sustentacao-de-software',
+        'ui-ux-design',
+        'vps-e-infraestrutura',
         'blog',
+    ];
+
+    public const HEADER_MENU = [
+        ['Home', '/'],
+        ['Quem sou', '/quem-sou'],
+        ['Ensaios', '/ensaios'],
+        ['Eventos', '/eventos'],
+        ['Contato', '/contato'],
+    ];
+
+    public const FOOTER_GALLERY = [
+        ['/rubia/img/albuns/familia/01-2-fotografia-de-casal-curitiba1-960.webp', 'Ensaio de família', '/ensaios/familia'],
+        ['/rubia/img/albuns/casal/01-ensaio-de-casal-curitiba6-960.webp', 'Ensaio de casal', '/ensaios/casal'],
+        ['/rubia/img/albuns/gestante/01-fotografia-curitiba-ensaio-de-gestante-ata-felipe43-960.webp', 'Ensaio de gestante', '/ensaios/gestante'],
+        ['/rubia/img/albuns/festa-infantil/01-7-fotografia-de-festa-infantil-curitiba22-960.webp', 'Festa infantil', '/eventos/festa-infantil'],
+        ['/rubia/img/albuns/mini-wedding/01-mini-wedding-curitiba-capela-nossa-senhora-salette1-960.webp', 'Mini wedding', '/eventos/mini-wedding'],
+        ['/rubia/img/albuns/feminino/01-1-ensaio-feminino-ao-ar-livre-curitiba5-960.webp', 'Ensaio feminino', '/ensaios/feminino'],
     ];
 
     private const PAGE_FIELDS = ['template', 'status', 'seo_title', 'seo_description', 'canonical', 'og_image', 'og_image_alt', 'robots', 'twitter_card'];
@@ -33,104 +87,58 @@ class SiteContentSeeder extends Seeder
     {
         $this->settings();
         $this->formOptions();
-        $this->pages();
         $this->removeLegacyPages();
+        $this->pages();
         $this->menu();
     }
 
     private function settings(): void
     {
+        $settings = SiteSetting::query()->find(1);
+
+        if ($settings !== null && $settings->name === self::SITE_NAME) {
+            return;
+        }
+
         SiteSetting::query()->updateOrCreate(
             ['id' => 1],
             [
-                'name' => 'Quatro Ventos',
-                'tagline' => 'Design, Code, Test, Repeat.',
-                'phone' => '(41) 3039-9593',
-                'phone_href' => 'tel:+554130399593',
-                'email' => 'contato@quatroventos.com.br',
-                'whatsapp_url' => 'https://wa.me/554130399593?text=Gostaria%20de%20um%20or%C3%A7amento.',
+                'name' => self::SITE_NAME,
+                'tagline' => 'Fotografia de família, gestante, casal e eventos em Curitiba',
+                'logo_path' => '/rubia/img/logo-rubia-foto.svg',
+                'phone' => '41 98865-8624',
+                'phone_href' => 'tel:+5541988658624',
+                'email' => null,
+                'whatsapp_url' => 'https://wa.me/5541988658624',
                 'address' => 'Curitiba - PR',
                 'map_embed_url' => null,
-                'instagram_url' => 'https://instagram.com/quatroventosweb',
-                'linkedin_url' => 'https://www.linkedin.com/company/10092951',
-                'facebook_url' => 'https://www.facebook.com/quatroventosinternet',
-                'og_site_name' => 'Quatro Ventos',
+                'instagram_url' => 'https://www.instagram.com/rubiarochafotografia/',
+                'linkedin_url' => null,
+                'facebook_url' => null,
+                'client_logos' => null,
+                'footer_gallery_title' => 'Galerias',
+                'footer_gallery' => array_map(fn (array $item) => [
+                    'image' => $item[0],
+                    'alt' => $item[1],
+                    'href' => $item[2],
+                ], self::FOOTER_GALLERY),
+                'form_schemas' => null,
+                'og_site_name' => self::SITE_NAME,
                 'og_locale' => 'pt_BR',
                 'twitter_card' => 'summary_large_image',
                 'seo_separator' => '|',
                 'seo_title_template' => '%page% %sep% %site%',
-                'seo_description' => 'Melhoramos processos com soluções criativas de IA: agentes, automações e sistemas sob medida, integrados à operação. Web, infraestrutura e sustentação no mesmo time.',
-                'seo_og_image' => '/assets/og/home.jpg',
-                'seo_og_image_alt' => 'Processos melhores com inteligência artificial. Quatro Ventos.',
+                'seo_description' => 'Fotografia de famílias, gestantes, casais, festas e mini weddings em Curitiba. Ensaios leves, com tempo para cada momento.',
+                'seo_og_image' => null,
+                'seo_og_image_alt' => null,
                 'seo_robots' => 'index, follow, max-image-preview:large',
             ]
         );
-
-        $settings = SiteSetting::query()->find(1);
-        if ($settings !== null && empty($settings->client_logos)) {
-            $settings->update(['client_logos' => $this->defaultClientLogos()]);
-        }
-    }
-
-    /**
-     * Biblioteca inicial de logos de clientes: a lista da seção Logos da home.
-     *
-     * @return list<array{name: string, image: string, image_alt: string}>
-     */
-    private function defaultClientLogos(): array
-    {
-        $home = json_decode((string) File::get(database_path('data/pages/home.json')), true);
-        $section = collect($home['sections'] ?? [])->firstWhere('type', 'site.logos');
-
-        return collect($section['data']['items'] ?? [])
-            ->filter(fn ($item) => is_array($item) && is_string($item['image'] ?? null))
-            ->map(fn (array $item) => [
-                'name' => (string) ($item['name'] ?? ''),
-                'image' => $item['image'],
-                'image_alt' => (string) ($item['image_alt'] ?? ''),
-            ])
-            ->values()
-            ->all();
     }
 
     private function formOptions(): void
     {
-        FormOption::query()->updateOrCreate(
-            ['form' => 'contact', 'field' => 'destino', 'value' => 'Proposta'],
-            ['label' => 'Proposta', 'email' => 'contato@quatroventos.com.br', 'sort' => 1]
-        );
-
-        FormOption::query()
-            ->where('form', 'contact')
-            ->where('field', 'destino')
-            ->where('value', '!=', 'Proposta')
-            ->delete();
-    }
-
-    private function pages(): void
-    {
-        foreach (File::glob(database_path('data/pages/*.json')) as $file) {
-            $page = json_decode(File::get($file), true, flags: JSON_THROW_ON_ERROR);
-            $content = PageContentMigrator::normalize(['sections' => $page['sections']], $page['template'] ?? 'custom');
-
-            $row = Page::query()->firstOrNew(['slug' => $page['slug'], 'locale' => Locales::default()]);
-            $data = array_intersect_key($page, array_flip(self::PAGE_FIELDS)) + ['content' => $content];
-
-            if ($row->exists && $row->content !== $content) {
-                $row->revisions()->create([
-                    'snapshot' => $row->revisionSnapshot(),
-                    'created_at' => now(),
-                ]);
-            }
-
-            $row->fill($data);
-
-            if ($row->status === 'published' && $row->published_at === null) {
-                $row->published_at = now();
-            }
-
-            $row->save();
-        }
+        FormOption::query()->where('form', 'contact')->where('field', 'destino')->delete();
     }
 
     private function removeLegacyPages(): void
@@ -142,102 +150,95 @@ class SiteContentSeeder extends Seeder
         });
     }
 
-    private function menu(): void
+    private function pages(): void
     {
-        $services = [
-            ['Inteligência artificial', '/inteligencia-artificial', [
-                ['Agentes de IA', '/agentes-de-ia'],
-                ['Automação com IA e n8n', '/automacao-com-ia'],
-                ['IA com os dados da empresa', '/ia-com-dados-da-empresa'],
-                ['Integração de LLMs', '/integracao-de-llm'],
-                ['Sistemas com IA', '/sistemas-com-ia'],
-            ]],
-            ['Software', '/desenvolvimento-de-software', [
-                ['Software sob medida', '/software-sob-medida'],
-                ['SaaS', '/desenvolvimento-de-saas'],
-                ['Modernização de sistemas', '/modernizacao-de-sistemas'],
-                ['ERP e CRM', '/erp-e-crm'],
-                ['UI/UX design', '/ui-ux-design'],
-                ['QA e testes', '/qa-e-testes'],
-            ]],
-            ['Web', '/desenvolvimento-web', [
-                ['Sites', '/desenvolvimento-de-sites'],
-                ['Landing pages', '/landing-pages'],
-                ['E-commerce', '/desenvolvimento-de-ecommerce'],
-                ['WordPress', '/sites-wordpress'],
-                ['SEO e LLMs', '/seo-e-llms'],
-            ]],
-            ['Suporte e infraestrutura', '/suporte-e-infraestrutura', [
-                ['Sustentação de software', '/sustentacao-de-software'],
-                ['Manutenção de sites', '/manutencao-de-sites'],
-                ['Recuperação de WordPress', '/recuperacao-de-site-wordpress'],
-                ['Hospedagem', '/hospedagem-de-sites'],
-                ['VPS e infraestrutura', '/vps-e-infraestrutura'],
-            ]],
-        ];
+        foreach (File::glob(database_path('data/pages/*.json')) as $file) {
+            $page = json_decode(File::get($file), true, flags: JSON_THROW_ON_ERROR);
+            $content = PageContentMigrator::normalize(['sections' => $page['sections']], $page['template'] ?? 'custom');
 
-        $header = [
-            ...$services,
-            ['Cases', '/cases', []],
-            ['Sobre', '/sobre', []],
-            ['Contato', '/contato', []],
-        ];
+            $row = Page::query()->firstOrNew(['slug' => $page['slug'], 'locale' => Locales::default()]);
 
-        $footerServices = $services;
-        $footerServices[1][0] = 'Engenharia de software';
-        $footerServices[2][0] = 'Desenvolvimento web';
-
-        $footer = [
-            ...$footerServices,
-            ['Empresa', '/sobre', [
-                ['Todos os serviços', '/servicos'],
-                ['Sobre', '/sobre'],
-                ['Cases', '/cases'],
-                ['Contato', '/contato'],
-                ['Diagnóstico gratuito de site', '/diagnostico-de-site'],
-                ['Suporte ao cliente', 'https://quatroventos.freshdesk.com/support/home'],
-            ]],
-        ];
-
-        $pageIds = Page::query()->originals()->pluck('id', 'slug');
-
-        foreach (['header' => $header, 'footer' => $footer] as $group => $tree) {
-            $kept = [];
-
-            foreach ($tree as $sort => [$label, $href, $children]) {
-                $parent = $this->menuItem($group, null, $label, $href, $sort, $pageIds->all());
-                $kept[] = $parent->id;
-
-                foreach ($children as $childSort => [$childLabel, $childHref]) {
-                    $kept[] = $this->menuItem($group, $parent->id, $childLabel, $childHref, $childSort, $pageIds->all())->id;
-                }
+            if ($row->exists && ! $this->isLegacyContent($row)) {
+                continue;
             }
 
-            MenuItem::query()
-                ->where('group', $group)
-                ->where('locale', Locales::default())
-                ->whereNotIn('id', $kept)
-                ->orderByDesc('parent_id')
-                ->get()
-                ->each->delete();
+            if ($row->exists) {
+                $row->revisions()->create([
+                    'snapshot' => $row->revisionSnapshot(),
+                    'created_at' => now(),
+                ]);
+            }
+
+            $fields = array_filter(array_intersect_key($page, array_flip(self::PAGE_FIELDS)), fn ($value) => $value !== null);
+
+            $row->fill($fields + [
+                'content' => $content,
+                'canonical' => null,
+                'og_image' => null,
+                'og_image_alt' => null,
+            ]);
+
+            if ($row->status === 'published' && $row->published_at === null) {
+                $row->published_at = now();
+            }
+
+            $row->save();
         }
     }
 
     /**
-     * @param  array<string, int>  $pageIds
+     * Conteúdo vazio ou com seções fora do catálogo atual veio do site anterior e pode ser substituído.
      */
-    private function menuItem(string $group, ?int $parentId, string $label, string $href, int $sort, array $pageIds): MenuItem
+    private function isLegacyContent(Page $page): bool
     {
-        $slug = str_starts_with($href, '/') ? (trim($href, '/') ?: 'home') : null;
+        $sections = is_array($page->content['sections'] ?? null) ? $page->content['sections'] : [];
 
-        return MenuItem::query()->updateOrCreate(
-            ['group' => $group, 'locale' => Locales::default(), 'parent_id' => $parentId, 'href' => $href],
-            [
+        if ($sections === []) {
+            return true;
+        }
+
+        foreach ($sections as $section) {
+            if (! is_array($section) || SectionCatalog::find((string) ($section['type'] ?? '')) === null) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function menu(): void
+    {
+        $seeded = MenuItem::query()
+            ->where('group', 'header')
+            ->where('locale', Locales::default())
+            ->where('href', '/quem-sou')
+            ->exists();
+
+        if ($seeded) {
+            return;
+        }
+
+        MenuItem::query()
+            ->whereIn('group', ['header', 'footer', 'footer_1', 'footer_2'])
+            ->orderByDesc('parent_id')
+            ->get()
+            ->each->delete();
+
+        $pageIds = Page::query()->originals()->pluck('id', 'slug')->all();
+
+        foreach (self::HEADER_MENU as $sort => [$label, $href]) {
+            $slug = trim($href, '/') ?: 'home';
+
+            MenuItem::query()->create([
+                'group' => 'header',
+                'locale' => Locales::default(),
+                'parent_id' => null,
                 'label' => $label,
-                'page_id' => $slug !== null ? ($pageIds[$slug] ?? null) : null,
+                'href' => $href,
+                'page_id' => $pageIds[$slug] ?? null,
                 'sort' => $sort,
                 'is_active' => true,
-            ]
-        );
+            ]);
+        }
     }
 }

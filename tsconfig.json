@@ -13,5 +13,5 @@
     "noEmit": true,
     "types": []
   },
-  "include": ["resources/js/admin/**/*", "resources/js/site/**/*", "resources/js/rubia/**/*", "rubia/src/**/*"]
+  "include": ["resources/js/admin/**/*", "resources/js/rubia/**/*"]
 }

@@ -7,6 +7,7 @@ use App\Models\ContactSubmission;
 use App\Models\FormOption;
 use App\Models\Page;
 use App\Models\SiteSetting;
+use App\Services\PublicContent;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -53,8 +54,10 @@ class CmsFormsTest extends TestCase
 
         $this->actingAs($this->makeAdmin())
             ->putJson('/gestao/api/forms/contact', $this->contactPayload([
-                ['id' => $existing->id, 'label' => 'Comercial', 'value' => 'Comercial', 'email' => 'comercial@example.com', 'sort' => 1],
-                ['id' => null, 'label' => 'Imprensa', 'value' => 'Imprensa', 'email' => 'imprensa@example.com', 'sort' => 2],
+                ['name' => 'destino', 'label' => 'Tipo de ensaio', 'type' => 'select', 'required' => false, 'options' => [
+                    ['id' => $existing->id, 'label' => 'Comercial', 'value' => 'Comercial', 'email' => 'comercial@example.com', 'sort' => 1],
+                    ['id' => null, 'label' => 'Imprensa', 'value' => 'Imprensa', 'email' => 'imprensa@example.com', 'sort' => 2],
+                ]],
             ]))
             ->assertOk()
             ->assertJsonPath('data.key', 'contact')
@@ -89,7 +92,6 @@ class CmsFormsTest extends TestCase
 
         $this->actingAs($this->makeAdmin())
             ->putJson('/gestao/api/forms/contact', $this->contactPayload(
-                [['id' => null, 'label' => 'Comercial', 'value' => 'Comercial', 'sort' => 1]],
                 [
                     ['name' => 'empresa', 'label' => 'Empresa', 'type' => 'text', 'required' => true],
                 ],
@@ -97,23 +99,19 @@ class CmsFormsTest extends TestCase
             ))
             ->assertOk()
             ->assertJsonPath('data.sections.0.fields.0.label', 'Nome completo')
-            ->assertJsonPath('data.sections.0.fields.4.name', 'empresa')
-            ->assertJsonPath('data.sections.0.fields.4.label', 'Empresa');
+            ->assertJsonPath('data.sections.0.fields.3.name', 'empresa')
+            ->assertJsonPath('data.sections.0.fields.3.label', 'Empresa');
 
-        $this->get('/contato')
-            ->assertOk()
-            ->assertSee('Nome completo')
-            ->assertSee('Empresa');
+        $labels = collect(app(PublicContent::class)->site()['form']['sections'][0]['fields'])->pluck('label')->all();
+        $this->assertContains('Nome completo', $labels);
+        $this->assertContains('Empresa', $labels);
 
-        $this->post('/contato', [
+        $this->post('/api/contato', [
             'nome' => 'Ana',
             'email' => 'ana@example.com',
-            'telefone' => '16999999999',
-            'destino' => 'Comercial',
             'mensagem' => 'Olá',
             'empresa' => 'Quatro Ventos',
-            'lgpd' => '1',
-        ])->assertRedirect();
+        ])->assertRedirect('/contato?status=enviado#orcamento');
 
         $submission = ContactSubmission::query()->first();
 
@@ -131,12 +129,11 @@ class CmsFormsTest extends TestCase
     }
 
     /**
-     * @param  list<array<string, mixed>>  $destinoOptions
      * @param  list<array<string, mixed>>  $extraFields
      * @param  array<string, string>  $labelOverrides
      * @return array<string, mixed>
      */
-    private function contactPayload(array $destinoOptions, array $extraFields = [], array $labelOverrides = []): array
+    private function contactPayload(array $extraFields = [], array $labelOverrides = []): array
     {
         $form = FormDefinition::get('contact');
         $sections = $form['sections'];
@@ -147,9 +144,6 @@ class CmsFormsTest extends TestCase
                     $field['label'] = $labelOverrides[$field['name']];
                 }
 
-                if ($field['name'] === 'destino') {
-                    $field['options'] = $destinoOptions;
-                }
             }
             unset($field);
         }
@@ -169,7 +163,7 @@ class CmsFormsTest extends TestCase
     private function makeSettings(): SiteSetting
     {
         return SiteSetting::query()->create([
-            'name' => 'Quatro Ventos',
+            'name' => 'Rubia Rocha Fotografia',
             'og_locale' => 'pt_BR',
             'twitter_card' => 'summary_large_image',
         ]);
@@ -179,14 +173,10 @@ class CmsFormsTest extends TestCase
     {
         return Page::query()->create([
             'slug' => 'contato',
-            'template' => 'contact',
+            'template' => 'custom',
             'status' => 'published',
             'seo_title' => 'Contato',
-            'content' => [
-                'form' => [
-                    'title' => 'Fale conosco',
-                ],
-            ],
+            'content' => ['sections' => []],
             'published_at' => now(),
         ]);
     }

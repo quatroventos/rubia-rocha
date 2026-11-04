@@ -81,7 +81,7 @@ export function PagesScreen() {
       setOpen(false);
       setSlugManual(false);
       setForm({ seo_title: '', slug: '' });
-      navigate(`/paginas/${payload.data.slug}`);
+      navigate(`/paginas/${payload.data.id}`);
     } catch (err) {
       setError(firstError(err));
     } finally {
@@ -188,7 +188,7 @@ export function PagesScreen() {
                   <div className="row-actions">
                     <Link
                       className="icon-btn"
-                      to={`/paginas/${page.slug}`}
+                      to={`/paginas/${page.id}`}
                       data-tour={index === 0 ? 'pages-edit' : undefined}
                     >
                       <Pencil size={14} />
@@ -250,7 +250,7 @@ export function PagesScreen() {
                 <input
                   value={form.slug}
                   onChange={(event) => {
-                    const slug = event.target.value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '');
+                    const slug = event.target.value.trim().toLowerCase().replace(/[^a-z0-9/-]/g, '');
                     setSlugManual(slug !== '');
                     setForm({ ...form, slug });
                   }}

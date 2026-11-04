@@ -5,7 +5,7 @@ namespace App\Cms;
 class SectionCatalog
 {
     /**
-     * @return list<array{type: string, label: string, group: string, group_label: string, preview: string, css: string, js: string|null, dependencies: list<string>, fields: list<array<string, mixed>>, keys: list<string>, wrap_root: bool}>
+     * @return list<array{type: string, label: string, group: string, group_label: string, preview: string, fields: list<array<string, mixed>>}>
      */
     public static function all(): array
     {
@@ -13,7 +13,7 @@ class SectionCatalog
     }
 
     /**
-     * @return array<string, array{type: string, label: string, group: string, group_label: string, preview: string, css: string, js: string|null, dependencies: list<string>, fields: list<array<string, mixed>>, keys: list<string>, wrap_root: bool}>
+     * @return array<string, array{type: string, label: string, group: string, group_label: string, preview: string, fields: list<array<string, mixed>>}>
      */
     public static function map(): array
     {
@@ -24,15 +24,25 @@ class SectionCatalog
         }
 
         $map = [];
-        foreach (self::definitions() as $item) {
-            $map[$item['type']] = $item;
+        foreach (SiteSectionDefinition::all() as $section) {
+            $preview = (string) ($section['preview'] ?? 'section');
+            $type = 'site.'.$preview;
+
+            $map[$type] = [
+                'type' => $type,
+                'label' => (string) ($section['label'] ?? 'Seção'),
+                'group' => 'site',
+                'group_label' => 'Site',
+                'preview' => $preview,
+                'fields' => $section['fields'] ?? [],
+            ];
         }
 
         return $map;
     }
 
     /**
-     * @return array{type: string, label: string, group: string, group_label: string, preview: string, css: string, js: string|null, dependencies: list<string>, fields: list<array<string, mixed>>, keys: list<string>, wrap_root: bool}|null
+     * @return array{type: string, label: string, group: string, group_label: string, preview: string, fields: list<array<string, mixed>>}|null
      */
     public static function find(string $type): ?array
     {
@@ -80,236 +90,58 @@ class SectionCatalog
      */
     public static function library(): array
     {
-        $seen = [];
-        $items = [];
-
-        foreach (self::all() as $item) {
-            if ($item['group'] !== 'site') {
-                continue;
-            }
-
-            $preview = $item['preview'];
-            if ($preview === '' || isset($seen[$preview])) {
-                continue;
-            }
-
-            $seen[$preview] = true;
-            $items[] = [
-                'type' => $item['type'],
-                'label' => $item['label'],
-                'preview' => $preview,
-                'origin' => $item['group_label'],
-                'fields' => $item['fields'],
-            ];
-        }
-
         return [[
             'group' => 'all',
             'group_label' => 'Seções',
-            'items' => $items,
+            'items' => array_map(fn (array $item) => [
+                'type' => $item['type'],
+                'label' => $item['label'],
+                'preview' => $item['preview'],
+                'origin' => $item['group_label'],
+                'fields' => $item['fields'],
+            ], self::all()),
         ]];
     }
 
     /**
-     * @param  list<array<string, mixed>>  $sections
-     * @return list<string>
-     */
-    public static function cssBundles(array $sections): array
-    {
-        $bundles = [];
-
-        foreach ($sections as $section) {
-            $definition = self::find((string) ($section['type'] ?? ''));
-            if ($definition === null) {
-                continue;
-            }
-            $bundles[$definition['css']] = true;
-        }
-
-        return array_keys($bundles);
-    }
-
-    /**
-     * @param  list<array<string, mixed>>  $sections
-     * @return list<string>
-     */
-    public static function jsBundles(array $sections): array
-    {
-        $bundles = [];
-
-        foreach ($sections as $section) {
-            $definition = self::find((string) ($section['type'] ?? ''));
-            if ($definition === null || $definition['js'] === null) {
-                continue;
-            }
-            $bundles[$definition['js']] = true;
-        }
-
-        return array_keys($bundles);
-    }
-
-    /**
-     * @param  list<array<string, mixed>>  $sections
-     * @return list<string>
-     */
-    public static function dependencies(array $sections): array
-    {
-        $deps = [];
-
-        foreach ($sections as $section) {
-            $definition = self::find((string) ($section['type'] ?? ''));
-            if ($definition === null) {
-                continue;
-            }
-            foreach ($definition['dependencies'] as $dependency) {
-                $deps[$dependency] = true;
-            }
-        }
-
-        return array_keys($deps);
-    }
-
-    /**
-     * @return list<array{type: string, label: string, group: string, group_label: string, preview: string, css: string, js: string|null, dependencies: list<string>, fields: list<array<string, mixed>>, keys: list<string>, wrap_root: bool}>
-     */
-    private static function definitions(): array
-    {
-        $used = [];
-        $out = [];
-
-        foreach (self::origins() as $group => $meta) {
-            $sections = $group === 'site' ? SiteSectionDefinition::all() : PageContentDefinition::for($group);
-
-            foreach ($sections as $section) {
-                $keys = self::keysFromFields($section['fields'] ?? []);
-                $preview = (string) ($section['preview'] ?? 'section');
-                $base = $group.'.'.$preview;
-                $type = $base;
-                $n = 2;
-                while (isset($used[$type])) {
-                    $type = $base.'-'.$n;
-                    $n++;
-                }
-                $used[$type] = true;
-
-                $wrapRoot = self::isWrapRoot($section['fields'] ?? [], $keys);
-
-                $out[] = [
-                    'type' => $type,
-                    'label' => (string) ($section['label'] ?? 'Seção'),
-                    'group' => $group,
-                    'group_label' => $meta['label'],
-                    'preview' => $preview,
-                    'css' => $meta['css'],
-                    'js' => $meta['js'],
-                    'dependencies' => self::dependenciesFor($group, $keys, $preview),
-                    'fields' => self::relativeFields($section['fields'] ?? [], $keys, $wrapRoot),
-                    'keys' => $keys,
-                    'wrap_root' => $wrapRoot,
-                ];
-            }
-        }
-
-        return $out;
-    }
-
-    /**
-     * @return array<string, array{label: string, css: string, js: string|null}>
-     */
-    private static function origins(): array
-    {
-        return [
-            'site' => ['label' => 'Site', 'css' => 'site', 'js' => null],
-            'home' => ['label' => 'Home', 'css' => 'home', 'js' => 'home'],
-            'about' => ['label' => 'Quem somos', 'css' => 'quem-somos', 'js' => 'quem-somos'],
-            'expertise' => ['label' => 'Expertise', 'css' => 'expertise', 'js' => 'expertise'],
-            'structure' => ['label' => 'Estrutura', 'css' => 'estrutura', 'js' => 'estrutura'],
-            'ai' => ['label' => 'Inovação', 'css' => 'ia', 'js' => 'ia'],
-            'esg' => ['label' => 'ESG', 'css' => 'esg', 'js' => 'esg'],
-            'careers' => ['label' => 'Carreiras', 'css' => 'carreiras', 'js' => 'carreiras'],
-            'contact' => ['label' => 'Contato', 'css' => 'contato', 'js' => 'contato'],
-        ];
-    }
-
-    /**
-     * @param  list<array<string, mixed>>  $fields
-     * @return list<string>
-     */
-    private static function keysFromFields(array $fields): array
-    {
-        $keys = [];
-
-        foreach ($fields as $field) {
-            $name = (string) ($field['name'] ?? '');
-            if ($name === '') {
-                continue;
-            }
-            $root = explode('.', $name, 2)[0];
-            $keys[$root] = true;
-        }
-
-        return array_keys($keys);
-    }
-
-    /**
-     * True when the only content key is itself a root field (e.g. expertise `cards`).
+     * Caminhos (notação de ponto, "*" para itens de repetidor) dos campos de um tipo, por tipo de campo.
      *
-     * @param  list<array<string, mixed>>  $fields
-     * @param  list<string>  $keys
-     */
-    private static function isWrapRoot(array $fields, array $keys): bool
-    {
-        if (count($keys) !== 1) {
-            return false;
-        }
-
-        $key = $keys[0];
-
-        foreach ($fields as $field) {
-            $name = (string) ($field['name'] ?? '');
-            if ($name === $key) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * @param  list<string>  $keys
      * @return list<string>
      */
-    private static function dependenciesFor(string $group, array $keys, string $preview): array
+    public static function fieldPaths(string $type, string $fieldType): array
     {
-        $deps = [];
+        $definition = self::find($type);
 
-        if ($group === 'contact' && ($preview === 'form' || in_array('form', $keys, true))) {
-            $deps[] = 'form';
-        }
-
-        return $deps;
+        return $definition === null ? [] : self::collectPaths($definition['fields'], $fieldType, '');
     }
 
     /**
      * @param  list<array<string, mixed>>  $fields
-     * @param  list<string>  $keys
-     * @return list<array<string, mixed>>
+     * @return list<string>
      */
-    private static function relativeFields(array $fields, array $keys, bool $wrapRoot): array
+    private static function collectPaths(array $fields, string $fieldType, string $prefix): array
     {
-        if (count($keys) !== 1 || $wrapRoot) {
-            return $fields;
-        }
+        $paths = [];
 
-        $prefix = $keys[0].'.';
+        foreach ($fields as $field) {
+            $name = $prefix.(string) ($field['name'] ?? '');
+            $type = (string) ($field['type'] ?? 'text');
 
-        return array_map(function (array $field) use ($prefix) {
-            $name = (string) ($field['name'] ?? '');
-            if (str_starts_with($name, $prefix)) {
-                $field['name'] = substr($name, strlen($prefix));
+            if ($type === 'repeater') {
+                if (($field['simple'] ?? false) && ($field['itemType'] ?? 'text') === $fieldType) {
+                    $paths[] = $name.'.*';
+                }
+
+                array_push($paths, ...self::collectPaths($field['fields'] ?? [], $fieldType, $name.'.*.'));
+
+                continue;
             }
 
-            return $field;
-        }, $fields);
+            if ($type === $fieldType) {
+                $paths[] = $name;
+            }
+        }
+
+        return $paths;
     }
 }

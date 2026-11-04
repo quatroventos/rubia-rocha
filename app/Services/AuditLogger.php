@@ -138,6 +138,8 @@ class AuditLogger
             $resource === 'forms' => 'os formulários',
             $resource === 'form-options' && $id !== null => 'a opção de formulário #'.$id,
             $resource === 'form-options' => 'as opções de formulário',
+            $resource === 'redirects' && $id !== null => 'o redirect #'.$id,
+            $resource === 'redirects' => 'os redirects',
             $resource === 'menu-items' && $id !== null => 'o item de menu #'.$id,
             $resource === 'menu-items' => 'o menu',
             $resource === 'certifications' && $id !== null => 'a certificação #'.$id,

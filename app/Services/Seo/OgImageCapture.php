@@ -9,8 +9,8 @@ use Illuminate\Support\Str;
 use RuntimeException;
 
 /**
- * Gera a OG image (1200x630) como card de marca: logo, fundo do hero da página (animação ou capa do case),
- * título com destaque e URL.
+ * Gera a OG image (1200x630) como card de marca: logo, foto principal da página,
+ * título e URL.
  *
  * O payload (com o conteúdo ainda não salvo) fica num token de cache de vida curta; o Chrome do servidor abre a rota
  * interna /__og/{token} pelo endereço local da aplicação, sem depender de a página estar publicada.

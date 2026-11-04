@@ -8,6 +8,60 @@ const PICK_LABELS = {
   pdf: 'Escolher PDF',
 };
 
+export function MediaUploadMany({ onUploaded }: { onUploaded: (paths: string[]) => void }) {
+  const input = useRef<HTMLInputElement>(null);
+  const [progress, setProgress] = useState<{ done: number; total: number } | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  async function upload(files: File[]) {
+    setError(null);
+    setProgress({ done: 0, total: files.length });
+    const paths: string[] = [];
+    try {
+      for (const file of files) {
+        const body = new FormData();
+        body.append('file', file);
+        body.append('kind', 'image');
+        const payload = await api<{ path: string }>('/media', { method: 'POST', body });
+        paths.push(payload.path);
+        setProgress({ done: paths.length, total: files.length });
+      }
+    } catch (err) {
+      setError(firstError(err));
+    } finally {
+      if (paths.length > 0) {
+        onUploaded(paths);
+      }
+      setProgress(null);
+      if (input.current) {
+        input.current.value = '';
+      }
+    }
+  }
+
+  return (
+    <>
+      <input
+        ref={input}
+        className="media-input"
+        type="file"
+        accept="image/*"
+        multiple
+        onChange={(event) => {
+          const files = Array.from(event.target.files ?? []);
+          if (files.length > 0) {
+            void upload(files);
+          }
+        }}
+      />
+      <button className="btn btn-secondary" type="button" disabled={progress !== null} onClick={() => input.current?.click()}>
+        <Upload size={14} /> {progress ? `Enviando ${progress.done + 1} de ${progress.total}...` : 'Enviar várias fotos'}
+      </button>
+      {error ? <p className="field-ai-error">{error}</p> : null}
+    </>
+  );
+}
+
 export function MediaField({
   label,
   value,

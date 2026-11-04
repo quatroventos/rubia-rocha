@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Models\CaseStudy;
 use App\Models\Page;
 use App\Services\Seo\OgImageGenerator;
 use App\Support\Locales;
@@ -11,42 +10,31 @@ use Illuminate\Database\Eloquent\Builder;
 use Throwable;
 
 /**
- * Gera o card de OG (logo, fundo do hero, título e URL) de páginas e cases publicados, sobrescrevendo a OG atual.
+ * Gera o card de OG (logo, fundo do hero, título e URL) das páginas publicadas, sobrescrevendo a OG atual.
  */
 class GenerateOgImages extends Command
 {
     protected $signature = 'site:og-images
-        {--pages : Só páginas}
-        {--cases : Só cases}
         {--locale= : Idiomas separados por vírgula (padrão: todos)}
         {--slug= : Só o item com este slug}
         {--only-missing : Só onde a OG está vazia}';
 
-    protected $description = 'Gera as OG images (1200x630) de páginas e cases com o card de marca.';
+    protected $description = 'Gera as OG images (1200x630) das páginas com o card de marca.';
 
     public function handle(OgImageGenerator $generator): int
     {
         $locales = $this->locales();
-        $both = ! $this->option('pages') && ! $this->option('cases');
         $failures = 0;
 
-        if ($both || $this->option('pages')) {
-            foreach ($this->filter(Page::query(), $locales)->get() as $page) {
-                $failures += $this->attempt($page->localeCode().' '.$page->publicPath(), fn () => $generator->page($page));
-            }
-        }
-
-        if ($both || $this->option('cases')) {
-            foreach ($this->filter(CaseStudy::query(), $locales)->get() as $case) {
-                $failures += $this->attempt($case->localeCode().' '.$case->publicPath(), fn () => $generator->caseStudy($case));
-            }
+        foreach ($this->filter(Page::query(), $locales)->get() as $page) {
+            $failures += $this->attempt($page->publicPath(), fn () => $generator->page($page));
         }
 
         return $failures > 0 ? self::FAILURE : self::SUCCESS;
     }
 
     /**
-     * @template TModel of Page|CaseStudy
+     * @template TModel of Page
      *
      * @param  Builder<TModel>  $query
      * @param  list<string>  $locales

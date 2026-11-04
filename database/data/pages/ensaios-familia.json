@@ -1,0 +1,123 @@
+{
+    "slug": "ensaios/familia",
+    "template": "custom",
+    "status": "published",
+    "seo_title": "Ensaio de Família em Curitiba",
+    "seo_description": "Momentos que viram memórias do jeitinho que sua família é.",
+    "robots": null,
+    "twitter_card": "summary_large_image",
+    "sections": [
+        {
+            "id": "folio-hero-1",
+            "type": "site.folio-hero",
+            "data": {
+                "image": "/rubia/img/albuns/familia/01-2-fotografia-de-casal-curitiba1.webp",
+                "image_alt": "Ensaio de família",
+                "kicker": "Ensaio de família",
+                "title": "Ensaio de Família em Curitiba",
+                "lede": "Momentos que viram memórias do jeitinho que sua família é.",
+                "cta_label": "Me pede um orçamento",
+                "cta_href": "/contato"
+            }
+        },
+        {
+            "id": "folio-2",
+            "type": "site.folio",
+            "data": {
+                "blocks": [
+                    {
+                        "heading": "",
+                        "level": "",
+                        "body": "<p>Ser mãe me ensinou que o tempo voa. Os dias passam num piscar de olhos e, quando a gente vê, os pequenos já cresceram, as rotinas mudaram, e tudo virou lembrança. É por isso que o ensaio de família tem um espaço tão especial no meu coração.</p><p>Como fotógrafa de famílias em Curitiba, minha missão é registrar a essência de cada conexão: o jeitinho único dos seus filhos, a forma como vocês se olham, as risadas que só fazem sentido dentro da sua casa. Tudo isso com um olhar sensível, afetuoso e sem pressa — pra que vocês possam simplesmente ser vocês.</p><p>Meu estilo mistura a fotografia lifestyle com o documental: sem poses forçadas, sem rigidez. É leve, espontâneo e verdadeiro. Pode ser ao ar livre, em casa ou num cantinho especial da cidade — o importante é que reflita a história da sua família.</p><p>Esse tipo de ensaio é perfeito pra quem quer guardar mais do que imagens bonitas. É pra quem quer guardar sentimentos, cheiros, texturas e fases da vida</p>",
+                        "image": "/rubia/img/albuns/familia/03-2-fotografia-de-casal-curitiba7.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Como funciona o ensaio de família?",
+                        "level": "",
+                        "body": "<p><strong>Duração média:</strong> de 1h a 2h.</p><p><strong>Locais sugeridos:</strong> parques, casa da família, locais simbólicos.</p><p><strong>Roupas:</strong> coordenadas e confortáveis, mas nada engessado.</p><p><strong>Interação:</strong> muita conversa, brincadeiras e descontração para as fotos ficarem mais naturais possíveis!</p>",
+                        "image": "/rubia/img/albuns/familia/04-2-fotografia-de-casal-curitiba6.webp",
+                        "image_alt": ""
+                    }
+                ],
+                "cta_label": "Me chama no WhatsApp",
+                "cta_href": "",
+                "album_title": "Ensaio de família",
+                "album": [
+                    "/rubia/img/albuns/familia/01-2-fotografia-de-casal-curitiba1.webp",
+                    "/rubia/img/albuns/familia/02-2-fotografia-de-casal-curitiba8.webp",
+                    "/rubia/img/albuns/familia/03-2-fotografia-de-casal-curitiba7.webp",
+                    "/rubia/img/albuns/familia/04-2-fotografia-de-casal-curitiba6.webp",
+                    "/rubia/img/albuns/familia/05-2-fotografia-de-casal-curitiba5.webp",
+                    "/rubia/img/albuns/familia/06-2-fotografia-de-casal-curitiba3.webp",
+                    "/rubia/img/albuns/familia/07-2-fotografia-de-casal-curitiba2.webp",
+                    "/rubia/img/albuns/familia/08-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia72.webp",
+                    "/rubia/img/albuns/familia/09-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia93.webp",
+                    "/rubia/img/albuns/familia/10-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia114.webp",
+                    "/rubia/img/albuns/familia/11-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia120.webp",
+                    "/rubia/img/albuns/familia/12-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia134.webp",
+                    "/rubia/img/albuns/familia/13-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia260.webp",
+                    "/rubia/img/albuns/familia/14-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia265.webp",
+                    "/rubia/img/albuns/familia/15-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia130.webp",
+                    "/rubia/img/albuns/familia/16-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia135.webp",
+                    "/rubia/img/albuns/familia/17-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia141.webp",
+                    "/rubia/img/albuns/familia/18-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia145.webp",
+                    "/rubia/img/albuns/familia/19-2-fotografia-de-casal-curitiba2-cf54872b-1500.webp",
+                    "/rubia/img/albuns/familia/20-2-fotografia-de-casal-curitiba1-346065b8-2500.webp",
+                    "/rubia/img/albuns/familia/21-2-fotografia-de-casal-curitiba4-1.webp",
+                    "/rubia/img/albuns/familia/22-2-fotografia-de-casal-curitiba8-1.webp",
+                    "/rubia/img/albuns/familia/23-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia72.webp",
+                    "/rubia/img/albuns/familia/24-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia93-8bd6d.webp",
+                    "/rubia/img/albuns/familia/25-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia120.webp",
+                    "/rubia/img/albuns/familia/26-ensaio-casal-witmarsum-fotografa-curitiba-rubia-rocha-fotografia134-f144.webp"
+                ]
+            }
+        },
+        {
+            "id": "faq-3",
+            "type": "site.faq",
+            "data": {
+                "leaf": true,
+                "title": "Perguntas frequentes",
+                "items": [
+                    {
+                        "question": "Qual o melhor momento para fazer um ensaio de família?",
+                        "answer": "Sempre que você quiser eternizar uma fase! Não precisa esperar uma data especial."
+                    },
+                    {
+                        "question": "Meus filhos são agitados, vai dar certo?",
+                        "answer": "Com certeza! Meu trabalho é acompanhar o ritmo deles, sem pressão. É isso que torna o ensaio ainda mais real e especial."
+                    },
+                    {
+                        "question": "E se meus filhos não colaborarem?",
+                        "answer": "Isso é completamente normal e faz parte da bagunça da vida real! Eu recomendo que as crianças tirem uma soneca antes ou venham bem descansadas para o ensaio para que eles cheguem descontraídos e levem tudo na brincadeira. Não costuma falhar!"
+                    },
+                    {
+                        "question": "Pode ser feito em casa?",
+                        "answer": "Sim! Ensaio em casa fica super íntimo, leve e cheio de significado."
+                    },
+                    {
+                        "question": "Qual o melhor horário para o ensaio?",
+                        "answer": "Geralmente prefiro fotografar no início da manhã ou fim da tarde (golden hour), quando a luz é suave, dourada e favorece aquele clima acolhedor nas fotos. Se você tem crianças pequenas e horários fixos, podemos planejar juntos para respeitar a rotina delas."
+                    },
+                    {
+                        "question": "Onde os ensaios podem acontecer?",
+                        "answer": "Podemos fotografar em lugares que sejam especiais pra vocês: parques, praças, casa, praças de Curitiba, ou mesmo em locações com significado pessoal. O importante é que o ambiente reflita quem vocês são – e eu te ajudo a escolher!"
+                    },
+                    {
+                        "question": "O que devemos vestir?",
+                        "answer": "Roupas confortáveis e que combinem com o estilo de vocês. Evite estampas muito concorridas ou cores vibrantes que roubem atenção. Tons neutros, com harmonização de paleta entre as pessoas, funcionam super bem. Calçados confortáveis garantem liberdade para brincar e interagir naturalmente."
+                    },
+                    {
+                        "question": "Posamos ou fotografamos espontaneamente?",
+                        "answer": "Minha abordagem combina ambos: fazemos uns cliques dirigidos para garantir boas composições familiares, mas a maior parte do ensaio é documental, captando momentos de verdade, no ritmo de vocês."
+                    },
+                    {
+                        "question": "Se chover, o que fazemos?",
+                        "answer": "Tranquilo! Reagendamos para o próximo dia de sol ou partimos para um plano B em um local onde a garoa ou chuva fraca possa deixar o ensaio confortável. Tempo nublado ou garoa também garantem fotos maravilhosas, pode confiar."
+                    }
+                ]
+            }
+        }
+    ]
+}

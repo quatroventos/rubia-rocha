@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\TranslateContentJob;
-use App\Models\CaseStudy;
 use App\Models\MenuItem;
 use App\Models\Page;
 use App\Services\Translation\TextTranslator;
@@ -39,17 +38,6 @@ class TranslationController extends Controller
         return $this->status('page', $source->id, $locale);
     }
 
-    public function caseStudy(Request $request, CaseStudy $caseStudy, string $locale, TextTranslator $translator): JsonResponse
-    {
-        $source = $caseStudy->sourceRow();
-        $this->authorize('update', $source);
-        $this->guard($locale, $translator);
-
-        TranslateContentJob::queue('case', $source->id, $locale, $request->user()?->id);
-
-        return $this->status('case', $source->id, $locale);
-    }
-
     public function menus(Request $request, string $locale, TextTranslator $translator): JsonResponse
     {
         $this->authorize('create', MenuItem::class);
@@ -61,7 +49,7 @@ class TranslationController extends Controller
     }
 
     /**
-     * Enfileira a tradução de todas as páginas e cases publicados e dos menus, em todos os idiomas, publicando o resultado.
+     * Enfileira a tradução de todas as páginas publicadas e dos menus, em todos os idiomas, publicando o resultado.
      * Sem "force", pula o que já está traduzido e em dia com o pt-BR.
      */
     public function all(Request $request, TextTranslator $translator): JsonResponse
@@ -74,7 +62,6 @@ class TranslationController extends Controller
         if (! BatchProgress::running(self::BATCH)) {
             $userId = $request->user()?->id;
             $pages = Page::query()->originals()->published()->with('translations')->orderBy('slug')->get();
-            $cases = CaseStudy::query()->originals()->published()->with('translations')->orderBy('slug')->get();
             $jobs = [];
 
             foreach (Locales::translated() as $locale) {
@@ -83,12 +70,6 @@ class TranslationController extends Controller
                 foreach ($pages as $page) {
                     if ($force || $this->needsTranslation($page, $locale)) {
                         $jobs[] = new TranslateContentJob('page', $page->id, $locale, $userId, true);
-                    }
-                }
-
-                foreach ($cases as $case) {
-                    if ($force || $this->needsTranslation($case, $locale)) {
-                        $jobs[] = new TranslateContentJob('case', $case->id, $locale, $userId, true);
                     }
                 }
             }
@@ -119,7 +100,7 @@ class TranslationController extends Controller
     public function show(Request $request): JsonResponse
     {
         $data = $request->validate([
-            'kind' => ['required', Rule::in(['page', 'case', 'menus'])],
+            'kind' => ['required', Rule::in(['page', 'menus'])],
             'id' => ['nullable', 'integer'],
             'locale' => ['required', Rule::in(Locales::translated())],
         ]);
@@ -128,8 +109,6 @@ class TranslationController extends Controller
 
         if ($data['kind'] === 'page' && $id !== null) {
             $this->authorize('view', Page::query()->findOrFail($id));
-        } elseif ($data['kind'] === 'case' && $id !== null) {
-            $this->authorize('view', CaseStudy::query()->findOrFail($id));
         } else {
             $this->authorize('viewAny', MenuItem::class);
         }
@@ -142,7 +121,6 @@ class TranslationController extends Controller
         $state = TranslateContentJob::status($kind, $id, $locale);
         $row = match ($kind) {
             'page' => $id ? Page::query()->where('translation_of', $id)->where('locale', $locale)->first() : null,
-            'case' => $id ? CaseStudy::query()->where('translation_of', $id)->where('locale', $locale)->first() : null,
             default => null,
         };
 
@@ -159,7 +137,7 @@ class TranslationController extends Controller
         ]);
     }
 
-    private function needsTranslation(Page|CaseStudy $source, string $locale): bool
+    private function needsTranslation(Page $source, string $locale): bool
     {
         $row = $source->translations->firstWhere('locale', $locale);
         $row?->setRelation('original', $source);

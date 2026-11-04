@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use App\Models\SiteSetting;
+use App\Services\CrawlerFiles;
 use App\Services\SitemapService;
 use App\Support\Seo;
 use Illuminate\Http\JsonResponse;
@@ -12,15 +13,15 @@ use Illuminate\Http\Request;
 
 class SeoController extends Controller
 {
-    public function show(SitemapService $sitemap): JsonResponse
+    public function show(SitemapService $sitemap, CrawlerFiles $crawlerFiles): JsonResponse
     {
         $settings = SiteSetting::current();
         $this->authorize('view', $settings);
 
-        return response()->json(['data' => $this->payload($settings, $sitemap)]);
+        return response()->json(['data' => $this->payload($settings, $sitemap, $crawlerFiles)]);
     }
 
-    public function update(Request $request, SitemapService $sitemap): JsonResponse
+    public function update(Request $request, SitemapService $sitemap, CrawlerFiles $crawlerFiles): JsonResponse
     {
         $settings = SiteSetting::current();
         $this->authorize('update', $settings);
@@ -37,6 +38,9 @@ class SeoController extends Controller
             'twitter_card' => ['required', 'string', 'max:64'],
             'sitemap_extra' => ['nullable', 'array'],
             'sitemap_extra.*' => ['string', 'max:500'],
+            'robots_extra' => ['nullable', 'string', 'max:5000'],
+            'llms_summary' => ['nullable', 'string', 'max:500'],
+            'llms_details' => ['nullable', 'string', 'max:10000'],
             'fill_empty_pages' => ['sometimes', 'boolean'],
         ]);
 
@@ -50,13 +54,15 @@ class SeoController extends Controller
             Seo::fillEmptyPages($settings);
         }
 
-        return response()->json(['data' => $this->payload($settings, $sitemap)]);
+        $crawlerFiles->write();
+
+        return response()->json(['data' => $this->payload($settings, $sitemap, $crawlerFiles)]);
     }
 
     /**
      * @return array<string, mixed>
      */
-    private function payload(SiteSetting $settings, SitemapService $sitemap): array
+    private function payload(SiteSetting $settings, SitemapService $sitemap, CrawlerFiles $crawlerFiles): array
     {
         $defaults = Seo::defaults($settings);
 
@@ -81,6 +87,12 @@ class SeoController extends Controller
             'sitemap_extra' => $settings->sitemap_extra ?? [],
             'sitemap_url' => $sitemap->sitemapUrl(),
             'robots_url' => $sitemap->robotsUrl(),
+            'llms_url' => $sitemap->baseUrl().'/'.CrawlerFiles::LLMS,
+            'robots_extra' => $settings->robots_extra ?? '',
+            'llms_summary' => $settings->llms_summary ?? '',
+            'llms_details' => $settings->llms_details ?? '',
+            'robots_preview' => $crawlerFiles->read(CrawlerFiles::ROBOTS),
+            'llms_preview' => $crawlerFiles->read(CrawlerFiles::LLMS),
             'search_console_url' => 'https://search.google.com/search-console',
             'pages' => $pages,
             'entries' => $sitemap->entries(),

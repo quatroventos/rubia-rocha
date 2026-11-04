@@ -39,7 +39,7 @@ class SectionCopyTest extends TestCase
             'template' => 'custom',
             'status' => 'published',
             'published_at' => now(),
-            'seo_title' => 'Agentes de IA | Quatro Ventos',
+            'seo_title' => 'Agentes de IA | Rubia Rocha Fotografia',
             'content' => ['sections' => []],
         ]);
     }
@@ -54,7 +54,7 @@ class SectionCopyTest extends TestCase
 
         $sections = [
             ['type' => 'site.prose', 'data' => ['title' => 'Contexto', 'body' => '<p>Atendemos indústrias.</p>']],
-            ['type' => 'site.cards', 'data' => [
+            ['type' => 'site.facts', 'data' => [
                 'title' => 'Onde a IA entra',
                 'tone' => 'dark',
                 'items' => [['title' => 'Atendimento', 'body' => '<p>Um atendimento que espera na fila.</p>', 'href' => '/contato']],
@@ -97,11 +97,12 @@ class SectionCopyTest extends TestCase
 
         $this->actingAs($this->makeEditor())
             ->postJson('/gestao/api/sections/copy', [
-                'kind' => 'case',
+                'kind' => 'page',
+                'page_id' => $this->page()->id,
                 'index' => 0,
                 'mode' => 'melhorar',
                 'field' => 'items.0.title',
-                'sections' => [['type' => 'site.cards', 'data' => [
+                'sections' => [['type' => 'site.facts', 'data' => [
                     'title' => 'Resultados',
                     'items' => [['body' => '<p>O atendimento deixou de esperar.</p>']],
                 ]]],
@@ -126,11 +127,12 @@ class SectionCopyTest extends TestCase
 
         $this->actingAs($this->makeEditor())
             ->postJson('/gestao/api/sections/copy', [
-                'kind' => 'case',
+                'kind' => 'page',
+                'page_id' => $this->page()->id,
                 'index' => 0,
                 'mode' => 'melhorar',
                 'field' => 'items.0.href',
-                'sections' => [['type' => 'site.cards', 'data' => ['items' => [['title' => 'A', 'href' => '/x']]]]],
+                'sections' => [['type' => 'site.facts', 'data' => ['items' => [['title' => 'A', 'href' => '/x']]]]],
             ])
             ->assertStatus(422);
 
@@ -143,7 +145,8 @@ class SectionCopyTest extends TestCase
 
         $this->actingAs($this->makeEditor())
             ->postJson('/gestao/api/sections/copy', [
-                'kind' => 'case',
+                'kind' => 'page',
+                'page_id' => $this->page()->id,
                 'index' => 0,
                 'mode' => 'melhorar',
                 'sections' => [['type' => 'site.prose', 'data' => ['title' => '', 'body' => '']]],
@@ -186,7 +189,7 @@ class SectionCopyTest extends TestCase
 
     public function test_seo_title_out_of_range_is_retried_then_fitted_to_the_budget(): void
     {
-        $long = 'Agentes de IA para atendimento no WhatsApp com integração ao seu ERP | Quatro Ventos';
+        $long = 'Agentes de IA para atendimento no WhatsApp com integração ao seu ERP | Rubia Rocha Fotografia';
         $stillLong = 'Agentes de IA para atendimento no WhatsApp integrados ao seu ERP';
         Http::fakeSequence('openai.test/*')
             ->push(['output' => [['type' => 'message', 'content' => [['type' => 'output_text', 'text' => json_encode(['value' => $long])]]]]])
@@ -204,9 +207,9 @@ class SectionCopyTest extends TestCase
             ->assertOk()
             ->json('value');
 
-        $this->assertSame('Agentes de IA para atendimento no WhatsApp', $value);
+        $this->assertSame('Agentes de IA para atendimento no', $value);
         Http::assertSentCount(2);
-        Http::assertSent(fn (Request $request): bool => str_contains((string) json_encode($request->data(), JSON_UNESCAPED_UNICODE), 'no máximo 44 caracteres'));
+        Http::assertSent(fn (Request $request): bool => str_contains((string) json_encode($request->data(), JSON_UNESCAPED_UNICODE), 'no máximo 35 caracteres'));
     }
 
     public function test_seo_target_rejects_other_fields(): void
@@ -215,7 +218,8 @@ class SectionCopyTest extends TestCase
 
         $this->actingAs($this->makeEditor())
             ->postJson('/gestao/api/sections/copy', [
-                'kind' => 'case',
+                'kind' => 'page',
+                'page_id' => $this->page()->id,
                 'target' => 'seo',
                 'mode' => 'melhorar',
                 'field' => 'canonical',
@@ -229,7 +233,8 @@ class SectionCopyTest extends TestCase
     public function test_guest_cannot_rewrite(): void
     {
         $this->postJson('/gestao/api/sections/copy', [
-            'kind' => 'case',
+            'kind' => 'page',
+            'page_id' => 1,
             'index' => 0,
             'mode' => 'melhorar',
             'sections' => [['type' => 'site.prose', 'data' => ['title' => 'Oi']]],

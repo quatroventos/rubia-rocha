@@ -25,7 +25,7 @@ class SiteFormController extends Controller
         }
 
         try {
-            $data = $request->validate(FormDefinition::validationRules('contact'));
+            $data = $request->validate(FormDefinition::validationRules('contact'), FormDefinition::validationMessages('contact'));
         } catch (ValidationException $exception) {
             if ($json) {
                 throw $exception;
@@ -53,46 +53,6 @@ class SiteFormController extends Controller
         $this->notifyWhatsApp($whatsApp, $submission);
 
         return $this->contactResult('enviado', $json);
-    }
-
-    public function lead(Request $request, ContactWhatsApp $whatsApp): JsonResponse
-    {
-        if (filled($request->input('empresa_site'))) {
-            return response()->json(['status' => 'enviado']);
-        }
-
-        $data = $request->validate([
-            'nome' => ['required', 'string', 'max:180'],
-            'whatsapp' => ['required', 'string', 'max:40', 'regex:/^[\d\s()+.-]{8,}$/'],
-            'pagina' => ['nullable', 'string', 'max:255'],
-        ]);
-
-        $page = (string) ($data['pagina'] ?? '');
-        $destination = 'Lead rápido';
-
-        $submission = ContactSubmission::query()->create([
-            'name' => $data['nome'],
-            'email' => '',
-            'phone' => $data['whatsapp'],
-            'destination' => $destination,
-            'message' => $page !== '' ? "Tenho interesse (formulário rápido em {$page})." : 'Tenho interesse (formulário rápido).',
-            'extra' => $page !== '' ? ['pagina' => ['label' => 'Página', 'value' => $page]] : null,
-        ]);
-
-        $this->queueMail($this->contactRecipient(''), new ContactMessageMail(
-            $submission->name,
-            $submission->email,
-            $destination,
-            [
-                'Nome' => $submission->name,
-                'WhatsApp' => $submission->phone,
-                'Página' => $page,
-            ],
-        ));
-
-        $this->notifyWhatsApp($whatsApp, $submission, $page);
-
-        return response()->json(['status' => 'enviado']);
     }
 
     /**
@@ -140,7 +100,7 @@ class SiteFormController extends Controller
 
     private function contactRedirect(string $status): RedirectResponse
     {
-        return redirect()->to(url('/contato').'?status='.rawurlencode($status).'#contact-form-title');
+        return redirect()->to(url('/contato').'?status='.rawurlencode($status).'#orcamento');
     }
 
     private function contactRecipient(string $destination): ?string

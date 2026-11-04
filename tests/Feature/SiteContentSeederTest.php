@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\MenuItem;
 use App\Models\Page;
+use App\Models\SiteSetting;
 use Database\Seeders\SiteContentSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -12,65 +13,84 @@ class SiteContentSeederTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_seeds_pages_from_json_and_removes_legacy(): void
+    public function test_seeds_rubia_pages_settings_and_menu_removing_legacy(): void
     {
+        SiteSetting::query()->create(['name' => 'Quatro Ventos']);
         $legacy = Page::query()->create([
             'slug' => 'consultoria-de-ia',
             'template' => 'custom',
-            'status' => 'draft',
+            'status' => 'published',
             'seo_title' => 'Consultoria de IA',
             'content' => ['sections' => []],
         ]);
         MenuItem::query()->create(['group' => 'header', 'label' => 'Consultoria de IA', 'href' => '/consultoria-de-ia', 'page_id' => $legacy->id, 'sort' => 9]);
-        MenuItem::query()->create(['group' => 'header', 'label' => 'Quem somos', 'href' => '/quem-somos', 'sort' => 1]);
+        MenuItem::query()->create(['group' => 'footer_1', 'label' => 'Quem somos', 'href' => '/quem-somos', 'sort' => 1]);
 
         $this->seed(SiteContentSeeder::class);
 
         $this->assertSame(count(glob(database_path('data/pages/*.json'))), Page::query()->count());
         $this->assertDatabaseMissing('pages', ['slug' => 'consultoria-de-ia']);
         $this->assertDatabaseMissing('menu_items', ['href' => '/quem-somos']);
+        $this->assertDatabaseHas('pages', ['slug' => 'ensaios/gestante', 'status' => 'published']);
 
-        $this->getJson('/api/pages/hospedagem-de-sites')
-            ->assertOk()
-            ->assertJsonPath('sections.0.type', 'site.hero');
+        $settings = SiteSetting::query()->findOrFail(1);
+        $this->assertSame('Rubia Rocha Fotografia', $settings->name);
+        $this->assertSame('https://wa.me/5541988658624', $settings->whatsapp_url);
+        $this->assertCount(count(SiteContentSeeder::FOOTER_GALLERY), $settings->footer_gallery);
 
-        $software = MenuItem::query()->where('group', 'header')->whereNull('parent_id')->where('href', '/desenvolvimento-de-software')->firstOrFail();
-        $this->assertSame(Page::query()->where('slug', 'desenvolvimento-de-software')->value('id'), $software->page_id);
-        $this->assertSame(6, $software->children()->count());
+        $header = MenuItem::query()->where('group', 'header')->orderBy('sort')->get();
+        $this->assertSame(['/', '/quem-sou', '/ensaios', '/eventos', '/contato'], $header->pluck('href')->all());
+        $this->assertSame(Page::query()->where('slug', 'ensaios')->value('id'), $header[2]->page_id);
     }
 
-    public function test_admin_page_list_is_grouped_by_menu_section(): void
+    public function test_admin_page_list_groups_nested_pages_under_their_menu_item(): void
     {
         $this->seed(SiteContentSeeder::class);
-        Page::query()->create(['slug' => 'rascunho-solto', 'template' => 'custom', 'status' => 'published', 'seo_title' => 'Solta', 'content' => ['sections' => []]]);
+        Page::query()->create(['slug' => 'rascunho-solto', 'template' => 'custom', 'status' => 'draft', 'seo_title' => 'Solta', 'content' => ['sections' => []]]);
 
         $pages = collect($this->actingAs($this->makeEditor())->getJson('/gestao/api/pages')->assertOk()->json('data'));
         $section = $pages->pluck('section', 'slug');
 
         $this->assertSame('home', $pages->first()['slug']);
+        $this->assertSame('Institucional', $section['quem-sou']);
         $this->assertSame('Institucional', $section['contato']);
-        $this->assertSame('Institucional', $section['diagnostico-de-site']);
-        $this->assertSame('Software', $section['desenvolvimento-de-software']);
-        $this->assertSame('Software', $section['erp-e-crm']);
-        $this->assertSame('Suporte e infraestrutura', $section['hospedagem-de-sites']);
+        $this->assertSame('Ensaios', $section['ensaios']);
+        $this->assertSame('Ensaios', $section['ensaios/gestante']);
+        $this->assertSame('Eventos', $section['eventos/mini-wedding']);
         $this->assertSame('Fora do menu', $section['rascunho-solto']);
         $this->assertSame('rascunho-solto', $pages->last()['slug']);
-
-        $software = $pages->where('section', 'Software')->pluck('slug')->values();
-        $this->assertSame(['desenvolvimento-de-software', 'software-sob-medida'], $software->take(2)->all());
     }
 
-    public function test_reseeding_keeps_a_revision_of_edited_page(): void
+    public function test_reseeding_preserves_cms_edits(): void
     {
         $this->seed(SiteContentSeeder::class);
 
-        $page = Page::query()->where('slug', 'sobre')->firstOrFail();
+        $page = Page::query()->where('slug', 'quem-sou')->firstOrFail();
         $page->update(['content' => ['sections' => [['id' => 'x', 'type' => 'site.prose', 'data' => ['body' => 'Editado']]]]]);
+        SiteSetting::query()->whereKey(1)->update(['phone' => '41 0000-0000']);
+        MenuItem::query()->create(['group' => 'header', 'label' => 'Blog', 'href' => 'https://blog.example.com', 'sort' => 9, 'is_active' => true]);
+
+        $this->seed(SiteContentSeeder::class);
+
+        $this->assertSame('Editado', $page->fresh()->content['sections'][0]['data']['body']);
+        $this->assertSame('41 0000-0000', SiteSetting::query()->findOrFail(1)->phone);
+        $this->assertDatabaseHas('menu_items', ['label' => 'Blog']);
+    }
+
+    public function test_reseeding_replaces_legacy_content_keeping_a_revision(): void
+    {
+        $page = Page::query()->create([
+            'slug' => 'home',
+            'template' => 'home',
+            'status' => 'published',
+            'seo_title' => 'Quatro Ventos',
+            'content' => ['sections' => [['id' => 'h', 'type' => 'site.panel', 'data' => ['title' => 'Antigo']]]],
+        ]);
 
         $this->seed(SiteContentSeeder::class);
 
         $this->assertSame(1, $page->revisions()->count());
-        $this->assertSame('Editado', $page->revisions()->first()->snapshot['content']['sections'][0]['data']['body']);
-        $this->assertNotSame('site.prose', $page->fresh()->content['sections'][0]['type']);
+        $this->assertSame('site.panel', $page->revisions()->first()->snapshot['content']['sections'][0]['type']);
+        $this->assertNotSame('site.panel', $page->fresh()->content['sections'][0]['type']);
     }
 }

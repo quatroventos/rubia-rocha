@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\CaseStudy;
 use App\Models\Page;
+use App\Services\CrawlerFiles;
 use App\Services\PublicContent;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -15,21 +15,21 @@ class PrerenderSite extends Command
 
     protected $description = 'Gera o HTML público de cada URL publicada para o Blade servir sem React.';
 
-    public function handle(PublicContent $content): int
-    {
-        $payloads = [];
+    /**
+     * Relativo a storage/app/prerender; o underscore impede colisão com slugs de página.
+     */
+    public const NOT_FOUND_FILE = 'pt-BR/_404.html';
 
-        foreach (Page::query()->published()->orderBy('locale')->orderBy('slug')->get() as $page) {
+    public function handle(PublicContent $content, CrawlerFiles $crawlerFiles): int
+    {
+        $crawlerFiles->write();
+        $payloads = [];
+        $site = $content->site();
+
+        foreach (Page::query()->published()->orderBy('slug')->get() as $page) {
             $payloads[] = [
                 'page' => $content->page($page),
-                'site' => $content->site($page->localeCode()),
-            ];
-        }
-
-        foreach (CaseStudy::query()->published()->orderBy('locale')->orderBy('slug')->get() as $case) {
-            $payloads[] = [
-                'page' => $content->caseStudy($case),
-                'site' => $content->site($case->localeCode()),
+                'site' => $site,
             ];
         }
 
@@ -38,6 +38,8 @@ class PrerenderSite extends Command
 
             return self::FAILURE;
         }
+
+        $payloads[] = ['kind' => 'not-found', 'file' => self::NOT_FOUND_FILE, 'site' => $site];
 
         $file = storage_path('app/prerender-payloads.json');
         File::ensureDirectoryExists(dirname($file));
@@ -63,7 +65,7 @@ class PrerenderSite extends Command
      * Remove o HTML de URLs que deixaram de existir (slug renomeado, página despublicada ou apagada).
      * O nome do arquivo segue a mesma regra de scripts/prerender.mjs.
      *
-     * @param  list<array{page: array<string, mixed>, site: mixed}>  $payloads
+     * @param  list<array{page?: array<string, mixed>, file?: string, site: mixed}>  $payloads
      */
     private function pruneStale(array $payloads): void
     {
@@ -71,6 +73,12 @@ class PrerenderSite extends Command
         $expected = [];
 
         foreach ($payloads as $payload) {
+            if (isset($payload['file'])) {
+                $expected[$root.'/'.$payload['file']] = true;
+
+                continue;
+            }
+
             $path = trim((string) ($payload['page']['path'] ?? '/'), '/');
             $locale = (string) ($payload['page']['locale'] ?? '') ?: 'pt-BR';
             $expected[$root.'/'.$locale.'/'.($path === '' ? 'index.html' : $path.'.html')] = true;

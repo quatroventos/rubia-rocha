@@ -62,7 +62,7 @@ class CmsAuditTest extends TestCase
             ->putJson('/gestao/api/pages/home', [
                 'status' => 'published',
                 'seo_title' => 'Home publicada',
-                'content' => ['hero' => ['subtitle' => 'ok']],
+                'content' => ['sections' => [['id' => 's1', 'type' => 'site.prose', 'data' => ['title' => 'ok']]]],
             ])
             ->assertOk();
 

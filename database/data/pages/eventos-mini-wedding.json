@@ -1,0 +1,219 @@
+{
+    "slug": "eventos/mini-wedding",
+    "template": "custom",
+    "status": "published",
+    "seo_title": "Fotógrafa Mini Wedding Curitiba",
+    "seo_description": "Um olhar editorial e afetivo para bodas e casamentos intimistas.",
+    "robots": null,
+    "twitter_card": "summary_large_image",
+    "sections": [
+        {
+            "id": "folio-hero-1",
+            "type": "site.folio-hero",
+            "data": {
+                "image": "/rubia/img/albuns/mini-wedding/02-mini-wedding-curitiba-capela-nossa-senhora-salette2.webp",
+                "image_alt": "Mini wedding e bodas",
+                "kicker": "Mini wedding e bodas",
+                "title": "Fotógrafa Mini Wedding Curitiba",
+                "lede": "Um olhar editorial e afetivo para bodas e casamentos intimistas.",
+                "cta_label": "Me pede um orçamento",
+                "cta_href": "/contato"
+            }
+        },
+        {
+            "id": "folio-2",
+            "type": "site.folio",
+            "data": {
+                "blocks": [
+                    {
+                        "heading": "",
+                        "level": "",
+                        "body": "<p>Se você está planejando uma celebração intimista e busca uma fotógrafa Mini Wedding Curitiba que fuja do tradicional e capture a essência do momento, você chegou ao lugar certo. O casamento intimista tem uma magia única, permitindo abraços demorados e conversas reais. Meu objetivo é transformar essa atmosfera em uma herança visual atemporal.</p>",
+                        "image": "/rubia/img/albuns/mini-wedding/03-mini-wedding-curitiba-capela-nossa-senhora-salette3.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Por que contratar uma Fotógrafa Mini Wedding Curitiba com viés editorial?",
+                        "level": "",
+                        "body": "<p>Talvez você esteja se perguntando: “Quem vai contar a nossa história?”</p><p>Eu sou a Rubia Rocha e a fotografia entrou na minha vida como a peça final de um quebra-cabeça que venho montando desde 2009.</p><p>Diferente da maioria dos fotógrafos, minha jornada começou nos bastidores, entendendo a noiva antes mesmo de pegar na câmera.</p><p><strong>Editora de Conteúdo (2009-2023):</strong> Durante 14 anos, fui editora do Blog do Casamento (Blog e YouTube). Analisei milhares de casamentos reais, estudei tendências e apurei meu olhar para o que realmente emociona.</p><p><strong>Designer de Convites:</strong> Trabalhei criando coleções de papelaria, o que me deu uma sensibilidade estética única para registrar os detalhes da sua decoração com perfeição.</p><p><strong>Educadora:</strong> Criei a Jornada da Organização do Casamento, ensinando noivas o passo a passo desse sonho.</p><p>Por que isso importa para as suas fotos? Porque eu não sou apenas uma fotógrafa que chega no dia do evento. Eu sou uma especialista em casamentos que entende a importância do seu cronograma, a beleza da paleta de cores que você escolheu e a emoção do momento que você tanto planejou.</p>",
+                        "image": "/rubia/img/albuns/mini-wedding/04-mini-wedding-curitiba-capela-nossa-senhora-salette4.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "O Estilo: Luz Natural, Espontaneidade e Narrativa",
+                        "level": "",
+                        "body": "<p>Meu foco são Mini Weddings, Casamentos Diurnos e Bodas. Busco a estética da leveza. Assim como grandes referências da fotografia contemporânea, acredito que a beleza mora na luz natural e na direção afetiva — sem poses rígidas, mas com uma condução que deixa vocês à vontade para serem quem são.</p><p>Se você busca:</p><ul><li>Registros leves e claros</li><li>Foco nas emoções espontâneas e nos detalhes da decoração</li><li>Uma profissional que entende de cronograma e organização</li><li>Então nós vamos nos dar muito bem! =)</li></ul>",
+                        "image": "/rubia/img/albuns/mini-wedding/05-mini-wedding-curitiba-capela-nossa-senhora-salette5.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Bônus Exclusivo para Noivas",
+                        "level": "",
+                        "body": "<p>Sabendo o quão desafiador é organizar um casamento, ao fechar a fotografia comigo, você não leva apenas as fotos. Quero te ajudar no processo. Estou preparando um Guia/Planner da Noiva, baseado na minha metodologia da Jornada da Organização, para te ajudar a ter um dia tranquilo e perfeito para as fotos.</p>",
+                        "image": "/rubia/img/albuns/mini-wedding/06-mini-wedding-curitiba-capela-nossa-senhora-salette6.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Vamos conversar sobre o seu dia?",
+                        "level": "",
+                        "body": "<p>Se você vai casar em Curitiba ou região e sonha com registros que parecem ter saído de um editorial de revista, mas com a emoção da vida real, me chame.</p>",
+                        "image": "/rubia/img/albuns/mini-wedding/07-mini-wedding-curitiba-capela-nossa-senhora-salette7.webp",
+                        "image_alt": ""
+                    }
+                ],
+                "cta_label": "Me chama no WhatsApp",
+                "cta_href": "",
+                "album_title": "Mini wedding e bodas",
+                "album": [
+                    "/rubia/img/albuns/mini-wedding/01-mini-wedding-curitiba-capela-nossa-senhora-salette1.webp",
+                    "/rubia/img/albuns/mini-wedding/02-mini-wedding-curitiba-capela-nossa-senhora-salette2.webp",
+                    "/rubia/img/albuns/mini-wedding/03-mini-wedding-curitiba-capela-nossa-senhora-salette3.webp",
+                    "/rubia/img/albuns/mini-wedding/04-mini-wedding-curitiba-capela-nossa-senhora-salette4.webp",
+                    "/rubia/img/albuns/mini-wedding/05-mini-wedding-curitiba-capela-nossa-senhora-salette5.webp",
+                    "/rubia/img/albuns/mini-wedding/06-mini-wedding-curitiba-capela-nossa-senhora-salette6.webp",
+                    "/rubia/img/albuns/mini-wedding/07-mini-wedding-curitiba-capela-nossa-senhora-salette7.webp",
+                    "/rubia/img/albuns/mini-wedding/08-mini-wedding-curitiba-capela-nossa-senhora-salette8.webp",
+                    "/rubia/img/albuns/mini-wedding/09-mini-wedding-curitiba-capela-nossa-senhora-salette9.webp",
+                    "/rubia/img/albuns/mini-wedding/10-mini-wedding-curitiba-capela-nossa-senhora-salette10.webp",
+                    "/rubia/img/albuns/mini-wedding/11-mini-wedding-curitiba-capela-nossa-senhora-salette11.webp",
+                    "/rubia/img/albuns/mini-wedding/12-mini-wedding-curitiba-capela-nossa-senhora-salette12.webp",
+                    "/rubia/img/albuns/mini-wedding/13-mini-wedding-curitiba-capela-nossa-senhora-salette13.webp",
+                    "/rubia/img/albuns/mini-wedding/14-mini-wedding-curitiba-capela-nossa-senhora-salette14.webp",
+                    "/rubia/img/albuns/mini-wedding/15-mini-wedding-curitiba-capela-nossa-senhora-salette15.webp",
+                    "/rubia/img/albuns/mini-wedding/16-mini-wedding-curitiba-capela-nossa-senhora-salette16.webp",
+                    "/rubia/img/albuns/mini-wedding/17-mini-wedding-curitiba-capela-nossa-senhora-salette17.webp",
+                    "/rubia/img/albuns/mini-wedding/18-mini-wedding-curitiba-capela-nossa-senhora-salette18.webp",
+                    "/rubia/img/albuns/mini-wedding/19-mini-wedding-curitiba-capela-nossa-senhora-salette19.webp",
+                    "/rubia/img/albuns/mini-wedding/20-mini-wedding-curitiba-capela-nossa-senhora-salette20.webp",
+                    "/rubia/img/albuns/mini-wedding/21-mini-wedding-curitiba-capela-nossa-senhora-salette21.webp",
+                    "/rubia/img/albuns/mini-wedding/22-mini-wedding-curitiba-capela-nossa-senhora-salette22.webp",
+                    "/rubia/img/albuns/mini-wedding/23-mini-wedding-curitiba-capela-nossa-senhora-salette23.webp",
+                    "/rubia/img/albuns/mini-wedding/24-mini-wedding-curitiba-capela-nossa-senhora-salette24.webp",
+                    "/rubia/img/albuns/mini-wedding/25-mini-wedding-curitiba-capela-nossa-senhora-salette25.webp",
+                    "/rubia/img/albuns/mini-wedding/26-mini-wedding-curitiba-capela-nossa-senhora-salette30.webp",
+                    "/rubia/img/albuns/mini-wedding/27-fotografia-de-casamento-curitiba-por-do-sol8.webp",
+                    "/rubia/img/albuns/mini-wedding/28-fotografia-de-casamento-curitiba-por-do-sol7.webp",
+                    "/rubia/img/albuns/mini-wedding/29-fotografia-de-casamento-curitiba-por-do-sol9.webp",
+                    "/rubia/img/albuns/mini-wedding/30-fotografia-de-casamento-curitiba-por-do-sol6.webp",
+                    "/rubia/img/albuns/mini-wedding/31-fotografia-de-casamento-curitiba-por-do-sol1.webp",
+                    "/rubia/img/albuns/mini-wedding/32-fotografia-de-casamento-curitiba-por-do-sol2.webp",
+                    "/rubia/img/albuns/mini-wedding/33-fotografia-de-casamento-curitiba-por-do-sol3.webp",
+                    "/rubia/img/albuns/mini-wedding/34-fotografia-de-casamento-curitiba-por-do-sol5.webp",
+                    "/rubia/img/albuns/mini-wedding/35-casamento-civil-curitiba-cartorio-portao30.webp",
+                    "/rubia/img/albuns/mini-wedding/36-casamento-civil-curitiba-cartorio-portao29.webp",
+                    "/rubia/img/albuns/mini-wedding/37-casamento-civil-curitiba-cartorio-portao28.webp",
+                    "/rubia/img/albuns/mini-wedding/38-casamento-civil-curitiba-cartorio-portao27.webp",
+                    "/rubia/img/albuns/mini-wedding/39-casamento-civil-curitiba-cartorio-portao26.webp",
+                    "/rubia/img/albuns/mini-wedding/40-casamento-civil-curitiba-cartorio-portao25.webp",
+                    "/rubia/img/albuns/mini-wedding/41-casamento-civil-curitiba-cartorio-portao24.webp",
+                    "/rubia/img/albuns/mini-wedding/42-casamento-civil-curitiba-cartorio-portao23.webp",
+                    "/rubia/img/albuns/mini-wedding/43-casamento-civil-curitiba-cartorio-portao22.webp",
+                    "/rubia/img/albuns/mini-wedding/44-casamento-civil-curitiba-cartorio-portao21.webp",
+                    "/rubia/img/albuns/mini-wedding/45-casamento-civil-curitiba-cartorio-portao20.webp",
+                    "/rubia/img/albuns/mini-wedding/46-casamento-civil-curitiba-cartorio-portao19.webp",
+                    "/rubia/img/albuns/mini-wedding/47-casamento-civil-curitiba-cartorio-portao18.webp",
+                    "/rubia/img/albuns/mini-wedding/48-casamento-civil-curitiba-cartorio-portao17.webp",
+                    "/rubia/img/albuns/mini-wedding/49-casamento-civil-curitiba-cartorio-portao16.webp",
+                    "/rubia/img/albuns/mini-wedding/50-casamento-civil-curitiba-cartorio-portao15.webp",
+                    "/rubia/img/albuns/mini-wedding/51-casamento-civil-curitiba-cartorio-portao14.webp",
+                    "/rubia/img/albuns/mini-wedding/52-casamento-civil-curitiba-cartorio-portao13.webp",
+                    "/rubia/img/albuns/mini-wedding/53-casamento-civil-curitiba-cartorio-portao12.webp",
+                    "/rubia/img/albuns/mini-wedding/54-casamento-civil-curitiba-cartorio-portao11.webp",
+                    "/rubia/img/albuns/mini-wedding/55-casamento-civil-curitiba-cartorio-portao10.webp",
+                    "/rubia/img/albuns/mini-wedding/56-casamento-civil-curitiba-cartorio-portao9.webp",
+                    "/rubia/img/albuns/mini-wedding/57-casamento-civil-curitiba-cartorio-portao8.webp",
+                    "/rubia/img/albuns/mini-wedding/58-casamento-civil-curitiba-cartorio-portao7.webp",
+                    "/rubia/img/albuns/mini-wedding/59-casamento-civil-curitiba-cartorio-portao6.webp",
+                    "/rubia/img/albuns/mini-wedding/60-casamento-civil-curitiba-cartorio-portao5.webp",
+                    "/rubia/img/albuns/mini-wedding/61-casamento-civil-curitiba-cartorio-portao4.webp",
+                    "/rubia/img/albuns/mini-wedding/62-mini-wedding-curitiba-ana-luiz2.webp",
+                    "/rubia/img/albuns/mini-wedding/63-mini-wedding-curitiba-ana-luiz3.webp",
+                    "/rubia/img/albuns/mini-wedding/64-mini-wedding-curitiba-ana-luiz4.webp",
+                    "/rubia/img/albuns/mini-wedding/65-mini-wedding-curitiba-ana-luiz8.webp",
+                    "/rubia/img/albuns/mini-wedding/66-mini-wedding-curitiba-ana-luiz10.webp",
+                    "/rubia/img/albuns/mini-wedding/67-mini-wedding-curitiba-ana-luiz12.webp",
+                    "/rubia/img/albuns/mini-wedding/68-mini-wedding-curitiba-ana-luiz13.webp",
+                    "/rubia/img/albuns/mini-wedding/69-mini-wedding-curitiba-ana-luiz14.webp",
+                    "/rubia/img/albuns/mini-wedding/70-mini-wedding-curitiba-ana-luiz15.webp",
+                    "/rubia/img/albuns/mini-wedding/71-mini-wedding-curitiba-ana-luiz18.webp",
+                    "/rubia/img/albuns/mini-wedding/72-mini-wedding-curitiba-ana-luiz23.webp",
+                    "/rubia/img/albuns/mini-wedding/73-mini-wedding-curitiba-ana-luiz25.webp",
+                    "/rubia/img/albuns/mini-wedding/74-mini-wedding-curitiba-ana-luiz26.webp",
+                    "/rubia/img/albuns/mini-wedding/75-mini-wedding-curitiba-ana-luiz27.webp",
+                    "/rubia/img/albuns/mini-wedding/76-golden-hour-casamento-vinicola-araucaria8.webp",
+                    "/rubia/img/albuns/mini-wedding/77-golden-hour-casamento-vinicola-araucaria7.webp",
+                    "/rubia/img/albuns/mini-wedding/78-golden-hour-casamento-vinicola-araucaria6.webp",
+                    "/rubia/img/albuns/mini-wedding/79-golden-hour-casamento-vinicola-araucaria5.webp",
+                    "/rubia/img/albuns/mini-wedding/80-golden-hour-casamento-vinicola-araucaria4.webp",
+                    "/rubia/img/albuns/mini-wedding/81-fotografia-de-casamento-curitiba-vinicola-araucaria7.webp",
+                    "/rubia/img/albuns/mini-wedding/82-fotografia-de-casamento-curitiba-vinicola-araucaria6.webp",
+                    "/rubia/img/albuns/mini-wedding/83-fotografia-de-casamento-curitiba-vinicola-araucaria5.webp",
+                    "/rubia/img/albuns/mini-wedding/84-fotografia-de-casamento-curitiba-vinicola-araucaria4.webp",
+                    "/rubia/img/albuns/mini-wedding/85-fotografia-de-casamento-curitiba-vinicola-araucaria3.webp",
+                    "/rubia/img/albuns/mini-wedding/86-casamento-de-dia-sao-jose-dos-pinhais-vinicola13.webp",
+                    "/rubia/img/albuns/mini-wedding/87-fotografia-de-casamento-curitiba-vinicola-araucaria2.webp",
+                    "/rubia/img/albuns/mini-wedding/88-fotografia-de-casamento-curitiba-vinicola-araucaria1.webp",
+                    "/rubia/img/albuns/mini-wedding/89-casamento-de-dia-sao-jose-dos-pinhais-vinicola10.webp",
+                    "/rubia/img/albuns/mini-wedding/90-golden-hour-casamento-vinicola-araucaria3.webp",
+                    "/rubia/img/albuns/mini-wedding/91-golden-hour-casamento-vinicola-araucaria2.webp",
+                    "/rubia/img/albuns/mini-wedding/92-golden-hour-casamento-vinicola-araucaria1.webp",
+                    "/rubia/img/albuns/mini-wedding/93-cerimonia-ao-ar-livre-vinicola-araucaria-lago8.webp",
+                    "/rubia/img/albuns/mini-wedding/94-casamento-de-dia-sao-jose-dos-pinhais-vinicola12.webp",
+                    "/rubia/img/albuns/mini-wedding/95-cerimonia-ao-ar-livre-vinicola-araucaria-lago7.webp",
+                    "/rubia/img/albuns/mini-wedding/96-casamento-de-dia-sao-jose-dos-pinhais-vinicola4.webp",
+                    "/rubia/img/albuns/mini-wedding/97-cerimonia-ao-ar-livre-vinicola-araucaria-lago6.webp",
+                    "/rubia/img/albuns/mini-wedding/98-cerimonia-ao-ar-livre-vinicola-araucaria-lago5.webp",
+                    "/rubia/img/albuns/mini-wedding/99-cerimonia-ao-ar-livre-vinicola-araucaria-lago4.webp",
+                    "/rubia/img/albuns/mini-wedding/100-cerimonia-ao-ar-livre-vinicola-araucaria-lago3.webp",
+                    "/rubia/img/albuns/mini-wedding/101-casamento-de-dia-sao-jose-dos-pinhais-vinicola7.webp",
+                    "/rubia/img/albuns/mini-wedding/102-cerimonia-ao-ar-livre-vinicola-araucaria-lago2.webp",
+                    "/rubia/img/albuns/mini-wedding/103-casamento-vinicola-araucaria-lori-daniel5.webp",
+                    "/rubia/img/albuns/mini-wedding/104-casamento-vinicola-araucaria-lori-daniel3.webp",
+                    "/rubia/img/albuns/mini-wedding/105-casamento-vinicola-araucaria-lori-daniel2.webp",
+                    "/rubia/img/albuns/mini-wedding/106-casamento-vinicola-araucaria-lori-daniel1.webp",
+                    "/rubia/img/albuns/mini-wedding/107-casamento-de-dia-sao-jose-dos-pinhais-vinicola2.webp",
+                    "/rubia/img/albuns/mini-wedding/108-casamento-vinicola-araucaria-lori-daniel8.webp",
+                    "/rubia/img/albuns/mini-wedding/109-casamento-vinicola-araucaria-lori-daniel7.webp",
+                    "/rubia/img/albuns/mini-wedding/110-melhor-fotografa-casamento-curitiba-vinicola7.webp",
+                    "/rubia/img/albuns/mini-wedding/111-melhor-fotografa-casamento-curitiba-vinicola4.webp",
+                    "/rubia/img/albuns/mini-wedding/112-melhor-fotografa-casamento-curitiba-vinicola5.webp",
+                    "/rubia/img/albuns/mini-wedding/113-melhor-fotografa-casamento-curitiba-vinicola1.webp"
+                ]
+            }
+        },
+        {
+            "id": "faq-3",
+            "type": "site.faq",
+            "data": {
+                "leaf": true,
+                "title": "Perguntas frequentes",
+                "items": [
+                    {
+                        "question": "Que tipo de evento você fotografa?",
+                        "answer": "Gosto de registrar momentos que tenham significado — desde as festinhas cheias de risadas das crianças até mini weddings intimistas, bodas e eventos corporativos. Atendo aniversários, batizados, encontros familiares, eventos de marcas, lançamentos, workshops e tudo que envolva pessoas, conexão e emoção. Se o seu evento for diferente, me chama! Se tiver a ver com o meu estilo, vai ser um prazer fotografar."
+                    },
+                    {
+                        "question": "Você atende apenas eventos em Curitiba?",
+                        "answer": "Atendo Curitiba e região metropolitana. Para outras cidades, podemos conversar sobre deslocamento."
+                    },
+                    {
+                        "question": "Quanto tempo de cobertura você oferece?",
+                        "answer": "A cobertura é personalizada. Pode ser por hora ou evento completo — depende do tipo e duração da festa ou cerimônia."
+                    },
+                    {
+                        "question": "Você trabalha sozinha ou com equipe?",
+                        "answer": "Na maioria dos eventos, sou eu quem fotografa. Para eventos maiores, posso levar assistente ou segundo fotógrafo."
+                    },
+                    {
+                        "question": "Em quanto tempo recebo as fotos?",
+                        "answer": "O prazo médio é de 10 a 20 dias úteis. Sempre envio com muito carinho e cuidado na edição."
+                    },
+                    {
+                        "question": "Você também faz filmagem?",
+                        "answer": "Depende do estilo e da proposta do evento. Para registros simples, como mini clipes com momentos especiais e edição leve, eu consigo sim oferecer algo complementar à fotografia. Mas se o evento exigir uma cobertura mais complexa em vídeo, posso indicar parceiros incríveis que trabalham alinhados com meu estilo."
+                    }
+                ]
+            }
+        }
+    ]
+}

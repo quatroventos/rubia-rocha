@@ -26,7 +26,6 @@ class SiteSettingController extends Controller
                 'visitor_template' => ContactWhatsApp::DEFAULT_VISITOR_TEMPLATE,
                 'variables' => ContactWhatsApp::VARIABLES,
             ],
-            'hosting_plans' => config('cms.hosting_plans'),
         ]);
     }
 
@@ -96,30 +95,21 @@ class SiteSettingController extends Controller
             'whatsapp_notify_number' => ['nullable', 'string', 'max:32', 'regex:/^[\d\s()+.-]{10,}$/'],
             'whatsapp_admin_template' => ['nullable', 'string', 'max:2000'],
             'whatsapp_visitor_template' => ['nullable', 'string', 'max:2000'],
-            'plan_links' => ['nullable', 'array'],
-            'plan_links.*' => ['nullable', 'url:http,https', 'max:500'],
-            'client_logos' => ['nullable', 'array', 'max:200'],
-            'client_logos.*.name' => ['nullable', 'string', 'max:120'],
-            'client_logos.*.image' => ['required', 'string', 'max:500'],
-            'client_logos.*.image_alt' => ['nullable', 'string', 'max:255'],
+            'footer_gallery_title' => ['nullable', 'string', 'max:120'],
+            'footer_gallery' => ['nullable', 'array', 'max:24'],
+            'footer_gallery.*.image' => ['required', 'string', 'max:500'],
+            'footer_gallery.*.alt' => ['nullable', 'string', 'max:255'],
+            'footer_gallery.*.href' => ['nullable', 'string', 'max:500'],
         ]);
 
-        if (array_key_exists('client_logos', $data)) {
-            $data['client_logos'] = collect($data['client_logos'] ?? [])
-                ->map(fn (array $logo) => [
-                    'name' => trim((string) ($logo['name'] ?? '')),
-                    'image' => trim((string) $logo['image']),
-                    'image_alt' => trim((string) ($logo['image_alt'] ?? '')),
+        if (array_key_exists('footer_gallery', $data)) {
+            $data['footer_gallery'] = collect($data['footer_gallery'] ?? [])
+                ->map(fn (array $photo) => [
+                    'image' => trim((string) $photo['image']),
+                    'alt' => trim((string) ($photo['alt'] ?? '')),
+                    'href' => trim((string) ($photo['href'] ?? '')),
                 ])
                 ->values()
-                ->all();
-        }
-
-        if (array_key_exists('plan_links', $data)) {
-            $data['plan_links'] = collect($data['plan_links'] ?? [])
-                ->only(array_keys((array) config('cms.hosting_plans')))
-                ->map(fn ($url) => trim((string) $url))
-                ->filter()
                 ->all();
         }
 

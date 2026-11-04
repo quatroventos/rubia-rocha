@@ -12,23 +12,17 @@ class CmsBackfillSectionsTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Página como editada no CMS: título do hero alterado, FAQ removido e planos sem link_key.
+     * Página como editada no CMS: título alterado, seção de fatos removida e lista sem o botão principal.
      */
     private function editedPage(): Page
     {
-        $reference = json_decode(File::get(database_path('data/pages/hospedagem-de-sites.json')), true);
+        $reference = json_decode(File::get(database_path('data/pages/quem-sou.json')), true);
         $sections = collect($reference['sections'])
-            ->reject(fn (array $section) => $section['id'] === 'faq-1')
+            ->reject(fn (array $section) => $section['id'] === 'facts-3')
             ->map(function (array $section) {
-                if ($section['id'] === 'hero-1') {
+                if ($section['id'] === 'about-2') {
                     $section['data']['title'] = 'Título editado no CMS';
-                }
-                if ($section['id'] === 'pricing-1') {
-                    foreach ($section['data']['categories'] as $index => $category) {
-                        foreach ($category['plans'] as $planIndex => $plan) {
-                            unset($section['data']['categories'][$index]['plans'][$planIndex]['link_key']);
-                        }
-                    }
+                    unset($section['data']['primary_label']);
                 }
 
                 return $section;
@@ -37,10 +31,10 @@ class CmsBackfillSectionsTest extends TestCase
             ->all();
 
         return Page::query()->create([
-            'slug' => 'hospedagem-de-sites',
+            'slug' => 'quem-sou',
             'template' => 'custom',
             'status' => 'published',
-            'seo_title' => 'Hospedagem de sites | Quatro Ventos',
+            'seo_title' => 'Quem sou | Rubia Rocha Fotografia',
             'published_at' => now(),
             'content' => ['sections' => $sections],
         ]);
@@ -50,13 +44,13 @@ class CmsBackfillSectionsTest extends TestCase
     {
         $page = $this->editedPage();
 
-        $this->artisan('cms:backfill-sections', ['slug' => ['hospedagem-de-sites']])->assertSuccessful();
+        $this->artisan('cms:backfill-sections', ['slug' => ['quem-sou']])->assertSuccessful();
 
         $sections = $page->fresh()->content['sections'];
 
-        $this->assertSame(['hero-1', 'pricing-1', 'panel-1', 'examples-1', 'faq-1', 'panel-2'], array_column($sections, 'id'));
-        $this->assertSame('Título editado no CMS', $sections[0]['data']['title']);
-        $this->assertSame('sites-basic', $sections[1]['data']['categories'][0]['plans'][0]['link_key']);
+        $this->assertSame(['trio-1', 'about-2', 'facts-3'], array_column($sections, 'id'));
+        $this->assertSame('Título editado no CMS', $sections[1]['data']['title']);
+        $this->assertArrayHasKey('primary_label', $sections[1]['data']);
         $this->assertSame(1, $page->revisions()->count());
     }
 
@@ -65,31 +59,9 @@ class CmsBackfillSectionsTest extends TestCase
         $page = $this->editedPage();
         $before = $page->content;
 
-        $this->artisan('cms:backfill-sections', ['slug' => ['hospedagem-de-sites'], '--dry-run' => true])->assertSuccessful();
+        $this->artisan('cms:backfill-sections', ['slug' => ['quem-sou'], '--dry-run' => true])->assertSuccessful();
 
         $this->assertSame($before, $page->fresh()->content);
         $this->assertSame(0, $page->revisions()->count());
-    }
-
-    public function test_row_with_different_identity_is_not_completed(): void
-    {
-        Page::query()->create([
-            'slug' => 'hospedagem-de-sites',
-            'template' => 'custom',
-            'status' => 'published',
-            'seo_title' => 'Hospedagem de sites | Quatro Ventos',
-            'published_at' => now(),
-            'content' => ['sections' => [
-                ['id' => 'pricing-1', 'type' => 'site.pricing', 'data' => ['categories' => [
-                    ['id' => 'sites', 'plans' => [['name' => 'Plano renomeado', 'href' => 'https://loja.example.com/x']]],
-                ]]],
-            ]],
-        ]);
-
-        $this->artisan('cms:backfill-sections', ['slug' => ['hospedagem-de-sites']])->assertSuccessful();
-
-        $pricing = collect(Page::query()->first()->content['sections'])->firstWhere('id', 'pricing-1');
-
-        $this->assertArrayNotHasKey('link_key', $pricing['data']['categories'][0]['plans'][0]);
     }
 }

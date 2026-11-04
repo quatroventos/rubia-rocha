@@ -9,6 +9,7 @@ use App\Models\MenuItem;
 use App\Models\Page;
 use App\Models\PageRevision;
 use App\Models\SiteSetting;
+use App\Services\PageSlugRedirects;
 use App\Support\Locales;
 use App\Support\Seo;
 use Illuminate\Http\JsonResponse;
@@ -25,9 +26,10 @@ class PageController extends Controller
     {
         $this->authorize('viewAny', Page::class);
 
-        $sections = $this->menuSections();
+        $pages = Page::query()->originals()->with('translations')->orderBy('slug')->get();
+        $sections = $this->menuSections($pages->pluck('slug')->all());
 
-        $pages = Page::query()->originals()->with('translations')->orderBy('slug')->get()
+        $pages = $pages
             ->map(function (Page $page) use ($sections) {
                 $place = $sections[$page->slug] ?? ['section' => self::OUTSIDE_MENU, 'order' => [PHP_INT_MAX, 0]];
 
@@ -42,11 +44,13 @@ class PageController extends Controller
 
     /**
      * Agrupa as paginas pela navegacao: filhas de um item do cabecalho ficam na secao dele,
+     * assim como as paginas aninhadas no slug dele (ensaios/gestante fica em Ensaios);
      * o restante do cabecalho, a home e o rodape ficam em Institucional.
      *
+     * @param  list<string>  $slugs
      * @return array<string, array{section: string, order: array{int, int}}>
      */
-    private function menuSections(): array
+    private function menuSections(array $slugs): array
     {
         $items = MenuItem::query()
             ->where('locale', Locales::default())
@@ -71,9 +75,20 @@ class PageController extends Controller
         foreach ($parents as $index => $parent) {
             $children = $header->where('parent_id', $parent->id)->values();
             $slug = $slugOf($parent->href);
+            $nested = $slug === null || $slug === 'home'
+                ? []
+                : array_values(array_filter($slugs, fn (string $candidate) => str_starts_with($candidate, $slug.'/')));
+
+            if ($nested !== []) {
+                $sections[$slug] = ['section' => $parent->label, 'order' => [$index + 1, 0]];
+
+                foreach ($nested as $nestedIndex => $nestedSlug) {
+                    $sections[$nestedSlug] ??= ['section' => $parent->label, 'order' => [$index + 1, 1000 + $nestedIndex]];
+                }
+            }
 
             if ($children->isEmpty()) {
-                if ($slug !== null) {
+                if ($slug !== null && $nested === []) {
                     $sections[$slug] ??= ['section' => self::INSTITUTIONAL, 'order' => [0, $index + 1]];
                 }
 
@@ -112,7 +127,7 @@ class PageController extends Controller
                 'required',
                 'string',
                 'max:120',
-                'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
+                'regex:#^'.Page::SLUG_PATTERN.'$#',
                 Rule::unique('pages', 'slug')->where('locale', Locales::default()),
                 Rule::notIn(Page::reservedSlugs()),
             ],
@@ -156,7 +171,7 @@ class PageController extends Controller
                 'sometimes',
                 'string',
                 'max:120',
-                'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
+                'regex:#^'.Page::SLUG_PATTERN.'$#',
                 Rule::unique('pages', 'slug')->where('locale', $page->localeCode())->ignore($page->id),
                 Rule::notIn(array_values(array_diff(Page::reservedSlugs(), [$page->slug]))),
             ],
@@ -204,8 +219,11 @@ class PageController extends Controller
 
         $page->update($data);
 
+        $redirect = null;
+
         if ($page->wasChanged('slug')) {
             $this->syncMenuLinks($page, $previousPath);
+            $redirect = app(PageSlugRedirects::class)->record($previousPath, $page->publicPath());
         }
 
         $fresh = $page->fresh();
@@ -214,6 +232,7 @@ class PageController extends Controller
         return response()->json([
             'data' => $this->detail($fresh, $normalized),
             'schema' => SectionCatalog::schemaForSections($normalized['sections']),
+            'redirect' => $redirect,
         ]);
     }
 
@@ -298,9 +317,16 @@ class PageController extends Controller
 
         $payload['published_at'] = $page->published_at ?? now();
 
+        $previousPath = $page->publicPath();
         $page->update($payload);
+        $redirect = null;
 
-        return response()->json(['data' => $this->detail($page->fresh())]);
+        if ($page->wasChanged('slug')) {
+            $this->syncMenuLinks($page, $previousPath);
+            $redirect = app(PageSlugRedirects::class)->record($previousPath, $page->publicPath());
+        }
+
+        return response()->json(['data' => $this->detail($page->fresh()), 'redirect' => $redirect]);
     }
 
     /**
@@ -353,7 +379,7 @@ class PageController extends Controller
         return [
             'seo_title.required' => 'Informe o título.',
             'slug.required' => 'Informe o endereço da página.',
-            'slug.regex' => 'Use apenas letras minúsculas, números e hífens.',
+            'slug.regex' => 'Use letras minúsculas, números e hífens, com no máximo uma barra (ex.: ensaios/gestante).',
             'slug.unique' => 'Já existe uma página com este endereço.',
             'slug.not_in' => 'Este endereço está reservado pelo sistema.',
         ];

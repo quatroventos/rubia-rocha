@@ -1,0 +1,105 @@
+{
+    "slug": "eventos",
+    "template": "custom",
+    "status": "published",
+    "seo_title": "Fotografia de Eventos em Curitiba",
+    "seo_description": "Festas infantis, mini weddings, bodas e eventos corporativos em Curitiba.",
+    "robots": null,
+    "twitter_card": "summary_large_image",
+    "sections": [
+        {
+            "id": "folio-hero-1",
+            "type": "site.folio-hero",
+            "data": {
+                "image": "/rubia/img/albuns/mini-wedding/27-fotografia-de-casamento-curitiba-por-do-sol8.webp",
+                "image_alt": "Casal em mini wedding",
+                "kicker": "Eventos",
+                "title": "Fotografia de Eventos em Curitiba",
+                "lede": "Eventos com alma merecem ser eternizados com olhar de verdade.",
+                "cta_label": "Me pede um orçamento",
+                "cta_href": "/contato"
+            }
+        },
+        {
+            "id": "folio-2",
+            "type": "site.folio",
+            "data": {
+                "blocks": [
+                    {
+                        "heading": "",
+                        "level": "",
+                        "body": "<p>Fotografar eventos em Curitiba vai muito além de registrar o que aconteceu — é sobre captar a essência de cada momento, os detalhes que escapam no meio da correria e as emoções que fazem tudo valer a pena. Uma boa fotografia de eventos em Curitiba transforma experiências em memórias reais e cheias de significado.</p><p>Sou fotógrafa profissional em Curitiba, especializada em fotografia de eventos, como festas infantis, mini weddings, aniversários, eventos afetivos e também eventos corporativos com identidade e propósito.</p><p>Já fotografei mais de 120 eventos em Curitiba e posso te garantir: cada história tem seu brilho único. Meu estilo é documental e espontâneo, com foco em imagens reais, cheias de sentimento e movimento. Nada engessado, nada artificial. Só verdade.</p><p>Você vai encontrar aqui três tipos principais de cobertura fotográfica:</p><p>Criança sendo criança, correria gostosa, abraços, detalhes e afeto — tudo no ritmo da festa.</p><p>Casamentos íntimos, cheios de significado. Amor em cada olhar.</p><p>Fotografia profissional para marcas, empresas e eventos com propósito — imagens que comunicam identidade, posicionamento e conexão.</p>",
+                        "image": "/rubia/img/albuns/mini-wedding/02-mini-wedding-curitiba-capela-nossa-senhora-salette2.webp",
+                        "image_alt": ""
+                    }
+                ],
+                "cta_label": "Me chama no WhatsApp",
+                "cta_href": "",
+                "album_title": "",
+                "album": []
+            }
+        },
+        {
+            "id": "categories-3",
+            "type": "site.categories",
+            "data": {
+                "title": "Escolha o seu evento",
+                "item_label": "Ver galeria",
+                "items": [
+                    {
+                        "title": "Festa infantil e aniversário",
+                        "href": "/eventos/festa-infantil",
+                        "image": "/rubia/img/albuns/festa-infantil/01-7-fotografia-de-festa-infantil-curitiba22.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "title": "Mini wedding e bodas",
+                        "href": "/eventos/mini-wedding",
+                        "image": "/rubia/img/albuns/mini-wedding/02-mini-wedding-curitiba-capela-nossa-senhora-salette2.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "title": "Corporativo e branding",
+                        "href": "/eventos/corporativo",
+                        "image": "/rubia/img/albuns/corporativo/02-fotografo-para-empresas-curitiba1.webp",
+                        "image_alt": ""
+                    }
+                ]
+            }
+        },
+        {
+            "id": "faq-4",
+            "type": "site.faq",
+            "data": {
+                "leaf": true,
+                "title": "Perguntas frequentes",
+                "items": [
+                    {
+                        "question": "Que tipo de evento você fotografa?",
+                        "answer": "Gosto de registrar momentos que tenham significado — desde as festinhas cheias de risadas das crianças até mini weddings intimistas, bodas e eventos corporativos. Atendo aniversários, batizados, encontros familiares, eventos de marcas, lançamentos, workshops e tudo que envolva pessoas, conexão e emoção. Se o seu evento for diferente, me chama! Se tiver a ver com o meu estilo, vai ser um prazer fotografar."
+                    },
+                    {
+                        "question": "Você atende apenas eventos em Curitiba?",
+                        "answer": "Atendo Curitiba e região metropolitana. Para outras cidades, podemos conversar sobre deslocamento."
+                    },
+                    {
+                        "question": "Quanto tempo de cobertura você oferece?",
+                        "answer": "A cobertura é personalizada. Pode ser por hora ou evento completo — depende do tipo e duração da festa ou cerimônia."
+                    },
+                    {
+                        "question": "Você trabalha sozinha ou com equipe?",
+                        "answer": "Na maioria dos eventos, sou eu quem fotografa. Para eventos maiores, posso levar assistente ou segundo fotógrafo."
+                    },
+                    {
+                        "question": "Em quanto tempo recebo as fotos?",
+                        "answer": "O prazo médio é de 10 a 20 dias úteis. Sempre envio com muito carinho e cuidado na edição."
+                    },
+                    {
+                        "question": "Você também faz filmagem?",
+                        "answer": "Depende do estilo e da proposta do evento. Para registros simples, como mini clipes com momentos especiais e edição leve, eu consigo sim oferecer algo complementar à fotografia. Mas se o evento exigir uma cobertura mais complexa em vídeo, posso indicar parceiros incríveis que trabalham alinhados com meu estilo."
+                    }
+                ]
+            }
+        }
+    ]
+}

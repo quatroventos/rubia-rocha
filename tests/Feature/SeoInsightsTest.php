@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Jobs\MeasurePageLighthouseJob;
-use App\Models\CaseStudy;
 use App\Models\Page;
 use App\Services\LighthouseService;
 use App\Services\Seo\PageRenderer;
@@ -237,21 +236,12 @@ class SeoInsightsTest extends TestCase
         Http::assertNothingSent();
     }
 
-    public function test_lighthouse_needs_a_public_url_and_a_published_case(): void
+    public function test_lighthouse_needs_a_public_url(): void
     {
         config(['cms.lighthouse_url' => 'http://localhost:8080']);
         $page = $this->page();
-        $case = CaseStudy::query()->create([
-            'slug' => 'digio', 'status' => 'draft', 'client' => 'Digio', 'title' => 'Onboarding',
-            'services' => [], 'content' => ['sections' => []],
-        ]);
-        $editor = $this->makeEditor();
 
-        $this->actingAs($editor)->getJson("/gestao/api/seo/lighthouse/pages/{$page->id}")
-            ->assertOk()
-            ->assertJsonPath('status', 'unavailable');
-
-        $this->actingAs($editor)->postJson("/gestao/api/seo/lighthouse/cases/{$case->id}")
+        $this->actingAs($this->makeEditor())->getJson("/gestao/api/seo/lighthouse/pages/{$page->id}")
             ->assertOk()
             ->assertJsonPath('status', 'unavailable');
     }
@@ -297,6 +287,6 @@ class SeoInsightsTest extends TestCase
 
     public function test_guest_cannot_analyze(): void
     {
-        $this->postJson('/gestao/api/seo/analyze', ['kind' => 'case', 'sections' => []])->assertUnauthorized();
+        $this->postJson('/gestao/api/seo/analyze', ['kind' => 'page', 'id' => 1, 'sections' => []])->assertUnauthorized();
     }
 }

@@ -42,6 +42,52 @@ export function CertificationsScreen() {
   );
 }
 
+type RedirectRow = {
+  id: number;
+  from_path: string;
+  to_url: string;
+  status_code: number;
+  is_active: boolean;
+  hits: number;
+  last_hit_at: string | null;
+};
+
+export function RedirectsScreen() {
+  return (
+    <CrudPage<RedirectRow>
+      eyebrow="Configuração"
+      title="Redirecionamentos"
+      description="Endereços antigos que levam para as páginas atuais. Só valem para URLs que não existem no site."
+      endpoint="/redirects"
+      createLabel="Adicionar redirect"
+      initialForm={{ status_code: '301', is_active: true }}
+      mapForm={(row) => ({ ...row, status_code: String(row.status_code) })}
+      columns={[
+        { key: 'from_path', label: 'Endereço antigo', render: (row) => <code>{row.from_path}</code> },
+        { key: 'to_url', label: 'Destino', render: (row) => <code>{row.to_url}</code> },
+        { key: 'status_code', label: 'Tipo', render: (row) => (row.status_code === 302 ? '302 temporário' : '301 permanente') },
+        { key: 'is_active', label: 'Status', render: (row) => (row.is_active ? 'Ativo' : 'Pausado') },
+        {
+          key: 'hits',
+          label: 'Acessos',
+          render: (row) => (row.last_hit_at
+            ? `${row.hits} (último em ${new Date(row.last_hit_at).toLocaleDateString('pt-BR')})`
+            : String(row.hits)),
+        },
+      ]}
+      fields={[
+        { name: 'from_path', label: 'Endereço antigo (ex.: /sobre-2)' },
+        { name: 'to_url', label: 'Destino (/caminho ou https://...)' },
+        { name: 'status_code', label: 'Tipo', type: 'select', options: [
+          { value: '301', label: '301 permanente' },
+          { value: '302', label: '302 temporário' },
+        ] },
+        { name: 'is_active', label: 'Ativo', type: 'toggle' },
+      ]}
+    />
+  );
+}
+
 export function UsersScreen() {
   const { user, setUser } = useAuth();
   const navigate = useNavigate();

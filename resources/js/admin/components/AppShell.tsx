@@ -1,7 +1,6 @@
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import {
-  Award,
-  BriefcaseBusiness,
+  ArrowRightLeft,
   CircleHelp,
   FileText,
   Image,
@@ -42,7 +41,6 @@ const groups = [
     tour: 'shell-nav-conteudo',
     items: [
       { to: '/paginas', label: 'Páginas', icon: FileText, ability: 'pages' },
-      { to: '/cases', label: 'Cases', icon: BriefcaseBusiness, ability: 'cases' },
     ],
   },
   {
@@ -52,7 +50,7 @@ const groups = [
       { to: '/site', label: 'Site', icon: Settings2, ability: 'settings' },
       { to: '/seo', label: 'SEO', icon: Search, ability: 'seo' },
       { to: '/menu', label: 'Menu', icon: ListTree, ability: 'menu' },
-      { to: '/certificacoes', label: 'Certificações', icon: Award, ability: 'certifications' },
+      { to: '/redirecionamentos', label: 'Redirecionamentos', icon: ArrowRightLeft, ability: 'redirects' },
       { to: '/formularios', label: 'Formulários', icon: ClipboardList, ability: 'form_options' },
     ],
   },

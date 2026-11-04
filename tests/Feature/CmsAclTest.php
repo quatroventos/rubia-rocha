@@ -119,7 +119,7 @@ class CmsAclTest extends TestCase
             ->putJson('/gestao/api/pages/home', [
                 'status' => 'published',
                 'seo_title' => 'Home publicada',
-                'content' => ['hero' => ['subtitle' => 'ok']],
+                'content' => ['sections' => [['id' => 's1', 'type' => 'site.prose', 'data' => ['title' => 'ok']]]],
             ])
             ->assertOk()
             ->assertJsonPath('data.status', 'published');
@@ -146,7 +146,7 @@ class CmsAclTest extends TestCase
             ->putJson('/gestao/api/pages/sobre', [
                 'slug' => 'sobre-a-quatro-ventos',
                 'seo_title' => 'Sobre',
-                'content' => ['sections' => [['id' => 's1', 'type' => 'site.hero', 'data' => ['title' => 'Sobre']]]],
+                'content' => ['sections' => [['id' => 's1', 'type' => 'site.prose', 'data' => ['title' => 'Sobre']]]],
             ])
             ->assertOk();
 
@@ -180,14 +180,14 @@ class CmsAclTest extends TestCase
                 'status' => 'published',
                 'slug' => 'o-escritorio',
                 'seo_title' => 'Quem somos',
-                'content' => ['hero' => ['title' => 'Quem somos']],
+                'content' => ['sections' => [['id' => 's1', 'type' => 'site.prose', 'data' => ['title' => 'Quem somos']]]],
             ])
             ->assertOk()
             ->assertJsonPath('data.slug', 'o-escritorio');
 
         $this->flushHeaders();
         $this->get('/o-escritorio')->assertOk();
-        $this->get('/quem-somos')->assertNotFound();
+        $this->get('/quem-somos')->assertStatus(301)->assertRedirect(url('/o-escritorio'));
         $this->assertSame('o-escritorio', $page->fresh()->slug);
     }
 
@@ -207,7 +207,7 @@ class CmsAclTest extends TestCase
                 'status' => 'published',
                 'slug' => 'inicio',
                 'seo_title' => 'Home',
-                'content' => ['hero' => ['subtitle' => 'ok']],
+                'content' => ['sections' => [['id' => 's1', 'type' => 'site.prose', 'data' => ['title' => 'ok']]]],
             ])
             ->assertOk()
             ->assertJsonPath('data.slug', 'home');

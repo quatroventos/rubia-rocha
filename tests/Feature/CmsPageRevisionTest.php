@@ -25,7 +25,7 @@ class CmsPageRevisionTest extends TestCase
         $this->makeSettings();
         $page = $this->makePage([
             'seo_title' => 'Home original',
-            'content' => ['hero' => ['subtitle' => 'antes']],
+            'content' => ['sections' => [['id' => 's1', 'type' => 'site.prose', 'data' => ['title' => 'antes']]]],
         ]);
 
         $editor = $this->makeEditor();
@@ -34,7 +34,7 @@ class CmsPageRevisionTest extends TestCase
             ->putJson('/gestao/api/pages/home', [
                 'status' => 'published',
                 'seo_title' => 'Home nova',
-                'content' => ['hero' => ['subtitle' => 'depois']],
+                'content' => ['sections' => [['id' => 's1', 'type' => 'site.prose', 'data' => ['title' => 'depois']]]],
             ])
             ->assertOk()
             ->assertJsonPath('data.seo_title', 'Home nova');
@@ -43,7 +43,7 @@ class CmsPageRevisionTest extends TestCase
 
         $revision = PageRevision::query()->firstOrFail();
         $this->assertSame('Home original', $revision->snapshot['seo_title']);
-        $this->assertSame('antes', $revision->snapshot['content']['hero']['subtitle']);
+        $this->assertSame('antes', $revision->snapshot['content']['sections'][0]['data']['title']);
 
         $this->actingAs($editor)
             ->getJson('/gestao/api/pages/home/revisions')
@@ -55,7 +55,7 @@ class CmsPageRevisionTest extends TestCase
             ->postJson("/gestao/api/pages/home/revisions/{$revision->id}/restore")
             ->assertOk()
             ->assertJsonPath('data.seo_title', 'Home original')
-            ->assertJsonPath('data.content.hero.subtitle', 'antes');
+            ->assertJsonPath('data.content.sections.0.data.title', 'antes');
 
         $this->assertSame('Home original', $page->fresh()->seo_title);
         $this->assertDatabaseCount('page_revisions', 2);
@@ -65,14 +65,14 @@ class CmsPageRevisionTest extends TestCase
     {
         $this->makePage([
             'seo_title' => 'Home',
-            'content' => ['hero' => ['subtitle' => 'ok']],
+            'content' => ['sections' => [['id' => 's1', 'type' => 'site.prose', 'data' => ['title' => 'ok']]]],
         ]);
 
         $this->actingAs($this->makeEditor())
             ->putJson('/gestao/api/pages/home', [
                 'status' => 'published',
                 'seo_title' => 'Home',
-                'content' => ['hero' => ['subtitle' => 'ok']],
+                'content' => ['sections' => [['id' => 's1', 'type' => 'site.prose', 'data' => ['title' => 'ok']]]],
             ])
             ->assertOk();
 

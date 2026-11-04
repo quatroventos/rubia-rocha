@@ -27,7 +27,7 @@ class PagePreviewController extends Controller
             'page' => $page,
             'site' => app(SystemOptions::class)->site(),
             'payload' => $content->page($page),
-            'sitePayload' => $content->site($page->localeCode()),
+            'sitePayload' => $content->site(),
             'cmsPreview' => true,
             'previewDraftUrl' => LivePreviewController::draftUrl('pages', $page->id),
         ]);

@@ -1,0 +1,130 @@
+{
+    "slug": "ensaios/feminino",
+    "template": "custom",
+    "status": "published",
+    "seo_title": "Ensaio Feminino em Curitiba",
+    "seo_description": "Um encontro com a sua versão mais real.",
+    "robots": null,
+    "twitter_card": "summary_large_image",
+    "sections": [
+        {
+            "id": "folio-hero-1",
+            "type": "site.folio-hero",
+            "data": {
+                "image": "/rubia/img/albuns/feminino/01-1-ensaio-feminino-ao-ar-livre-curitiba5.webp",
+                "image_alt": "Ensaio feminino",
+                "kicker": "Ensaio feminino",
+                "title": "Ensaio Feminino em Curitiba",
+                "lede": "Um encontro com a sua versão mais real.",
+                "cta_label": "Me pede um orçamento",
+                "cta_href": "/contato"
+            }
+        },
+        {
+            "id": "folio-2",
+            "type": "site.folio",
+            "data": {
+                "blocks": [
+                    {
+                        "heading": "",
+                        "level": "",
+                        "body": "<p>Muitas vezes, a rotina nos faz esquecer de olhar para quem somos além dos papéis que desempenhamos todos os dias.</p><p>O ensaio feminino não é sobre “ficar bonita” para uma lente; é sobre criar um espaço de pausa onde a sua beleza — aquela que surge quando você está distraída, rindo ou em silêncio — ganha o protagonismo que merece.</p><p>Em Curitiba, aproveito a luz suave e os cenários autênticos da nossa cidade (seja externo ou em estúdio) para registrar não apenas um rosto, mas uma essência.</p>",
+                        "image": "/rubia/img/albuns/feminino/03-1-ensaio-feminino-ao-ar-livre-curitiba3.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Por que escolher um ensaio com olhar documental e afetivo?",
+                        "level": "",
+                        "body": "<p>O meu estilo foge das poses rígidas e dos sorrisos ensaiados. Eu acredito que a fotografia deve ser um espelho da sua alma, e não um acessório de moda.</p><p><strong>Conexão acima de tudo:</strong> O ensaio flui como uma conversa, onde a câmera é apenas uma testemunha da sua autodescoberta.</p><p><strong>A beleza no comum:</strong> Valorizo a luz natural, as texturas e os detalhes que tornam você única.</p><p><strong>Conforto e leveza:</strong> Se você “não leva jeito para fotos”, saiba que esse é o meu público favorito. Meu papel é guiar você para que a experiência seja leve e libertadora.</p>",
+                        "image": "/rubia/img/albuns/feminino/04-1-ensaio-feminino-ao-ar-livre-curitiba6.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Como funciona a experiência?",
+                        "level": "",
+                        "body": "<p>Seja em casa (estilo lifestyle), em um café charmoso no Batel, em meio à natureza dos parques de Curitiba, ou em um estúdio, o cenário é escolhido para que você se sinta em casa.</p><p><strong>Planejamento:</strong> Conversamos sobre o que você deseja expressar e escolhemos o local e o estilo que mais combinam com o seu momento atual.</p><p><strong>O Ensaio:</strong> Sem pressa e sem pressão. O foco é o processo, para que o resultado seja uma consequência natural da sua entrega.</p><p><strong>A Herança:</strong> Você recebe registros que não apenas mostram como você era, mas lembram como você se sentia.</p>",
+                        "image": "/rubia/img/albuns/feminino/05-1-ensaio-feminino-ao-ar-livre-curitiba2.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Vamos registrar a sua história?",
+                        "level": "3",
+                        "body": "<p>Se você busca uma fotografia que respeite a sua identidade e celebre a sua trajetória com afeto e verdade, eu adoraria ser o olhar por trás desse encontro.</p>",
+                        "image": "/rubia/img/albuns/feminino/06-1-ensaio-feminino-ao-ar-livre-curitiba1.webp",
+                        "image_alt": ""
+                    }
+                ],
+                "cta_label": "Me chama no WhatsApp",
+                "cta_href": "",
+                "album_title": "Ensaio feminino",
+                "album": [
+                    "/rubia/img/albuns/feminino/01-1-ensaio-feminino-ao-ar-livre-curitiba5.webp",
+                    "/rubia/img/albuns/feminino/02-1-ensaio-feminino-ao-ar-livre-curitiba4.webp",
+                    "/rubia/img/albuns/feminino/03-1-ensaio-feminino-ao-ar-livre-curitiba3.webp",
+                    "/rubia/img/albuns/feminino/04-1-ensaio-feminino-ao-ar-livre-curitiba6.webp",
+                    "/rubia/img/albuns/feminino/05-1-ensaio-feminino-ao-ar-livre-curitiba2.webp",
+                    "/rubia/img/albuns/feminino/06-1-ensaio-feminino-ao-ar-livre-curitiba1.webp",
+                    "/rubia/img/albuns/feminino/07-ensaio-feminino-ao-ar-livre-curitiba-jardim-botanico34.webp",
+                    "/rubia/img/albuns/feminino/08-ensaio-feminino-ao-ar-livre-curitiba-jardim-botanico33.webp",
+                    "/rubia/img/albuns/feminino/09-ensaio-feminino-ao-ar-livre-curitiba-jardim-botanico32.webp",
+                    "/rubia/img/albuns/feminino/10-ensaio-feminino-ao-ar-livre-curitiba-jardim-botanico26.webp",
+                    "/rubia/img/albuns/feminino/11-ensaio-feminino-ao-ar-livre-curitiba-jardim-botanico24.webp",
+                    "/rubia/img/albuns/feminino/12-ensaio-feminino-ao-ar-livre-curitiba-jardim-botanico23.webp",
+                    "/rubia/img/albuns/feminino/13-ensaio-feminino-ao-ar-livre-curitiba-jardim-botanico21.webp",
+                    "/rubia/img/albuns/feminino/14-ensaio-feminino-ao-ar-livre-curitiba-jardim-botanico31.webp",
+                    "/rubia/img/albuns/feminino/15-ensaio-feminino-ao-ar-livre-curitiba-jardim-botanico19.webp",
+                    "/rubia/img/albuns/feminino/16-ensaio-feminino-ao-ar-livre-curitiba-jardim-botanico16.webp",
+                    "/rubia/img/albuns/feminino/17-ensaio-feminino-recanto-glicineas1.webp",
+                    "/rubia/img/albuns/feminino/18-ensaio-feminino-recanto-glicineas2.webp",
+                    "/rubia/img/albuns/feminino/19-ensaio-feminino-recanto-glicineas3.webp",
+                    "/rubia/img/albuns/feminino/20-ensaio-feminino-recanto-glicineas4.webp",
+                    "/rubia/img/albuns/feminino/21-ensaio-feminino-recanto-glicineas5.webp",
+                    "/rubia/img/albuns/feminino/22-retrato-feminino-curitiba1.webp",
+                    "/rubia/img/albuns/feminino/23-retrato-feminino-curitiba8.webp",
+                    "/rubia/img/albuns/feminino/24-retrato-feminino-curitiba10.webp",
+                    "/rubia/img/albuns/feminino/25-retrato-feminino-curitiba9.webp",
+                    "/rubia/img/albuns/feminino/26-retrato-feminino-curitiba11.webp",
+                    "/rubia/img/albuns/feminino/27-retrato-feminino-curitiba6.webp",
+                    "/rubia/img/albuns/feminino/28-retrato-feminino-curitiba7.webp",
+                    "/rubia/img/albuns/feminino/29-retrato-feminino-curitiba4.webp",
+                    "/rubia/img/albuns/feminino/30-retrato-feminino-curitiba15.webp",
+                    "/rubia/img/albuns/feminino/31-retrato-feminino-curitiba12.webp",
+                    "/rubia/img/albuns/feminino/32-retrato-feminino-curitiba13.webp",
+                    "/rubia/img/albuns/feminino/33-retrato-feminino-curitiba14.webp",
+                    "/rubia/img/albuns/feminino/34-retrato-feminino-curitiba25.webp",
+                    "/rubia/img/albuns/feminino/35-retrato-feminino-curitiba18.webp"
+                ]
+            }
+        },
+        {
+            "id": "faq-3",
+            "type": "site.faq",
+            "data": {
+                "leaf": true,
+                "title": "Perguntas frequentes",
+                "items": [
+                    {
+                        "question": "Eu não sei fazer poses, o ensaio é para mim?",
+                        "answer": "Com certeza! O meu foco é a fotografia documental e afetiva, onde priorizo o movimento e a espontaneidade. Eu guio você durante todo o processo para que você se sinta confortável e segura, sem a pressão de poses forçadas."
+                    },
+                    {
+                        "question": "Qual o melhor local para fazer um ensaio feminino em Curitiba?",
+                        "answer": "Depende da narrativa que queremos criar. Podemos aproveitar a luz suave dos parques, o ambiente urbano e charmoso de cafés no Batel, ou até o aconchego e a privacidade da sua casa (estilo lifestyle). Eu ajudo você a escolher o cenário que mais combina com a sua essência."
+                    },
+                    {
+                        "question": "O que devo vestir no dia das fotos?",
+                        "answer": "O ideal é vestir algo que faça você se sentir você mesma e confortável. Eu recomendo evitar roupas com estampas muito grandes ou marcas em evidência para que o foco seja o seu rosto e sua expressão. Após o agendamento, eu envio um guia de estilo exclusivo para te ajudar a escolher looks que harmonizem com o local escolhido em Curitiba."
+                    },
+                    {
+                        "question": "Qual o melhor horário para o ensaio?",
+                        "answer": "Geralmente prefiro fotografar no início da manhã ou fim da tarde (golden hour), quando a luz é suave, dourada e favorece aquele clima acolhedor nas fotos."
+                    },
+                    {
+                        "question": "É feito algum tipo de edição ou tratamento de pele?",
+                        "answer": "Sim, todas as fotos passam por um tratamento de cor e luz que faz parte da minha identidade artística. No entanto, prezo pelo real: mantenho a sua essência sem manipulações que alterem quem você é de verdade."
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,25 +1,20 @@
 @php($seo = $payload['seo'] ?? \App\Support\Seo::resolve($page ?? null, $site ?? null, isset($page) ? url($page->publicPath()) : null))
-@php($htmlLang = \App\Support\Locales::hreflang(\App\Support\Locales::normalize($payload['locale'] ?? null)))
+@php($cssVersion = @filemtime(public_path('rubia/rubia.css')) ?: null)
 <!doctype html>
-<html lang="{{ $htmlLang }}">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ $seo['title'] }}</title>
     @if(!empty($seo['description']))
       <meta name="description" content="{{ $seo['description'] }}" />
     @endif
     <meta name="robots" content="{{ $seo['robots'] }}" />
+    <meta name="theme-color" content="#f6f1eb" />
     @include('partials.favicon')
     <link rel="canonical" href="{{ $seo['canonical'] }}" />
-    @foreach($seo['hreflang'] ?? [] as $alternate)
-      <link rel="alternate" hreflang="{{ $alternate['hreflang'] }}" href="{{ $alternate['href'] }}" />
-    @endforeach
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="{{ $seo['og_locale'] }}" />
-    @foreach($seo['og_locale_alternates'] ?? [] as $ogAlternate)
-      <meta property="og:locale:alternate" content="{{ $ogAlternate }}" />
-    @endforeach
     <meta property="og:site_name" content="{{ $seo['og_site_name'] }}" />
     <meta property="og:title" content="{{ $seo['title'] }}" />
     @if(!empty($seo['description']))
@@ -36,11 +31,14 @@
     @if(!empty($payload['jsonld']))
       <script type="application/ld+json">{!! json_encode($payload['jsonld'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP) !!}</script>
     @endif
+    <link rel="preload" href="/rubia/fonts/playfair-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/rubia/fonts/work-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/rubia/rubia.css{{ $cssVersion ? '?v='.$cssVersion : '' }}" />
     @if(!empty($cmsPreview))
       @viteReactRefresh
-      @vite(['resources/css/site.css', 'resources/js/site/main.tsx'])
+      @vite('resources/js/rubia/preview.tsx')
     @else
-      @vite(['resources/css/site.css', 'resources/js/site/behaviors.js'])
+      @vite('resources/js/rubia/site.ts')
     @endif
     {!! consent_tags($site?->tag_header) !!}
   </head>

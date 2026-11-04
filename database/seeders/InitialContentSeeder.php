@@ -11,7 +11,7 @@ class InitialContentSeeder extends Seeder
     public function run(): void
     {
         $this->rolesAndAdmin();
-        $this->call([SiteContentSeeder::class, CaseStudySeeder::class]);
+        $this->call([SiteContentSeeder::class, RedirectSeeder::class]);
     }
 
     private function rolesAndAdmin(): void

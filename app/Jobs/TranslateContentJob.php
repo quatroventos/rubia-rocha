@@ -2,9 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Models\CaseStudy;
 use App\Models\Page;
-use App\Services\Translation\CaseStudyTranslator;
 use App\Services\Translation\PageTranslator;
 use App\Services\Translation\SiteTranslator;
 use Illuminate\Bus\Batchable;
@@ -29,7 +27,7 @@ class TranslateContentJob implements ShouldQueue
     public int $timeout = 600;
 
     /**
-     * @param  'page'|'case'|'menus'  $kind
+     * @param  'page'|'menus'  $kind
      */
     public function __construct(
         public string $kind,
@@ -70,7 +68,7 @@ class TranslateContentJob implements ShouldQueue
         dispatch($job)->onConnection(is_string($connection) && $connection !== '' ? $connection : null);
     }
 
-    public function handle(PageTranslator $pages, CaseStudyTranslator $cases, SiteTranslator $site): void
+    public function handle(PageTranslator $pages, SiteTranslator $site): void
     {
         if ($this->batch()?->cancelled()) {
             return;
@@ -81,12 +79,11 @@ class TranslateContentJob implements ShouldQueue
         try {
             $row = match ($this->kind) {
                 'page' => $pages->translate(Page::query()->findOrFail($this->id), $this->locale, $this->userId),
-                'case' => $cases->translate(CaseStudy::query()->findOrFail($this->id), $this->locale),
                 'menus' => [$site->menus($this->locale), $site->settings($this->locale)],
                 default => null,
             };
 
-            if ($this->publish && ($row instanceof Page || $row instanceof CaseStudy) && $row->status !== 'published') {
+            if ($this->publish && $row instanceof Page && $row->status !== 'published') {
                 $row->forceFill(['status' => 'published', 'published_at' => $row->published_at ?? now()])->save();
             }
 

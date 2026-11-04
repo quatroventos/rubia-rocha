@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\GenerateOgImageJob;
-use App\Models\CaseStudy;
 use App\Models\MenuItem;
 use App\Models\Page;
 use App\Services\PublicContent;
@@ -24,20 +23,11 @@ class OgImageController extends Controller
 
         $payload = $preview->buildPage($request, $page, $content);
 
-        return $this->capture(fn () => $capture->capture($payload, $content->site($page->localeCode()), ($page->slug ?: 'home').'-'.$page->localeCode()));
-    }
-
-    public function caseStudy(Request $request, CaseStudy $caseStudy, PublicContent $content, LivePreviewController $preview, OgImageCapture $capture): JsonResponse
-    {
-        $this->authorize('update', $caseStudy);
-
-        $payload = $preview->buildCase($request, $caseStudy, $content);
-
-        return $this->capture(fn () => $capture->capture($payload, $content->site($caseStudy->localeCode()), 'case-'.$caseStudy->slug.'-'.$caseStudy->localeCode()));
+        return $this->capture(fn () => $capture->capture($payload, $content->site(), ($page->slug ?: 'home').'-'.$page->localeCode()));
     }
 
     /**
-     * Enfileira o card de todas as páginas e cases publicados, em todos os idiomas, sobrescrevendo a OG atual.
+     * Enfileira o card de todas as páginas publicadas, sobrescrevendo a OG atual.
      */
     public function generateAll(): JsonResponse
     {
@@ -46,7 +36,6 @@ class OgImageController extends Controller
         if (! BatchProgress::running(self::BATCH)) {
             $jobs = [
                 ...Page::query()->published()->orderBy('locale')->orderBy('slug')->pluck('id')->map(fn ($id) => new GenerateOgImageJob('page', (int) $id))->all(),
-                ...CaseStudy::query()->published()->orderBy('locale')->orderBy('slug')->pluck('id')->map(fn ($id) => new GenerateOgImageJob('case', (int) $id))->all(),
             ];
 
             BatchProgress::start(self::BATCH, 'Gerar OG images', $jobs);

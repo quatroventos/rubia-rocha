@@ -1,5 +1,5 @@
 import { type ReactNode, useEffect, useId, useMemo, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ChevronDown, ChevronRight, History, PanelLeft, PanelLeftClose, Save, X } from 'lucide-react';
 import { api, firstError } from '../api';
 import { AppShell } from '../components/AppShell';
@@ -19,6 +19,8 @@ import { scoreTone } from '../components/SiteHealth';
 import { composeSeoTitle, resolveSeoDescription, type SeoDefaults } from '../seo';
 import { useTour } from '../tour/TourProvider';
 import { TranslationTabs, useTranslationConfig, useTranslationJob, type TranslationState } from '../components/TranslationBar';
+
+type SlugRedirect = { from: string; to: string; updated: number };
 
 type PageSection = {
   id: string;
@@ -123,6 +125,9 @@ export function PageEditorScreen() {
   const [section, setSection] = useState(0);
   const [error, setError] = useState('');
   const [saved, setSaved] = useState(false);
+  const [savedSlug, setSavedSlug] = useState('');
+  const [savedPath, setSavedPath] = useState('/');
+  const [slugRedirect, setSlugRedirect] = useState<SlugRedirect | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(() => localStorage.getItem('cms-page-sidebar') !== '0');
   const [boxes, setBoxes] = useState<BoxState>(readBoxes);
   const [seoScore, setSeoScore] = useState<number | null>(null);
@@ -187,6 +192,8 @@ export function PageEditorScreen() {
   function adoptPage(next: PageDetail, nextSchema?: OutlineSection[]) {
     setPage(next);
     setBaseline(JSON.stringify(next));
+    setSavedSlug(next.slug);
+    setSavedPath(next.path);
     if (nextSchema) {
       setSchema(nextSchema);
     }
@@ -218,7 +225,7 @@ export function PageEditorScreen() {
       return;
     }
     if (locale === translationConfig?.default) {
-      navigate(`/paginas/${page.source_slug}`);
+      navigate(`/paginas/${page.source_id}`);
       return;
     }
     const target = page.translations[locale];
@@ -331,15 +338,15 @@ export function PageEditorScreen() {
     setError('');
     setSaved(false);
     try {
-      const payload = await api<{ data: PageDetail; schema?: OutlineSection[] }>(`/pages/${slug}`, {
+      const payload = await api<{ data: PageDetail; schema?: OutlineSection[]; redirect?: SlugRedirect | null }>(`/pages/${slug}`, {
         method: 'PUT',
         body: JSON.stringify({ ...page, status: isTranslation ? page.status : 'published' }),
       });
       const nextSchema = payload.schema ?? schema;
       adoptPage(payload.data, nextSchema);
       setSaved(true);
-      if (!isTranslation && payload.data.slug !== slug) {
-        navigate(`/paginas/${payload.data.slug}`, { replace: true });
+      if (payload.redirect) {
+        setSlugRedirect(payload.redirect);
       }
     } catch (err) {
       setError(firstError(err));
@@ -353,18 +360,18 @@ export function PageEditorScreen() {
     setRestoring(true);
     setError('');
     try {
-      const payload = await api<{ data: PageDetail; schema?: OutlineSection[] }>(`/pages/${slug}/revisions/${restoreId}/restore`, {
+      const payload = await api<{ data: PageDetail; schema?: OutlineSection[]; redirect?: SlugRedirect | null }>(`/pages/${slug}/revisions/${restoreId}/restore`, {
         method: 'POST',
       });
-      const refreshed = await api<{ data: PageDetail; schema: OutlineSection[]; library: LibraryGroup[]; seo: SeoDefaults }>(`/pages/${payload.data.slug}`);
+      if (payload.redirect) {
+        setSlugRedirect(payload.redirect);
+      }
+      const refreshed = await api<{ data: PageDetail; schema: OutlineSection[]; library: LibraryGroup[]; seo: SeoDefaults }>(`/pages/${payload.data.id}`);
       adoptPage(refreshed.data, refreshed.schema);
       setLibrary(refreshed.library);
       setSaved(true);
       setRestoreId(null);
       setVersionsOpen(false);
-      if (!isTranslation && payload.data.slug !== slug) {
-        navigate(`/paginas/${payload.data.slug}`, { replace: true });
-      }
     } catch (err) {
       setError(firstError(err));
     } finally {
@@ -385,7 +392,8 @@ export function PageEditorScreen() {
   const isHome = page.template === 'home';
   const dirty = baseline !== null && JSON.stringify(page) !== baseline;
   const isTranslation = page.translation_of !== null;
-  const pathPrefix = page.path.replace(/\/[^/]*$/, '/').replace(/^\/$/, '/');
+  const pathPrefix = savedSlug !== '' && savedPath.endsWith(`/${savedSlug}`) ? savedPath.slice(0, -savedSlug.length) : '/';
+  const slugChanged = !isHome && savedSlug !== '' && page.slug !== '' && page.slug !== savedSlug;
   const localeName = translationConfig?.locales.find((item) => item.code === page.locale)?.name ?? page.locale;
   const seoAi: FieldAiContext | undefined = isTranslation ? undefined : {
     disabled: !translationConfig?.configured,
@@ -432,6 +440,18 @@ export function PageEditorScreen() {
       {error ? <div className="editor-banner form-error">{error}</div> : null}
       {translationJob.error ? <div className="editor-banner form-error">{translationJob.error}</div> : null}
       {saved && !dirty ? <div className="editor-banner form-success">Página atualizada.</div> : null}
+      {slugRedirect ? (
+        <div className="editor-banner form-warning slug-redirect-banner" role="status">
+          <span>
+            O endereço mudou. Criei um redirect 301 de <code>{slugRedirect.from}</code> para <code>{slugRedirect.to}</code>, então links antigos e resultados de busca continuam funcionando
+            {slugRedirect.updated > 0 ? `; ${slugRedirect.updated} redirect(s) que apontavam para o endereço antigo agora levam direto ao novo` : ''}.
+            {' '}<Link to="/redirecionamentos">Ver redirecionamentos</Link>
+          </span>
+          <button className="icon-btn" type="button" aria-label="Fechar aviso" onClick={() => setSlugRedirect(null)}>
+            <X size={14} />
+          </button>
+        </div>
+      ) : null}
       {isTranslation && page.stale ? <div className="editor-banner form-warning">O original em português mudou depois desta tradução. Revise ou retraduza.</div> : null}
       <div className="editor-langbar">
         <TranslationTabs
@@ -570,11 +590,16 @@ export function PageEditorScreen() {
                     disabled={isHome}
                     onChange={(event) => patchPage({
                       ...page,
-                      slug: event.target.value.trim().toLowerCase().replace(/[^a-z0-9-]/g, ''),
+                      slug: event.target.value.trim().toLowerCase().replace(/[^a-z0-9/-]/g, ''),
                     })}
                   />
                 </div>
                 <p className="hint" id="page-slug-hint">{isHome ? `A home publica em ${page.path}.` : 'URL pública da página.'}</p>
+                {slugChanged ? (
+                  <p className="hint slug-redirect-hint">
+                    Ao salvar, <code>{savedPath}</code> passa a redirecionar (301) para <code>{`${pathPrefix}${page.slug}`}</code>.
+                  </p>
+                ) : null}
               </div>
               <div className="field">
                 <label htmlFor="page-seo-keyword">Palavra-chave</label>

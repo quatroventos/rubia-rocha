@@ -12,9 +12,8 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/css/admin.css',
                 'resources/js/admin/main.tsx',
-                'resources/css/site.css',
-                'resources/js/site/main.tsx',
-                'resources/js/site/behaviors.js',
+                'resources/js/rubia/site.ts',
+                'resources/js/rubia/preview.tsx',
             ],
             refresh: true,
             fonts: [

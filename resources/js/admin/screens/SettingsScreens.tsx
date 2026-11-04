@@ -1,14 +1,27 @@
 import { type FormEvent, useEffect, useState } from 'react';
 import { AppShell } from '../components/AppShell';
-import { LogosField } from '../components/LogosField';
 import { MediaField } from '../components/MediaField';
+import { SchemaForm, type Field } from '../components/SchemaForm';
 import { api, firstError } from '../api';
 
 type SiteForm = Record<string, string | number | boolean | null | undefined>;
 
-type ClientLogo = { name?: string; image?: string; image_alt?: string };
+type GalleryPhoto = { image?: string; alt?: string; href?: string };
 
-type SitePayload = SiteForm & { plan_links?: Record<string, string> | null; client_logos?: ClientLogo[] | null };
+type SitePayload = SiteForm & { footer_gallery?: GalleryPhoto[] | null };
+
+const GALLERY_FIELDS: Field[] = [
+  {
+    type: 'repeater',
+    name: 'footer_gallery',
+    label: 'Fotos',
+    fields: [
+      { type: 'media', name: 'image', label: 'Foto', kind: 'image' },
+      { type: 'text', name: 'alt', label: 'Texto alternativo' },
+      { type: 'text', name: 'href', label: 'Link (ex.: /ensaios/familia)' },
+    ],
+  },
+];
 
 type WhatsAppDefaults = {
   admin_template: string;
@@ -23,26 +36,21 @@ export function SiteScreen() {
   const [whatsAppDefaults, setWhatsAppDefaults] = useState<WhatsAppDefaults | null>(null);
   const [whatsAppTest, setWhatsAppTest] = useState<{ ok: boolean; message: string } | null>(null);
   const [testing, setTesting] = useState(false);
-  const [hostingPlans, setHostingPlans] = useState<Record<string, string>>({});
-  const [planLinks, setPlanLinks] = useState<Record<string, string>>({});
-  const [clientLogos, setClientLogos] = useState<ClientLogo[]>([]);
+  const [gallery, setGallery] = useState<GalleryPhoto[]>([]);
 
   useEffect(() => {
     void api<{
       data: SitePayload;
       whatsapp_defaults: WhatsAppDefaults;
-      hosting_plans: Record<string, string>;
     }>('/site').then((payload) => {
-      const { plan_links: links, client_logos: logos, ...data } = payload.data;
+      const { footer_gallery: photos, ...data } = payload.data;
       setForm({
         ...data,
         smtp_password: '',
         evolution_api_key: '',
       });
-      setPlanLinks(links ?? {});
-      setClientLogos(logos ?? []);
+      setGallery(photos ?? []);
       setWhatsAppDefaults(payload.whatsapp_defaults);
-      setHostingPlans(payload.hosting_plans ?? {});
     });
   }, []);
 
@@ -78,21 +86,19 @@ export function SiteScreen() {
         evolution_api_key: typeof form.evolution_api_key === 'string' && form.evolution_api_key.trim() !== ''
           ? form.evolution_api_key
           : null,
-        plan_links: planLinks,
-        client_logos: clientLogos.filter((logo) => logo.image),
+        footer_gallery: gallery.filter((photo) => photo.image),
       };
       const payload = await api<{ data: SitePayload }>('/site', {
         method: 'PUT',
         body: JSON.stringify(body),
       });
-      const { plan_links: links, client_logos: logos, ...data } = payload.data;
+      const { footer_gallery: photos, ...data } = payload.data;
       setForm({
         ...data,
         smtp_password: '',
         evolution_api_key: '',
       });
-      setPlanLinks(links ?? {});
-      setClientLogos(logos ?? []);
+      setGallery(photos ?? []);
       setOk(true);
     } catch (err) {
       setError(firstError(err));
@@ -185,33 +191,19 @@ export function SiteScreen() {
             {field('smtp_from_name', 'Remetente (nome)')}
           </div>
           <div className="settings-block">
-            <h3 className="settings-block__title">Logos de clientes</h3>
-            <p className="desc">
-              Aparecem em todas as seções Logos do site, exceto nas que estiverem com "Usar logos próprios nesta seção" ligado.
-            </p>
-            <LogosField label="Logos" value={clientLogos} onChange={setClientLogos} />
-          </div>
-          <div className="settings-block">
-            <h3 className="settings-block__title">Links de compra dos planos de hospedagem</h3>
-            <p className="desc">
-              Botão "Contratar" de cada plano em /hospedagem-de-sites. Em branco, vale o checkout padrão da Firefly Host.
-            </p>
-            {Object.entries(hostingPlans).map(([id, label]) => (
-              <div className="field" key={id}>
-                <label>{label}</label>
-                <input
-                  type="url"
-                  value={planLinks[id] ?? ''}
-                  placeholder="https://"
-                  onChange={(event) => setPlanLinks({ ...planLinks, [id]: event.target.value })}
-                />
-              </div>
-            ))}
+            <h3 className="settings-block__title">Galeria do rodapé</h3>
+            <p className="desc">Fotos com link que aparecem no rodapé de todas as páginas.</p>
+            {field('footer_gallery_title', 'Título')}
+            <SchemaForm
+              fields={GALLERY_FIELDS}
+              content={{ footer_gallery: gallery }}
+              onChange={(content) => setGallery(Array.isArray(content.footer_gallery) ? (content.footer_gallery as GalleryPhoto[]) : [])}
+            />
           </div>
           <div className="settings-block">
             <h3 className="settings-block__title">WhatsApp (Evolution API)</h3>
             <p className="desc">
-              A cada envio dos formulários de contato e de lead, avisa o seu número e manda uma confirmação para o WhatsApp do visitante. O e-mail continua sendo enviado normalmente.
+              A cada envio do formulário de contato, avisa o seu número e manda uma confirmação para o WhatsApp do visitante. O e-mail continua sendo enviado normalmente.
             </p>
             <label className="check">
               <input

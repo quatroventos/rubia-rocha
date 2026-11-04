@@ -5,7 +5,7 @@
 return [
     'default' => 'pt-BR',
 
-    'cookie' => 'qv_locale',
+    'cookie' => 'rr_locale',
 
     'supported' => [
         'pt-BR' => [
@@ -15,22 +15,6 @@ return [
             'name' => 'Português',
             'short' => 'PT',
             'ai_name' => 'Brazilian Portuguese',
-        ],
-        'en' => [
-            'prefix' => 'en',
-            'hreflang' => 'en',
-            'og_locale' => 'en_US',
-            'name' => 'English',
-            'short' => 'EN',
-            'ai_name' => 'English (international, neutral)',
-        ],
-        'es' => [
-            'prefix' => 'es',
-            'hreflang' => 'es',
-            'og_locale' => 'es_LA',
-            'name' => 'Español',
-            'short' => 'ES',
-            'ai_name' => 'neutral Latin American Spanish',
         ],
     ],
 ];

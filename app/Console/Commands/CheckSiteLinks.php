@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Models\CaseStudy;
 use App\Models\Page;
 use Illuminate\Console\Command;
 use Illuminate\Http\Client\Pool;
@@ -33,14 +32,11 @@ class CheckSiteLinks extends Command
         $origins = array_values(array_unique(array_filter([
             $base,
             rtrim((string) config('app.url'), '/'),
-            'https://www.quatroventos.com.br',
-            'https://quatroventos.com.br',
+            'https://www.rubiarochafotografia.com.br',
+            'https://rubiarochafotografia.com.br',
         ])));
 
-        $sources = [
-            ...Page::query()->published()->get()->map(fn (Page $page) => $page->publicPath())->all(),
-            ...CaseStudy::query()->published()->get()->map(fn (CaseStudy $case) => $case->publicPath())->all(),
-        ];
+        $sources = Page::query()->published()->get()->map(fn (Page $page) => $page->publicPath())->all();
 
         /** @var array<string, list<string>> $internal */
         $internal = [];

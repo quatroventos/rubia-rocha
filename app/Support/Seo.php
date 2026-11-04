@@ -17,7 +17,7 @@ class Seo
 
     public const DEFAULT_LOCALE = 'pt_BR';
 
-    public const FALLBACK_SITE_NAME = 'Quatro Ventos';
+    public const FALLBACK_SITE_NAME = 'Rubia Rocha Fotografia';
 
     /**
      * Limites do que o Google exibe sem cortar. O título conta já composto com o template.

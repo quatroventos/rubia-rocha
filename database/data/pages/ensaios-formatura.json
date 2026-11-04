@@ -1,0 +1,131 @@
+{
+    "slug": "ensaios/formatura",
+    "template": "custom",
+    "status": "published",
+    "seo_title": "Ensaio de Formatura em Curitiba",
+    "seo_description": "Sua conquista com um olhar exclusivo.",
+    "robots": null,
+    "twitter_card": "summary_large_image",
+    "sections": [
+        {
+            "id": "folio-hero-1",
+            "type": "site.folio-hero",
+            "data": {
+                "image": "/rubia/img/albuns/formatura/01-fotos-formatura-turma-estudio-curitiba2.webp",
+                "image_alt": "Ensaio de formatura",
+                "kicker": "Ensaio de formatura",
+                "title": "Ensaio de Formatura em Curitiba",
+                "lede": "Sua conquista com um olhar exclusivo.",
+                "cta_label": "Me pede um orçamento",
+                "cta_href": "/contato"
+            }
+        },
+        {
+            "id": "folio-2",
+            "type": "site.folio",
+            "data": {
+                "blocks": [
+                    {
+                        "heading": "",
+                        "level": "",
+                        "body": "<p>Fotos externas ou em estúdio nos cenários mais icônicos de Curitiba, com atendimento personalizado e entrega rápida.</p><p>Você dedicou anos de esforço, noites de estudo e superação para chegar até aqui. O seu ensaio de formatura não deve ser apenas mais um registro ‘industrial’ feito por uma empresa de grandes lotes.</p><p>Eu acredito que a sua formatura merece um ensaio personalizado, que conte a sua história e mostre a sua personalidade. Sem pressa, sem filas e com a liberdade de escolher o cenário que mais combina com você em Curitiba.</p>",
+                        "image": "/rubia/img/albuns/formatura/03-ensaio-formatura-estudio-curitiba-individual9.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Onde fazer seu ensaio de formatura em Curitiba?",
+                        "level": "",
+                        "body": "<p>Curitiba oferece cenários icônicos e opções versáteis que emolduram perfeitamente esse momento. Escolha o local que faz parte da sua trajetória:</p><ul><li><strong>Sua Faculdade ou Universidade:</strong> Fotos no campus onde tudo aconteceu (UFPR, PUC, UP, Curitiba, etc.), aproveitando a arquitetura que foi seu cenário nos últimos anos.</li><li><strong>Ensaios em Estúdio:</strong> Uma opção atemporal, sofisticada e com controle total de iluminação. Tenho opções de estúdios parceiros ideais tanto para retratos individuais quanto para grupos e turmas completas.</li><li><strong>Jardim Botânico:</strong> O clássico absoluto para fotos de beca e capelo com a estufa ao fundo.</li><li><strong>Museu Oscar Niemeyer (MON):</strong> Para um ensaio de formatura moderno, artístico e minimalista.</li><li><strong>Unilivre ou Parque Tanguá:</strong> Perfeitos para quem busca a conexão com a natureza e arquiteturas imponentes de Curitiba.</li></ul>",
+                        "image": "/rubia/img/albuns/formatura/04-ensaio-formatura-estudio-curitiba-individual10.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Por que escolher uma fotógrafa independente para sua formatura?",
+                        "level": "",
+                        "body": "",
+                        "image": "/rubia/img/albuns/formatura/05-ensaio-formatura-estudio-curitiba-individual11.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Liberdade Total",
+                        "level": "3",
+                        "body": "<p>Você escolhe a data, o horário e o local que melhor se encaixam na sua rotina, sem depender de agendas lotadas de grandes empresas.</p>",
+                        "image": "/rubia/img/albuns/formatura/06-ensaio-formatura-estudio-curitiba-individual12.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Edição Personalizada",
+                        "level": "3",
+                        "body": "<p>Cada foto recebe minha curadoria e edição minuciosa, mantendo a naturalidade desse momento único.</p>",
+                        "image": "/rubia/img/albuns/formatura/07-ensaio-formatura-estudio-curitiba-individual13.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Entrega Rápida e Digital",
+                        "level": "3",
+                        "body": "<p>Nada de esperar meses ou ficar presa a álbuns impressos superfaturados. Você recebe suas fotos em alta resolução para postar e imprimir como quiser. Quer o álbum? Ótimo! Você pode encomendar comigo também. Você tem a liberdade para escolher os itens para adaptar o pacote de fotos do jeito que preferir.</p>",
+                        "image": "/rubia/img/albuns/formatura/08-ensaio-formatura-estudio-curitiba-individual14.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Fotos com a Família e Pets",
+                        "level": "3",
+                        "body": "<p>No seu ensaio independente, quem você ama também faz parte do registro. Aqui, seus pais, amigos e até seu pet são muito bem-vindos!</p>",
+                        "image": "/rubia/img/albuns/formatura/09-ensaio-formatura-grupo-estudio-curitiba1.webp",
+                        "image_alt": ""
+                    }
+                ],
+                "cta_label": "Me chama no WhatsApp",
+                "cta_href": "",
+                "album_title": "Ensaio de formatura",
+                "album": [
+                    "/rubia/img/albuns/formatura/01-fotos-formatura-turma-estudio-curitiba2.webp",
+                    "/rubia/img/albuns/formatura/02-fotos-formatura-turma-estudio-curitiba1.webp",
+                    "/rubia/img/albuns/formatura/03-ensaio-formatura-estudio-curitiba-individual9.webp",
+                    "/rubia/img/albuns/formatura/04-ensaio-formatura-estudio-curitiba-individual10.webp",
+                    "/rubia/img/albuns/formatura/05-ensaio-formatura-estudio-curitiba-individual11.webp",
+                    "/rubia/img/albuns/formatura/06-ensaio-formatura-estudio-curitiba-individual12.webp",
+                    "/rubia/img/albuns/formatura/07-ensaio-formatura-estudio-curitiba-individual13.webp",
+                    "/rubia/img/albuns/formatura/08-ensaio-formatura-estudio-curitiba-individual14.webp",
+                    "/rubia/img/albuns/formatura/09-ensaio-formatura-grupo-estudio-curitiba1.webp",
+                    "/rubia/img/albuns/formatura/10-ensaio-formatura-grupo-estudio-curitiba2.webp",
+                    "/rubia/img/albuns/formatura/11-ensaio-formatura-grupo-estudio-curitiba3.webp",
+                    "/rubia/img/albuns/formatura/12-ensaio-formatura-estudio-curitiba-individual7.webp",
+                    "/rubia/img/albuns/formatura/13-ensaio-formatura-estudio-curitiba-individual8.webp",
+                    "/rubia/img/albuns/formatura/14-ensaio-formatura-estudio-curitiba-individual6.webp",
+                    "/rubia/img/albuns/formatura/15-ensaio-formatura-estudio-curitiba-individual5.webp",
+                    "/rubia/img/albuns/formatura/16-ensaio-formatura-estudio-curitiba-individual4.webp",
+                    "/rubia/img/albuns/formatura/17-ensaio-formatura-estudio-curitiba-individual3.webp",
+                    "/rubia/img/albuns/formatura/18-ensaio-formatura-estudio-curitiba-individual2.webp",
+                    "/rubia/img/albuns/formatura/19-ensaio-formatura-estudio-curitiba-individual1.webp"
+                ]
+            }
+        },
+        {
+            "id": "faq-3",
+            "type": "site.faq",
+            "data": {
+                "leaf": true,
+                "title": "Perguntas frequentes",
+                "items": [
+                    {
+                        "question": "Quanto tempo dura o ensaio de formatura?",
+                        "answer": "Geralmente entre 1h a 2h, dependendo do local e se é individual ou em grupo. Para grupos maiores o tempo de ensaio pode levar até 4 horas."
+                    },
+                    {
+                        "question": "Você fornecem a beca para o ensaio?",
+                        "answer": "Sim! Para facilitar a sua organização, eu possuo parceiros de confiança e ofereço a opção do ensaio com a beca inclusa. Caso você prefira, também pode trazer sua própria beca. O ponto mais importante é a cor da faixa: cada curso possui uma cor específica, e eu te ajudo a conferir qual é a correta para que tudo esteja impecável no dia das fotos!"
+                    },
+                    {
+                        "question": "Posso levar minha família para o ensaio de formatura?",
+                        "answer": "Com certeza! Pais, irmãos, filhos, esposa, marido e até o pet são super bem-vindos para celebrar essa conquista com você. Você pode escolher até 5 integrantes da família para participar das fotos com você no ensaio de formatura individual."
+                    },
+                    {
+                        "question": "E se chover no dia?",
+                        "answer": "Em Curitiba o clima é incerto, por isso monitoramos a previsão. Se chover, reagendamos sem custo o ensaio ou partimos para a opção de estúdio."
+                    }
+                ]
+            }
+        }
+    ]
+}

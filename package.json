@@ -4,9 +4,7 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite",
-        "rubia": "vite --config vite.rubia.config.js",
-        "rubia:build": "vite build --config vite.rubia.config.js"
+        "dev": "vite"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",

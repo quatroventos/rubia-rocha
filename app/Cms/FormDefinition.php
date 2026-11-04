@@ -300,6 +300,10 @@ class FormDefinition
             ];
         }
 
+        foreach ($map as $column) {
+            $row[$column] ??= '';
+        }
+
         $row['extra'] = $extra === [] ? null : $extra;
 
         return $row;
@@ -439,13 +443,23 @@ class FormDefinition
      */
     public static function alwaysRequired(string $key): array
     {
-        $names = ['lgpd', 'curriculo', 'email', 'nome'];
+        return ['lgpd', 'curriculo', 'email', 'nome'];
+    }
 
-        if ($key === 'contact') {
-            $names[] = 'telefone';
-        }
-
-        return $names;
+    /**
+     * @return array<string, string>
+     */
+    public static function validationMessages(string $key): array
+    {
+        return match ($key) {
+            'contact' => [
+                'nome.required' => 'Me conta o seu nome.',
+                'email.required' => 'Preciso de um e-mail para te responder.',
+                'email.email' => 'Esse e-mail parece incompleto.',
+                'mensagem.required' => 'Escreve um pouco sobre o momento que você quer registrar.',
+            ],
+            default => [],
+        };
     }
 
     public static function isWide(array $field): bool
@@ -487,23 +501,15 @@ class FormDefinition
             'key' => 'contact',
             'label' => 'Contato',
             'path' => '/contato',
-            'submit_label' => 'Enviar',
+            'submit_label' => 'Enviar mensagem',
             'lgpd_label' => 'Autorizo o armazenamento dos dados informados para fins de contato e retorno, conforme a legislação aplicável de proteção de dados.',
             'sections' => [
                 [
-                    'label' => 'Dados de contato',
+                    'label' => 'Contato',
                     'fields' => [
-                        ['name' => 'nome', 'label' => 'Seu nome', 'type' => 'text', 'required' => true],
-                        ['name' => 'email', 'label' => 'Seu e-mail', 'type' => 'email', 'required' => true],
-                        ['name' => 'telefone', 'label' => 'Seu telefone', 'type' => 'tel', 'required' => true],
-                        ['name' => 'destino', 'label' => 'Seu destino', 'type' => 'select', 'required' => true],
-                    ],
-                ],
-                [
-                    'label' => 'Mensagem',
-                    'fields' => [
-                        ['name' => 'mensagem', 'label' => 'Sua mensagem', 'type' => 'textarea', 'required' => true],
-                        ['name' => 'lgpd', 'label' => 'Consentimento LGPD', 'type' => 'checkbox', 'required' => true],
+                        ['name' => 'nome', 'label' => 'Nome', 'type' => 'text', 'required' => true],
+                        ['name' => 'email', 'label' => 'E-mail', 'type' => 'email', 'required' => true],
+                        ['name' => 'mensagem', 'label' => 'Mensagem', 'type' => 'textarea', 'required' => true],
                     ],
                 ],
             ],

@@ -2,7 +2,6 @@
 
 namespace App\Services\Seo;
 
-use App\Models\CaseStudy;
 use App\Models\Page;
 use App\Models\SiteSetting;
 use App\Support\Seo;
@@ -222,7 +221,7 @@ class SeoAnalyzer
 
         if (is_array($metrics) && $metrics['intent'] !== null) {
             $commercial = in_array($metrics['intent'], ['comercial', 'transacional'], true);
-            $checks[] = $kind === 'case' || $commercial
+            $checks[] = $commercial
                 ? $this->check('keyword_intent', 'Intenção da busca', 'good', 'Busca '.$metrics['intent'].', compatível com a página.', 1)
                 : $this->check('keyword_intent', 'Intenção da busca', 'ok', 'Busca '.$metrics['intent'].': quem pesquisa quer aprender, e a página vende um serviço. Um termo comercial converte melhor.', 1);
         }
@@ -246,10 +245,6 @@ class SeoAnalyzer
     {
         $title = trim((string) ($input['seo_title'] ?? ''));
 
-        if ($title === '' && $input['kind'] === 'case') {
-            return trim((string) ($input['title'] ?? '')).' | Case '.trim((string) ($input['client'] ?? ''));
-        }
-
         return $title;
     }
 
@@ -262,10 +257,6 @@ class SeoAnalyzer
 
         if ($description !== '') {
             return $description;
-        }
-
-        if ($input['kind'] === 'case' && filled($input['summary'] ?? null)) {
-            return trim((string) $input['summary']);
         }
 
         return trim((string) (Seo::defaults($site)['seo_description'] ?? ''));
@@ -320,13 +311,6 @@ class SeoAnalyzer
             ->each(function (Page $page) use ($kind, $id, $normalized, &$names): void {
                 if (($kind !== 'page' || $page->id !== $id) && Keyword::normalize((string) $page->seo_keyword) === $normalized) {
                     $names[] = trim((string) preg_replace('/\s*\|.*$/', '', (string) $page->seo_title)) ?: '/'.$page->slug;
-                }
-            });
-
-        CaseStudy::query()->originals()->whereNotNull('seo_keyword')->get(['id', 'client', 'seo_keyword'])
-            ->each(function (CaseStudy $case) use ($kind, $id, $normalized, &$names): void {
-                if (($kind !== 'case' || $case->id !== $id) && Keyword::normalize((string) $case->seo_keyword) === $normalized) {
-                    $names[] = 'Case '.$case->client;
                 }
             });
 

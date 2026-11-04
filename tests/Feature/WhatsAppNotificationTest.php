@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Jobs\SendContactMailJob;
 use App\Jobs\SendWhatsAppMessageJob;
-use App\Models\FormOption;
 use App\Models\SiteSetting;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Client\Request;
@@ -23,8 +22,8 @@ class WhatsAppNotificationTest extends TestCase
     private function makeSettings(array $overrides = []): SiteSetting
     {
         return SiteSetting::query()->create(array_merge([
-            'name' => 'Quatro Ventos',
-            'email' => 'contato@quatroventos.com.br',
+            'name' => 'Rubia Rocha Fotografia',
+            'email' => 'contato@rubia.test',
             'whatsapp_enabled' => true,
             'evolution_url' => 'https://evo.example.com/',
             'evolution_api_key' => 'evo-key',
@@ -33,23 +32,29 @@ class WhatsAppNotificationTest extends TestCase
         ], $overrides));
     }
 
+    /**
+     * @return array<string, mixed>
+     */
+    private function schemaWithPhone(): array
+    {
+        return ['contact' => ['sections' => [[
+            'label' => 'Contato',
+            'fields' => [
+                ['name' => 'nome', 'label' => 'Nome', 'type' => 'text', 'required' => true],
+                ['name' => 'email', 'label' => 'E-mail', 'type' => 'email', 'required' => true],
+                ['name' => 'telefone', 'label' => 'WhatsApp', 'type' => 'tel', 'required' => false],
+                ['name' => 'mensagem', 'label' => 'Mensagem', 'type' => 'textarea', 'required' => true],
+            ],
+        ]]]];
+    }
+
     private function postContact(array $overrides = []): void
     {
-        FormOption::query()->create([
-            'form' => 'contact',
-            'field' => 'destino',
-            'label' => 'Comercial',
-            'value' => 'Comercial',
-            'sort' => 1,
-        ]);
-
-        $this->postJson('/contato', array_merge([
+        $this->postJson('/api/contato', array_merge([
             'nome' => 'Ana Silva',
             'email' => 'ana@example.com',
             'telefone' => '(16) 99999-1234',
-            'destino' => 'Comercial',
-            'mensagem' => 'Quero um site.',
-            'lgpd' => '1',
+            'mensagem' => 'Quero um ensaio de família.',
         ], $overrides))->assertOk()->assertJsonPath('status', 'enviado');
     }
 
@@ -57,33 +62,16 @@ class WhatsAppNotificationTest extends TestCase
     {
         Mail::fake();
         Queue::fake();
-        $this->makeSettings(['whatsapp_visitor_template' => 'Oi {nome}, aqui é a {site}.']);
+        $this->makeSettings(['whatsapp_visitor_template' => 'Oi {nome}, aqui é a {site}.', 'form_schemas' => $this->schemaWithPhone()]);
 
         $this->postContact();
 
         Queue::assertPushed(SendWhatsAppMessageJob::class, 2);
         Queue::assertPushed(SendWhatsAppMessageJob::class, fn (SendWhatsAppMessageJob $job) => $job->number === '5541988887777'
             && str_contains($job->text, 'Nome: Ana Silva')
-            && str_contains($job->text, 'Destino: Comercial')
-            && str_contains($job->text, 'Quero um site.'));
+            && str_contains($job->text, 'Quero um ensaio de família.'));
         Queue::assertPushed(SendWhatsAppMessageJob::class, fn (SendWhatsAppMessageJob $job) => $job->number === '5516999991234'
-            && $job->text === 'Oi Ana Silva, aqui é a Quatro Ventos.');
-    }
-
-    public function test_lead_notifies_by_whatsapp(): void
-    {
-        Mail::fake();
-        Queue::fake();
-        $this->makeSettings();
-
-        $this->postJson('/api/contato/lead', [
-            'nome' => 'Bruno',
-            'whatsapp' => '41 97777-6666',
-            'pagina' => '/sites',
-        ])->assertOk();
-
-        Queue::assertPushed(SendWhatsAppMessageJob::class, fn (SendWhatsAppMessageJob $job) => $job->number === '5541977776666');
-        Queue::assertPushed(SendWhatsAppMessageJob::class, fn (SendWhatsAppMessageJob $job) => $job->number === '5541988887777');
+            && $job->text === 'Oi Ana Silva, aqui é a Rubia Rocha Fotografia.');
     }
 
     public function test_nothing_is_sent_when_whatsapp_is_disabled(): void
@@ -120,28 +108,22 @@ class WhatsAppNotificationTest extends TestCase
             && $request['text'] === 'Olá');
     }
 
-    public function test_contact_phone_stays_required_even_if_schema_marks_it_optional(): void
+    public function test_name_and_email_stay_required_even_if_schema_marks_them_optional(): void
     {
         Mail::fake();
         $this->makeSettings([
             'form_schemas' => ['contact' => ['sections' => [[
                 'label' => 'Campos',
                 'fields' => [
-                    ['name' => 'nome', 'label' => 'Nome', 'type' => 'text', 'required' => true],
-                    ['name' => 'email', 'label' => 'E-mail', 'type' => 'email', 'required' => true],
-                    ['name' => 'telefone', 'label' => 'WhatsApp', 'type' => 'tel', 'required' => false],
+                    ['name' => 'nome', 'label' => 'Nome', 'type' => 'text', 'required' => false],
+                    ['name' => 'email', 'label' => 'E-mail', 'type' => 'email', 'required' => false],
                     ['name' => 'mensagem', 'label' => 'Mensagem', 'type' => 'textarea', 'required' => true],
-                    ['name' => 'lgpd', 'label' => 'LGPD', 'type' => 'checkbox', 'required' => true],
                 ],
             ]]]],
         ]);
 
-        $this->postJson('/contato', [
-            'nome' => 'Ana',
-            'email' => 'ana@example.com',
-            'mensagem' => 'Oi',
-            'lgpd' => '1',
-        ])->assertJsonValidationErrors('telefone');
+        $this->postJson('/api/contato', ['mensagem' => 'Oi'])
+            ->assertJsonValidationErrors(['nome', 'email']);
     }
 
     public function test_admin_saves_whatsapp_settings_without_exposing_api_key(): void

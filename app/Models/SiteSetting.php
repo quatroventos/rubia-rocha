@@ -38,6 +38,7 @@ class SiteSetting extends Model
             'evolution_api_key' => 'encrypted',
             'plan_links' => 'array',
             'client_logos' => 'array',
+            'footer_gallery' => 'array',
         ];
     }
 

@@ -5978,6 +5978,17 @@ td.person span {
   padding: 10px 34px;
 }
 
+.slug-redirect-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.slug-redirect-banner a { color: inherit; font-weight: 600; }
+
+.slug-redirect-hint { color: #8a5d1c; }
+
 .editor-langbar {
   flex-shrink: 0;
   display: flex;
@@ -6137,4 +6148,33 @@ td.person span {
 
 .batch-runner .toolbar {
   margin: 0;
+}
+
+.crawler-preview {
+  margin: 0 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.crawler-preview-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.crawler-preview pre {
+  margin: 0;
+  max-height: 260px;
+  overflow: auto;
+  padding: 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #f8f9fb;
 }

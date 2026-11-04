@@ -2,7 +2,6 @@
 
 namespace App\Jobs;
 
-use App\Models\CaseStudy;
 use App\Models\Page;
 use App\Services\Seo\OgImageCapture;
 use App\Services\Seo\OgImageGenerator;
@@ -13,7 +12,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 
 /**
- * Gera o card de OG de uma página ou case. Roda isolado (ao salvar) ou dentro do lote "Gerar todas".
+ * Gera o card de OG de uma página. Roda isolado (ao salvar) ou dentro do lote "Gerar todas".
  */
 class GenerateOgImageJob implements ShouldQueue
 {
@@ -29,7 +28,7 @@ class GenerateOgImageJob implements ShouldQueue
     public int $timeout = 120;
 
     /**
-     * @param  'page'|'case'  $kind
+     * @param  'page'  $kind
      */
     public function __construct(
         public string $kind,
@@ -39,21 +38,17 @@ class GenerateOgImageJob implements ShouldQueue
     /**
      * Regera o card depois de um save, se a OG atual for gerada (ou vazia) e o conteúdo exibido nela mudou.
      */
-    public static function afterSave(Page|CaseStudy $model, bool $created): void
+    public static function afterSave(Page $model, bool $created): void
     {
         if (! config('cms.og_on_save') || $model->status !== 'published' || ! self::isAutomatic($model->og_image)) {
             return;
         }
 
-        $watched = $model instanceof Page
-            ? ['content', 'seo_title', 'slug', 'status']
-            : ['title', 'client', 'cover_path', 'slug', 'status'];
-
-        if (! $created && ! $model->wasChanged($watched)) {
+        if (! $created && ! $model->wasChanged(['content', 'seo_title', 'slug', 'status'])) {
             return;
         }
 
-        static::dispatch($model instanceof Page ? 'page' : 'case', (int) $model->id)
+        static::dispatch('page', (int) $model->id)
             ->delay(now()->addSeconds(self::SAVE_DELAY_SECONDS));
     }
 
@@ -70,7 +65,6 @@ class GenerateOgImageJob implements ShouldQueue
 
         match ($this->kind) {
             'page' => ($page = Page::query()->find($this->id)) ? $generator->page($page) : null,
-            'case' => ($case = CaseStudy::query()->find($this->id)) ? $generator->caseStudy($case) : null,
             default => null,
         };
     }

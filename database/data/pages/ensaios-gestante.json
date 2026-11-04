@@ -1,0 +1,115 @@
+{
+    "slug": "ensaios/gestante",
+    "template": "custom",
+    "status": "published",
+    "seo_title": "Ensaio de Gestante em Curitiba",
+    "seo_description": "Registre a doce espera com leveza.",
+    "robots": null,
+    "twitter_card": "summary_large_image",
+    "sections": [
+        {
+            "id": "folio-hero-1",
+            "type": "site.folio-hero",
+            "data": {
+                "image": "/rubia/img/albuns/gestante/01-fotografia-curitiba-ensaio-de-gestante-ata-felipe43.webp",
+                "image_alt": "Ensaio de gestante",
+                "kicker": "Ensaio de gestante",
+                "title": "Ensaio de Gestante em Curitiba",
+                "lede": "Registre a doce espera com leveza.",
+                "cta_label": "Me pede um orçamento",
+                "cta_href": "/contato"
+            }
+        },
+        {
+            "id": "folio-2",
+            "type": "site.folio",
+            "data": {
+                "blocks": [
+                    {
+                        "heading": "De mãe para mãe: por que registrar a espera?",
+                        "level": "",
+                        "body": "<p>A gestação é um momento único e passa mais rápido do que você imagina, e um ensaio de gestante em Curitiba é mais importante do que você pensa — e eu vou te explicar o porquê.</p><p>Como mãe, entendo muito bem como essa fase é cheia de sonhos, frio na barriga, um certo desespero (rsrsrs) e muito, muito amor crescendo — não só no coração da mãe, mas no de toda a família. Até os pets sentem a vibração de uma nova vidinha sendo gerada. É incrível! É lindo!</p><p>Como mãe, sei como é estar aí desse lado. E, unindo isso ao meu olhar de fotógrafa, entendo perfeitamente o peso de registrar essa fase. Não só por você, gestante, mas pelo seu filho(a).</p><p>Você já parou para pensar que, daqui a uns 4 ou 5 anos, a sua criança vai pedir para ver as fotos dela dentro da barriga?</p><p>Sim… acredite, aconteceu comigo e acontecerá com você também. As crianças amam saber que já foram tão esperadas e amadas antes mesmo de nascerem.</p><p>Recentemente, atendi uma cliente que nem queria fazer fotos. Ela já estava de 37 semanas e foi quase “convencida” pela mãe a fazer o registro. Quando conversamos, eu disse a ela: “Que bom que você mudou de ideia! Entendo que esteja cansada, mas teu coração de mãe já está te transformando. Sua filhinha vai poder ver como ela era dentro da sua barriga, e isso é muuuuito legal!”. Ela chorou e me disse que não tinha pensado por esse ângulo. Marcamos o ensaio dois dias depois, apenas uma semana antes da pequena Aninha nascer.</p><p>Esse é meu propósito aqui. Vou olhar para esse momento com o maior respeito e sensibilidade para garantir as memórias mais lindas da sua vida, que sua família vai revisitar por gerações.</p>",
+                        "image": "/rubia/img/albuns/gestante/03-fotografia-curitiba-ensaio-de-gestante-ata-felipe40.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Locais para seu Ensaio de Gestante em Curitiba",
+                        "level": "",
+                        "body": "<p>Curitiba é o nosso cenário e ela é incrivelmente generosa com a gente.</p><p>Temos uma mistura perfeita de natureza e arquitetura.</p><p>Mas, mais do que escolher um lugar “bonito”, eu ajudo você a escolher o local que tem a ver com a personalidade da sua família.</p><p>Eu conheço muitos cantinhos dessa cidade, e aqui deixo um resumo dos meus “queridinhos” e o porquê eu amo cada um deles:</p><ul><li><strong>Jardim Botânico:</strong> É o nosso clássico, e não é à toa. Para quem busca aquelas fotos iluminadas, com cores vivas e a estufa ao fundo compondo o cenário, é imbatível. É atemporal.</li><li><strong>Unilivre e Bosque do Alemão:</strong> Perfeitos para famílias que buscam uma conexão profunda com a natureza, mas com um toque rústico. A madeira, o verde intenso e as trilhas criam uma moldura linda para a barriga.</li><li><strong>Parque Tanguá:</strong> Se você é fã daquele pôr do sol dourado e dramático, esse é o lugar. Os espelhos d’água rendem reflexos que parecem pinturas.</li><li><strong>Na sua casa (Lifestyle):</strong> Aqui o foco é 100% a intimidade. É sobre registrar o quartinho que você montou com tanto carinho, o café na cama e os pés descalços. É onde sua história realmente acontece.</li></ul>",
+                        "image": "/rubia/img/albuns/gestante/04-fotografia-curitiba-ensaio-de-gestante-ata-felipe39.webp",
+                        "image_alt": ""
+                    },
+                    {
+                        "heading": "Por que escolher uma fotógrafa especializada em família?",
+                        "level": "",
+                        "body": "<p>Diferente de fotos posadas e rígidas, meu trabalho foca na conexão. É sobre o fechar os olhos e sentir o bebê mexer, a força do abraço do papai protegendo vocês, ou a ternura das mãos entrelaçadas.</p><p><strong>Direção que valoriza você:</strong> Sei que o corpo muda e nem sempre nos sentimos 100% seguras. Mas fique tranquila: conheço os melhores ângulos e luzes para valorizar a silhueta da gestante, garantindo que você se sinta linda, poderosa e confortável.</p><p><strong>Família e Pets são muito bem-vindos:</strong> O papai, os irmãos mais velhos e até o filho de quatro patas fazem parte dessa história! Tenho muita experiência em dirigir crianças (sou mãe de gêmeos beeeem sapecas). Na verdade, eu A-MO a bagunça de fotografar família, até dei um nome pra isso: “Cross-Foto” rsrrsrs.</p><p><strong>Edição Atemporal:</strong> Seu filho vai ver essas fotos daqui a 10, 20 anos. Por isso, meu tratamento de cor é natural e não segue “modinhas” de filtros. É uma edição clássica que não envelhece com o tempo.</p>",
+                        "image": "/rubia/img/albuns/gestante/05-fotografia-curitiba-ensaio-de-gestante-ata-felipe33.webp",
+                        "image_alt": ""
+                    }
+                ],
+                "cta_label": "Me chama no WhatsApp",
+                "cta_href": "",
+                "album_title": "Ensaio de gestante",
+                "album": [
+                    "/rubia/img/albuns/gestante/01-fotografia-curitiba-ensaio-de-gestante-ata-felipe43.webp",
+                    "/rubia/img/albuns/gestante/02-fotografia-curitiba-ensaio-de-gestante-ata-felipe42.webp",
+                    "/rubia/img/albuns/gestante/03-fotografia-curitiba-ensaio-de-gestante-ata-felipe40.webp",
+                    "/rubia/img/albuns/gestante/04-fotografia-curitiba-ensaio-de-gestante-ata-felipe39.webp",
+                    "/rubia/img/albuns/gestante/05-fotografia-curitiba-ensaio-de-gestante-ata-felipe33.webp",
+                    "/rubia/img/albuns/gestante/06-fotografia-curitiba-ensaio-de-gestante-ata-felipe32.webp",
+                    "/rubia/img/albuns/gestante/07-fotografia-curitiba-ensaio-de-gestante-ata-felipe31.webp",
+                    "/rubia/img/albuns/gestante/08-fotografia-curitiba-ensaio-de-gestante-ata-felipe30.webp",
+                    "/rubia/img/albuns/gestante/09-fotografia-curitiba-ensaio-de-gestante-ata-felipe29-1.webp",
+                    "/rubia/img/albuns/gestante/10-fotografia-curitiba-ensaio-de-gestante-ata-felipe28.webp",
+                    "/rubia/img/albuns/gestante/11-fotografia-curitiba-ensaio-de-gestante-ata-felipe27.webp",
+                    "/rubia/img/albuns/gestante/12-fotografia-curitiba-ensaio-de-gestante-ata-felipe26-1.webp",
+                    "/rubia/img/albuns/gestante/13-fotografia-curitiba-ensaio-de-gestante-ata-felipe25.webp",
+                    "/rubia/img/albuns/gestante/14-fotografia-curitiba-ensaio-de-gestante-ata-felipe24-2.webp",
+                    "/rubia/img/albuns/gestante/15-fotografia-curitiba-ensaio-de-gestante-ata-felipe23.webp"
+                ]
+            }
+        },
+        {
+            "id": "faq-3",
+            "type": "site.faq",
+            "data": {
+                "leaf": true,
+                "title": "Perguntas frequentes",
+                "items": [
+                    {
+                        "question": "Qual é o melhor período para fazer as fotos?",
+                        "answer": "O ideal é entre a 28ª e a 32ª semana de gestação. Nessa fase, a barriga já está bem redondinha e saliente, mas você ainda tem disposição e não está se sentindo tão inchada ou cansada como na reta final."
+                    },
+                    {
+                        "question": "O que devo vestir no ensaio?",
+                        "answer": "Priorize o conforto e roupas atemporais. Vestidos fluidos que marcam a silhueta acima da barriga, tons neutros e pastéis funcionam muito bem nos parques de Curitiba. Eu envio um guia de looks após a reserva para te ajudar!"
+                    },
+                    {
+                        "question": "Tenho vergonha de fotografar, e agora?",
+                        "answer": "Fica tranquila, essa é a dúvida de quase todas as mães! A minha direção é totalmente guiada. Eu não espero que você saiba posar; vou te conduzindo com conversas e movimentos leves, sem aquela rigidez. O clima é tão gostoso que você vai se soltar rapidinho e, quando ver, já estará posando naturalmente sem eu nem pedir!"
+                    },
+                    {
+                        "question": "Pode ser feito em casa?",
+                        "answer": "Sim! Ensaio em casa fica super íntimo, leve e cheio de significado."
+                    },
+                    {
+                        "question": "Qual o melhor horário para o ensaio?",
+                        "answer": "Geralmente prefiro fotografar no início da manhã ou fim da tarde (golden hour), quando a luz é suave, dourada e favorece aquele clima acolhedor nas fotos. Se você tem crianças pequenas e horários fixos, podemos planejar juntos para respeitar a rotina delas."
+                    },
+                    {
+                        "question": "Onde os ensaios podem acontecer?",
+                        "answer": "Podemos fotografar em lugares que sejam especiais pra vocês: parques, praças, casa, praças de Curitiba, ou mesmo em locações com significado pessoal. O importante é que o ambiente reflita quem vocês são – e eu te ajudo a escolher!"
+                    },
+                    {
+                        "question": "Posamos ou fotografamos espontaneamente?",
+                        "answer": "Minha abordagem combina ambos: fazemos uns cliques dirigidos para garantir boas composições familiares, mas a maior parte do ensaio é documental, captando momentos de verdade, no ritmo de vocês."
+                    },
+                    {
+                        "question": "Se chover, o que fazemos?",
+                        "answer": "Tranquilo! Reagendamos para o próximo dia de sol ou partimos para um plano B em um local onde a garoa ou chuva fraca possa deixar o ensaio confortável. Tempo nublado ou garoa também garantem fotos maravilhosas, pode confiar."
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -25,6 +25,7 @@ export function CrudPage<T extends { id: number }>({
   fields,
   createLabel,
   mapForm,
+  initialForm,
   canCreate = true,
   canDelete = true,
   canDeleteRow,
@@ -38,6 +39,7 @@ export function CrudPage<T extends { id: number }>({
   fields: CrudField[];
   createLabel: string;
   mapForm?: (row: T) => Record<string, unknown>;
+  initialForm?: Record<string, unknown>;
   canCreate?: boolean;
   canDelete?: boolean;
   canDeleteRow?: (row: T) => boolean;
@@ -66,7 +68,7 @@ export function CrudPage<T extends { id: number }>({
 
   function start(row?: T) {
     setCurrent(row ?? null);
-    setForm(row ? (mapForm ? mapForm(row) : { ...row }) : {});
+    setForm(row ? (mapForm ? mapForm(row) : { ...row }) : { ...(initialForm ?? {}) });
     setError('');
     setOpen(true);
   }

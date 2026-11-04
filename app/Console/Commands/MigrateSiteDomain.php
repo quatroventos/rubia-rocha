@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Schema;
 class MigrateSiteDomain extends Command
 {
     protected $signature = 'site:migrate-domain
-        {to? : Domínio de publicação, ex.: https://www.quatroventos.com.br}
+        {to? : Domínio de publicação, ex.: https://www.rubiarochafotografia.com.br}
         {--from=* : Domínio antigo (repita para vários). Sem a opção: localhost, 127.0.0.1, host.docker.internal e túneis ngrok}
         {--relative : Converte os links do domínio antigo em caminhos relativos (/servicos) em vez de trocar o domínio}
         {--revisions : Inclui o histórico de revisões das páginas}
@@ -31,12 +31,11 @@ class MigrateSiteDomain extends Command
      */
     private const COLUMNS = [
         'pages' => ['content', 'canonical', 'og_image'],
-        'case_studies' => ['content', 'cover_path', 'gallery', 'challenge', 'solution', 'deliverables', 'results', 'testimonial'],
         'menu_items' => ['href'],
         'certifications' => ['image_path', 'url'],
         'site_settings' => [
             'logo_path', 'favicon_path', 'seo_og_image', 'tag_header', 'tag_body', 'tag_footer',
-            'sitemap_extra', 'form_schemas', 'translations', 'client_logos', 'plan_links',
+            'sitemap_extra', 'form_schemas', 'translations', 'footer_gallery',
         ],
     ];
 
@@ -59,14 +58,14 @@ class MigrateSiteDomain extends Command
         $target = rtrim(trim((string) $this->argument('to')), '/');
 
         if (! $relative && preg_match('#^https?://[a-z0-9.-]+(:\d+)?$#i', $target) !== 1) {
-            $this->error('Informe o domínio de publicação (ex.: https://www.quatroventos.com.br) ou use --relative.');
+            $this->error('Informe o domínio de publicação (ex.: https://www.rubiarochafotografia.com.br) ou use --relative.');
 
             return self::FAILURE;
         }
 
         $pattern = $this->pattern();
         if ($pattern === null) {
-            $this->error('Algum --from não é um domínio válido (ex.: https://quatroventos.com.br).');
+            $this->error('Algum --from não é um domínio válido (ex.: https://rubiarochafotografia.com.br).');
 
             return self::FAILURE;
         }

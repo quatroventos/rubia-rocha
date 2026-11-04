@@ -150,14 +150,7 @@ class PageDocument
     {
         $document = new self;
 
-        if ($kind === 'case') {
-            $document->h1 = self::chunk((string) ($fields['title'] ?? ''), false, 'Título do case', ['type' => 'field', 'name' => 'title']);
-            $document->intro = self::chunk((string) ($fields['summary'] ?? ''), false, 'Resumo do case', ['type' => 'field', 'name' => 'summary']);
-
-            if (filled($fields['cover_alt'] ?? null)) {
-                $document->alts[] = self::chunk((string) $fields['cover_alt'], false, 'Alt da capa', ['type' => 'field', 'name' => 'cover_alt']);
-            }
-        } elseif (filled($fields['og_image_alt'] ?? null)) {
+        if (filled($fields['og_image_alt'] ?? null)) {
             $document->alts[] = self::chunk((string) $fields['og_image_alt'], false, 'Alt da OG image', ['type' => 'field', 'name' => 'og_image_alt']);
         }
 
@@ -175,7 +168,7 @@ class PageDocument
             if ($title !== '') {
                 $chunk = self::chunk($title, false, $label.' > Título', ['type' => 'section', 'index' => $index, 'path' => 'title']);
 
-                if ($document->h1 === null && $kind !== 'case') {
+                if ($document->h1 === null) {
                     $document->h1 = $chunk;
                 } else {
                     $document->headings[] = $chunk;

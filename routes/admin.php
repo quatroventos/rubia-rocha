@@ -5,9 +5,6 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\CacheController;
 use App\Http\Controllers\Admin\CareerSubmissionController;
-use App\Http\Controllers\Admin\CaseDraftController;
-use App\Http\Controllers\Admin\CaseMockupController;
-use App\Http\Controllers\Admin\CaseStudyController;
 use App\Http\Controllers\Admin\CertificationController;
 use App\Http\Controllers\Admin\ContactSubmissionController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -21,6 +18,7 @@ use App\Http\Controllers\Admin\OgImageController;
 use App\Http\Controllers\Admin\OpenSeoController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PagePreviewController;
+use App\Http\Controllers\Admin\RedirectController;
 use App\Http\Controllers\Admin\SectionCopyController;
 use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\SeoInsightsController;
@@ -71,13 +69,10 @@ Route::prefix($admin)->group(function () {
             Route::post('translations/all', [TranslationController::class, 'all'])->middleware('throttle:5,1');
             Route::delete('translations/all', [TranslationController::class, 'cancelAll']);
             Route::post('pages/{page}/translations/{locale}', [TranslationController::class, 'page'])->middleware('throttle:20,1');
-            Route::post('cases/{caseStudy}/translations/{locale}', [TranslationController::class, 'caseStudy'])->whereNumber('caseStudy')->middleware('throttle:20,1');
             Route::post('menu-items/translations/{locale}', [TranslationController::class, 'menus'])->middleware('throttle:10,1');
 
             Route::post('preview/pages/{page}', [LivePreviewController::class, 'page'])->middleware('throttle:240,1');
-            Route::post('preview/cases/{caseStudy}', [LivePreviewController::class, 'caseStudy'])->whereNumber('caseStudy')->middleware('throttle:240,1');
             Route::post('og-image/pages/{page}', [OgImageController::class, 'page'])->middleware('throttle:10,1');
-            Route::post('og-image/cases/{caseStudy}', [OgImageController::class, 'caseStudy'])->whereNumber('caseStudy')->middleware('throttle:10,1');
             Route::get('og-image/all', [OgImageController::class, 'status']);
             Route::post('og-image/all', [OgImageController::class, 'generateAll'])->middleware('throttle:5,1');
             Route::delete('og-image/all', [OgImageController::class, 'cancel']);
@@ -86,17 +81,11 @@ Route::prefix($admin)->group(function () {
             Route::post('seo/fix', [SeoInsightsController::class, 'fix'])->middleware('throttle:30,1');
             Route::get('seo/market', [SeoInsightsController::class, 'market'])->middleware('throttle:240,1');
             Route::post('seo/market', [SeoInsightsController::class, 'fetchMarket'])->middleware('throttle:10,1');
-            Route::get('seo/lighthouse/{kind}/{id}', [SeoInsightsController::class, 'lighthouse'])->whereIn('kind', ['pages', 'cases'])->whereNumber('id');
-            Route::post('seo/lighthouse/{kind}/{id}', [SeoInsightsController::class, 'measure'])->whereIn('kind', ['pages', 'cases'])->whereNumber('id')->middleware('throttle:10,1');
+            Route::get('seo/lighthouse/{kind}/{id}', [SeoInsightsController::class, 'lighthouse'])->whereIn('kind', ['pages'])->whereNumber('id');
+            Route::post('seo/lighthouse/{kind}/{id}', [SeoInsightsController::class, 'measure'])->whereIn('kind', ['pages'])->whereNumber('id')->middleware('throttle:10,1');
             Route::get('preview/pages/{page}/draft', [LivePreviewController::class, 'pageDraft'])->middleware('throttle:600,1');
-            Route::get('preview/cases/{caseStudy}/draft', [LivePreviewController::class, 'caseDraft'])->whereNumber('caseStudy')->middleware('throttle:600,1');
             Route::post('sections/copy', [SectionCopyController::class, 'store'])->middleware('throttle:30,1');
             Route::post('sections/proofread', [SectionCopyController::class, 'proofread'])->middleware('throttle:60,1');
-            Route::post('cases/mockup', [CaseMockupController::class, 'store'])->middleware('throttle:20,1');
-            Route::post('cases/draft', [CaseDraftController::class, 'store'])->middleware('throttle:10,1');
-            Route::get('cases/draft/{token}', [CaseDraftController::class, 'show'])->whereUuid('token');
-            Route::apiResource('cases', CaseStudyController::class)->parameters(['cases' => 'caseStudy'])->whereNumber('caseStudy');
-            Route::post('cases/{caseStudy}/restore', [CaseStudyController::class, 'restore'])->whereNumber('caseStudy');
             Route::get('menu-items', [MenuItemController::class, 'index']);
             Route::post('menu-items', [MenuItemController::class, 'store']);
             Route::put('menu-items/sync', [MenuItemController::class, 'sync']);
@@ -148,6 +137,8 @@ Route::prefix($admin)->group(function () {
             Route::get('seo/integrations', [SeoIntegrationController::class, 'show']);
             Route::put('seo/integrations', [SeoIntegrationController::class, 'update'])->middleware('throttle:20,1');
             Route::post('seo/integrations/test/{service}', [SeoIntegrationController::class, 'test'])->whereIn('service', ['openseo', 'openai'])->middleware('throttle:20,1');
+            Route::apiResource('redirects', RedirectController::class)->except(['show']);
+            Route::post('redirects/{redirect}/restore', [RedirectController::class, 'restore'])->whereNumber('redirect');
             Route::get('sitemap', [SiteSettingController::class, 'sitemap']);
             Route::put('sitemap', [SiteSettingController::class, 'updateSitemap']);
 
@@ -174,7 +165,6 @@ Route::prefix($admin)->group(function () {
         });
     });
 
-    Route::get('preview/cases/{caseStudy}', [LivePreviewController::class, 'showCase'])->whereNumber('caseStudy');
     Route::get('preview/{page}', PagePreviewController::class);
     Route::get('/{any?}', SpaController::class)->where('any', '^(?!api(?:/|$)|preview(?:/|$)).*');
 });

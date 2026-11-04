@@ -2,7 +2,6 @@
 
 namespace App\Services\Seo;
 
-use App\Models\CaseStudy;
 use App\Models\Page;
 use App\Services\PublicContent;
 use RuntimeException;
@@ -27,21 +26,7 @@ class PageRenderer
             'seo_description' => $seoDescription ?? $page->seo_description,
         ]);
 
-        return $this->render($this->content->page($page), $this->content->site($page->localeCode()));
-    }
-
-    /**
-     * @param  list<array{type: string, data: array<string, mixed>}>  $sections
-     * @param  array{title?: string|null, summary?: string|null, client?: string|null, cover_alt?: string|null, seo_title?: string|null, seo_description?: string|null}  $fields
-     */
-    public function caseStudy(CaseStudy $case, array $sections, array $fields): string
-    {
-        $case->forceFill([
-            ...collect($fields)->only(['title', 'summary', 'client', 'cover_alt', 'seo_title', 'seo_description'])->filter(fn ($value) => $value !== null)->all(),
-            'content' => ['sections' => $this->withIds($sections)],
-        ]);
-
-        return $this->render($this->content->caseStudy($case), $this->content->site($case->localeCode()));
+        return $this->render($this->content->page($page), $this->content->site());
     }
 
     /**

@@ -15,6 +15,11 @@ class Page extends Model
     use HasTranslations;
     use LogsActivity;
 
+    /**
+     * Slug com até dois níveis (ex.: ensaios/gestante), sem barra inicial ou final.
+     */
+    public const SLUG_PATTERN = '[a-z0-9]+(?:-[a-z0-9]+)*(?:/[a-z0-9]+(?:-[a-z0-9]+)*)?';
+
     protected $guarded = [];
 
     protected $attributes = [
@@ -118,19 +123,6 @@ class Page extends Model
         return $this->template === 'home' || $this->slug === 'home';
     }
 
-    public function viewKey(): string
-    {
-        return match ($this->template) {
-            'about' => 'quem-somos',
-            'structure' => 'estrutura',
-            'ai' => 'ia',
-            'careers' => 'carreiras',
-            'contact' => 'contato',
-            'custom' => 'page',
-            default => $this->template !== null && $this->template !== '' ? $this->template : $this->slug,
-        };
-    }
-
     /**
      * @return list<array{id: string, type: string, data: array<string, mixed>}>
      */
@@ -158,26 +150,10 @@ class Page extends Model
             'livewire',
             'sitemap.xml',
             'robots.txt',
+            'storage',
+            '__og',
             $admin,
         ]));
-    }
-
-    /**
-     * @return list<string>
-     */
-    public static function formSlugs(): array
-    {
-        try {
-            $slugs = static::query()
-                ->where('template', 'contact')
-                ->where('locale', Locales::default())
-                ->pluck('slug')
-                ->all();
-        } catch (\Throwable) {
-            $slugs = [];
-        }
-
-        return $slugs !== [] ? $slugs : ['contato'];
     }
 
     public function getRouteKeyName(): string

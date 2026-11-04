@@ -23,7 +23,7 @@ const vite = await createServer({
 });
 
 try {
-  const { renderSite } = await vite.ssrLoadModule('/resources/js/site/document.tsx');
+  const { renderSite } = await vite.ssrLoadModule('/resources/js/rubia/document.tsx');
   const { page, site } = JSON.parse(input);
   process.stdout.write(renderSite(page, site));
 } finally {

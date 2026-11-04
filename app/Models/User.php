@@ -77,6 +77,7 @@ class User extends Authenticatable
             'backup' => $member,
             'tags' => $member,
             'sitemap' => $member,
+            'redirects' => $member,
             'seo' => $member,
             'menu' => $member,
             'certifications' => $member,

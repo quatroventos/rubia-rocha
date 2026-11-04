@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\CaseStudy;
 use App\Models\Page;
 use App\Support\Locales;
 use Illuminate\Support\Collection;
@@ -33,8 +32,6 @@ class SitemapService
             'page'
         );
 
-        $cases = $this->localized(CaseStudy::query()->published()->get(), 'case');
-
         $extra = collect(app(SystemOptions::class)->site()?->sitemap_extra ?? [])
             ->map(fn ($line) => trim((string) $line))
             ->filter()
@@ -50,11 +47,11 @@ class SitemapService
                 'alternates' => [],
             ]);
 
-        return $pages->concat($cases)->concat($extra)->values()->all();
+        return $pages->concat($extra)->values()->all();
     }
 
     /**
-     * @param  Collection<int, Page|CaseStudy>  $rows
+     * @param  Collection<int, Page>  $rows
      * @return Collection<int, array<string, mixed>>
      */
     private function localized(Collection $rows, string $source): Collection

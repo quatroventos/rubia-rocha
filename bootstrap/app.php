@@ -4,6 +4,7 @@ use App\Http\Middleware\EnsureCmsUser;
 use App\Http\Middleware\RestrictHttpMethods;
 use App\Http\Middleware\SecurityHeaders;
 use App\Http\Middleware\SetSiteLocale;
+use App\Services\LegacyRedirects;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -30,7 +31,7 @@ return Application::configure(basePath: dirname(__DIR__))
             't',
         ]);
         $middleware->encryptCookies(except: [
-            'qv_locale',
+            'rr_locale',
         ]);
         $middleware->web(append: [SetSiteLocale::class]);
         $middleware->group('public', [
@@ -56,6 +57,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 return null;
             }
 
-            return response()->view('errors.404', [], 404);
+            return app(LegacyRedirects::class)->respond($request)
+                ?? response()->view('errors.404', [], 404);
         });
     })->create();

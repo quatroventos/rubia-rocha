@@ -118,7 +118,7 @@ class Locales
 
     public static function cookie(): string
     {
-        return (string) config('locales.cookie', 'qv_locale');
+        return (string) config('locales.cookie', 'rr_locale');
     }
 
     public static function current(): string

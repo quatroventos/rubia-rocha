@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CaseStudy;
 use App\Models\Page;
+use App\Services\CrawlerFiles;
 use App\Services\PublicContent;
 use App\Services\SitemapService;
 use App\Services\SystemOptions;
 use App\Support\Locales;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
@@ -23,63 +22,15 @@ class SiteController extends Controller
         return $this->render($page);
     }
 
-    public function show(string $slug): View|RedirectResponse
+    public function show(string $slug): View
     {
-        $locale = Locales::current();
-        $page = Page::query()->published()->forLocale($locale)->where('slug', $slug)->first();
+        $page = Page::query()->published()->forLocale(Locales::current())->where('slug', $slug)->first();
 
-        if ($page === null) {
-            return $this->legacyRedirect($locale, $slug) ?? abort(404);
-        }
-
-        if ($page->isHome()) {
+        if ($page === null || $page->isHome()) {
             abort(404);
         }
 
         return $this->render($page);
-    }
-
-    public function legacy(string $slug): RedirectResponse
-    {
-        return $this->legacyRedirect(Locales::current(), $slug) ?? abort(404);
-    }
-
-    private function legacyRedirect(string $locale, string $slug): ?RedirectResponse
-    {
-        if (Locales::isDefault($locale)) {
-            return null;
-        }
-
-        $source = config('locale_redirects.'.$locale.'.'.$slug);
-        if (! is_string($source)) {
-            return null;
-        }
-
-        $original = Page::query()->originals()->published()
-            ->where($source === 'home' ? 'template' : 'slug', $source)
-            ->first();
-        $translation = $original?->translationFor($locale);
-
-        $target = $translation !== null && $translation->status === 'published'
-            ? $translation->publicPath()
-            : Locales::path($locale, '/');
-
-        return redirect($target, 301);
-    }
-
-    public function caseStudy(string $slug, PublicContent $content): View
-    {
-        $case = CaseStudy::query()->published()->forLocale(Locales::current())->where('slug', $slug)->firstOrFail();
-
-        $payload = $content->caseStudy($case);
-
-        return view('site.app', [
-            'site' => app(SystemOptions::class)->site(),
-            'payload' => $payload,
-            'sitePayload' => $content->site($case->localeCode()),
-            'fragment' => $this->fragmentFor($payload),
-            'cmsPreview' => false,
-        ]);
     }
 
     public function sitemap(SitemapService $sitemap): Response
@@ -89,42 +40,26 @@ class SiteController extends Controller
         ]);
     }
 
-    public function revisao(): Response
+    public function robots(CrawlerFiles $files): Response
     {
-        abort_unless(app()->environment('local'), 404);
-
-        return response()
-            ->view('site.revisao')
-            ->header('X-Robots-Tag', 'noindex, nofollow');
+        return response($files->read(CrawlerFiles::ROBOTS), 200, ['Content-Type' => 'text/plain; charset=UTF-8']);
     }
 
-    public function robots(): Response
+    public function llms(CrawlerFiles $files): Response
     {
-        $base = rtrim((string) config('app.url'), '/');
-
-        $allow = "Allow: /\n";
-        $body = "User-agent: *\n{$allow}\n"
-            ."User-agent: GPTBot\n{$allow}\n"
-            ."User-agent: OAI-SearchBot\n{$allow}\n"
-            ."User-agent: Google-Extended\n{$allow}\n"
-            ."Sitemap: {$base}/sitemap.xml\n";
-
-        return response($body, 200, ['Content-Type' => 'text/plain; charset=UTF-8']);
+        return response($files->read(CrawlerFiles::LLMS), 200, ['Content-Type' => 'text/plain; charset=UTF-8']);
     }
 
-    private function render(Page $page, bool $cmsPreview = false): View
+    private function render(Page $page): View
     {
-        $content = app(PublicContent::class);
-
-        $payload = $content->page($page);
+        $payload = app(PublicContent::class)->page($page);
 
         return view('site.app', [
             'page' => $page,
             'site' => app(SystemOptions::class)->site(),
             'payload' => $payload,
-            'sitePayload' => $content->site($page->localeCode()),
-            'fragment' => $cmsPreview ? '' : $this->fragmentFor($payload),
-            'cmsPreview' => $cmsPreview,
+            'fragment' => $this->fragmentFor($payload),
+            'cmsPreview' => false,
         ]);
     }
 
@@ -148,6 +83,6 @@ class SiteController extends Controller
             abort(500);
         }
 
-        return '<main id="conteudo"><p class="wrap" role="status">O HTML desta URL ainda não foi gerado. Rode php artisan site:prerender.</p></main>';
+        return '<main id="conteudo"><p class="intro" role="status">O HTML desta URL ainda não foi gerado. Rode php artisan site:prerender.</p></main>';
     }
 }

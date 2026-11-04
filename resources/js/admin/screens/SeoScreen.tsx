@@ -23,6 +23,12 @@ type SeoPayload = SeoDefaults & {
   sitemap_extra: string[];
   sitemap_url: string;
   robots_url: string;
+  llms_url: string;
+  robots_extra: string;
+  llms_summary: string;
+  llms_details: string;
+  robots_preview: string;
+  llms_preview: string;
   search_console_url: string;
   pages: SeoPagePreview[];
   entries: SitemapEntry[];
@@ -54,6 +60,8 @@ export function SeoScreen() {
   const [form, setForm] = useState<SeoDefaults>(emptyForm);
   const [extra, setExtra] = useState('');
   const [sitemapUrl, setSitemapUrl] = useState('');
+  const [crawler, setCrawler] = useState({ robots_extra: '', llms_summary: '', llms_details: '' });
+  const [crawlerFiles, setCrawlerFiles] = useState({ robots_url: '', llms_url: '', robots_preview: '', llms_preview: '' });
   const [searchConsoleUrl, setSearchConsoleUrl] = useState('https://search.google.com/search-console');
   const [pages, setPages] = useState<SeoPagePreview[]>([]);
   const [entries, setEntries] = useState<SitemapEntry[]>([]);
@@ -86,6 +94,8 @@ export function SeoScreen() {
     });
     setExtra((data.sitemap_extra ?? []).join('\n'));
     setSitemapUrl(data.sitemap_url);
+    setCrawler({ robots_extra: data.robots_extra ?? '', llms_summary: data.llms_summary ?? '', llms_details: data.llms_details ?? '' });
+    setCrawlerFiles({ robots_url: data.robots_url, llms_url: data.llms_url, robots_preview: data.robots_preview, llms_preview: data.llms_preview });
     setSearchConsoleUrl(data.search_console_url);
     setPages(data.pages ?? []);
     setEntries(data.entries ?? []);
@@ -179,6 +189,9 @@ export function SeoScreen() {
           seo_og_image: form.seo_og_image || null,
           seo_og_image_alt: form.seo_og_image_alt || null,
           sitemap_extra: extra.split('\n').map((item) => item.trim()).filter(Boolean),
+          robots_extra: crawler.robots_extra || null,
+          llms_summary: crawler.llms_summary || null,
+          llms_details: crawler.llms_details || null,
           fill_empty_pages: fillEmpty,
         }),
       });
@@ -268,6 +281,63 @@ export function SeoScreen() {
                       ))}
                     </tbody>
                   </table>
+                </div>
+              </div>
+            </div>
+
+            <div className="panel">
+              <div className="panel-head">
+                <h3>robots.txt e llms.txt</h3>
+                <p>Gerados sozinhos sempre que uma página, o menu ou as configurações mudam. Os campos abaixo entram no arquivo gerado; salve para atualizar.</p>
+              </div>
+              <div className="panel-body">
+                <div className="field">
+                  <label htmlFor="seo-robots-extra">Regras extras do robots.txt</label>
+                  <textarea
+                    id="seo-robots-extra"
+                    rows={4}
+                    value={crawler.robots_extra}
+                    placeholder={'User-agent: *\nDisallow: /pasta-privada/'}
+                    onChange={(event) => setCrawler({ ...crawler, robots_extra: event.target.value })}
+                  />
+                  <p className="hint">Entram antes da linha do sitemap. A liberação geral e a dos robôs de IA já vêm no arquivo.</p>
+                </div>
+                <div className="crawler-preview">
+                  <div className="crawler-preview-head">
+                    <span>robots.txt atual</span>
+                    <a href={crawlerFiles.robots_url} target="_blank" rel="noreferrer">Abrir</a>
+                  </div>
+                  <pre>{crawlerFiles.robots_preview}</pre>
+                </div>
+                <div className="field">
+                  <label htmlFor="seo-llms-summary">Resumo do llms.txt</label>
+                  <textarea
+                    id="seo-llms-summary"
+                    rows={3}
+                    maxLength={500}
+                    value={crawler.llms_summary}
+                    placeholder={form.seo_description ?? ''}
+                    onChange={(event) => setCrawler({ ...crawler, llms_summary: event.target.value })}
+                  />
+                  <p className="hint">Uma ou duas frases sobre o negócio, lidas primeiro pelas IAs. Vazio usa a description padrão.</p>
+                </div>
+                <div className="field">
+                  <label htmlFor="seo-llms-details">Informações adicionais do llms.txt</label>
+                  <textarea
+                    id="seo-llms-details"
+                    rows={6}
+                    value={crawler.llms_details}
+                    placeholder="Atendo em Curitiba e região. Ensaios em estúdio ou ao ar livre..."
+                    onChange={(event) => setCrawler({ ...crawler, llms_details: event.target.value })}
+                  />
+                  <p className="hint">Texto livre em Markdown, entre o resumo e a lista de páginas. As páginas publicadas e o contato entram sozinhos.</p>
+                </div>
+                <div className="crawler-preview">
+                  <div className="crawler-preview-head">
+                    <span>llms.txt atual</span>
+                    <a href={crawlerFiles.llms_url} target="_blank" rel="noreferrer">Abrir</a>
+                  </div>
+                  <pre>{crawlerFiles.llms_preview}</pre>
                 </div>
               </div>
             </div>

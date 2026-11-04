@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Cms\SectionCatalog;
 use App\Http\Controllers\Controller;
-use App\Models\CaseStudy;
 use App\Models\Page;
 use App\Services\Content\SectionCopyWriter;
 use Illuminate\Http\JsonResponse;
@@ -17,7 +16,7 @@ class SectionCopyController extends Controller
     public function store(Request $request, SectionCopyWriter $writer): JsonResponse
     {
         $data = $request->validate([
-            'kind' => ['required', Rule::in(['page', 'case'])],
+            'kind' => ['required', Rule::in(['page'])],
             'target' => ['nullable', Rule::in(['section', 'seo'])],
             'page_id' => ['required_if:kind,page', 'nullable', 'integer'],
             'index' => ['required_unless:target,seo', 'nullable', 'integer', 'min:0'],
@@ -35,11 +34,7 @@ class SectionCopyController extends Controller
             'sections.*.data' => ['present', 'array'],
         ]);
 
-        if ($data['kind'] === 'page') {
-            $this->authorize('update', Page::query()->findOrFail($data['page_id']));
-        } else {
-            $this->authorize('create', CaseStudy::class);
-        }
+        $this->authorize('update', Page::query()->findOrFail($data['page_id']));
 
         if (! $writer->configured()) {
             return response()->json(['message' => 'Defina a chave da OpenAI em SEO > Integrações para usar a IA.'], 422);

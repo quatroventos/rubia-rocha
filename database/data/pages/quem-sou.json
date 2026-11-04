@@ -1,0 +1,93 @@
+{
+    "slug": "quem-sou",
+    "template": "custom",
+    "status": "published",
+    "seo_title": "Quem sou",
+    "seo_description": "Rubia Rocha, fotógrafa de momentos reais em Curitiba.",
+    "robots": null,
+    "twitter_card": "summary_large_image",
+    "sections": [
+        {
+            "id": "trio-1",
+            "type": "site.trio",
+            "data": {
+                "label": "Rubia e a família",
+                "photos": [
+                    {
+                        "image": "/rubia/img/sobre-1-1080.webp",
+                        "alt": "Rubia abraçada pelos filhos gêmeos"
+                    },
+                    {
+                        "image": "/rubia/img/sobre-2-1080.webp",
+                        "alt": "Rubia sorrindo"
+                    },
+                    {
+                        "image": "/rubia/img/sobre-3-1080.webp",
+                        "alt": "Rubia com o marido e os gêmeos no Natal"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "about-2",
+            "type": "site.about",
+            "data": {
+                "kicker": "Fotógrafa de momentos reais em Curitiba",
+                "title": "Rubia quem?",
+                "body": "<p>Oi! Sou a Rubia, fotógrafa de famílias, gestantes, casais, bebês e eventos afetivos em Curitiba. Comecei como hobby em 2010 e encontrei minha paixão: registrar o que é de verdade — sorrisos tímidos, olhares sinceros e aquela baguncinha boa.</p><p>Meu estilo mistura lifestyle com fotografia documental, de um jeito leve, natural e cheio de significado. Se você está procurando uma fotógrafa em Curitiba que vai te acolher, te ouvir e transformar seu momento em algo especial, seja bem-vinda! Vou amar contar a sua história do jeitinho que ela merece.</p>",
+                "list_title": "O que eu fotografo",
+                "items": [
+                    {
+                        "label": "Gestantes, com afeto e naturalidade",
+                        "href": "/ensaios/gestante"
+                    },
+                    {
+                        "label": "Famílias, do jeito que elas são de verdade",
+                        "href": "/ensaios/familia"
+                    },
+                    {
+                        "label": "Bebês e crianças, sempre no ritmo delas",
+                        "href": "/ensaios/bebes"
+                    },
+                    {
+                        "label": "Festas infantis cheias de cor, movimento e emoção",
+                        "href": "/eventos/festa-infantil"
+                    },
+                    {
+                        "label": "Mini weddings e celebrações íntimas",
+                        "href": "/eventos/mini-wedding"
+                    },
+                    {
+                        "label": "Mulheres, em retratos leves e espontâneos",
+                        "href": "/ensaios/feminino"
+                    },
+                    {
+                        "label": "Aniversários e outros momentos de afeto",
+                        "href": "/eventos"
+                    }
+                ],
+                "primary_label": "Me chama no WhatsApp",
+                "primary_href": ""
+            }
+        },
+        {
+            "id": "facts-3",
+            "type": "site.facts",
+            "data": {
+                "image": "/rubia/img/sobre-fatos-941.webp",
+                "image_alt": "Rubia deitada com os filhos gêmeos",
+                "title": "Fatos sobre mim",
+                "items": [
+                    {
+                        "title": "Sou mãe de gêmeos",
+                        "body": "<p>Meu mundinho azul: onde a maternidade e a fotografia se encontram para contar histórias de verdade. Sou mãe de gêmeos que viraram meu mundo de cabeça pra baixo — e encheram ele de amor, brinquedos espalhados e muito aprendizado.</p><p>Foi depois da maternidade que a fotografia ganhou ainda mais sentido pra mim. Descobri o valor de guardar os pequenos momentos, porque eles passam rápido demais… e são justamente os que fazem a vida valer a pena.</p><p>Aqui no meu mundinho azul tem carrinho pelo chão, migalha de bolacha para tudo quanto é lado, desenhos colados na porta da geladeira, muito caos, afeto e risadas — e é isso que eu levo pra cada ensaio. Porque antes de ser fotógrafa, sou mãe. E isso muda tudo.</p>"
+                    }
+                ],
+                "primary_label": "Me chama no WhatsApp",
+                "primary_href": "",
+                "secondary_label": "Me pede um orçamento",
+                "secondary_href": "/contato"
+            }
+        }
+    ]
+}
