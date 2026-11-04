@@ -111,7 +111,7 @@ class BackupService
         }
 
         try {
-            $filename = self::DIRECTORY.'/quatroventos-'.now()->format('Ymd-His').'-'.$backup->id.'.zip';
+            $filename = self::DIRECTORY.'/rubiarocha-'.now()->format('Ymd-His').'-'.$backup->id.'.zip';
             $this->writeArchive($temp);
             Storage::disk(self::DISK)->put($filename, (string) file_get_contents($temp));
 
@@ -162,7 +162,7 @@ class BackupService
             'user_id' => $user?->id,
         ]);
 
-        $filename = Storage::disk(self::DISK)->putFileAs(self::DIRECTORY, $file, 'quatroventos-import-'.now()->format('Ymd-His').'-'.$backup->id.'.zip');
+        $filename = Storage::disk(self::DISK)->putFileAs(self::DIRECTORY, $file, 'rubiarocha-import-'.now()->format('Ymd-His').'-'.$backup->id.'.zip');
 
         if ($filename === false) {
             $backup->update(['error' => 'Não foi possível gravar o arquivo enviado.']);

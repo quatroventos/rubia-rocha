@@ -2,18 +2,21 @@ services:
   redis:
     image: redis:7-alpine
     restart: unless-stopped
+    env_file:
+      - .env
+    command: ["sh", "-c", "if [ -n \"$${REDIS_PASSWORD}\" ] && [ \"$${REDIS_PASSWORD}\" != \"null\" ]; then exec redis-server --requirepass \"$${REDIS_PASSWORD}\"; else exec redis-server; fi"]
     volumes:
       - redis_data:/data
     networks:
       default:
         aliases:
-          - quatroventos-redis
+          - rubiarocha-redis
 
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    image: quatroventos-site:latest
+    image: rubiarocha-site:latest
     restart: unless-stopped
     env_file:
       - .env
@@ -23,17 +26,18 @@ services:
       RUN_MIGRATIONS: "true"
       RUN_SEED: "false"
       DB_CONNECTION: mysql
-      REDIS_HOST: quatroventos-redis
+      REDIS_HOST: rubiarocha-redis
       QUEUE_CONNECTION: redis
       CACHE_STORE: redis
       SESSION_DRIVER: redis
       SESSION_SECURE_COOKIE: "true"
+      OG_CAPTURE_URL: "http://rubiarocha-app:8000"
     volumes:
       - app_storage:/var/www/html/storage
     networks:
       default:
         aliases:
-          - quatroventos-app
+          - rubiarocha-app
       easypanel: {}
     depends_on:
       - redis
@@ -42,7 +46,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: quatroventos-site:latest
+    image: rubiarocha-site:latest
     restart: unless-stopped
     env_file:
       - .env
@@ -50,10 +54,10 @@ services:
       RUN_MIGRATIONS: "false"
       RUN_SEED: "false"
       DB_CONNECTION: mysql
-      REDIS_HOST: quatroventos-redis
+      REDIS_HOST: rubiarocha-redis
       QUEUE_CONNECTION: redis
       CACHE_STORE: redis
-      OG_CAPTURE_URL: "http://quatroventos-app:8000"
+      OG_CAPTURE_URL: "http://rubiarocha-app:8000"
     volumes:
       - app_storage:/var/www/html/storage
     entrypoint: ["/bin/sh", "-c", "php artisan queue:work --sleep=1 --tries=3"]
@@ -67,7 +71,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: quatroventos-site:latest
+    image: rubiarocha-site:latest
     restart: unless-stopped
     env_file:
       - .env
@@ -75,9 +79,10 @@ services:
       RUN_MIGRATIONS: "false"
       RUN_SEED: "false"
       DB_CONNECTION: mysql
-      REDIS_HOST: quatroventos-redis
+      REDIS_HOST: rubiarocha-redis
       QUEUE_CONNECTION: redis
       CACHE_STORE: redis
+      OG_CAPTURE_URL: "http://rubiarocha-app:8000"
     volumes:
       - app_storage:/var/www/html/storage
     entrypoint: ["/bin/sh", "-c", "php artisan schedule:work"]

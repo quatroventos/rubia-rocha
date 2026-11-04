@@ -95,7 +95,7 @@ class OpenSeoClient
         $this->request('initialize', [
             'protocolVersion' => self::PROTOCOL_VERSION,
             'capabilities' => new stdClass,
-            'clientInfo' => ['name' => 'quatroventos-cms', 'version' => '1.0'],
+            'clientInfo' => ['name' => 'rubiarocha-cms', 'version' => '1.0'],
         ]);
 
         $this->send(['jsonrpc' => '2.0', 'method' => 'notifications/initialized']);

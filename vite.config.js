@@ -30,7 +30,7 @@ export default defineConfig({
         port: 5173,
         allowedHosts: ['host.docker.internal'],
         cors: {
-            origin: [/^https?:\/\/(?:localhost|127\.0\.0\.1|\[::1\]|quatroventos)(?::\d+)?$/],
+            origin: [/^https?:\/\/(?:localhost|127\.0\.0\.1|\[::1\]|rubiarocha)(?::\d+)?$/],
         },
         strictPort: true,
         watch: {

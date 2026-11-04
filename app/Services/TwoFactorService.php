@@ -18,7 +18,7 @@ class TwoFactorService
 
     public function otpauthUri(User $user, string $secret): string
     {
-        return $this->google2fa->getQRCodeUrl('Quatro Ventos', $user->email, $secret);
+        return $this->google2fa->getQRCodeUrl('Rubia Rocha Fotografia', $user->email, $secret);
     }
 
     public function verify(string $secret, string $code): bool

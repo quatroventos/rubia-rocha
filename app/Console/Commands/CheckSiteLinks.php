@@ -86,7 +86,7 @@ class CheckSiteLinks extends Command
             foreach (array_chunk(array_keys($external), self::CONCURRENCY) as $chunk) {
                 $responses = Http::pool(fn (Pool $pool) => array_map(
                     fn (string $url) => $pool->as($url)
-                        ->withHeaders(['User-Agent' => 'Mozilla/5.0 (compatible; QuatroVentosLinkCheck/1.0)'])
+                        ->withHeaders(['User-Agent' => 'Mozilla/5.0 (compatible; RubiaRochaLinkCheck/1.0)'])
                         ->timeout((int) $this->option('timeout'))
                         ->withOptions(['allow_redirects' => ['max' => 5]])
                         ->get($url),

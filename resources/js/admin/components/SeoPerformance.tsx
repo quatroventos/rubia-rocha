@@ -856,7 +856,7 @@ function AiPanel() {
 
   return (
     <section className="panel oseo-panel">
-      <PanelHead title="Visibilidade em IA" hint="Com que frequência ChatGPT e outras IAs citam a Quatro Ventos ao responder perguntas do seu mercado." link={data && 'link' in data ? data.link : null} loading={loading} onRefresh={() => void reload(true)}>
+      <PanelHead title="Visibilidade em IA" hint="Com que frequência ChatGPT e outras IAs citam a Rubia Rocha ao responder perguntas do seu mercado." link={data && 'link' in data ? data.link : null} loading={loading} onRefresh={() => void reload(true)}>
         <div className="range-chips" role="tablist" aria-label="Período">
           {[7, 28, 90].map((value) => (
             <button key={value} type="button" role="tab" aria-selected={days === value} className={`range-chip${days === value ? ' is-active' : ''}`} onClick={() => setDays(value)}>{value} dias</button>

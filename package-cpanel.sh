@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 STAGE="$(mktemp -d)"
-OUT="$ROOT/quatroventos-cpanel.zip"
+OUT="$ROOT/rubiarocha-cpanel.zip"
 
 cleanup() {
     rm -rf "$STAGE"
@@ -48,8 +48,8 @@ rsync -a \
     --exclude 'storage/framework/sessions' \
     --exclude 'storage/framework/views' \
     --exclude 'storage/framework/testing' \
-    --exclude 'quatroventos-cpanel.zip' \
-    --exclude 'quatroventos-cpanel.sql' \
+    --exclude 'rubiarocha-cpanel.zip' \
+    --exclude 'rubiarocha-cpanel.sql' \
     --exclude 'auth.json' \
     --exclude 'database/*.sqlite' \
     --exclude 'database/*.sqlite-journal' \

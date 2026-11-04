@@ -21,7 +21,7 @@ class SiteContentSeeder extends Seeder
     public const SITE_NAME = 'Rubia Rocha Fotografia';
 
     /**
-     * Páginas do site anterior (RBA/Quatro Ventos) que não existem na Rubia.
+     * Páginas do site anterior (RBA) que não existem na Rubia.
      */
     public const LEGACY_PAGES = [
         'agentes-de-ia',

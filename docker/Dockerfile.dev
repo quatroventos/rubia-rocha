@@ -25,7 +25,7 @@ WORKDIR /var/www/html
 COPY package.json package-lock.json ./
 RUN npm ci --no-audit --no-fund && rm package.json package-lock.json
 
-COPY docker/php.ini /usr/local/etc/php/conf.d/zz-quatroventos.ini
+COPY docker/php.ini /usr/local/etc/php/conf.d/zz-rubiarocha.ini
 COPY docker/nginx.conf /etc/nginx/sites-available/default
 COPY docker/entrypoint.sh /entrypoint.sh
 

@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-COPY docker/php.ini /usr/local/etc/php/conf.d/zz-quatroventos.ini
+COPY docker/php.ini /usr/local/etc/php/conf.d/zz-rubiarocha.ini
 COPY docker/nginx.conf /etc/nginx/sites-available/default
 COPY docker/entrypoint.sh /entrypoint.sh
 

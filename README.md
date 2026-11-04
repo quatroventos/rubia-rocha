@@ -1,4 +1,4 @@
-# Quatro Ventos
+# Rubia Rocha Fotografia
 
 Um container Laravel. O visitante vê um site estático (Blade + CSS/JS). O CMS é um SPA React no path secreto. Não existe API pública.
 
@@ -43,7 +43,7 @@ Login do CMS: `http://localhost:8000/gestao/login`
 
 Mailpit: `http://localhost:8025`.
 
-MySQL e Redis ficam só na rede Docker (sem publicar 3306/6379 no host). Para inspecionar o banco: `docker compose exec mysql mysql -uquatroventos -pquatroventos quatroventos`.
+MySQL e Redis ficam só na rede Docker (sem publicar 3306/6379 no host). Para inspecionar o banco: `docker compose exec mysql mysql -urubiarocha -prubiarocha rubiarocha`.
 
 Para parar: `docker compose down`. Os dados do MySQL ficam no volume `mysql_data`.
 
@@ -120,10 +120,10 @@ Na sua máquina, na raiz do projeto:
 bash package-cpanel.sh
 ```
 
-Isso gera `quatroventos-cpanel.zip` com `vendor` (`--no-dev`) e o build do CMS (`public/build`). O `.env` não vai no zip.
+Isso gera `rubiarocha-cpanel.zip` com `vendor` (`--no-dev`) e o build do CMS (`public/build`). O `.env` não vai no zip.
 
-1. Extraia o zip fora do público, por exemplo `/home/USER/quatroventos`.
-2. No cPanel, no domínio, aponte o document root para `/home/USER/quatroventos/public`. Se o painel não deixar mudar o document root, extraia dentro de `public_html`: o `.htaccess` da raiz manda o tráfego para `public/` e bloqueia `.env`, `vendor`, `app` e o resto.
+1. Extraia o zip fora do público, por exemplo `/home/USER/rubiarocha`.
+2. No cPanel, no domínio, aponte o document root para `/home/USER/rubiarocha/public`. Se o painel não deixar mudar o document root, extraia dentro de `public_html`: o `.htaccess` da raiz manda o tráfego para `public/` e bloqueia `.env`, `vendor`, `app` e o resto.
 3. MySQL Databases: crie o banco e o usuário, com ALL PRIVILEGES. No phpMyAdmin, importe o dump. Host no `.env` é `localhost`.
 4. Copie `.env.cpanel.example` para `.env` e preencha `APP_URL`, `ADMIN_PATH`, `DB_*`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` e o SMTP da conta de e-mail do cPanel (`MAIL_HOST=localhost`, porta 587).
 5. No Terminal do cPanel, na pasta do projeto:
@@ -152,7 +152,7 @@ Para completar páginas já editadas no CMS com campos ou seções novas dos JSO
 Cache, sessão e fila ficam no MySQL. Não há worker. O cron do cPanel (PHP 8.3, todo minuto) cobre backup e Lighthouse:
 
 ```bash
-/usr/local/bin/ea-php83 /home/USER/quatroventos/artisan schedule:run >> /dev/null 2>&1
+/usr/local/bin/ea-php83 /home/USER/rubiarocha/artisan schedule:run >> /dev/null 2>&1
 ```
 
 Troque o binário pelo que o seletor de PHP mostrar, se não for `ea-php83`.
@@ -166,19 +166,19 @@ Não rode `config:cache`: o seed e o fallback de SMTP chamam `env()` fora de `co
 Ao publicar em um domínio novo, ou ao subir um banco vindo de outro ambiente, migre os links absolutos gravados no CMS. Rode antes com `--dry-run`, que só lista campo, registros e links que mudariam:
 
 ```bash
-php artisan site:migrate-domain https://www.quatroventos.com.br --dry-run
-php artisan site:migrate-domain https://www.quatroventos.com.br
+php artisan site:migrate-domain https://rubiarochafotografia.com.br --dry-run
+php artisan site:migrate-domain https://rubiarochafotografia.com.br
 ```
 
 Sem `--from`, o comando troca os hosts de desenvolvimento (`localhost`, `127.0.0.1`, `0.0.0.0`, `host.docker.internal` e túneis ngrok, com qualquer porta). Para trocar um domínio anterior, informe-o (pode repetir a opção):
 
 ```bash
-php artisan site:migrate-domain https://novo.dominio.com.br --from=www.quatroventos.com.br --revisions
+php artisan site:migrate-domain https://novo.dominio.com.br --from=fotografacuritiba.com.br --revisions
 ```
 
 Opções:
 
-- `--from=dominio`: domínio antigo. Casa o host exato, então subdomínios externos (ex.: `quatroventos.freshdesk.com`) não são alterados.
+- `--from=dominio`: domínio antigo. Casa o host exato, então subdomínios externos (ex.: `blog.fotografacuritiba.com.br`) não são alterados.
 - `--relative`: converte os links do domínio antigo em caminhos relativos (`/servicos`) em vez de trocar o domínio.
 - `--revisions`: inclui o histórico de revisões das páginas.
 - `--dry-run`: não grava nada.
@@ -194,7 +194,7 @@ OG image é um card 1200x630 (logo, fundo do hero da página ou capa do case, t�
 
 - CMS: SEO > Padrão das páginas > "Gerar todas as OG images" (sobrescreve todas, inclusive as enviadas à mão). No editor de página e de case, "Gerar card de OG" usa o conteúdo ainda não salvo.
 - Terminal: `php artisan site:og-images` (opções `--pages`, `--cases`, `--locale=en`, `--slug=agentes-de-ia`, `--only-missing`).
-- `OG_CAPTURE_URL`: endereço interno da aplicação visto pelo Chrome do worker. Nos compose já vem configurado (`http://quatroventos:8000` em dev, `http://quatroventos-app:8000` em prod). Não use o host `app`: o Chrome força HTTPS no TLD `.app`.
+- `OG_CAPTURE_URL`: endereço interno da aplicação visto pelo Chrome do worker. Nos compose já vem configurado (`http://rubiarocha:8000` em dev, `http://rubiarocha-app:8000` em prod). Não use o host `app`: o Chrome força HTTPS no TLD `.app`.
 - `OG_DOMAIN`: domínio exibido no card (padrão: host do `APP_URL`, sem www).
 
 Tradução: Páginas > "Traduzir site" enfileira páginas e cases publicados, menus e textos do site em todos os idiomas e publica o resultado. Sem marcar "Retraduzir", pula o que já está traduzido e em dia. Pelo terminal continua valendo `php artisan site:translate --publish`.
