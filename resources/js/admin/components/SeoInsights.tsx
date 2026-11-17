@@ -200,39 +200,83 @@ export function SeoInsights({
   scoreRef.current = onScore;
   const disabledNote = aiNote ?? AI_UNAVAILABLE;
 
+  async function requestRendered(working: SeoInput): Promise<Analysis> {
+    return api<Analysis>('/seo/analyze/rendered', { method: 'POST', body: JSON.stringify({ kind, id, ...working }) });
+  }
+
+  async function analyzeRendered(working: SeoInput = inputRef.current) {
+    setRendering(true);
+    setRenderError(null);
+    setAnalysisError(null);
+    try {
+      const result = await requestRendered(working);
+      setRendered({ analysis: result, input: JSON.stringify(working) });
+      setAnalysis(result);
+    } catch (error) {
+      setRenderError(firstError(error));
+      try {
+        const fallback = await api<Analysis>('/seo/analyze', { method: 'POST', body: JSON.stringify({ kind, id, ...working }) });
+        setAnalysis(fallback);
+      } catch (fallbackError) {
+        setAnalysisError(firstError(fallbackError));
+      }
+    } finally {
+      setRendering(false);
+    }
+  }
+
+  // A nota oficial é a do HTML renderizado (mesmos componentes do site).
+  // Antes o load/save usava só a prévia dos campos e a nota caía depois do Analisar.
   useEffect(() => {
+    let cancelled = false;
     const timer = window.setTimeout(() => {
-      void api<Analysis>('/seo/analyze', { method: 'POST', body: JSON.stringify({ kind, id, ...inputRef.current }) })
+      const working = inputRef.current;
+      const snapshot = JSON.stringify(working);
+      setRendering(true);
+      setRenderError(null);
+      setAnalysisError(null);
+      void requestRendered(working)
         .then((result) => {
+          if (cancelled) {
+            return;
+          }
+          setRendered({ analysis: result, input: snapshot });
           setAnalysis(result);
-          setAnalysisError(null);
         })
-        .catch((error) => setAnalysisError(firstError(error)));
-    }, 600);
-    return () => window.clearTimeout(timer);
+        .catch(async (error) => {
+          if (cancelled) {
+            return;
+          }
+          setRenderError(firstError(error));
+          try {
+            const fallback = await api<Analysis>('/seo/analyze', { method: 'POST', body: JSON.stringify({ kind, id, ...working }) });
+            if (!cancelled) {
+              setAnalysis(fallback);
+            }
+          } catch (fallbackError) {
+            if (!cancelled) {
+              setAnalysisError(firstError(fallbackError));
+            }
+          }
+        })
+        .finally(() => {
+          if (!cancelled) {
+            setRendering(false);
+          }
+        });
+    }, 800);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
   }, [json, kind, id, marketVersion]);
 
-  // Mantém a nota da página renderizada mesmo se o rascunho mudar; a prévia do editor
-  // não inclui a hierarquia real do HTML e fazia a nota "voltar" para o valor baixo.
   const stale = rendered !== null && rendered.input !== json;
   const current = rendered?.analysis ?? analysis;
 
   useEffect(() => {
     scoreRef.current?.(current?.score ?? null);
   }, [current?.score]);
-
-  async function analyzeRendered(working: SeoInput = inputRef.current) {
-    setRendering(true);
-    setRenderError(null);
-    try {
-      const result = await api<Analysis>('/seo/analyze/rendered', { method: 'POST', body: JSON.stringify({ kind, id, ...working }) });
-      setRendered({ analysis: result, input: JSON.stringify(working) });
-    } catch (error) {
-      setRenderError(firstError(error));
-    } finally {
-      setRendering(false);
-    }
-  }
 
   async function runFix(check: Check, working: SeoInput): Promise<SeoInput> {
     const fromRendered = current?.rendered && check.fix ? { target: check.fix, status: check.status, message: check.message } : {};
@@ -349,7 +393,7 @@ export function SeoInsights({
       {fixError ? <p className="field-ai-error">{fixError}</p> : null}
       {analysisError ? <p className="field-ai-error">{analysisError}</p> : null}
       {renderError ? <p className="field-ai-error">{renderError}</p> : null}
-      {stale && !busy ? <p className="hint">O conteúdo mudou depois da última análise. A nota abaixo ainda é da renderização anterior; clique em Analisar para atualizar.</p> : null}
+      {stale && !busy ? <p className="hint">O conteúdo mudou. Atualizando a análise da página renderizada...</p> : null}
 
       <ul className="seo-checks">
         {open.map((check) => (
