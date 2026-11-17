@@ -4,12 +4,14 @@ namespace App\Services\Seo;
 
 use App\Models\Page;
 use App\Services\PublicContent;
+use Illuminate\Support\Facades\File;
 use RuntimeException;
 use Symfony\Component\Process\Process;
 
 /**
  * Renderiza o rascunho do editor com os mesmos componentes React do prerender, sem gravar nada,
  * para a análise de SEO ler a hierarquia e a ordem reais do HTML.
+ * Também grava o HTML público de uma página publicada para o Blade servir na hora.
  */
 class PageRenderer
 {
@@ -27,6 +29,42 @@ class PageRenderer
         ]);
 
         return $this->render($this->content->page($page), $this->content->site());
+    }
+
+    /**
+     * Gera e grava o HTML público da página publicada. Usado no save e antes do Lighthouse
+     * para o visitante e o PageSpeed não lerem a versão antiga enquanto o prerender completo ainda corre.
+     */
+    public function publish(Page $page): void
+    {
+        if ($page->status !== 'published') {
+            return;
+        }
+
+        $html = $this->render($this->content->page($page), $this->content->site());
+        $file = $this->fileFor($page);
+        File::ensureDirectoryExists(dirname($file));
+        File::put($file, $html);
+    }
+
+    public function fileFor(Page $page): string
+    {
+        $locale = $page->localeCode() ?: 'pt-BR';
+        $path = trim($page->publicPath(), '/');
+        $name = $path === '' ? 'index.html' : $path.'.html';
+
+        return storage_path('app/prerender/'.$locale.'/'.$name);
+    }
+
+    public function findPublished(string $path): ?Page
+    {
+        $relative = trim($path, '/');
+
+        if ($relative === '') {
+            return Page::query()->published()->get()->first(fn (Page $page) => $page->isHome());
+        }
+
+        return Page::query()->published()->where('slug', $relative)->first();
     }
 
     /**

@@ -34,6 +34,10 @@ class CrawlerFiles
 
     public function read(string $file): string
     {
+        if ($file === self::ROBOTS && app()->environment('local')) {
+            return $this->robots();
+        }
+
         $disk = Storage::disk('local');
         $path = self::DIRECTORY.'/'.$file;
 
@@ -46,6 +50,10 @@ class CrawlerFiles
 
     public function robots(): string
     {
+        if (app()->environment('local')) {
+            return "User-agent: *\nDisallow: /\n";
+        }
+
         $site = SiteSetting::query()->first();
         $blocks = ["User-agent: *\nAllow: /"];
 

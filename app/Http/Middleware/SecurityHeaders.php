@@ -19,6 +19,10 @@ class SecurityHeaders
         $response->headers->remove('X-Powered-By');
         $response->headers->remove('X-Livewire');
 
+        if (app()->environment('local')) {
+            $response->headers->set('X-Robots-Tag', 'noindex, nofollow');
+        }
+
         $admin = trim((string) config('cms.admin_path'), '/');
         if ($admin !== '' && $request->is($admin.'*')) {
             [$dev, $devWs] = $this->viteDevOrigins();

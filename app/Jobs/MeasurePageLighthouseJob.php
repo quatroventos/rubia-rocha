@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Services\LighthouseService;
+use App\Services\Seo\PageRenderer;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Throwable;
@@ -17,8 +18,18 @@ class MeasurePageLighthouseJob implements ShouldQueue
 
     public function __construct(public string $path) {}
 
-    public function handle(LighthouseService $lighthouse): void
+    public function handle(LighthouseService $lighthouse, PageRenderer $renderer): void
     {
+        $page = $renderer->findPublished($this->path);
+
+        if ($page !== null) {
+            try {
+                $renderer->publish($page);
+            } catch (Throwable $exception) {
+                report($exception);
+            }
+        }
+
         $lighthouse->measurePage($this->path);
     }
 

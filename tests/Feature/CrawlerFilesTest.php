@@ -92,4 +92,16 @@ class CrawlerFilesTest extends TestCase
         $this->get('/llms.txt')->assertSee("> Fotografia afetiva em Curitiba.\n\nAtendo em estúdio e ao ar livre.", false);
         $this->get('/robots.txt')->assertSee('Disallow: /teste/', false);
     }
+
+    public function test_local_environment_blocks_all_crawlers_in_robots(): void
+    {
+        $this->app['env'] = 'local';
+
+        $this->get('/robots.txt')
+            ->assertOk()
+            ->assertHeader('X-Robots-Tag', 'noindex, nofollow')
+            ->assertSee("User-agent: *\nDisallow: /\n", false)
+            ->assertDontSee('Allow: /', false)
+            ->assertDontSee('Sitemap:', false);
+    }
 }

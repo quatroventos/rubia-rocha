@@ -133,7 +133,9 @@ class Seo
         return [
             'title' => self::composeTitle($page?->seo_title, $site),
             'description' => filled($page?->seo_description) ? (string) $page->seo_description : $defaults['seo_description'],
-            'robots' => filled($page?->robots) ? (string) $page->robots : $defaults['seo_robots'],
+            'robots' => app()->environment('local')
+                ? 'noindex, nofollow'
+                : (filled($page?->robots) ? (string) $page->robots : $defaults['seo_robots']),
             'canonical' => filled($page?->canonical) ? (string) $page->canonical : ($canonicalFallback ?: url()->current()),
             'og_image' => filled($page?->og_image) ? (string) $page->og_image : $defaults['seo_og_image'],
             'og_image_alt' => filled($page?->og_image_alt)

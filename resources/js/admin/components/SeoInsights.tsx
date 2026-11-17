@@ -212,8 +212,10 @@ export function SeoInsights({
     return () => window.clearTimeout(timer);
   }, [json, kind, id, marketVersion]);
 
-  const current = rendered && rendered.input === json ? rendered.analysis : analysis;
+  // Mantém a nota da página renderizada mesmo se o rascunho mudar; a prévia do editor
+  // não inclui a hierarquia real do HTML e fazia a nota "voltar" para o valor baixo.
   const stale = rendered !== null && rendered.input !== json;
+  const current = rendered?.analysis ?? analysis;
 
   useEffect(() => {
     scoreRef.current?.(current?.score ?? null);
@@ -347,7 +349,7 @@ export function SeoInsights({
       {fixError ? <p className="field-ai-error">{fixError}</p> : null}
       {analysisError ? <p className="field-ai-error">{analysisError}</p> : null}
       {renderError ? <p className="field-ai-error">{renderError}</p> : null}
-      {stale && !busy ? <p className="hint">O conteúdo mudou depois da última análise. A nota abaixo é a prévia do editor; clique em Analisar para conferir a página renderizada.</p> : null}
+      {stale && !busy ? <p className="hint">O conteúdo mudou depois da última análise. A nota abaixo ainda é da renderização anterior; clique em Analisar para atualizar.</p> : null}
 
       <ul className="seo-checks">
         {open.map((check) => (
